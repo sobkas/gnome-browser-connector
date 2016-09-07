@@ -17,11 +17,13 @@ import json
 import os
 import re
 import socket
+import stat
 import struct
 import sys
 import time
 import traceback
 from select import select
+from tempfile import gettempdir
 from threading import Thread, Lock
 
 CONNECTOR_VERSION	= 7
@@ -284,9 +286,32 @@ def main():
     Use local socket to determine if another instance already running.
     """
     lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
+    lock_socket_address = '\0chrome-gnome-shell-%d' % os.getppid()
+
     try:
-        lock_socket.bind('\0chrome-gnome-shell-%d' % os.getppid())
-        debug('[%d] Local socket obtained' % (os.getpid()))
+        """
+        Abstract local sockets only supported in Linux.
+        Fallback to filesystem local socket in *BSD.
+        """
+        if not 'linux' in sys.platform.lower():
+            lock_socket_address = '%s/chrome-gnome-shell-%d' % (gettempdir(), os.getppid())
+
+            # Try to cleanup from unexpected shutdown
+            if os.path.lexists(lock_socket_address):
+                if os.path.isfile(lock_socket_address) or os.path.islink(lock_socket_address):
+                    debug('[%d] File %s exists. Unlinking.' % (os.getpid(), lock_socket_address))
+                    os.unlink(lock_socket_address)
+                elif stat.S_ISSOCK(os.stat(lock_socket_address).st_mode):
+                    debug('[%d] local socket %s is exists.' % (os.getpid(), lock_socket_address))
+                    try:
+                        lock_socket.connect(lock_socket_address)
+                        lock_socket.close()
+                    except socket.error as e:
+                        debug('[%d] Local socked is abandoned. Unlinking.' % os.getpid())
+                        os.unlink(lock_socket_address)
+
+        lock_socket.bind(lock_socket_address)
+        debug('[%d] Local socket %s obtained' % (os.getpid(), lock_socket_address.replace('\0', '[NUL]')))
 
         shellAppearedId = Gio.bus_watch_name(Gio.BusType.SESSION,
                                              'org.gnome.Shell',
@@ -313,6 +338,11 @@ def main():
         Gio.bus_unwatch_name(shellAppearedId)
 
         lock_socket.close()
+
+        # Cleanup filesystem local socket
+        if lock_socket_address[0] != '\0':
+            debug('[%d] Unlinking local socket' % (os.getpid()))
+            os.unlink(lock_socket_address)
 
     appLoop.join()
     debug('[%d] Quit' % (os.getpid()))
