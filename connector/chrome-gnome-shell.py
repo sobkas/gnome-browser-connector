@@ -275,8 +275,14 @@ def setup_thread_excepthook():
 def main():
     debug('[%d] Startup' % (os.getpid()))
 
+    # Set custom exception hook
     setup_thread_excepthook()
     sys.excepthook = default_exception_hook
+
+    """
+    We should listen GNOME Shell events only in one instance.
+    Use local socket to determine if another instance already running.
+    """
     lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
     try:
         lock_socket.bind('\0chrome-gnome-shell-%d' % os.getppid())
