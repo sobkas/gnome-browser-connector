@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Force remove policies files.
+# Otherwise it will not be possible to uninstall web extension.
+POLICIES="/etc/chromium/policies/managed/chrome-gnome-shell.json
+/etc/opt/chrome/policies/managed/chrome-gnome-shell.json"
+
+IFS="
+"
+for file in ${POLICIES}; do
+	if [ -e "${file}" ]; then
+		rm "${file}"
+	fi
+done
