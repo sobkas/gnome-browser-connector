@@ -1,0 +1,8 @@
+doc-warnings: true
+test-warnings: false
+autodetect: true
+ignore-paths:
+  - contrib
+python-targets:
+  - 2
+  - 3
