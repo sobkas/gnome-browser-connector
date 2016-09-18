@@ -1,5 +1,6 @@
 GNOME Shell integration for Chrome
 ============================================
+[![Code Health](https://landscape.io/github/nE0sIghT/chrome-gnome-shell-mirror/master/landscape.svg?style=flat)](https://landscape.io/github/nE0sIghT/chrome-gnome-shell-mirror/master)
 
 Introduction
 ------------
