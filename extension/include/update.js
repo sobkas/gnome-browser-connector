@@ -32,105 +32,136 @@ GSC.update = (function($) {
 			{
 				var shellVersion = response.properties.shellVersion;
 
-				GSC.sendNativeRequest({execute: 'listExtensions'}, function (extensionsResponse) {
-					if (response.success)
-					{
-						if ($.isEmptyObject(extensionsResponse.extensions))
-							return;
-
-						var request = {
-							shell_version: shellVersion,
-							installed: {}
-						};
-
-						for (uuid in extensionsResponse.extensions)
+				// TODO: remove deprecated in version 9
+				if(response.properties.connectorVersion >= 8)
+				{
+					GSC.sendNativeRequest({execute: 'checkUpdate', url: UPDATE_URL}, function (response) {
+						if (response.success)
 						{
-							if (GSC.isUUID(uuid) && extensionsResponse.extensions[uuid].type == EXTENSION_TYPE.PER_USER)
-							{
-								request.installed[uuid] = {version: parseInt(extensionsResponse.extensions[uuid].version) || 1};
-							}
+							onSweetToothResponse(response.upgrade, response.extensions);
 						}
-
-						request.installed = JSON.stringify(request.installed);
-
-						chrome.permissions.contains({
-							permissions: ["webRequest"]
-						}, function(webRequestEnabled) {
-							if(webRequestEnabled)
-							{
-								chrome.webRequest.onErrorOccurred.addListener(
-									onNetworkError,
-									{
-										urls: [ UPDATE_URL + "*" ],
-										types: [ 'xmlhttprequest' ]
-									}
-								);
-							}
-
-							$.ajax({
-								url: UPDATE_URL,
-								data: request,
-								dataType: 'json',
-								method: 'GET',
-								cache: false
-							}).done(function (data, textStatus, jqXHR) {
-								GSC.notifications.remove(NOTIFICATION_UPDATE_CHECK_FAILED);
-
-								var toUpgrade = [];
-								for (uuid in data)
-								{
-									if (extensionsResponse.extensions[uuid] && $.inArray(data[uuid], ['upgrade', 'downgrade']) !== -1)
-									{
-										toUpgrade.push({
-											title: extensionsResponse.extensions[uuid].name,
-											message: m('extension_status_' + data[uuid])
-										});
-									}
-								}
-
-								if (toUpgrade.length > 0)
-								{
-									GSC.notifications.create(NOTIFICATION_UPDATE_AVAILABLE, {
-										type: chrome.notifications.TemplateType.LIST,
-										title: m('update_available'),
-										message: '',
-										items: toUpgrade
-									});
-								}
-
-								chrome.storage.local.set({
-									lastUpdateCheck: new Date().toLocaleString()
-								});
-							}).fail(function (jqXHR, textStatus, errorThrown) {
-								if(textStatus === 'error' && !errorThrown)
-								{
-									if(webRequestEnabled)
-									{
-										return;
-									}
-
-									textStatus = m('network_error');
-								}
-
-								createUpdateFailedNotification(textStatus);
-							}).always(function() {
-								if(webRequestEnabled)
-								{
-									chrome.webRequest.onErrorOccurred.removeListener(onNetworkError);
-								}
-							});
-						});
-					}
-					else
-					{
-						createUpdateFailedNotification(response.message ? response.message : m('native_request_failed', 'listExtensions'));
-					}
-				});
+						else
+						{
+							createUpdateFailedNotification(response.message ? response.message : m('native_request_failed', 'checkUpdate'));
+						}
+					});
+				}
+				else
+				{
+					_frontendCheck(shellVersion);
+				}
 			}
 			else
 			{
 				createUpdateFailedNotification(response.message ? response.message : m('native_request_failed', 'initialize'));
 			}
+		});
+	}
+
+	/*
+	 * TODO: remove in version 9
+	 * @Deprecated
+	 */
+	function _frontendCheck(shellVersion)
+	{
+		GSC.sendNativeRequest({execute: 'listExtensions'}, function (extensionsResponse) {
+			if (extensionsResponse.success)
+			{
+				if ($.isEmptyObject(extensionsResponse.extensions))
+					return;
+
+				var request = {
+					shell_version: shellVersion,
+					installed: {}
+				};
+
+				for (uuid in extensionsResponse.extensions)
+				{
+					if (GSC.isUUID(uuid) && extensionsResponse.extensions[uuid].type == EXTENSION_TYPE.PER_USER)
+					{
+						request.installed[uuid] = {version: parseInt(extensionsResponse.extensions[uuid].version) || 1};
+					}
+				}
+
+				request.installed = JSON.stringify(request.installed);
+
+				chrome.permissions.contains({
+					permissions: ["webRequest"]
+				}, function (webRequestEnabled) {
+					if (webRequestEnabled)
+					{
+						chrome.webRequest.onErrorOccurred.addListener(
+								onNetworkError,
+								{
+									urls: [UPDATE_URL + "*"],
+									types: ['xmlhttprequest']
+								}
+						);
+					}
+
+					$.ajax({
+						url: UPDATE_URL,
+						data: request,
+						dataType: 'json',
+						method: 'GET',
+						cache: false
+					})
+						.done(function(data) {
+							onSweetToothResponse(data, extensionsResponse.extensions)
+						})
+						.fail(function (jqXHR, textStatus, errorThrown) {
+							if (textStatus === 'error' && !errorThrown)
+							{
+								if (webRequestEnabled)
+								{
+									return;
+								}
+
+								textStatus = m('network_error');
+							}
+
+							createUpdateFailedNotification(textStatus);
+						}).always(function () {
+							if (webRequestEnabled)
+							{
+								chrome.webRequest.onErrorOccurred.removeListener(onNetworkError);
+							}
+						});
+				});
+			} else
+			{
+				createUpdateFailedNotification(response.message ? response.message : m('native_request_failed', 'listExtensions'));
+			}
+		});
+	}
+
+	function onSweetToothResponse(data, installedExtensions) {
+		GSC.notifications.remove(NOTIFICATION_UPDATE_CHECK_FAILED);
+
+		var toUpgrade = [];
+		for (uuid in data)
+		{
+			if (installedExtensions[uuid] && $.inArray(data[uuid], ['upgrade', 'downgrade']) !== -1)
+			{
+				toUpgrade.push({
+					title: installedExtensions[uuid].name,
+					message: m('extension_status_' + data[uuid])
+				});
+			}
+		}
+
+		if (toUpgrade.length > 0)
+		{
+			GSC.notifications.create(NOTIFICATION_UPDATE_AVAILABLE, {
+				type: chrome.notifications.TemplateType.LIST,
+				title: m('update_available'),
+				message: '',
+				items: toUpgrade
+			});
+		}
+
+		chrome.storage.local.set({
+			lastUpdateCheck: new Date().toLocaleString()
 		});
 	}
 

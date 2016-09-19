@@ -16,6 +16,7 @@ from gi.repository import GLib, Gio
 import json
 import os
 import re
+import requests
 import struct
 import sys
 import traceback
@@ -95,6 +96,53 @@ def dbus_call_response(method, parameters, resultProperty):
         send_message({'success': True, resultProperty: result.unpack()[0]})
     except GLib.GError as e:
         send_error(e.message)
+
+def check_update(update_url):
+    result = proxy.call_sync("ListExtensions",
+                             None,
+                             Gio.DBusCallFlags.NONE,
+                             -1,
+                             None)
+
+    extensions = result.unpack()[0]
+
+    if extensions:
+        http_request = {
+            'shell_version': proxy.get_cached_property("ShellVersion").unpack(),
+            'installed': {}
+        }
+
+        for uuid in extensions:
+            if isUUID(uuid):
+                try:
+                    http_request['installed'][uuid] = {
+                        'version': int(extensions[uuid]['version'])
+                    }
+                except ValueError:
+                    http_request['installed'][uuid] = {
+                        'version': 1
+                    }
+
+        http_request['installed'] = json.dumps(http_request['installed'])
+
+        try:
+            response = requests.get(
+                                    update_url,
+                                    params=http_request,
+                                    timeout=5
+                                    )
+            response.raise_for_status()
+            send_message({
+                         'success': True,
+                         'extensions': extensions,
+                         'upgrade': response.json()}
+                         )
+        except (
+                requests.ConnectionError, requests.HTTPError, requests.Timeout,
+                requests.TooManyRedirects, requests.RequestException, ValueError
+                ) as ex:
+            send_message({'success': False, 'message': str(ex.message) if ('message' in ex) else str(ex)})
+
 
 # Callback that reads messages from the webapp.
 def process_input(user_data):
@@ -216,6 +264,13 @@ def process_input(user_data):
             dbus_call_response("UninstallExtension",
                                GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
                                "status")
+
+        elif request['execute'] == 'checkUpdate':
+            update_url = 'https://extensions.gnome.org/update-info/'
+            if 'url' in request:
+                update_url = request['url']
+
+            check_update(update_url)
 
         debug('[%d] Execute: from %s' % (os.getpid(), request['execute']))
         mutex.release()
