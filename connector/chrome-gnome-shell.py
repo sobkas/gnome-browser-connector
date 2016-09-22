@@ -18,10 +18,9 @@ import os
 import re
 import struct
 import sys
-import time
 import traceback
 from select import select
-from threading import Thread, Lock
+from threading import Lock
 
 CONNECTOR_VERSION	= 7
 DEBUG_ENABLED		= False
@@ -35,7 +34,6 @@ mainLoop = GLib.MainLoop()
 shellAppearedId = False
 shellSignalId = False
 mutex = Lock()
-mainLoopInterrupted = False
 
 proxy = Gio.DBusProxy.new_for_bus_sync(Gio.BusType.SESSION,
                                        Gio.DBusProxyFlags.NONE,
@@ -98,133 +96,131 @@ def dbus_call_response(method, parameters, resultProperty):
     except GLib.GError as e:
         send_error(e.message)
 
-# Thread that reads messages from the webapp.
-def read_thread_func():
-    while not mainLoop.is_running() and not mainLoopInterrupted:
-        time.sleep(0.2)
-
-    while mainLoop.is_running():
-        rlist, _, _ = select([sys.stdin], [], [], 1)
-        if rlist:
-            # Read the message length (first 4 bytes).
-            if BUFFER_SUPPORTED:
-                text_length_bytes = sys.stdin.buffer.read(4)
-            else:
-                text_length_bytes = sys.stdin.read(4)
-        else:
-            continue
-
-        if len(text_length_bytes) == 0:
-            mainLoop.quit()
-            break
-
-        # Unpack message length as 4 byte integer.
-        text_length = struct.unpack(b'i', text_length_bytes)[0]
-
-        # Read the text (JSON object) of the message.
+# Callback that reads messages from the webapp.
+def process_input(user_data):
+    rlist, _, _ = select([sys.stdin], [], [], 1)
+    if rlist:
+        # Read the message length (first 4 bytes).
         if BUFFER_SUPPORTED:
-            text = sys.stdin.buffer.read(text_length).decode('utf-8')
+            text_length_bytes = sys.stdin.buffer.read(4)
         else:
-            text = sys.stdin.read(text_length).decode('utf-8')
+            text_length_bytes = sys.stdin.read(4)
+    else:
+        return True
 
-        request = json.loads(text)
+    if len(text_length_bytes) == 0:
+        mainLoop.quit()
+        return False
 
-        if 'execute' in request:
-            if 'uuid' in request and not isUUID(request['uuid']):
-                continue
+    # Unpack message length as 4 byte integer.
+    text_length = struct.unpack(b'i', text_length_bytes)[0]
 
-            mutex.acquire()
-            debug('[%d] Execute: to %s' % (os.getpid(), request['execute']))
+    # Read the text (JSON object) of the message.
+    if BUFFER_SUPPORTED:
+        text = sys.stdin.buffer.read(text_length).decode('utf-8')
+    else:
+        text = sys.stdin.read(text_length).decode('utf-8')
 
-            if request['execute'] == 'initialize':
-                settings = Gio.Settings.new(SHELL_SCHEMA)
-                shellVersion = proxy.get_cached_property("ShellVersion")
-                if EXTENSION_DISABLE_VERSION_CHECK_KEY in settings.keys():
-                    disableVersionCheck = settings.get_boolean(EXTENSION_DISABLE_VERSION_CHECK_KEY)
-                else:
-                    disableVersionCheck = False
+    request = json.loads(text)
 
-                send_message(
-                    {
-                        'success': True,
-                        'properties': {
-                            'connectorVersion': CONNECTOR_VERSION,
-                            'shellVersion': shellVersion.unpack(),
-                            'versionValidationEnabled': not disableVersionCheck
-                        }
+    if 'execute' in request:
+        if 'uuid' in request and not isUUID(request['uuid']):
+            return True
+
+        mutex.acquire()
+        debug('[%d] Execute: to %s' % (os.getpid(), request['execute']))
+
+        if request['execute'] == 'initialize':
+            settings = Gio.Settings.new(SHELL_SCHEMA)
+            shellVersion = proxy.get_cached_property("ShellVersion")
+            if EXTENSION_DISABLE_VERSION_CHECK_KEY in settings.keys():
+                disableVersionCheck = settings.get_boolean(EXTENSION_DISABLE_VERSION_CHECK_KEY)
+            else:
+                disableVersionCheck = False
+
+            send_message(
+                {
+                    'success': True,
+                    'properties': {
+                        'connectorVersion': CONNECTOR_VERSION,
+                        'shellVersion': shellVersion.unpack(),
+                        'versionValidationEnabled': not disableVersionCheck
                     }
-                )
+                }
+            )
 
-            elif request['execute'] == 'subscribeSignals':
-                global shellAppearedId, shellSignalId
+        elif request['execute'] == 'subscribeSignals':
+            global shellAppearedId, shellSignalId
 
-                if not shellAppearedId:
-                    shellAppearedId = Gio.bus_watch_name(Gio.BusType.SESSION,
-                                                         'org.gnome.Shell',
-                                                         Gio.BusNameWatcherFlags.NONE,
-                                                         on_shell_appeared,
-                                                         None)
+            if not shellAppearedId:
+                shellAppearedId = Gio.bus_watch_name(Gio.BusType.SESSION,
+                                                     'org.gnome.Shell',
+                                                     Gio.BusNameWatcherFlags.NONE,
+                                                     on_shell_appeared,
+                                                     None)
 
-                if not shellSignalId:
-                    shellSignalId = proxy.connect('g-signal', on_shell_signal)
+            if not shellSignalId:
+                shellSignalId = proxy.connect('g-signal', on_shell_signal)
 
-            elif request['execute'] == 'installExtension':
-                dbus_call_response("InstallRemoteExtension",
-                                   GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
-                                   "status")
+        elif request['execute'] == 'installExtension':
+            dbus_call_response("InstallRemoteExtension",
+                               GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
+                               "status")
 
-            elif request['execute'] == 'listExtensions':
-                dbus_call_response("ListExtensions", None, "extensions")
+        elif request['execute'] == 'listExtensions':
+            dbus_call_response("ListExtensions", None, "extensions")
 
-            elif request['execute'] == 'enableExtension':
-                settings = Gio.Settings.new(SHELL_SCHEMA)
-                uuids = settings.get_strv(ENABLED_EXTENSIONS_KEY)
+        elif request['execute'] == 'enableExtension':
+            settings = Gio.Settings.new(SHELL_SCHEMA)
+            uuids = settings.get_strv(ENABLED_EXTENSIONS_KEY)
 
-                extensions = []
-                if 'extensions' in request:
-                    extensions = request['extensions']
-                else:
-                    extensions.append({'uuid': request['uuid'], 'enable': request['enable'] })
+            extensions = []
+            if 'extensions' in request:
+                extensions = request['extensions']
+            else:
+                extensions.append({'uuid': request['uuid'], 'enable': request['enable'] })
 
-                for extension in extensions:
-                    if not isUUID(extension['uuid']):
-                        continue
+            for extension in extensions:
+                if not isUUID(extension['uuid']):
+                    continue
 
-                    if extension['enable']:
-                        uuids.append(extension['uuid'])
-                    elif extension['uuid'] in uuids:
-                        uuids.remove(extension['uuid'])
+                if extension['enable']:
+                    uuids.append(extension['uuid'])
+                elif extension['uuid'] in uuids:
+                    uuids.remove(extension['uuid'])
 
-                settings.set_strv(ENABLED_EXTENSIONS_KEY, uuids)
+            settings.set_strv(ENABLED_EXTENSIONS_KEY, uuids)
 
-                send_message({'success': True})
+            send_message({'success': True})
 
-            elif request['execute'] == 'launchExtensionPrefs':
-                proxy.call("LaunchExtensionPrefs",
-                           GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
-                           Gio.DBusCallFlags.NONE,
-                           -1,
-                           None,
-                           None,
-                           None)
+        elif request['execute'] == 'launchExtensionPrefs':
+            proxy.call("LaunchExtensionPrefs",
+                       GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
+                       Gio.DBusCallFlags.NONE,
+                       -1,
+                       None,
+                       None,
+                       None)
 
-            elif request['execute'] == 'getExtensionErrors':
-                dbus_call_response("GetExtensionErrors",
-                                   GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
-                                   "extensionErrors")
+        elif request['execute'] == 'getExtensionErrors':
+            dbus_call_response("GetExtensionErrors",
+                               GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
+                               "extensionErrors")
 
-            elif request['execute'] == 'getExtensionInfo':
-                dbus_call_response("GetExtensionInfo",
-                                   GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
-                                   "extensionInfo")
+        elif request['execute'] == 'getExtensionInfo':
+            dbus_call_response("GetExtensionInfo",
+                               GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
+                               "extensionInfo")
 
-            elif request['execute'] == 'uninstallExtension':
-                dbus_call_response("UninstallExtension",
-                                   GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
-                                   "status")
+        elif request['execute'] == 'uninstallExtension':
+            dbus_call_response("UninstallExtension",
+                               GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
+                               "status")
 
-            debug('[%d] Execute: from %s' % (os.getpid(), request['execute']))
-            mutex.release()
+        debug('[%d] Execute: from %s' % (os.getpid(), request['execute']))
+        mutex.release()
+
+    return True
 
 
 def on_shell_signal(d_bus_proxy, sender_name, signal_name, parameters):
@@ -252,48 +248,18 @@ def default_exception_hook(type, value, tb):
     mainLoop.quit()
 
 
-def setup_thread_excepthook():
-    """
-    Workaround for `sys.excepthook` thread bug from:
-    http://bugs.python.org/issue1230540
-
-    Call once from the main thread before creating any threads.
-    """
-
-    init_original = Thread.__init__
-
-    def init(self, *args, **kwargs):
-
-        init_original(self, *args, **kwargs)
-        run_original = self.run
-
-        def run_with_except_hook(*args2, **kwargs2):
-            try:
-                run_original(*args2, **kwargs2)
-            except Exception:
-                sys.excepthook(*sys.exc_info())
-
-        self.run = run_with_except_hook
-
-    Thread.__init__ = init
-
-
 def main():
     debug('[%d] Startup' % (os.getpid()))
 
     # Set custom exception hook
-    setup_thread_excepthook()
     sys.excepthook = default_exception_hook
 
-    appLoop = Thread(target=read_thread_func)
-    appLoop.start()
+    GLib.idle_add(process_input, None)
 
     try:
         mainLoop.run()
     except KeyboardInterrupt:
         mainLoop.quit()
-
-    mainLoopInterrupted = True
 
     if shellAppearedId:
         Gio.bus_unwatch_name(shellAppearedId)
@@ -301,7 +267,6 @@ def main():
     if shellSignalId:
         proxy.disconnect(shellSignalId)
 
-    appLoop.join()
     debug('[%d] Quit' % (os.getpid()))
     sys.exit(0)
 
