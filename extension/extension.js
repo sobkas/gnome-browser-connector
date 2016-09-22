@@ -141,6 +141,10 @@ port.onMessage.addListener(function (message) {
 		};
 	}
 });
+/*
+ * Subsctibe to GNOME Shell signals
+ */
+port.postMessage({execute: 'subscribeSignals'});
 
 chrome.runtime.getPlatformInfo(function(info) {
 	if (PLATFORMS_WHITELIST.indexOf(info.os) !== -1)

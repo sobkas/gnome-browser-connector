@@ -16,14 +16,11 @@ from gi.repository import GLib, Gio
 import json
 import os
 import re
-import socket
-import stat
 import struct
 import sys
 import time
 import traceback
 from select import select
-from tempfile import gettempdir
 from threading import Thread, Lock
 
 CONNECTOR_VERSION	= 7
@@ -35,8 +32,9 @@ EXTENSION_DISABLE_VERSION_CHECK_KEY = "disable-extension-version-validation"
 
 BUFFER_SUPPORTED = hasattr(sys.stdin, 'buffer')
 mainLoop = GLib.MainLoop()
+shellAppearedId = False
+shellSignalId = False
 mutex = Lock()
-watcherConnected = False
 mainLoopInterrupted = False
 
 proxy = Gio.DBusProxy.new_for_bus_sync(Gio.BusType.SESSION,
@@ -157,6 +155,19 @@ def read_thread_func():
                     }
                 )
 
+            elif request['execute'] == 'subscribeSignals':
+                global shellAppearedId, shellSignalId
+
+                if not shellAppearedId:
+                    shellAppearedId = Gio.bus_watch_name(Gio.BusType.SESSION,
+                                                         'org.gnome.Shell',
+                                                         Gio.BusNameWatcherFlags.NONE,
+                                                         on_shell_appeared,
+                                                         None)
+
+                if not shellSignalId:
+                    shellSignalId = proxy.connect('g-signal', on_shell_signal)
+
             elif request['execute'] == 'installExtension':
                 dbus_call_response("InstallRemoteExtension",
                                    GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
@@ -226,13 +237,6 @@ def on_shell_signal(d_bus_proxy, sender_name, signal_name, parameters):
 
 
 def on_shell_appeared(connection, name, name_owner):
-    global watcherConnected
-
-    # Things get broken if we send 1st signal
-    if not watcherConnected:
-        watcherConnected = True
-        return
-
     mutex.acquire()
     debug('[%d] Signal: to %s' % (os.getpid(), name))
     send_message({'signal': name})
@@ -281,48 +285,6 @@ def main():
     setup_thread_excepthook()
     sys.excepthook = default_exception_hook
 
-    """
-    We should listen GNOME Shell events only in one instance.
-    Use local socket to determine if another instance already running.
-    """
-    lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
-    lock_socket_address = '\0chrome-gnome-shell-%d' % os.getppid()
-
-    try:
-        """
-        Abstract local sockets only supported in Linux.
-        Fallback to filesystem local socket in *BSD.
-        """
-        if not 'linux' in sys.platform.lower():
-            lock_socket_address = '%s/chrome-gnome-shell-%d' % (gettempdir(), os.getppid())
-
-            # Try to cleanup from unexpected shutdown
-            if os.path.lexists(lock_socket_address):
-                if os.path.isfile(lock_socket_address) or os.path.islink(lock_socket_address):
-                    debug('[%d] File %s exists. Unlinking.' % (os.getpid(), lock_socket_address))
-                    os.unlink(lock_socket_address)
-                elif stat.S_ISSOCK(os.stat(lock_socket_address).st_mode):
-                    debug('[%d] local socket %s is exists.' % (os.getpid(), lock_socket_address))
-                    try:
-                        lock_socket.connect(lock_socket_address)
-                        lock_socket.close()
-                    except socket.error as e:
-                        debug('[%d] Local socked is abandoned. Unlinking.' % os.getpid())
-                        os.unlink(lock_socket_address)
-
-        lock_socket.bind(lock_socket_address)
-        debug('[%d] Local socket %s obtained' % (os.getpid(), lock_socket_address.replace('\0', '[NUL]')))
-
-        shellAppearedId = Gio.bus_watch_name(Gio.BusType.SESSION,
-                                             'org.gnome.Shell',
-                                             Gio.BusNameWatcherFlags.NONE,
-                                             on_shell_appeared,
-                                             None)
-        shellSignalId = proxy.connect('g-signal', on_shell_signal)
-    except socket.error:
-        debug('[%d] Local socket already bound' % (os.getpid()))
-        lock_socket = False
-
     appLoop = Thread(target=read_thread_func)
     appLoop.start()
 
@@ -333,16 +295,11 @@ def main():
 
     mainLoopInterrupted = True
 
-    if lock_socket:
-        proxy.disconnect(shellSignalId)
+    if shellAppearedId:
         Gio.bus_unwatch_name(shellAppearedId)
 
-        lock_socket.close()
-
-        # Cleanup filesystem local socket
-        if lock_socket_address[0] != '\0':
-            debug('[%d] Unlinking local socket' % (os.getpid()))
-            os.unlink(lock_socket_address)
+    if shellSignalId:
+        proxy.disconnect(shellSignalId)
 
     appLoop.join()
     debug('[%d] Quit' % (os.getpid()))
