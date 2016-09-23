@@ -1,58 +1,58 @@
 {
 	"_DO_NOT_EDIT": {
-		"description": "This file is auto generated with po2chrome-messages tool from pt_BR.po.",
+		"description": "This file is auto generated with po2chrome-messages tool from cs.po.",
 		"message": ""
 	},
 	"close": {
-		"message": "Fechar"
+		"message": "Zav\u0159\u00edt"
 	},
 	"connecting_host_app": {
 		"description": "Shown to user when Web extension sent request to native host messaging application and waiting for result.",
-		"message": "Conectando ao aplicativo nativo de m\u00e1quina\u2026"
+		"message": "P\u0159ipojov\u00e1n\u00ed k nativn\u00ed hostitelsk\u00e9 aplikaci\u2026"
 	},
 	"error_extension_response": {
 		"description": "Shown to user when response of extension API call does not follow known format.",
-		"message": "Resposta de extens\u00e3o errada recebida"
+		"message": "Obdr\u017eena nespr\u00e1vn\u00e1 odpov\u011b\u010f od roz\u0161\u00ed\u0159en\u00ed"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
-		"message": "Habilitada"
+		"message": "Povoleno"
 	},
 	"extension_installed": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension installed?'",
-		"message": "Instalada"
+		"message": "Nainstalov\u00e1no"
 	},
 	"extension_name": {
 		"description": "Used as title, eg in table header. Means 'GNOME Shell extension name'.",
-		"message": "Extens\u00e3o"
+		"message": "Roz\u0161\u00ed\u0159en\u00ed"
 	},
 	"extension_status_downgrade": {
 		"description": "This is a part of phrase like 'Extension Top Icons must be downgraded'.",
-		"message": "pode ser voltar a vers\u00e3o"
+		"message": "mus\u00ed b\u00fdt vr\u00e1ceny na ni\u017e\u0161\u00ed verzi"
 	},
 	"extension_status_upgrade": {
 		"description": "This is a part of phrase like 'Extension Top Icons can be upgraded'.",
-		"message": "pode ser atualizada"
+		"message": "mohou b\u00fdt pov\u00fd\u0161eny"
 	},
 	"extension_synchronized": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension status synchronized with remote browser storage?'",
-		"message": "Sincronizada"
+		"message": "Synchronizov\u00e1no"
 	},
 	"gs_chrome": {
 		"description": "This is a project title. Used as extension name in Chrome Store and in some titlebars.",
-		"message": "Integra\u00e7\u00e3o com GNOME Shell"
+		"message": "Integrace do GNOME Shell"
 	},
 	"hours": {
 		"description": "This is a part of phrase 'Update check period: xx hours'",
-		"message": "horas"
+		"message": "hodin"
 	},
 	"manifest_description": {
 		"description": "Used as extension description in Chrome Store",
-		"message": "Essa extens\u00e3o fornece integra\u00e7\u00e3o com o GNOME Shell e com o reposit\u00f3rio de extens\u00f5es correspondente, o https://extensions.gnome.org"
+		"message": "Toto roz\u0161\u00ed\u0159en\u00ed poskytuje integraci s GNOME Shell a shoduje se s repozit\u00e1\u0159em roz\u0161\u00ed\u0159en\u00ed https://extensions.gnome.org"
 	},
 	"native_request_failed": {
 		"description": "$REQUEST$ is a placeholder for technical name of request that web extension make via native messaging host application.",
-		"message": "Requisi\u00e7\u00e3o nativa \u00ab$REQUEST$\u00bb falhou",
+		"message": "P\u0159irozen\u00fd po\u017eadavek \u00ab$REQUEST$\u00bb selhal",
 		"placeholders": {
 			"request": {
 				"content": "$1"
@@ -60,69 +60,69 @@
 		}
 	},
 	"network_error": {
-		"message": "Ocorreu um erro de rede. Por favor, verifique sua conex\u00e3o com a Internet e/ou a configura\u00e7\u00e3o de seu proxy."
+		"message": "Vyskytla se chyba s\u00edt\u011b. Zkontrolujte pros\u00edm sv\u00e9 p\u0159ipojen\u00ed k Internetu a nastaven\u00ed proxy."
 	},
 	"never": {
 		"description": "This is a part of phrase 'Last check: never'",
-		"message": "nunca"
+		"message": "nikdy"
 	},
 	"no": {
-		"message": "N\u00e3o"
+		"message": "Ne"
 	},
 	"no_host_connector": {
-		"message": "Apesar da extens\u00e3o de integra\u00e7\u00e3o do GNOME Shell estar em execu\u00e7\u00e3o, o conector nativo de m\u00e1quina n\u00e3o foi detectado. Veja a <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documenta\u00e7\u00e3o</a> para instru\u00e7\u00f5es sobre instala\u00e7\u00e3o do conector."
+		"message": "A\u010dkoliv roz\u0161\u00ed\u0159en\u00ed integruj\u00edc\u00ed GNOME Shell b\u011b\u017e\u00ed, nebyl nalezen konektor pro nativn\u00edho hostitele. Pod\u00edvejte se do <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokumentace</a>, jak konektor nainstalovat."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
-		"message": "Nenhuma resposta da m\u00e1quina"
+		"message": "\u017d\u00e1dn\u00fd hostitel neodpov\u00edd\u00e1"
 	},
 	"older_connector": {
 		"description": "Part of phrase eg 'You are using different versions of GNOME Shell integration extension (version 5) and native host connector (older than version 4)'.",
-		"message": "vers\u00e3o anterior a 4"
+		"message": "star\u0161\u00ed ne\u017e verze 4"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
-		"message": "Intervalo de verifica\u00e7\u00e3o por atualiza\u00e7\u00e3o"
+		"message": "Aktualizovat dobu mezi kontrolami"
 	},
 	"options_last_check": {
 		"description": "This is a start of phrase (followed by date/time) of last GNOME Shell extensions update check.",
-		"message": "\u00daltima verifica\u00e7\u00e3o"
+		"message": "Posledn\u00ed kontrola"
 	},
 	"options_link": {
 		"description": "Link name for options tab.",
-		"message": "Op\u00e7\u00f5es"
+		"message": "Volby"
 	},
 	"options_next_check": {
 		"description": "This is a start of phrase (followed by date/time) of next GNOME Shell extensions update check.",
-		"message": "Pr\u00f3xima verifica\u00e7\u00e3o"
+		"message": "P\u0159\u00ed\u0161t\u00ed kontrola"
 	},
 	"options_saved": {
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
-		"message": "Op\u00e7\u00f5es salvas."
+		"message": "Volba byla ulo\u017eena."
 	},
 	"options_show_network_errors": {
 		"description": "Option name. By default Chrome do not reveal exact network error in case of request failure. Allow enable/disable extended error information.",
-		"message": "Mostrar informa\u00e7\u00e3o sobre erros de rede"
+		"message": "Zobrazovat informace o chyb\u00e1ch s\u00edt\u011b"
 	},
 	"options_show_network_errors_notice": {
 		"description": "This is a notice under option name. Warns user that additional browser permission is required if option will be enabled.",
-		"message": "\u00c9 necess\u00e1rio ter permiss\u00e3o de \u00abwebRequest\u00bb do Chrome."
+		"message": "Je vy\u017eadov\u00e1no opr\u00e1vn\u011bn\u00ed Chrome \u00abwebRequest\u00bb."
 	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Mostrar notas de lan\u00e7amento na atualiza\u00e7\u00e3o de extens\u00f5es"
+		"message": "Po aktualizaci roz\u0161\u00ed\u0159en\u00ed zobrazit pozn\u00e1mky k vyd\u00e1n\u00ed"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Sincronizar lista de extens\u00f5es"
+		"message": "Synchronizovat seznam roz\u0161\u00ed\u0159en\u00ed"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
-		"message": "Caso habilitado, a sua lista de extens\u00f5es de Shell do GNOME ser\u00e1 sincronizada com a sua conta do Google."
+		"message": "Kdy\u017e je povoleno, bude v\u00e1\u0161 seznam roz\u0161\u00ed\u0159en\u00ed GNOME Shell synchronizov\u00e1n s va\u0161\u00edm \u00fa\u010dtem Google."
 	},
 	"options_title": {
 		"description": "$GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This string used as title for Options page. This title is not shown in Chrome, but may be shown in other browsers.",
-		"message": "Op\u00e7\u00f5es de $GS_CHROME$",
+		"message": "Volby $GS_CHROME$",
 		"placeholders": {
 			"gs_chrome": {
 				"content": "$1"
@@ -131,27 +131,27 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Verificar atualiza\u00e7\u00e3o de extens\u00f5es"
+		"message": "Zkontrolovat aktualizace roz\u0161\u00ed\u0159en\u00ed"
 	},
 	"platform_not_supported": {
-		"message": "Sem suporte ao conector nativo de m\u00e1quina para sua plataforma."
+		"message": "Konektor pro nativn\u00edho hostitele nen\u00ed va\u0161\u00ed platformou podporov\u00e1n."
 	},
 	"retry": {
-		"message": "Tentar novamente"
+		"message": "Zkusit znovu"
 	},
 	"save": {
-		"message": "Salvar"
+		"message": "Ulo\u017eit"
 	},
 	"synchronization": {
 		"description": "Link name for synchronization tab in options dialog.",
-		"message": "Sincroniza\u00e7\u00e3o"
+		"message": "Synchronizace"
 	},
 	"synchronization_cancel": {
-		"message": "N\u00e3o habilitar a sincroniza\u00e7\u00e3o."
+		"message": "Nezap\u00ednat synchronizaci."
 	},
 	"synchronization_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused synchronization failure.",
-		"message": "Ocorreu falha ao sincronizar extens\u00f5es: $CAUSE$",
+		"message": "Selhala synchronizace roz\u0161\u00ed\u0159en\u00ed: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -159,32 +159,32 @@
 		}
 	},
 	"synchronization_storage_exists": {
-		"message": "Seu reposit\u00f3rio de sincroniza\u00e7\u00e3o remota j\u00e1 cont\u00e9m lista de extens\u00f5es."
+		"message": "Va\u0161e vzd\u00e1len\u00e9 \u00falo\u017ei\u0161t\u011b synchronizac\u00ed ji\u017e obsahuje seznam roz\u0161\u00ed\u0159en\u00ed."
 	},
 	"synchronization_use_local": {
-		"message": "Usar a lista local de extens\u00f5es, sobrescrever a remota."
+		"message": "Pou\u017e\u00edt m\u00edstn\u00ed seznam roz\u0161\u00ed\u0159en\u00ed, p\u0159epsat vzd\u00e1len\u00fd."
 	},
 	"synchronization_use_remote": {
-		"message": "Usar a lista remota de extens\u00f5es, sobrescrever a local."
+		"message": "Pou\u017e\u00edt vzd\u00e1len\u00fd seznam roz\u0161\u00ed\u0159en\u00ed, p\u0159epsat m\u00edstn\u00ed."
 	},
 	"translation_credits": {
 		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string.",
-		"message": "<a href=\"mailto:rafaelff@gnome.org\">Rafael Fontenelle</a><br>\n<a href=\"mailto:liverig@gmail.com\">Enrico Nicoletto</a>"
+		"message": "Marek \u010cernock\u00fd <marek@manet.cz>"
 	},
 	"translation_credits_title": {
 		"description": "Link name for translation credits tab in options dialog.",
-		"message": "Sobre a tradu\u00e7\u00e3o"
+		"message": "O p\u0159ekladu"
 	},
 	"unknown_error": {
 		"description": "This should newer be shown to user. However better safe than sorry.",
-		"message": "erro desconhecido"
+		"message": "nezn\u00e1m\u00e1 chyba"
 	},
 	"update_available": {
-		"message": "Uma atualiza\u00e7\u00e3o para extens\u00f5es do GNOME Shell est\u00e1 dispon\u00edvel"
+		"message": "Je dostupn\u00e1 aktualizace roz\u0161\u00ed\u0159en\u00ed GNOME Shell"
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Falha ao verificar atualiza\u00e7\u00f5es de extens\u00f5es: $CAUSE$",
+		"message": "Selhala kontrola aktualizac\u00ed roz\u0161\u00ed\u0159en\u00ed: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -193,12 +193,12 @@
 	},
 	"version": {
 		"description": "Part of phrase eg 'GNOME Shell integration extension (version 5)'",
-		"message": "vers\u00e3o $$1"
+		"message": "verze $$1"
 	},
 	"warning_versions_mismatch": {
-		"message": "Voc\u00ea est\u00e1 usando vers\u00f5es diferentes da extens\u00e3o de integra\u00e7\u00e3o do GNOME Shell ($$1) e conector nativo de m\u00e1quina ($$2). Alguns recursos podem n\u00e3o funcionar ou funcionar erroneamente."
+		"message": "Pou\u017e\u00edv\u00e1te jinou verzi roz\u0161\u00ed\u0159en\u00ed pro integraci GNOME Shell ($$1) a jin\u00fd konektor pro nativn\u00edho hostitele ($$2). N\u011bkter\u00e9 funkce nemus\u00ed fungovat nebo mohou fungovat nespr\u00e1vn\u011b."
 	},
 	"yes": {
-		"message": "Sim"
+		"message": "Ano"
 	}
 }
