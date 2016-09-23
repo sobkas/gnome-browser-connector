@@ -45,7 +45,7 @@ GSC.update = (function($) {
 
 						for (uuid in extensionsResponse.extensions)
 						{
-							if (GSC.isUUID(uuid))
+							if (GSC.isUUID(uuid) && extensionsResponse.extensions[uuid].type == EXTENSION_TYPE.PER_USER)
 							{
 								request.installed[uuid] = {version: parseInt(extensionsResponse.extensions[uuid].version) || 1};
 							}

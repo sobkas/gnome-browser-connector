@@ -65,3 +65,9 @@ EXTENSION_STATE			= {
 	// should never be in a real extensionMeta object.
 	UNINSTALLED:	99
 };
+
+// gnome-shell/js/misc/extensionUtils.js
+EXTENSION_TYPE			= {
+    SYSTEM:		1,
+    PER_USER:	2
+};
