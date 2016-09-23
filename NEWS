@@ -1,3 +1,25 @@
+= 2016-09-24 chrome-gnome-shell 7.1 =
+
+== Changes ==
+ * Fixed continuous error popups while checking extensions update if system
+   GNOME Shell extensions are installed or user extension metadata is broken
+   (thanks to yut23 from Github for finding this at bug #8
+   (https://github.com/nE0sIghT/chrome-gnome-shell-mirror/issues/8)).
+ * Fixed possible wrong GNOME Shell signals subscription.
+ * Fixed possible asynchronous error on unsupported platforms.
+ * Fixed build on FreeBSD.
+ * Fixed Ubuntu/Debian package.
+ * Native messaging connector optimization.
+
+== Translations ==
+ * Czech (Marek Černocký)
+ * Italian (Gianvito Cavasoli)
+ * Portuguese (Brazil) (Rafael Fontenelle)
+
+== Known issues ==
+Web extension is broken on FreeBSD because of bug 212925
+(https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212925).
+
 = 2016-09-05 chrome-gnome-shell 7 =
 
 == Changes ==
