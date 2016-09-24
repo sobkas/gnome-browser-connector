@@ -151,11 +151,11 @@ if(BUILD_CONNECTOR)
 	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/policies/chrome-gnome-shell.json"
 			"${CMAKE_BINARY_DIR}/")
 
-	if(DEFINED(USE_DEBIAN_LAYOUT))
+	if(USE_DEBIAN_LAYOUT)
 		set(DISTUTILS_EXTRA_ARGS "--install-layout=deb")
 	else()
 		set(DISTUTILS_EXTRA_ARGS "")
-	endif(DEFINED(USE_DEBIAN_LAYOUT))
+	endif(USE_DEBIAN_LAYOUT)
 
 	install(CODE "
 		if(DEFINED ENV{DESTDIR})
