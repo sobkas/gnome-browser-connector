@@ -312,7 +312,9 @@ class ChromeGNOMEShell(Gio.Application):
             }
 
             for uuid in extensions:
-                if isUUID(uuid):
+                # gnome-shell/js/misc/extensionUtils.js
+                # EXTENSION_TYPE.PER_USER = 2
+                if isUUID(uuid) and extensions[uuid]['type'] == 2:
                     try:
                         http_request['installed'][uuid] = {
                             'version': int(extensions[uuid]['version'])
