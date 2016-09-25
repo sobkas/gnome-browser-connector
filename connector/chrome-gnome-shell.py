@@ -43,7 +43,7 @@ def debug(message):
 
 
 def logError(message):
-    print(message, file=sys.stderr)
+    print('[%d] %s' % (os.getpid(), message), file=sys.stderr)
 
 
 class ChromeGNOMEShell(Gio.Application):
@@ -74,12 +74,12 @@ class ChromeGNOMEShell(Gio.Application):
         self.release()
 
     def do_startup(self):
-        debug('[%d] Startup' % (os.getpid()))
+        debug('Startup')
         Gio.Application.do_startup(self)
 
 
     def do_shutdown(self):
-        debug('[%d] Shutdown' % (os.getpid()))
+        debug('Shutdown')
         Gio.Application.do_shutdown(self)
 
         if self.shellAppearedId:
@@ -90,7 +90,7 @@ class ChromeGNOMEShell(Gio.Application):
 
 
     def do_activate(self, app):
-        debug('[%d] Activate' % (os.getpid()))
+        debug('Activate')
         Gio.Application.do_activate(self)
 
 
@@ -110,11 +110,11 @@ class ChromeGNOMEShell(Gio.Application):
 
 
     def on_input(self, source, condition, data):
-        debug('[%d] On input' % (os.getpid()))
+        debug('On input')
         text_length_bytes = source.read(MESSAGE_LENGTH_SIZE)
 
         if len(text_length_bytes) == 0:
-            debug('[%d] Release condition: %s' % (os.getpid(), str(condition)))
+            debug('Release condition: %s' % str(condition))
             self.release()
             return
 
@@ -135,24 +135,24 @@ class ChromeGNOMEShell(Gio.Application):
 
     def on_shell_signal(self, d_bus_proxy, sender_name, signal_name, parameters):
         if signal_name == 'ExtensionStatusChanged':
-            debug('[%d] Signal: to %s' % (os.getpid(), signal_name))
+            debug('Signal: to %s' % signal_name)
             self.send_message({'signal': signal_name, 'parameters': parameters.unpack()})
-            debug('[%d] Signal: from %s' % (os.getpid(), signal_name))
+            debug('Signal: from %s' % signal_name)
 
 
     def on_shell_appeared(self, connection, name, name_owner):
-        debug('[%d] Signal: to %s' % (os.getpid(), name))
+        debug('Signal: to %s' % name)
         self.send_message({'signal': name})
-        debug('[%d] Signal: from %s' % (os.getpid(), name))
+        debug('Signal: from %s' % name)
 
 
     def on_hup(self, source, condition, data):
-        debug('[%d] On hup: %s' % (os.getpid(), str(condition)))
+        debug('On hup: %s' % str(condition))
         self.release()
 
 
     def on_sigint(self, data):
-        debug('[%d] On sigint' % (os.getpid()))
+        debug('On sigint')
         self.release()
 
 
@@ -197,7 +197,7 @@ class ChromeGNOMEShell(Gio.Application):
 
 
     def process_request(self, request):
-        debug('[%d] Execute: to %s' % (os.getpid(), request['execute']))
+        debug('Execute: to %s' % request['execute'])
 
         if request['execute'] == 'initialize':
             settings = Gio.Settings.new(SHELL_SCHEMA)
@@ -294,7 +294,7 @@ class ChromeGNOMEShell(Gio.Application):
 
 
 
-        debug('[%d] Execute: from %s' % (os.getpid(), request['execute']))
+        debug('Execute: from %s' % request['execute'])
 
     def check_update(self, update_url):
         result = self.proxy.call_sync("ListExtensions",
@@ -344,10 +344,10 @@ class ChromeGNOMEShell(Gio.Application):
 
 
 if __name__ == '__main__':
-    debug('[%d] Main. Use CTRL+D to quit.' % (os.getpid()))
+    debug('Main. Use CTRL+D to quit.')
 
     app = ChromeGNOMEShell()
     app.register()
     app.run(sys.argv)
 
-    debug('[%d] Quit' % (os.getpid()))
+    debug('Quit')
