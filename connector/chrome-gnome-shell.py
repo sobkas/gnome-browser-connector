@@ -340,6 +340,7 @@ class ChromeGNOMEShell(Gio.Application):
                     requests.ConnectionError, requests.HTTPError, requests.Timeout,
                     requests.TooManyRedirects, requests.RequestException, ValueError
                     ) as ex:
+                logError('Unable to check extensions updates: %s' % (str(ex.message) if ('message' in ex) else str(ex)))
                 self.send_message({'success': False, 'message': str(ex.message) if ('message' in ex) else str(ex)})
 
 
