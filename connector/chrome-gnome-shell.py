@@ -193,7 +193,7 @@ class ChromeGNOMEShell(Gio.Application):
 
             self.send_message({'success': True, resultProperty: result.unpack()[0]})
         except GLib.GError as e:
-            send_error(e.message)
+            self.send_error(e.message)
 
 
     def process_request(self, request):
@@ -289,7 +289,7 @@ class ChromeGNOMEShell(Gio.Application):
             if 'url' in request:
                 update_url = request['url']
 
-            check_update(update_url)
+            self.check_update(update_url)
 
 
 
