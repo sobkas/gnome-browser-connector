@@ -56,8 +56,6 @@ GSC.notifications = (function($) {
 					chrome.storage.local.set({
 						notifications: notifications
 					});
-
-					update(notificationId);
 				});
 			});
 		}
