@@ -144,7 +144,7 @@ if(BUILD_EXTENSION)
 		COMMAND "${JQ_EXECUTABLE}" -s "'add|del(.key)'"
 				'${EXTENSION_SOURCES}/manifest.json' '${EXTENSION_SOURCES}/manifest.firefox.json'
 				> "${FIREFOX_BUILD_DIR}/manifest.json"
-		COMMAND "${7Z_EXECUTABLE}" a -tzip "${CMAKE_BINARY_DIR}/extension-opera.zip" ./
+		COMMAND "${7Z_EXECUTABLE}" a -tzip "${CMAKE_BINARY_DIR}/extension-firefox.zip" ./
 		WORKING_DIRECTORY "${FIREFOX_BUILD_DIR}")
 endif(BUILD_EXTENSION)
 
