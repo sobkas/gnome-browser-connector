@@ -25,7 +25,7 @@
 	<maintainer>
 		<foaf:Person>
 			<foaf:name>Yuri Konotopov</foaf:name>
-			<foaf:mbox rdf:resource="mailto:ykonotopov@gmail.com" />
+			<foaf:mbox rdf:resource="mailto:ykonotopov@gnome.org" />
 			<gnome:userid>ykonotopov</gnome:userid>
 		</foaf:Person>
 	</maintainer>
