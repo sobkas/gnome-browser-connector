@@ -65,21 +65,47 @@ define('gs-chrome', ['jquery'], function($) {
 				return sendResolveExtensionMessage("uninstallExtension", "success", {uuid: uuid});
 			},
 
-			initialize:		function(done, fail, always) {
+			initialize:		function() {
 				var ready = $.Deferred();
-				if(done)
+
+				if(SweetTooth.shellVersion !== '-1')
 				{
-					ready.done(done);
+					ready.resolve();
 				}
-				if(fail)
+				else
 				{
-					ready.fail(fail);
+					require(['jquery', 'messages'], function($, messages) {
+						var connectingInfo = GSC.getMessage('connecting_host_app');
+						messages.addInfo(connectingInfo);
+
+						ready.done(function(response) {
+							apiObject.shellVersion			= response.shellVersion;
+							apiObject.versionValidationEnabled	= response.versionValidationEnabled;
+
+							if(!response.connectorVersion || response.connectorVersion != GS_CHROME_VERSION)
+							{
+								if(!response.connectorVersion)
+									response.connectorVersion = GSC.getMessage('older_connector');
+								else
+									response.connectorVersion = GSC.getMessage('version', response.connectorVersion);
+
+								messages.addWarning(GSC.getMessage('warning_versions_mismatch', GSC.getMessage('version', GS_CHROME_VERSION), response.connectorVersion));
+							}
+
+							$('#message_container')
+								.find('.message:contains("' + connectingInfo + '")')
+								.remove();
+						});
+
+						ready.fail(function(message) {
+							messages.addWarning(message ? message : GSC.getMessage('no_host_connector'));
+						});
+
+						sendResolveExtensionMessage("initialize", "properties", null, ready);
+					});
 				}
-				if(always)
-				{
-					ready.always(always);
-				}
-				sendResolveExtensionMessage("initialize", "properties", null, ready);
+
+				return ready;
 			}
 		};
 
@@ -160,29 +186,7 @@ requirejs.config({
 	waitSeconds: 15 // It's fails sometimes with default 7 secs
 });
 require(['jquery', 'messages', 'gs-chrome'], function($, messages){
-	var connectingInfo = GSC.getMessage('connecting_host_app');
-	messages.addInfo(connectingInfo);
-
-	SweetTooth.initialize(function(response) {
-		SweetTooth.shellVersion			= response.shellVersion;
-		SweetTooth.versionValidationEnabled	= response.versionValidationEnabled;
-
-		if(!response.connectorVersion || response.connectorVersion != GS_CHROME_VERSION)
-		{
-			if(!response.connectorVersion)
-				response.connectorVersion = GSC.getMessage('older_connector');
-			else
-				response.connectorVersion = GSC.getMessage('version', response.connectorVersion);
-
-			messages.addWarning(GSC.getMessage('warning_versions_mismatch', GSC.getMessage('version', GS_CHROME_VERSION), response.connectorVersion));
-		}
-
-		$('#message_container')
-			.find('.message:contains("' + connectingInfo + '")')
-			.remove();
-	}, function(message) {
-		messages.addWarning(message ? message : GSC.getMessage('no_host_connector'));
-	}, function() {
+	SweetTooth.initialize().always(function() {
 		// Start extensions.gnome.org main script
 		require(['main'], function(){});
 	});
