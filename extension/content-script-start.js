@@ -16,25 +16,6 @@
 var gs_require_inject = function () {
 	GS_CHROME_ID		= "${GS_CHROME_ID}";
 	GS_CHROME_VERSION	= "${GS_CHROME_VERSION}";
-
-	gs_chrome_initialized	= false;
-	var functionSet		= false;
-	var originalRequire	= null;
-
-	Object.defineProperty(window, 'require', {
-		get: function () {
-			if(functionSet && !gs_chrome_initialized)
-				return function() {};
-
-			return originalRequire;
-		},
-		set: function (fn) {
-			if (typeof (fn) === 'function')
-				functionSet = true;
-
-			originalRequire = fn;
-		}
-	});
 };
 
 var siteMessages = {};
@@ -72,3 +53,11 @@ chrome.runtime.onMessage.addListener(
 		}
 	}
 );
+
+s = document.createElement('script');
+
+s.src = chrome.extension.getURL('include/sweettooth-api.js');
+s.onload = function() {
+    this.parentNode.removeChild(this);
+};
+(document.head || document.documentElement).appendChild(s);

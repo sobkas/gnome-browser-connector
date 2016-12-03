@@ -30,11 +30,6 @@
 	    "include/constants.js",
 	    "content-script-start.js"
       ]
-    },
-    {
-      "matches": ["https://extensions.gnome.org/*"],
-      "run_at": "document_end",
-      "js": ["content-script-end.js"]
     }
   ],
   "externally_connectable": {
