@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-11-19 19:31+0000\n"
+"POT-Creation-Date: 2016-12-03 09:48+0000\n"
 "PO-Revision-Date: 2016-09-15 10:43+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
@@ -21,12 +21,6 @@ msgstr ""
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
 msgstr "Zavřít"
-
-#. Shown to user when Web extension sent request to native host messaging
-#. application and waiting for result.
-#: chrome-gnome-shell-key-connecting_host_app:1
-msgid "Connecting to native host application…"
-msgstr "Připojování k nativní hostitelské aplikaci…"
 
 #. Shown to user when response of extension API call does not follow known
 #. format.
@@ -348,3 +342,6 @@ msgstr ""
 "\n"
 "Můžete konektor nainstalovat i ručně. Instalační instrukce viz https://wiki."
 "gnome.org/Projects/GnomeShellIntegrationForChrome/Installation.\n"
+
+#~ msgid "Connecting to native host application…"
+#~ msgstr "Připojování k nativní hostitelské aplikaci…"

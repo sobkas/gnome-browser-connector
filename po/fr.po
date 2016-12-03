@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-11-19 19:31+0000\n"
+"POT-Creation-Date: 2016-12-03 09:48+0000\n"
 "PO-Revision-Date: 2016-09-01 00:42+0200\n"
 "Last-Translator: Alain Lojewski <allomervan@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
@@ -20,12 +20,6 @@ msgstr ""
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
 msgstr "Fermer"
-
-#. Shown to user when Web extension sent request to native host messaging
-#. application and waiting for result.
-#: chrome-gnome-shell-key-connecting_host_app:1
-msgid "Connecting to native host application…"
-msgstr "Connexion à une application native de l'hôte…"
 
 #. Shown to user when response of extension API call does not follow known
 #. format.
@@ -355,3 +349,6 @@ msgstr ""
 "Vous pouvez aussi installer le connecteur manuellement. Les instructions "
 "sont disponibles dans https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation.\n"
+
+#~ msgid "Connecting to native host application…"
+#~ msgstr "Connexion à une application native de l'hôte…"

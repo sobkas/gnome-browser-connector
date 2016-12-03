@@ -6,10 +6,6 @@
 	"close": {
 		"message": "Bez\u00e1r\u00e1s"
 	},
-	"connecting_host_app": {
-		"description": "Shown to user when Web extension sent request to native host messaging application and waiting for result.",
-		"message": "Kapcsol\u00f3d\u00e1s a nat\u00edv gazdaalkalmaz\u00e1shoz\u2026"
-	},
 	"error_extension_response": {
 		"description": "Shown to user when response of extension API call does not follow known format.",
 		"message": "Hib\u00e1s b\u0151v\u00edtm\u00e9nyv\u00e1lasz \u00e9rkezett"

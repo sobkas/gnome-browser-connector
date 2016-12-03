@@ -6,10 +6,6 @@
 	"close": {
 		"message": "Schlie\u00dfen"
 	},
-	"connecting_host_app": {
-		"description": "Shown to user when Web extension sent request to native host messaging application and waiting for result.",
-		"message": "Verbindung mit nativer Rechneranwendung wird hergestellt \u2026"
-	},
 	"error_extension_response": {
 		"description": "Shown to user when response of extension API call does not follow known format.",
 		"message": "Falsche Antwort von Erweiterung erhalten"

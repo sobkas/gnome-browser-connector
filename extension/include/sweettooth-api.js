@@ -65,8 +65,6 @@ window.SweetTooth = function () {
 		},
 
 		initialize: function () {
-			var connectingInfo = GSC.getMessage('connecting_host_app');
-
 			if (SweetTooth.shellVersion !== '-1')
 			{
 				return Promise.resolve(apiObject);
