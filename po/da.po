@@ -1,17 +1,17 @@
-# Portuguese translation for chrome-gnome-shell.
+# Danish translation for chrome-gnome-shell.
 # Copyright (C) 2016 chrome-gnome-shell's COPYRIGHT HOLDER
 # This file is distributed under the same license as the chrome-gnome-shell package.
-# Tiago Santos <tiagofsantos81@sapo.pt>, 2016.
+# Alan Mortensen <alanmortensen.am@gmail.com>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
 "POT-Creation-Date: 2016-12-03 09:48+0000\n"
-"PO-Revision-Date: 2016-08-01 12:35+0100\n"
-"Last-Translator: \n"
-"Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
-"Language: pt\n"
+"PO-Revision-Date: 2016-10-31 20:36+0100\n"
+"Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,59 +20,57 @@ msgstr ""
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
-msgstr "Fechar"
+msgstr "Luk"
 
 #. Shown to user when response of extension API call does not follow known
 #. format.
 #: chrome-gnome-shell-key-error_extension_response:1
 msgid "Wrong extension response received"
-msgstr ""
+msgstr "Modtog forkert svar fra udvidelse"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension
 #. enabled?'
 #: chrome-gnome-shell-key-extension_enabled:1
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiveret"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension
 #. installed?'
 #: chrome-gnome-shell-key-extension_installed:1
 msgid "Installed"
-msgstr ""
+msgstr "Installeret"
 
 #. Used as title, eg in table header. Means 'GNOME Shell extension name'.
 #: chrome-gnome-shell-key-extension_name:1
 msgid "Extension"
-msgstr ""
+msgstr "Udvidelse"
 
 #. This is a part of phrase like 'Extension Top Icons must be downgraded'.
 #: chrome-gnome-shell-key-extension_status_downgrade:1
 msgid "must be downgraded"
-msgstr ""
+msgstr "skal nedgraderes"
 
 #. This is a part of phrase like 'Extension Top Icons can be upgraded'.
 #: chrome-gnome-shell-key-extension_status_upgrade:1
-#, fuzzy
 msgid "can be upgraded"
-msgstr "Pode ser predefinido"
+msgstr "kan opgraderes"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension status
 #. synchronized with remote browser storage?'
 #: chrome-gnome-shell-key-extension_synchronized:1
 msgid "Synchronized"
-msgstr ""
+msgstr "Synkroniseret"
 
 #. This is a project title. Used as extension name in Chrome Store and in some
 #. titlebars.
 #: chrome-gnome-shell-key-gs_chrome:1
-#, fuzzy
 msgid "GNOME Shell integration"
-msgstr "Preferências das extensões á interface GNOME"
+msgstr "GNOME Shell-integration"
 
 #. This is a part of phrase 'Update check period: xx hours'
 #: chrome-gnome-shell-key-hours:1
 msgid "hours"
-msgstr "horas"
+msgstr "timer"
 
 #. Used as extension description in Chrome Store
 #: chrome-gnome-shell-key-manifest_description:1
@@ -80,6 +78,8 @@ msgid ""
 "This extension provides integration with GNOME Shell and the corresponding "
 "extensions repository https://extensions.gnome.org"
 msgstr ""
+"Denne udvidelse giver integration med GNOME Shell og det tilhørende "
+"udvidelsesarkiv https://extensions.gnome.org"
 
 #. $REQUEST$ is a placeholder for technical name of request that web extension
 #. make via native messaging host application.
@@ -88,24 +88,25 @@ msgstr ""
 #. request
 #.
 #: chrome-gnome-shell-key-native_request_failed:1
-#, fuzzy
 msgid "«$REQUEST$» native request failed"
-msgstr "Pedido de ligação expirou"
+msgstr "Systemforespørgslen \"$REQUEST$\" slog fejl"
 
 #: chrome-gnome-shell-key-network_error:1
 msgid ""
 "A network error has occurred. Please check your Internet connection and/or "
 "proxy settings."
 msgstr ""
+"Der opstod en netværksfejl. Undersøg venligst din internetforbindelse og/"
+"eller proxyindstillinger."
 
 #. This is a part of phrase 'Last check: never'
 #: chrome-gnome-shell-key-never:1
 msgid "never"
-msgstr "nunca"
+msgstr "aldrig"
 
 #: chrome-gnome-shell-key-no:1
 msgid "No"
-msgstr "Não"
+msgstr "Nej"
 
 #: chrome-gnome-shell-key-no_host_connector:1
 msgid ""
@@ -114,74 +115,75 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions about installing connector."
 msgstr ""
+"Selvom udvidelsen til GNOME Shell-integration kører, kan den oprindelige "
+"værtsforbindelseskomponent ikke detekteres. Se <a href='https://wiki.gnome."
+"org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> "
+"for instruktioner vedrørende installering af forbindelseskomponent."
 
 #. Means 'Web extension does not received answer from native messaging host
 #. application.'
 #: chrome-gnome-shell-key-no_host_response:1
-#, fuzzy
 msgid "No host response"
-msgstr "Servidor _Socks"
+msgstr "Intet svar fra vært"
 
 #. Part of phrase eg 'You are using different versions of GNOME Shell
 #. integration extension (version 5) and native host connector (older than
 #. version 4)'.
 #: chrome-gnome-shell-key-older_connector:1
 msgid "older than version 4"
-msgstr ""
+msgstr "ældre end version 4"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
 #: chrome-gnome-shell-key-options_check_period:1
-#, fuzzy
 msgid "Update check period"
-msgstr "A última verificação de data e hora"
+msgstr "Opdateringsinterval"
 
 #. This is a start of phrase (followed by date/time) of last GNOME Shell
 #. extensions update check.
 #: chrome-gnome-shell-key-options_last_check:1
 msgid "Last check"
-msgstr "Última verificação"
+msgstr "Sidst tjekket"
 
 #. Link name for options tab.
 #: chrome-gnome-shell-key-options_link:1
 msgid "Options"
-msgstr "Opções"
+msgstr "Valgmuligheder"
 
 #. This is a start of phrase (followed by date/time) of next GNOME Shell
 #. extensions update check.
 #: chrome-gnome-shell-key-options_next_check:1
-#, fuzzy
 msgid "Next check"
-msgstr "Procurar atualizações"
+msgstr "Næste tjek"
 
 #. Means 'Options were saved successfully after user clicked Save button'
 #: chrome-gnome-shell-key-options_saved:1
 msgid "Options saved."
-msgstr ""
+msgstr "Valgmuligheder gemt."
 
 #. Option name. By default Chrome do not reveal exact network error in case of
 #. request failure. Allow enable/disable extended error information.
 #: chrome-gnome-shell-key-options_show_network_errors:1
 msgid "Show information about network errors"
-msgstr ""
+msgstr "Vis information om netværksfejl"
 
 #. This is a notice under option name. Warns user that additional browser
 #. permission is required if option will be enabled.
 #: chrome-gnome-shell-key-options_show_network_errors_notice:1
 msgid "Chrome permission «webRequest» required."
-msgstr ""
+msgstr "Chrome-rettighed \"webRequest\" påkrævet."
 
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
 msgid "Show release notes when extension updated"
-msgstr ""
+msgstr "Vis udgivelsesnoter, når udvidelsen er opdateret"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
 msgid "Synchronize extensions list"
-msgstr ""
+msgstr "Synkronisér udvidelsesliste"
 
 #. This is a notice under option name.
 #: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
@@ -189,6 +191,8 @@ msgid ""
 "If enabled, your GNOME Shell extensions list will be synchronized with your "
 "Google account."
 msgstr ""
+"Hvis aktiveret, vil listen over dine GNOME Shell-udvidelser blive "
+"synkroniseret med din Google-konto."
 
 #. $GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This
 #. string used as title for Options page. This title is not shown in Chrome,
@@ -198,36 +202,36 @@ msgstr ""
 #. gs_chrome
 #.
 #: chrome-gnome-shell-key-options_title:1
-#, fuzzy
 msgid "$GS_CHROME$ options"
-msgstr "Opções…"
+msgstr "Valgmuligheder for $GS_CHROME$"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-#, fuzzy
 msgid "Check for extensions update"
-msgstr "A última verificação de data e hora"
+msgstr "Tjek for opdateringer til udvidelser"
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
 msgstr ""
+"Den oprindelige værtsforbindelseskomponent understøttes ikke til din "
+"platform."
 
 #: chrome-gnome-shell-key-retry:1
 msgid "Retry"
-msgstr "Tentar novamente"
+msgstr "Prøv igen"
 
 #: chrome-gnome-shell-key-save:1
 msgid "Save"
-msgstr "Gravar"
+msgstr "Gem"
 
 #. Link name for synchronization tab in options dialog.
 #: chrome-gnome-shell-key-synchronization:1
 msgid "Synchronization"
-msgstr ""
+msgstr "Synkronisering"
 
 #: chrome-gnome-shell-key-synchronization_cancel:1
 msgid "Do not enable synchronization."
-msgstr ""
+msgstr "Aktivér ikke synkronisering."
 
 #. $CAUSE$ is placeholder for error that caused synchronization failure.
 #.
@@ -236,41 +240,45 @@ msgstr ""
 #.
 #: chrome-gnome-shell-key-synchronization_failed:1
 msgid "Failed to synchronize extensions: $CAUSE$"
-msgstr ""
+msgstr "Kunne ikke synkronisere udvidelser: $CAUSE$"
 
 #: chrome-gnome-shell-key-synchronization_storage_exists:1
 msgid "Your remote synchronization storage already contains extensions list."
 msgstr ""
+"Dit fjernlager til synkronisering indeholder allerede udvidelseslisten."
 
 #: chrome-gnome-shell-key-synchronization_use_local:1
 msgid "Use local extensions list, overwrite remote."
-msgstr ""
+msgstr "Anvend lokal udvidelsesliste, og overskriv fjernudgaven."
 
 #: chrome-gnome-shell-key-synchronization_use_remote:1
 msgid "Use remote extensions list, overwrite local."
-msgstr ""
+msgstr "Anvend fjernudgaven af udvidelseslisten, og overskriv lokaludgaven."
 
 #. This is content of 'About translation' tab in Options dialog. Thank you for
 #. translation and feel free to add yourself here. HTML markup enabled for
 #. this string.
 #: chrome-gnome-shell-key-translation_credits:1
 msgid "translation_credits"
-msgstr "Tiago Santos <tiagofsantos81@sapo.pt>"
+msgstr ""
+"Alan Mortensen <alanmortensen.am@gmail.com>\n"
+"\n"
+"Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
+"Mere info: http://www.dansk-gruppen.dk"
 
 #. Link name for translation credits tab in options dialog.
 #: chrome-gnome-shell-key-translation_credits_title:1
 msgid "About translation"
-msgstr "Sobre a tradução"
+msgstr "Om oversættelse"
 
 #. This should newer be shown to user. However better safe than sorry.
 #: chrome-gnome-shell-key-unknown_error:1
 msgid "unknown error"
-msgstr ""
+msgstr "ukendt fejl"
 
 #: chrome-gnome-shell-key-update_available:1
-#, fuzzy
 msgid "An update for GNOME Shell extensions available"
-msgstr "Configurar extensões à interface GNOME"
+msgstr "En opdatering til GNOME Shell-udvidelser er tilgængelig"
 
 #. $CAUSE$ is placeholder for error that caused update failure.
 #.
@@ -279,22 +287,25 @@ msgstr "Configurar extensões à interface GNOME"
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
 msgid "Failed to check extensions updates: $CAUSE$"
-msgstr ""
+msgstr "Kunne ikke søge efter opdateringer til udvidelser: $CAUSE$"
 
 #. Part of phrase eg 'GNOME Shell integration extension (version 5)'
 #: chrome-gnome-shell-key-version:1
 msgid "version $$1"
-msgstr "Versão $$1"
+msgstr "version $$1"
 
 #: chrome-gnome-shell-key-warning_versions_mismatch:1
 msgid ""
 "You are using different versions of GNOME Shell integration extension ($$1) "
 "and native host connector ($$2). Some features may not work or work wrong."
 msgstr ""
+"Du anvender forskellige versioner af udvidelse ($$1) til GNOME Shell-"
+"integration og oprindelig værtsforbindelseskomponent ($$2). Nogle funktioner "
+"virker måske ikke eller virker forkert."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
-msgstr "Sim"
+msgstr "Ja"
 
 #. Chrome store description
 #: chrome-gnome-shell-store-description:1
@@ -319,3 +330,27 @@ msgid ""
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
 msgstr ""
+"Du SKAL installere en oprindelig forbindelseskomponent før denne udvidelse "
+"virker.\n"
+"\n"
+"Til Arch Linux findes der en PKGBUILD tilgængelig i AUR: https://aur."
+"archlinux.org/packages/chrome-gnome-shell-git\n"
+"\n"
+"Til Fedora Linux er der en pakke i Copr: https://copr.fedorainfracloud.org/"
+"coprs/region51/chrome-gnome-shell\n"
+"\n"
+"I Gentoo Linux kan du installere forbindelsekomponenten med kommandoen:\n"
+"emerge gnome-extra/chrome-gnome-shell\n"
+"\n"
+"Til Ubuntu Linux findes der en pakke i PPA'et ne0sight/chrome-gnome-shell. "
+"Indtast følgende for at installere den:\n"
+"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
+"sudo apt-get update\n"
+"sudo apt-get install chrome-gnome-shell\n"
+"\n"
+"Du kan også installere forbindelseskomponenten manuelt. Se https://wiki."
+"gnome.org/Projects/GnomeShellIntegrationForChrome/Installation for "
+"instruktioner vedrørende installation.\n"
+
+#~ msgid "Connecting to native host application…"
+#~ msgstr "Forbinder til værtssystem…"

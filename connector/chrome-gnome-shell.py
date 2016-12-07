@@ -22,7 +22,7 @@ import struct
 import sys
 import traceback
 
-CONNECTOR_VERSION	= 7.1
+CONNECTOR_VERSION	= 7.2
 DEBUG_ENABLED		= False
 
 SHELL_SCHEMA = "org.gnome.shell"

@@ -8,12 +8,14 @@
     (at your option) any later version.
  */
 
-GSC.getMessage = function(key) {
-	if(GSC && GSC.i18n && GSC.i18n[key])
+"use strict";
+
+GSC.getMessage = function (key) {
+	if (GSC && GSC.i18n && GSC.i18n[key])
 	{
 		var message = GSC.i18n[key];
 
-		for(var i = 1; i < arguments.length; i++)
+		for (var i = 1; i < arguments.length; i++)
 		{
 			message = message.replace('$' + i, arguments[i]);
 		}
@@ -24,266 +26,139 @@ GSC.getMessage = function(key) {
 	return key;
 };
 
-define('gs-chrome', ['jquery'], function($) {
-	"use strict";
+window.SweetTooth = function () {
+	var apiObject = {
+		apiVersion: 5,
+		shellVersion: '-1',
+		versionValidationEnabled: true,
 
-	window.SweetTooth = function() {
-		var apiObject			= {
-			apiVersion:			5,
-			shellVersion:			'-1',
-			versionValidationEnabled:	true,
+		getChromeExtensionId: function () {
+			return GS_CHROME_ID;
+		},
 
-			getChromeExtensionId:	function() {
-				return GS_CHROME_ID;
-			},
+		getExtensionErrors: function (uuid) {
+			return sendResolveExtensionMessage("getExtensionErrors", "extensionErrors", {uuid: uuid});
+		},
 
-			getExtensionErrors:	function(uuid) {
-				return sendResolveExtensionMessage("getExtensionErrors", "extensionErrors", {uuid: uuid});
-			},
+		getExtensionInfo: function (uuid) {
+			return sendResolveExtensionMessage("getExtensionInfo", "extensionInfo", {uuid: uuid});
+		},
 
-			getExtensionInfo:	function(uuid) {
-				return sendResolveExtensionMessage("getExtensionInfo", "extensionInfo", {uuid: uuid});
-			},
+		installExtension: function (uuid) {
+			return sendResolveExtensionMessage("installExtension", "status", {uuid: uuid});
+		},
 
-			installExtension:	function(uuid) {
-				return sendResolveExtensionMessage("installExtension", "status", {uuid: uuid});
-			},
+		launchExtensionPrefs: function (uuid) {
+			sendExtensionMessage("launchExtensionPrefs", null, {uuid: uuid});
+		},
 
-			launchExtensionPrefs:	function(uuid) {
-				sendExtensionMessage("launchExtensionPrefs", null, { uuid: uuid });
-			},
+		listExtensions: function () {
+			return sendResolveExtensionMessage("listExtensions", "extensions");
+		},
 
-			listExtensions:		function() {
-				return sendResolveExtensionMessage("listExtensions", "extensions");
-			},
+		setExtensionEnabled: function (uuid, enable) {
+			return sendResolveExtensionMessage("enableExtension", "success", {uuid: uuid, enable: enable});
+		},
 
-			setExtensionEnabled:	function(uuid, enable) {
-				return sendResolveExtensionMessage("enableExtension", "success", {uuid: uuid, enable: enable});
-			},
+		uninstallExtension: function (uuid) {
+			return sendResolveExtensionMessage("uninstallExtension", "success", {uuid: uuid});
+		},
 
-			uninstallExtension:	function(uuid) {
-				return sendResolveExtensionMessage("uninstallExtension", "success", {uuid: uuid});
-			},
-
-			initialize:		function(done, fail, always) {
-				var ready = $.Deferred();
-				if(done)
-				{
-					ready.done(done);
-				}
-				if(fail)
-				{
-					ready.fail(fail);
-				}
-				if(always)
-				{
-					ready.always(always);
-				}
-				sendResolveExtensionMessage("initialize", "properties", null, ready);
-			}
-		};
-
-		window.addEventListener("message", function(event) {
-			// We only accept messages from ourselves
-			if (event.source != window)
-				return;
-
-			if (event.data.type)
+		initialize: function () {
+			if (SweetTooth.shellVersion !== '-1')
 			{
-				if(event.data.type == "gs-chrome")
-				{
-					if(event.data.request.signal == 'ExtensionStatusChanged' && apiObject.onchange)
-					{
-						apiObject.onchange(
-							event.data.request.parameters[0],
-							event.data.request.parameters[1],
-							event.data.request.parameters[2]
-						);
-					}
-					else if(event.data.request.signal == 'org.gnome.Shell' && apiObject.onshellrestart)
-					{
-						apiObject.onshellrestart();
-					}
-				}
+				return Promise.resolve(apiObject);
 			}
-		}, false);
 
-		function sendResolveExtensionMessage(method, resolveProperty, parameters, deferred)
+			var ready = sendResolveExtensionMessage("initialize", "properties", null);
+
+			ready.then(function (response) {
+				apiObject.shellVersion = response.shellVersion;
+				apiObject.versionValidationEnabled = response.versionValidationEnabled;
+
+				if (!response.connectorVersion || response.connectorVersion != GS_CHROME_VERSION)
+				{
+					if (!response.connectorVersion)
+					{
+						response.connectorVersion = GSC.getMessage('older_connector');
+					}
+					else
+					{
+						response.connectorVersion = GSC.getMessage('version', response.connectorVersion);
+					}
+
+					require(['messages'], function (messages) {
+						messages.addWarning(GSC.getMessage('warning_versions_mismatch', GSC.getMessage('version', GS_CHROME_VERSION), response.connectorVersion));
+					});
+				}
+			}, function (message) {
+				require(['messages'], function (messages) {
+					messages.addWarning(message ? message : GSC.getMessage('no_host_connector'));
+				})
+			});
+
+			return ready;
+		}
+	};
+
+	window.addEventListener("message", function (event) {
+		// We only accept messages from ourselves
+		if (event.source != window)
 		{
-			function resolveOnSuccess(response, deferred, value)
+			return;
+		}
+
+		if (event.data.type)
+		{
+			if (event.data.type == "gs-chrome")
 			{
-				if(response && response.success)
+				if (event.data.request.signal == 'ExtensionStatusChanged' && apiObject.onchange)
 				{
-					deferred.resolve(value);
+					apiObject.onchange(
+						event.data.request.parameters[0],
+						event.data.request.parameters[1],
+						event.data.request.parameters[2]
+					);
 				}
-				else
+				else if (event.data.request.signal == 'org.gnome.Shell' && apiObject.onshellrestart)
 				{
-					var message = response && response.message ? response.message : GSC.getMessage('error_extension_response');
-					deferred.reject(message);
+					apiObject.onshellrestart();
 				}
 			}
+		}
+	}, false);
 
-			if(!deferred)
-			{
-				deferred = $.Deferred();
-			}
-
-			sendExtensionMessage(method, function(response) {
-					resolveOnSuccess(response, deferred, response[resolveProperty]);
+	function sendResolveExtensionMessage(method, resolveProperty, parameters) {
+		return new Promise(function (resolve, reject) {
+			sendExtensionMessage(method, function (response) {
+					if (response && response.success)
+					{
+						resolve(response[resolveProperty]);
+					}
+					else
+					{
+						var message = response && response.message ? response.message : GSC.getMessage('error_extension_response');
+						reject(message);
+					}
 				},
 				parameters
 			);
+		});
+	}
 
-			return deferred;
-		}
-
-		function sendExtensionMessage(method, callback, parameters)
+	function sendExtensionMessage(method, callback, parameters) {
+		var request = {execute: method};
+		if (parameters)
 		{
-			var request = { execute: method };
-			if(parameters)
-				request = $.extend(parameters, request);
-
-			chrome.runtime.sendMessage(
-				apiObject.getChromeExtensionId(),
-				request,
-				callback
-			);
+			request = Object.assign(parameters, request);
 		}
 
-		return apiObject;
-	} ();
-});
+		chrome.runtime.sendMessage(
+			apiObject.getChromeExtensionId(),
+			request,
+			callback
+		);
+	}
 
-define('versions/common/common', ['jquery', 'dbus!API'], function($, API) {
-    "use strict";
-
-    function _makeRawPromise(result) {
-        // Check if result is promise already
-        if(isPromise(result))
-            return result;
-
-        return (new $.Deferred()).resolve(result);
-    }
-
-    function _makePromise(result) {
-        // Check if result is promise already
-        if(isPromise(result))
-            return result;
-
-        return _makeRawPromise(JSON.parse(result));
-    }
-
-    function isPromise(value) {
-        return value && value.promise;
-    }
-
-    return {
-        _makePromise: _makePromise,
-
-        ListExtensions: function() {
-            return _makePromise(API.listExtensions());
-        },
-
-        GetExtensionInfo: function(uuid) {
-            return _makePromise(API.getExtensionInfo(uuid));
-        },
-
-        GetErrors: function(uuid) {
-            return _makePromise(API.getExtensionErrors(uuid));
-        },
-
-        LaunchExtensionPrefs: function(uuid) {
-            return API.launchExtensionPrefs(uuid);
-        },
-
-        LaunchExtensionPrefsDummy: function(uuid) { },
-
-        EnableExtension: function(uuid) {
-            API.setExtensionEnabled(uuid, true);
-        },
-
-        DisableExtension: function(uuid) {
-            API.setExtensionEnabled(uuid, false);
-        },
-
-        InstallExtensionOne: function(uuid) {
-            var result = API.installExtension(uuid);
-
-	    if(isPromise(result))
-		    return result;
-
-            return _makeRawPromise('succeeded');
-        },
-
-        InstallExtensionTwo: function(uuid) {
-            var result = API.installExtension(uuid, "");
-
-	    if(isPromise(result))
-		    return result;
-
-            return _makeRawPromise('succeeded');
-        },
-
-        InstallExtensionAsync: function(uuid) {
-            var d = new $.Deferred();
-            var result = API.installExtension(uuid, d.done.bind(d), d.fail.bind(d));
-
-	    if(isPromise(result))
-		    return result;
-
-            return d;
-        },
-
-        UninstallExtension: function(uuid) {
-            return _makePromise(API.uninstallExtension(uuid));
-        },
-
-        API_onchange: function(proxy) {
-            return function(uuid, newState, error) {
-                if (proxy.extensionStateChangedHandler !== null)
-                    proxy.extensionStateChangedHandler(uuid, newState, error);
-            };
-        },
-
-        API_onshellrestart: function(proxy) {
-            return function() {
-                if (proxy.shellRestartHandler !== null)
-                    proxy.shellRestartHandler();
-            };
-        }
-    };
-});
-
-gs_chrome_initialized = true;
-
-requirejs.config({
-	waitSeconds: 15 // It's fails sometimes with default 7 secs
-});
-require(['jquery', 'messages', 'gs-chrome'], function($, messages){
-	var connectingInfo = GSC.getMessage('connecting_host_app');
-	messages.addInfo(connectingInfo);
-
-	SweetTooth.initialize(function(response) {
-		SweetTooth.shellVersion			= response.shellVersion;
-		SweetTooth.versionValidationEnabled	= response.versionValidationEnabled;
-
-		if(!response.connectorVersion || response.connectorVersion != GS_CHROME_VERSION)
-		{
-			if(!response.connectorVersion)
-				response.connectorVersion = GSC.getMessage('older_connector');
-			else
-				response.connectorVersion = GSC.getMessage('version', response.connectorVersion);
-
-			messages.addWarning(GSC.getMessage('warning_versions_mismatch', GSC.getMessage('version', GS_CHROME_VERSION), response.connectorVersion));
-		}
-
-		$('#message_container')
-			.find('.message:contains("' + connectingInfo + '")')
-			.remove();
-	}, function(message) {
-		messages.addWarning(message ? message : GSC.getMessage('no_host_connector'));
-	}, function() {
-		// Start extensions.gnome.org main script
-		require(['main'], function(){});
-	});
-});
+	return apiObject;
+}();

@@ -6,10 +6,6 @@
 	"close": {
 		"message": "Sulje"
 	},
-	"connecting_host_app": {
-		"description": "Shown to user when Web extension sent request to native host messaging application and waiting for result.",
-		"message": "Connecting to native host application\u2026"
-	},
 	"error_extension_response": {
 		"description": "Shown to user when response of extension API call does not follow known format.",
 		"message": "Vastaanotettiin v\u00e4\u00e4r\u00e4 laajennusvastaus"

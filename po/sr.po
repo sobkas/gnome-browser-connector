@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"Report-Msgid-Bugs-To: ykonotopov@gmail.com\n"
-"POT-Creation-Date: 2016-09-04 19:46+0000\n"
+"Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
+"POT-Creation-Date: 2016-12-03 09:48+0000\n"
 "PO-Revision-Date: 2016-08-26 20:34+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: српски <gnome-sr@googlegroups.org>\n"
@@ -20,12 +20,6 @@ msgstr ""
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
 msgstr "Затвори"
-
-#. Shown to user when Web extension sent request to native host messaging
-#. application and waiting for result.
-#: chrome-gnome-shell-key-connecting_host_app:1
-msgid "Connecting to native host application…"
-msgstr "Повезујем се са изворним програмом домаћином…"
 
 #. Shown to user when response of extension API call does not follow known
 #. format.
@@ -348,3 +342,6 @@ msgstr ""
 "Можете такође и ручно да инсталирате повезивач. Погледајте „https://wiki."
 "gnome.org/Projects/GnomeShellIntegrationForChrome/Installation“ за "
 "упутствима о инсталацији.\n"
+
+#~ msgid "Connecting to native host application…"
+#~ msgstr "Повезујем се са изворним програмом домаћином…"

@@ -8,9 +8,9 @@
 	<name xml:lang="en">chrome-gnome-shell</name>
 	<shortdesc xml:lang="en">GNOME Shell integration for Chrome</shortdesc>
 	<description xml:lang="en">
-		Web extension for Google Chrome/Chromium, Vivaldi, Opera (and other WebExtensions capable
-		browsers) and native host messaging connector that provides integration with GNOME Shell
-		and the corresponding extensions repository https://extensions.gnome.org.
+		Browser extension for Google Chrome/Chromium, Firefox, Vivaldi, Opera (and other Browser Extension,
+		Chrome Extension or WebExtensions capable browsers) and native host messaging connector that provides
+		integration with GNOME Shell and the corresponding extensions repository https://extensions.gnome.org.
 	</description>
 	<homepage rdf:resource="https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome" />
 	<!--
@@ -25,7 +25,7 @@
 	<maintainer>
 		<foaf:Person>
 			<foaf:name>Yuri Konotopov</foaf:name>
-			<foaf:mbox rdf:resource="mailto:ykonotopov@gmail.com" />
+			<foaf:mbox rdf:resource="mailto:ykonotopov@gnome.org" />
 			<gnome:userid>ykonotopov</gnome:userid>
 		</foaf:Person>
 	</maintainer>
