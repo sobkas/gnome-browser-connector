@@ -9,6 +9,47 @@
  */
 
 GSC.notifications = (function($) {
+	var DEFAULT_NOTIFICATION_OPTIONS = {
+		type: chrome.notifications.TemplateType.BASIC,
+		iconUrl: 'icons/GnomeLogo-128.png',
+		title: m('gs_chrome'),
+		buttons: [
+			{title: m('close')}
+		],
+		priority: 2,
+		isClickable: true,
+		requireInteraction: true
+	};
+
+	function remove_list(options) {
+		if(options.items)
+		{
+			var items = [];
+			for (k in options.items)
+			{
+				if (options.items.hasOwnProperty(k))
+				{
+					items.push(options.items[k].title + ' ' + options.items[k].message);
+				}
+			}
+
+			if(options.message && items)
+			{
+				options.message += "\n";
+			}
+
+			options.message += items.join("\n");
+
+			options.type = chrome.notifications.TemplateType.BASIC;
+			delete options.items;
+		}
+
+		return options;
+	}
+
+	/*
+		@Deprecated: remove browser notifications in version 9
+	 */
 	var browser = (function() {
 		function init() {
 			chrome.runtime.onStartup.addListener(function() {
@@ -39,16 +80,7 @@ GSC.notifications = (function($) {
 			}, function (items) {
 				var notifications = items.notifications;
 
-				notifications[name] = $.extend({
-					type: chrome.notifications.TemplateType.BASIC,
-					iconUrl: 'icons/GnomeLogo-128.png',
-					title: 'GNOME Shell integration',
-					buttons: [
-						{title: m('close')}
-					],
-					priority: 2,
-					isClickable: true
-				}, options);
+				notifications[name] = $.extend(DEFAULT_NOTIFICATION_OPTIONS, options);
 
 				_create(name, notifications[name], function (notificationId) {
 					chrome.storage.local.set({
@@ -67,18 +99,7 @@ GSC.notifications = (function($) {
 				delete options.buttons;
 				if(options.type === chrome.notifications.TemplateType.LIST)
 				{
-					var items = [];
-					for(k in options.items)
-					{
-						if(options.items.hasOwnProperty(k))
-						{
-							items.push(options.items[k].title + ' ' + options.items[k].message);
-						}
-					}
-					options.message += "\n" + items.join("\n");
-
-					options.type = chrome.notifications.TemplateType.BASIC;
-					delete options.items;
+					options = remove_list(options);
 				}
 			}
 
@@ -136,7 +157,30 @@ GSC.notifications = (function($) {
 			});
 		}
 
-		init();
+		return {
+			create: create,
+			remove: remove,
+			init: init
+		};
+	})();
+
+	var native = (function() {
+		function create(name, options) {
+			options = remove_list(options);
+
+			chrome.runtime.sendMessage({
+				execute: 'createNotification',
+				name: name,
+				options: $.extend(DEFAULT_NOTIFICATION_OPTIONS, options)
+			});
+		}
+
+		function remove(notificationId) {
+			chrome.runtime.sendMessage({
+				execute: 'removeNotification',
+				name: notificationId
+			});
+		}
 
 		return {
 			create: create,
@@ -144,9 +188,37 @@ GSC.notifications = (function($) {
 		};
 	})();
 
+	GSC.onInitialize().then(response => {
+		if (!GSC.nativeNotificationsSupported(response))
+		{
+			browser.init();
+		}
+	});
 
 	return {
-		create: browser.create,
-		remove: browser.remove
+		create: function() {
+			GSC.onInitialize().then(response => {
+				if(GSC.nativeNotificationsSupported(response))
+				{
+					native.create.apply(this, arguments);
+				}
+				else
+				{
+					browser.create.apply(this, arguments);
+				}
+			});
+		},
+		remove: function() {
+			GSC.onInitialize().then(response => {
+				if(GSC.nativeNotificationsSupported(response))
+				{
+					native.remove.apply(this, arguments);
+				}
+				else
+				{
+					browser.remove.apply(this, arguments);
+				}
+			});
+		}
 	};
 })(jQuery);

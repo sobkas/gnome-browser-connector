@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: UTF-8 -*-
 
 '''
     GNOME Shell integration for Chrome
@@ -12,7 +13,7 @@
 
 from __future__ import unicode_literals
 from __future__ import print_function
-from gi.repository import GLib, Gio
+from gi.repository import GLib, Gio, GObject
 import json
 import os
 import re
@@ -47,68 +48,147 @@ def logError(message):
 
 
 class ChromeGNOMEShell(Gio.Application):
-    def __init__(self):
+    def __init__(self, run_as_service):
         Gio.Application.__init__(self,
-                                    application_id='org.gnome.chrome-gnome-shell-%s' % os.getppid(),
-                                    flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
+                                 application_id='org.gnome.ChromeGnomeShell',
+                                 flags=Gio.ApplicationFlags.IS_SERVICE if run_as_service
+                                    else Gio.ApplicationFlags.IS_LAUNCHER | Gio.ApplicationFlags.HANDLES_OPEN
+                                 )
 
         self.shellAppearedId = None
         self.shellSignalId = None
-        self.proxy = Gio.DBusProxy.new_for_bus_sync(Gio.BusType.SESSION,
-                                       Gio.DBusProxyFlags.NONE,
-                                       None,
-                                       'org.gnome.Shell',
-                                       '/org/gnome/Shell',
-                                       'org.gnome.Shell.Extensions',
-                                       None)
 
         # Set custom exception hook
         sys.excepthook = self.default_exception_hook
 
+        self.register()
 
-    def default_exception_hook(self, type, value, tb):
-        logError("Uncaught exception of type %s occured" % type)
-        traceback.print_tb(tb)
-        logError("Exception: %s" % value)
+        if not run_as_service:
+            self.shell_proxy = Gio.DBusProxy.new_sync(self.get_dbus_connection(),
+                                                      Gio.DBusProxyFlags.NONE,
+                                                      None,
+                                                      'org.gnome.Shell',
+                                                      '/org/gnome/Shell',
+                                                      'org.gnome.Shell.Extensions',
+                                                      None)
 
-        self.release()
+            self.get_dbus_connection().signal_subscribe(
+                self.get_application_id(),
+                self.get_application_id(),
+                None,
+                "/org/gnome/ChromeGnomeShell",
+                None,
+                Gio.DBusSignalFlags.NONE,
+                self.on_dbus_signal,
+                None
+            )
 
-    def do_startup(self):
-        debug('Startup')
-        Gio.Application.do_startup(self)
+            stdin = GLib.IOChannel.unix_new(sys.stdin.fileno())
+            stdin.set_encoding(None)
+            stdin.set_buffered(False)
 
+            GLib.io_add_watch(stdin, GLib.PRIORITY_DEFAULT, GLib.IOCondition.IN, self.on_input, None)
+            GLib.io_add_watch(stdin, GLib.PRIORITY_DEFAULT, GLib.IOCondition.HUP, self.on_hup, None)
+            GLib.io_add_watch(stdin, GLib.PRIORITY_DEFAULT, GLib.IOCondition.ERR, self.on_hup, None)
+        else:
+            self.add_simple_action("create-notification", self.on_create_notification, 'a{sv}')
+            self.add_simple_action("on-notification-clicked", self.on_notification_clicked, 's')
+            self.add_simple_action("on-notification-action", self.on_notification_action, '(si)')
 
-    def do_shutdown(self):
-        debug('Shutdown')
-        Gio.Application.do_shutdown(self)
+            GLib.timeout_add_seconds(5 * 60, self.on_service_timeout, None)
+
+        GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, signal.SIGINT, self.on_sigint, None)
+
+        if not run_as_service or not self.get_is_remote():
+            self.hold()
+
+    # Is there any way to hook this to shutdown?
+    def cleanup(self):
+        debug('Cleanup')
 
         if self.shellAppearedId:
             Gio.bus_unwatch_name(self.shellAppearedId)
 
         if self.shellSignalId:
-            self.proxy.disconnect(self.shellSignalId)
+            self.get_dbus_connection().signal_unsubscribe(self.shellSignalId)
 
+    def default_exception_hook(self, exception_type, value, tb):
+        logError("Uncaught exception of type %s occured" % exception_type)
+        traceback.print_tb(tb)
+        logError("Exception: %s" % value)
 
-    def do_activate(self, app):
-        debug('Activate')
-        Gio.Application.do_activate(self)
+        self.release()
 
+    def add_simple_action(self, name, callback, parameter_type):
+        action = Gio.SimpleAction.new(
+            name,
+            GLib.VariantType.new(parameter_type) if parameter_type is not None else None
+        )
+        action.connect('activate', callback)
+        self.add_action(action)
 
     def do_local_command_line(self, arguments):
-        stdin = GLib.IOChannel.unix_new(sys.stdin.fileno())
-        stdin.set_encoding(None)
-        stdin.set_buffered(False)
+        if '--gapplication-service' in arguments:
+            arguments.remove('--gapplication-service')
 
-        GLib.unix_signal_add(GLib.PRIORITY_DEFAULT, signal.SIGINT, self.on_sigint, None)
-        GLib.io_add_watch(stdin, GLib.PRIORITY_DEFAULT, GLib.IOCondition.IN, self.on_input, None)
-        GLib.io_add_watch(stdin, GLib.PRIORITY_DEFAULT, GLib.IOCondition.HUP, self.on_hup, None)
-        GLib.io_add_watch(stdin, GLib.PRIORITY_DEFAULT, GLib.IOCondition.ERR, self.on_hup, None)
+        return Gio.Application.do_local_command_line(self, arguments)
 
-        self.hold()
+    # Service events
+    def on_create_notification(self, object, request):
+        debug('On create notification')
 
-        return (True, None, 0)
+        request = request.unpack()
 
+        notification = Gio.Notification.new(request['title'])
+        notification.set_body(request['message'])
+        notification.set_priority(Gio.NotificationPriority.NORMAL)
+        notification.set_default_action_and_target(
+            "app.on-notification-clicked",
+            GLib.Variant.new_string(request['name'])
+        )
 
+        if 'buttons' in request:
+            for button_id, button in enumerate(request['buttons']):
+                notification.add_button_with_target(
+                    button['title'],
+                    "app.on-notification-action",
+                    GLib.Variant.new_tuple(
+                        GLib.Variant.new_string(request['name']),
+                        GLib.Variant.new_int32(button_id)
+                    )
+                )
+
+        self.send_notification(request['name'], notification)
+
+    def on_notification_action(self, notification, parameters):
+        debug('Notification %s action: %s' % parameters.unpack())
+
+        self.get_dbus_connection().emit_signal(
+            None,
+            self.get_dbus_object_path(),
+            self.get_application_id(),
+            "NotificationAction",
+            parameters
+        )
+
+    def on_notification_clicked(self, notification, notification_name):
+        debug('Notification %s clicked' % (notification_name))
+
+        self.get_dbus_connection().emit_signal(
+            None,
+            self.get_dbus_object_path(),
+            self.get_application_id(),
+            "NotificationClicked",
+            GLib.Variant.new_tuple(notification_name)
+        )
+
+    def on_service_timeout(self, data):
+        debug('On service timeout')
+        self.release()
+
+        return False
+
+    # Native messaging events
     def on_input(self, source, condition, data):
         debug('On input')
         text_length_bytes = source.read(MESSAGE_LENGTH_SIZE)
@@ -132,29 +212,63 @@ class ChromeGNOMEShell(Gio.Application):
 
             self.process_request(request)
 
+        return True
 
-    def on_shell_signal(self, d_bus_proxy, sender_name, signal_name, parameters):
-        if signal_name == 'ExtensionStatusChanged':
-            debug('Signal: to %s' % signal_name)
+    def on_dbus_signal(self, connection, sender_name, object_path, interface_name, signal_name, parameters, user_data):
+        debug('Signal %s from %s' % (signal_name, interface_name))
+
+        if interface_name == "org.gnome.Shell.Extensions" and signal_name == 'ExtensionStatusChanged':
             self.send_message({'signal': signal_name, 'parameters': parameters.unpack()})
-            debug('Signal: from %s' % signal_name)
+        elif interface_name == self.get_application_id():
+            if signal_name == 'NotificationAction':
+                notification_name, button_id = parameters.unpack()
 
+                self.send_message({
+                    'signal': "NotificationAction",
+                    'name': notification_name,
+                    'button_id': button_id
+                })
+            elif signal_name == 'NotificationClicked':
+                (notification_name,) = parameters.unpack()
+
+                self.send_message({
+                    'signal': "NotificationClicked",
+                    'name': notification_name
+                })
 
     def on_shell_appeared(self, connection, name, name_owner):
         debug('Signal: to %s' % name)
         self.send_message({'signal': name})
         debug('Signal: from %s' % name)
 
-
+    # General events
     def on_hup(self, source, condition, data):
         debug('On hup: %s' % str(condition))
         self.release()
 
+        return False
 
     def on_sigint(self, data):
         debug('On sigint')
         self.release()
 
+        return False
+
+    # Helpers
+    def dbus_call_response(self, method, parameters, resultProperty):
+        try:
+            result = self.shell_proxy.call_sync(method,
+                                                parameters,
+                                                Gio.DBusCallFlags.NONE,
+                                                -1,
+                                                None)
+
+            self.send_message({'success': True, resultProperty: result.unpack()[0]})
+        except GLib.GError as e:
+            self.send_error(e.message)
+
+    def send_error(self, message):
+        self.send_message({'success': False, 'message': message})
 
     # Helper function that sends a message to the webapp.
     def send_message(self, response):
@@ -178,30 +292,51 @@ class ChromeGNOMEShell(Gio.Application):
             logError('IOError occured: %s' % e.strerror)
             sys.exit(1)
 
+    def get_variant(self, data, basic_type = False):
+        if isinstance(data, ("".__class__, u"".__class__)) or type(data) is int or basic_type:
+            if isinstance(data, ("".__class__, u"".__class__)):
+                return GLib.Variant.new_string(data)
+            elif type(data) is int:
+                return GLib.Variant.new_int32(data)
+            else:
+                raise Exception("Unknown basic data type: %s, %s" % (type(data), str(data)))
+        elif type(data) is list:
+            variant_builder = GLib.VariantBuilder.new(GLib.VariantType.new('av'))
 
-    def send_error(self, message):
-        self.send_message({'success': False, 'message': message})
+            for value in data:
+                variant_builder.add_value(GLib.Variant.new_variant(self.get_variant(value)))
 
+            return variant_builder.end()
 
-    def dbus_call_response(self, method, parameters, resultProperty):
-        try:
-            result = self.proxy.call_sync(method,
-                                     parameters,
-                                     Gio.DBusCallFlags.NONE,
-                                     -1,
-                                     None)
+        elif type(data) is dict:
+            variant_builder = GLib.VariantBuilder.new(GLib.VariantType.new('a{sv}'))
 
-            self.send_message({'success': True, resultProperty: result.unpack()[0]})
-        except GLib.GError as e:
-            self.send_error(e.message)
+            for key in data:
+                if data[key] is None:
+                    continue
 
+                if sys.version < '3':
+                    # noinspection PyUnresolvedReferences
+                    key_string = unicode(key)
+                else:
+                    key_string = str(key)
+
+                variant_builder.add_value(
+                    GLib.Variant.new_dict_entry(
+                        self.get_variant(key_string, True), GLib.Variant.new_variant(self.get_variant(data[key]))
+                    )
+                )
+
+            return variant_builder.end()
+        else:
+            raise Exception("Unknown data type: %s" % type(data))
 
     def process_request(self, request):
         debug('Execute: to %s' % request['execute'])
 
         if request['execute'] == 'initialize':
             settings = Gio.Settings.new(SHELL_SCHEMA)
-            shellVersion = self.proxy.get_cached_property("ShellVersion")
+            shellVersion = self.shell_proxy.get_cached_property("ShellVersion")
             if EXTENSION_DISABLE_VERSION_CHECK_KEY in settings.keys():
                 disableVersionCheck = settings.get_boolean(EXTENSION_DISABLE_VERSION_CHECK_KEY)
             else:
@@ -214,25 +349,42 @@ class ChromeGNOMEShell(Gio.Application):
                         'connectorVersion': CONNECTOR_VERSION,
                         'shellVersion': shellVersion.unpack(),
                         'versionValidationEnabled': not disableVersionCheck
-                    }
+                    },
+                    'supports': [
+                        'notifications',
+                        'update-check'
+                    ]
                 }
             )
 
         elif request['execute'] == 'subscribeSignals':
             if not self.shellAppearedId:
-                self.shellAppearedId = Gio.bus_watch_name(Gio.BusType.SESSION,
-                                                     'org.gnome.Shell',
-                                                     Gio.BusNameWatcherFlags.NONE,
-                                                     self.on_shell_appeared,
-                                                     None)
+                self.shellAppearedId = Gio.bus_watch_name_on_connection(
+                    self.get_dbus_connection(),
+                    'org.gnome.Shell',
+                    Gio.BusNameWatcherFlags.NONE,
+                    self.on_shell_appeared,
+                    None
+                )
 
             if not self.shellSignalId:
-                self.shellSignalId = self.proxy.connect('g-signal', self.on_shell_signal)
+                self.shellSignalId = self.get_dbus_connection().signal_subscribe(
+                    "org.gnome.Shell",
+                    "org.gnome.Shell.Extensions",
+                    "ExtensionStatusChanged",
+                    "/org/gnome/Shell",
+                    None,
+                    Gio.DBusSignalFlags.NONE,
+                    self.on_dbus_signal,
+                    None
+                )
 
         elif request['execute'] == 'installExtension':
-            self.dbus_call_response("InstallRemoteExtension",
-                               GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
-                               "status")
+            self.dbus_call_response(
+                "InstallRemoteExtension",
+                GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
+                "status"
+            )
 
         elif request['execute'] == 'listExtensions':
             self.dbus_call_response("ListExtensions", None, "extensions")
@@ -291,8 +443,20 @@ class ChromeGNOMEShell(Gio.Application):
 
             self.check_update(update_url)
 
+        elif request['execute'] == 'createNotification':
+            Gio.DBusActionGroup.get(
+                app.get_dbus_connection(),
+                app.get_application_id(),
+                app.get_dbus_object_path()
+            ).activate_action('create-notification', self.get_variant({
+                'name': request['name'],
+                'title': request['options']['title'],
+                'message': request['options']['message'],
+                'buttons' : request['options']['buttons']
+            }))
 
-
+        elif request['execute'] == 'removeNotification':
+            self.withdraw_notification(request['name'])
 
         debug('Execute: from %s' % request['execute'])
 
@@ -307,7 +471,7 @@ class ChromeGNOMEShell(Gio.Application):
 
         if extensions:
             http_request = {
-                'shell_version': self.proxy.get_cached_property("ShellVersion").unpack(),
+                'shell_version': self.shell_proxy.get_cached_property("ShellVersion").unpack(),
                 'installed': {}
             }
 
@@ -342,15 +506,22 @@ class ChromeGNOMEShell(Gio.Application):
                     requests.ConnectionError, requests.HTTPError, requests.Timeout,
                     requests.TooManyRedirects, requests.RequestException, ValueError
                     ) as ex:
-                logError('Unable to check extensions updates: %s' % (str(ex.message) if ('message' in ex) else str(ex)))
-                self.send_message({'success': False, 'message': str(ex.message) if ('message' in ex) else str(ex)})
+                error_message = str(ex.message) if ('message' in ex) else str(ex)
+                logError('Unable to check extensions updates: %s' % error_message)
+
+                request_url = ex.response.url if ex.response is not None else ex.request.url
+                if request_url:
+                    url_parameters = request_url.replace(update_url, "")
+                    error_message = error_message.replace(url_parameters, "…")
+
+                self.send_message({'success': False, 'message': error_message})
 
 
 if __name__ == '__main__':
     debug('Main. Use CTRL+D to quit.')
+    app = ChromeGNOMEShell('--gapplication-service' in sys.argv)
 
-    app = ChromeGNOMEShell()
-    app.register()
     app.run(sys.argv)
+    app.cleanup()
 
     debug('Quit')

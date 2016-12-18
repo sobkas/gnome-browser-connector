@@ -22,6 +22,8 @@ MESSAGE_NEXT_UPDATE_CHANGED		= 'gs-next-update-changed';
 MESSAGE_SYNC_FROM_REMOTE		= 'gs-sync-from-remote';
 
 SIGNAL_EXTENSION_CHANGED		= 'ExtensionStatusChanged';
+SIGNAL_NOTIFICATION_ACTION		= 'NotificationAction';
+SIGNAL_NOTIFICATION_CLICKED		= 'NotificationClicked';
 SIGNAL_SHELL_APPEARED			= 'org.gnome.Shell';
 
 EXTENSION_CHANGED_UUID			= 0;

@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.gnome.ChromeGnomeShell
+Exec=${CMAKE_INSTALL_FULL_BINDIR}/chrome-gnome-shell --gapplication-service

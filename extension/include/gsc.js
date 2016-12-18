@@ -23,59 +23,78 @@ GSC = (function() {
 	});
 	ready.catch(function() {});
 
+	var onInitialize = new Promise((resolve, reject) => {
+		sendNativeRequest({ execute: "initialize" }, (response) => {
+			if(response && response.success)
+			{
+				resolve(response);
+			}
+			else
+			{
+				reject(response);
+			}
+		});
+	});
+
+	function sendNativeRequest(request, sendResponse) {
+		ready.then(function () {
+			if (sendResponse)
+			{
+				chrome.runtime.sendNativeMessage(
+					NATIVE_HOST,
+					request,
+					function (response) {
+						if (response)
+						{
+							sendResponse(response);
+						}
+						else
+						{
+							var message = m('no_host_connector');
+							if (
+								chrome.runtime.lastError &&
+								chrome.runtime.lastError.message &&
+								chrome.runtime.lastError.message.indexOf("host not found") === -1
+							)
+							{
+								// Some error occured. Show to user
+								message = chrome.runtime.lastError.message;
+							}
+
+							sendResponse({
+								success: false,
+								message: message
+							});
+						}
+					}
+				);
+			}
+			else
+			{
+				chrome.runtime.sendNativeMessage(NATIVE_HOST, request);
+			}
+		}, function () {
+			if (sendResponse)
+			{
+				sendResponse({
+					success: false,
+					message: m('platform_not_supported')
+				});
+			}
+		});
+	}
+
+	function isSupported(feature, response) {
+		return response.supports && response.supports.indexOf(feature) !== -1;
+	}
+
 	return {
 		// https://wiki.gnome.org/Projects/GnomeShell/Extensions/UUIDGuidelines
 		isUUID: function(uuid) {
 			return uuid && uuid.match('^[-a-zA-Z0-9@._]+$');
 		},
 
-		sendNativeRequest: function(request, sendResponse) {
-			ready.then(function() {
-				if(sendResponse)
-				{
-					chrome.runtime.sendNativeMessage(
-						NATIVE_HOST,
-						request,
-						function (response) {
-							if (response)
-							{
-								sendResponse(response);
-							}
-							else
-							{
-								var message = m('no_host_connector');
-								if(
-									chrome.runtime.lastError &&
-									chrome.runtime.lastError.message &&
-									chrome.runtime.lastError.message.indexOf("host not found") === -1
-								)
-								{
-									// Some error occured. Show to user
-									message = chrome.runtime.lastError.message;
-								}
-
-								sendResponse({
-									success: false,
-									message: message
-								});
-							}
-						}
-					);
-				}
-				else
-				{
-					chrome.runtime.sendNativeMessage(NATIVE_HOST, request);
-				}
-			}, function() {
-				if(sendResponse)
-				{
-					sendResponse({
-						success: false,
-						message: m('platform_not_supported')
-					});
-				}
-			});
-		},
+		sendNativeRequest: sendNativeRequest,
 
 		isSignalsEqual: function(newSignal, oldSignal) {
 			if(!oldSignal || !newSignal)
@@ -106,6 +125,14 @@ GSC = (function() {
 			}
 
 			return true;
+		},
+
+		onInitialize: function() {
+			return onInitialize;
+		},
+
+		nativeNotificationsSupported: function (response) {
+			return isSupported('notifications', response);
 		}
 	};
 })();

@@ -22,6 +22,15 @@ GSC.sync = (function($) {
 			return;
 		}
 
+		function onNotificationAction(notificationId, buttonIndex) {
+			if (notificationId !== NOTIFICATION_SYNC_FAILED)
+			{
+				return;
+			}
+
+			GSC.notifications.remove(notificationId);
+		}
+
 		onSyncFromRemote();
 		chrome.storage.onChanged.addListener(function(changes, areaName) {
 			if(areaName === 'sync' && changes.extensions)
@@ -42,11 +51,30 @@ GSC.sync = (function($) {
 			}
 		);
 
-		chrome.notifications.onButtonClicked.addListener(function (notificationId, buttonIndex) {
-			if (notificationId !== NOTIFICATION_SYNC_FAILED)
-				return;
-
-			GSC.notifications.remove(notificationId);
+		GSC.onInitialize().then(response => {
+			/*
+				@Deprecated: remove browser notifications in version 9
+			 */
+			if (!GSC.nativeNotificationsSupported(response))
+			{
+				chrome.notifications.onButtonClicked.addListener(onNotificationAction);
+			}
+			else
+			{
+				chrome.runtime.onMessage.addListener(
+					function (request, sender, sendResponse) {
+						if(
+							sender.id && sender.id === GS_CHROME_ID &&
+							request && request.signal)
+						{
+							if(request.signal == SIGNAL_NOTIFICATION_ACTION)
+							{
+								onNotificationAction(request.name, request.button_id);
+							}
+						}
+					}
+				);
+			}
 		});
 	}
 

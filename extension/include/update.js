@@ -180,6 +180,28 @@ GSC.update = (function($) {
 	}
 
 	function init() {
+		function onNotificationAction(notificationId, buttonIndex) {
+			if ($.inArray(notificationId, [NOTIFICATION_UPDATE_AVAILABLE, NOTIFICATION_UPDATE_CHECK_FAILED]) === -1)
+				return;
+
+			if (notificationId === NOTIFICATION_UPDATE_CHECK_FAILED && buttonIndex == 0)
+			{
+				check();
+			}
+
+			GSC.notifications.remove(notificationId);
+		}
+
+		function onNotificationClicked(notificationId) {
+			if (notificationId === NOTIFICATION_UPDATE_AVAILABLE)
+			{
+				chrome.tabs.create({
+					url: EXTENSIONS_WEBSITE + 'local/',
+					active: true
+				});
+			}
+		}
+
 		chrome.alarms.onAlarm.addListener(function (alarm) {
 			if (alarm.name === ALARM_UPDATE_CHECK)
 			{
@@ -198,26 +220,38 @@ GSC.update = (function($) {
 			}
 		});
 
-		chrome.notifications.onClicked.addListener(function (notificationId) {
-			if (notificationId === NOTIFICATION_UPDATE_AVAILABLE)
+		GSC.onInitialize().then(response => {
+			/*
+				@Deprecated: remove browser notifications in version 9
+			 */
+			if (!GSC.nativeNotificationsSupported(response))
 			{
-				chrome.tabs.create({
-					url: EXTENSIONS_WEBSITE + 'local/',
-					active: true
+				chrome.notifications.onClicked.addListener(function (notificationId) {
+					onNotificationClicked(notificationId);
 				});
+
+				chrome.notifications.onButtonClicked.addListener(onNotificationAction);
 			}
-		});
-
-		chrome.notifications.onButtonClicked.addListener(function (notificationId, buttonIndex) {
-			if ($.inArray(notificationId, [NOTIFICATION_UPDATE_AVAILABLE, NOTIFICATION_UPDATE_CHECK_FAILED]) === -1)
-				return;
-
-			if (notificationId === NOTIFICATION_UPDATE_CHECK_FAILED && buttonIndex === 0)
+			else
 			{
-				check();
+				chrome.runtime.onMessage.addListener(
+					function (request, sender, sendResponse) {
+						if(
+							sender.id && sender.id === GS_CHROME_ID &&
+							request && request.signal)
+						{
+							if(request.signal == SIGNAL_NOTIFICATION_ACTION)
+							{
+								onNotificationAction(request.name, request.button_id);
+							}
+							else if(request.signal == SIGNAL_NOTIFICATION_CLICKED)
+							{
+								onNotificationClicked(request.name);
+							}
+						}
+					}
+				);
 			}
-
-			GSC.notifications.remove(notificationId);
 		});
 
 		chrome.storage.onChanged.addListener(function (changes, areaName) {

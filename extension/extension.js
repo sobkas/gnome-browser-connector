@@ -74,77 +74,103 @@ var port = chrome.runtime.connectNative(NATIVE_HOST);
  * Native host messaging events handler.
  */
 port.onMessage.addListener(function (message) {
-	if (message && message.signal && [SIGNAL_EXTENSION_CHANGED, SIGNAL_SHELL_APPEARED].indexOf(message.signal) !== -1)
+	if (message && message.signal)
 	{
-		/*
-		 * Skip duplicate events. This is happens eg when extension is installed.
-		 */
-		if((new Date().getTime()) - lastPortMessage.date < 1000 && GSC.isSignalsEqual(message, lastPortMessage.message))
-		{
-			lastPortMessage.date = new Date().getTime();
-			return;
-		}
-
-		/*
-		 * Send events to opened extensions.gnome.org tabs
-		 */
-		chrome.tabs.query({
-			url: EXTENSIONS_WEBSITE + '*'
-		},
-		function (tabs) {
-			for (k in tabs)
-			{
-				chrome.tabs.sendMessage(tabs[k].id, message);
-			}
-		});
-
-		/*
-		 * Route message to Options page.
-		 */
-		chrome.runtime.sendMessage(GS_CHROME_ID, message);
-		if(message.signal === SIGNAL_EXTENSION_CHANGED)
+		if([SIGNAL_EXTENSION_CHANGED, SIGNAL_SHELL_APPEARED].indexOf(message.signal) !== -1)
 		{
 			/*
-			 * GNOME Shell sends 2 events when extension is uninstalled:
-			 * "disabled" event and then "uninstalled" event.
-			 * Let's delay any "disabled" event and drop it if
-			 * "uninstalled" event received within 1,5 secs.
+			 * Skip duplicate events. This is happens eg when extension is installed.
 			 */
-			if(message.parameters[EXTENSION_CHANGED_STATE] === EXTENSION_STATE.DISABLED)
+			if ((new Date().getTime()) - lastPortMessage.date < 1000 && GSC.isSignalsEqual(message, lastPortMessage.message))
 			{
-				disabledExtensionTimeout = setTimeout(function() {
+				lastPortMessage.date = new Date().getTime();
+				return;
+			}
+
+			/*
+			 * Send events to opened extensions.gnome.org tabs
+			 */
+			chrome.tabs.query({
+					url: EXTENSIONS_WEBSITE + '*'
+				},
+				function (tabs) {
+					for (k in tabs)
+					{
+						chrome.tabs.sendMessage(tabs[k].id, message);
+					}
+				});
+
+			/*
+			 * Route message to Options page.
+			 */
+			chrome.runtime.sendMessage(GS_CHROME_ID, message);
+			if (message.signal === SIGNAL_EXTENSION_CHANGED)
+			{
+				/*
+				 * GNOME Shell sends 2 events when extension is uninstalled:
+				 * "disabled" event and then "uninstalled" event.
+				 * Let's delay any "disabled" event and drop it if
+				 * "uninstalled" event received within 1,5 secs.
+				 */
+				if (message.parameters[EXTENSION_CHANGED_STATE] === EXTENSION_STATE.DISABLED)
+				{
+					disabledExtensionTimeout = setTimeout(function () {
+						disabledExtensionTimeout = null;
+						GSC.sync.onExtensionChanged(message);
+					}, 1500);
+				}
+				else if (
+					disabledExtensionTimeout &&
+					message.parameters[EXTENSION_CHANGED_STATE] === EXTENSION_STATE.UNINSTALLED &&
+					lastPortMessage.message.signal === SIGNAL_EXTENSION_CHANGED &&
+					lastPortMessage.message.parameters[EXTENSION_CHANGED_UUID] === message.parameters[EXTENSION_CHANGED_UUID] &&
+					lastPortMessage.message.parameters[EXTENSION_CHANGED_STATE] === EXTENSION_STATE.DISABLED
+				)
+				{
+					clearTimeout(disabledExtensionTimeout);
 					disabledExtensionTimeout = null;
 					GSC.sync.onExtensionChanged(message);
-				}, 1500);
+				}
+				else
+				{
+					GSC.sync.onExtensionChanged(message);
+				}
 			}
-			else if(
-				disabledExtensionTimeout &&
-				message.parameters[EXTENSION_CHANGED_STATE] === EXTENSION_STATE.UNINSTALLED &&
-				lastPortMessage.message.signal === SIGNAL_EXTENSION_CHANGED &&
-				lastPortMessage.message.parameters[EXTENSION_CHANGED_UUID] === message.parameters[EXTENSION_CHANGED_UUID] &&
-				lastPortMessage.message.parameters[EXTENSION_CHANGED_STATE] === EXTENSION_STATE.DISABLED
-			)
-			{
-				clearTimeout(disabledExtensionTimeout);
-				disabledExtensionTimeout = null;
-				GSC.sync.onExtensionChanged(message);
-			}
-			else
-			{
-				GSC.sync.onExtensionChanged(message);
-			}
-		}
 
-		lastPortMessage = {
-			message: message,
-			date: new Date().getTime()
-		};
+			lastPortMessage = {
+				message: message,
+				date: new Date().getTime()
+			};
+		}
+		else if([SIGNAL_NOTIFICATION_ACTION, SIGNAL_NOTIFICATION_CLICKED].indexOf(message.signal) != -1)
+		{
+			chrome.runtime.sendMessage(message);
+		}
 	}
 });
 /*
- * Subsctibe to GNOME Shell signals
+ * Subscribe to GNOME Shell signals
  */
 port.postMessage({execute: 'subscribeSignals'});
+
+chrome.runtime.onMessage.addListener(
+	function (request, sender, sendResponse) {
+		if(
+			sender.id && sender.id === GS_CHROME_ID &&
+			request && request.execute)
+		{
+			switch (request.execute)
+			{
+				case 'createNotification':
+					port.postMessage(request);
+					break;
+				case 'removeNotification':
+					port.postMessage(request);
+					break;
+			}
+		}
+	}
+);
 
 chrome.runtime.getPlatformInfo(function(info) {
 	if (PLATFORMS_WHITELIST.indexOf(info.os) !== -1)
