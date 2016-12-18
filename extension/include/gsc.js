@@ -133,6 +133,10 @@ GSC = (function() {
 
 		nativeNotificationsSupported: function (response) {
 			return isSupported('notifications', response);
+		},
+
+		nativeUpdateCheckSupported: function (response) {
+			return isSupported('update-check', response);
 		}
 	};
 })();

@@ -27,13 +27,13 @@ GSC.update = (function($) {
 	}
 
 	function check() {
-		GSC.sendNativeRequest({execute: 'initialize'}, function (response) {
+		GSC.onInitialize().then(response => {
 			if (response.success)
 			{
 				var shellVersion = response.properties.shellVersion;
 
 				// TODO: remove deprecated in version 9
-				if(response.properties.connectorVersion >= 8)
+				if(GSC.nativeUpdateCheckSupported(response))
 				{
 					GSC.sendNativeRequest({execute: 'checkUpdate', url: UPDATE_URL}, function (response) {
 						if (response.success)
