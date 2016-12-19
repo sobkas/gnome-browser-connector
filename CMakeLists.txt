@@ -148,6 +148,8 @@ if(BUILD_CONNECTOR)
 			"${CMAKE_BINARY_DIR}/")
 	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/connector/org.gnome.chrome_gnome_shell.json"
 			"${CMAKE_BINARY_DIR}/")
+	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/connector/org.gnome.ChromeGnomeShell.service.in"
+			"${CMAKE_BINARY_DIR}/org.gnome.ChromeGnomeShell.service")
 	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/policies/chrome-gnome-shell.json"
 			"${CMAKE_BINARY_DIR}/")
 
@@ -174,6 +176,19 @@ if(BUILD_CONNECTOR)
 	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/opt/chrome/native-messaging-hosts/")
 	install(FILES "${CMAKE_BINARY_DIR}/chrome-gnome-shell.json" DESTINATION "/etc/opt/chrome/policies/managed/")
 	install(FILES "${CMAKE_BINARY_DIR}/chrome-gnome-shell.json" DESTINATION "/etc/chromium/policies/managed/")
+
+	install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/connector/org.gnome.ChromeGnomeShell.desktop" DESTINATION "${CMAKE_INSTALL_DATADIR}/applications/")
+	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.ChromeGnomeShell.service" DESTINATION "${CMAKE_INSTALL_DATADIR}/dbus-1/services/")
+
+	install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/extension/icons/GnomeLogo-16.png"
+		DESTINATION "${CMAKE_INSTALL_DATADIR}/icons/gnome/16x16/apps/"
+		RENAME org.gnome.ChromeGnomeShell.png)
+	install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/extension/icons/GnomeLogo-48.png"
+		DESTINATION "${CMAKE_INSTALL_DATADIR}/icons/gnome/48x48/apps/"
+		RENAME org.gnome.ChromeGnomeShell.png)
+	install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/extension/icons/GnomeLogo-128.png"
+		DESTINATION "${CMAKE_INSTALL_DATADIR}/icons/gnome/128x128/apps/"
+		RENAME org.gnome.ChromeGnomeShell.png)
 
 	# There is wrong patch in FreeBSD that forces Chromium to look into
 	# /usr/local/etc/chrome/native-messaging-hosts for native messaging host manifest.
