@@ -287,7 +287,7 @@ class ChromeGNOMEShell(Gio.Application):
             stdout.write_chars(struct.pack(b'I', message_length), MESSAGE_LENGTH_SIZE)
 
             # Write the message itself.
-            stdout.write_chars(message, message_length)
+            stdout.write_chars(message.encode('utf-8'), message_length)
         except IOError as e:
             logError('IOError occured: %s' % e.strerror)
             sys.exit(1)
