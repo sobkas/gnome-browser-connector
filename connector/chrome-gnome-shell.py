@@ -335,6 +335,7 @@ class ChromeGNOMEShell(Gio.Application):
                     continue
 
                 if sys.version < '3':
+                    # pylint: disable=E0602
                     # noinspection PyUnresolvedReferences
                     key_string = unicode(key)
                 else:
