@@ -61,6 +61,7 @@ class ChromeGNOMEShell(Gio.Application):
         self.shellSignalId = None
 
         # Set custom exception hook
+        # noinspection SpellCheckingInspection
         sys.excepthook = self.default_exception_hook
 
         self.register()
@@ -136,6 +137,7 @@ class ChromeGNOMEShell(Gio.Application):
         return Gio.Application.do_local_command_line(self, arguments)
 
     # Service events
+    # noinspection PyUnusedLocal
     def on_create_notification(self, source, request):
         debug('On create notification')
 
@@ -162,6 +164,7 @@ class ChromeGNOMEShell(Gio.Application):
 
         self.send_notification(request['name'], notification)
 
+    # noinspection PyUnusedLocal
     def on_notification_action(self, notification, parameters):
         debug('Notification %s action: %s' % parameters.unpack())
 
@@ -173,6 +176,7 @@ class ChromeGNOMEShell(Gio.Application):
             parameters
         )
 
+    # noinspection PyUnusedLocal
     def on_notification_clicked(self, notification, notification_name):
         debug('Notification %s clicked' % notification_name)
 
@@ -184,6 +188,7 @@ class ChromeGNOMEShell(Gio.Application):
             GLib.Variant.new_tuple(notification_name)
         )
 
+    # noinspection PyUnusedLocal
     def on_service_timeout(self, data):
         debug('On service timeout')
         self.release()
@@ -191,6 +196,7 @@ class ChromeGNOMEShell(Gio.Application):
         return False
 
     # Native messaging events
+    # noinspection PyUnusedLocal
     def on_input(self, source, condition, data):
         debug('On input')
         text_length_bytes = source.read(MESSAGE_LENGTH_SIZE)
@@ -216,6 +222,7 @@ class ChromeGNOMEShell(Gio.Application):
 
         return True
 
+    # noinspection SpellCheckingInspection,PyUnusedLocal
     def on_dbus_signal(self, connection, sender_name, object_path, interface_name, signal_name, parameters, user_data):
         debug('Signal %s from %s' % (signal_name, interface_name))
 
@@ -238,18 +245,21 @@ class ChromeGNOMEShell(Gio.Application):
                     'name': notification_name
                 })
 
+    # noinspection PyUnusedLocal
     def on_shell_appeared(self, connection, name, name_owner):
         debug('Signal: to %s' % name)
         self.send_message({'signal': name})
         debug('Signal: from %s' % name)
 
     # General events
+    # noinspection PyUnusedLocal
     def on_hup(self, source, condition, data):
         debug('On hup: %s' % str(condition))
         self.release()
 
         return False
 
+    # noinspection PyUnusedLocal
     def on_sigint(self, data):
         debug('On sigint')
         self.release()
@@ -257,6 +267,7 @@ class ChromeGNOMEShell(Gio.Application):
         return False
 
     # Helpers
+    # noinspection SpellCheckingInspection
     def dbus_call_response(self, method, parameters, result_property):
         try:
             result = self.shell_proxy.call_sync(method,
