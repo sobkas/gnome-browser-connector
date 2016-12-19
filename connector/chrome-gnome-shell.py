@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-'''
+"""
     GNOME Shell integration for Chrome
     Copyright (C) 2016  Yuri Konotopov <ykonotopov@gmail.com>
 
@@ -9,11 +9,11 @@
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
-'''
+"""
 
 from __future__ import unicode_literals
 from __future__ import print_function
-from gi.repository import GLib, Gio, GObject
+from gi.repository import GLib, Gio
 import json
 import os
 import re
@@ -23,8 +23,8 @@ import struct
 import sys
 import traceback
 
-CONNECTOR_VERSION	= 7.2
-DEBUG_ENABLED		= False
+CONNECTOR_VERSION = 7.2
+DEBUG_ENABLED = False
 
 SHELL_SCHEMA = "org.gnome.shell"
 ENABLED_EXTENSIONS_KEY = "enabled-extensions"
@@ -33,27 +33,29 @@ EXTENSION_DISABLE_VERSION_CHECK_KEY = "disable-extension-version-validation"
 # https://developer.chrome.com/extensions/nativeMessaging#native-messaging-host-protocol
 MESSAGE_LENGTH_SIZE = 4
 
+
 # https://wiki.gnome.org/Projects/GnomeShell/Extensions/UUIDGuidelines
-def isUUID(uuid):
+def is_uuid(uuid):
     return uuid is not None and re.match('[-a-zA-Z0-9@._]+$', uuid) is not None
 
 
 def debug(message):
     if DEBUG_ENABLED:
-        logError(message)
+        log_error(message)
 
 
-def logError(message):
+def log_error(message):
     print('[%d] %s' % (os.getpid(), message), file=sys.stderr)
 
 
 class ChromeGNOMEShell(Gio.Application):
     def __init__(self, run_as_service):
-        Gio.Application.__init__(self,
-                                 application_id='org.gnome.ChromeGnomeShell',
-                                 flags=Gio.ApplicationFlags.IS_SERVICE if run_as_service
-                                    else Gio.ApplicationFlags.IS_LAUNCHER | Gio.ApplicationFlags.HANDLES_OPEN
-                                 )
+        Gio.Application.__init__(
+            self,
+            application_id='org.gnome.ChromeGnomeShell',
+            flags=Gio.ApplicationFlags.IS_SERVICE if run_as_service
+            else Gio.ApplicationFlags.IS_LAUNCHER | Gio.ApplicationFlags.HANDLES_OPEN
+        )
 
         self.shellAppearedId = None
         self.shellSignalId = None
@@ -113,9 +115,9 @@ class ChromeGNOMEShell(Gio.Application):
             self.get_dbus_connection().signal_unsubscribe(self.shellSignalId)
 
     def default_exception_hook(self, exception_type, value, tb):
-        logError("Uncaught exception of type %s occured" % exception_type)
+        log_error("Uncaught exception of type %s occured" % exception_type)
         traceback.print_tb(tb)
-        logError("Exception: %s" % value)
+        log_error("Exception: %s" % value)
 
         self.release()
 
@@ -134,7 +136,7 @@ class ChromeGNOMEShell(Gio.Application):
         return Gio.Application.do_local_command_line(self, arguments)
 
     # Service events
-    def on_create_notification(self, object, request):
+    def on_create_notification(self, source, request):
         debug('On create notification')
 
         request = request.unpack()
@@ -172,7 +174,7 @@ class ChromeGNOMEShell(Gio.Application):
         )
 
     def on_notification_clicked(self, notification, notification_name):
-        debug('Notification %s clicked' % (notification_name))
+        debug('Notification %s clicked' % notification_name)
 
         self.get_dbus_connection().emit_signal(
             None,
@@ -207,7 +209,7 @@ class ChromeGNOMEShell(Gio.Application):
         request = json.loads(text)
 
         if 'execute' in request:
-            if 'uuid' in request and not isUUID(request['uuid']):
+            if 'uuid' in request and not is_uuid(request['uuid']):
                 return
 
             self.process_request(request)
@@ -255,7 +257,7 @@ class ChromeGNOMEShell(Gio.Application):
         return False
 
     # Helpers
-    def dbus_call_response(self, method, parameters, resultProperty):
+    def dbus_call_response(self, method, parameters, result_property):
         try:
             result = self.shell_proxy.call_sync(method,
                                                 parameters,
@@ -263,20 +265,26 @@ class ChromeGNOMEShell(Gio.Application):
                                                 -1,
                                                 None)
 
-            self.send_message({'success': True, resultProperty: result.unpack()[0]})
+            self.send_message({'success': True, result_property: result.unpack()[0]})
         except GLib.GError as e:
             self.send_error(e.message)
 
     def send_error(self, message):
         self.send_message({'success': False, 'message': message})
 
-    # Helper function that sends a message to the webapp.
-    def send_message(self, response):
+    @staticmethod
+    def send_message(response):
+        """
+        Helper function that sends a message to the webapp.
+        :param response: dictionary of response data
+        :return: None
+        """
+
         message = json.dumps(response)
         message_length = len(message.encode('utf-8'))
 
         if message_length > 1024*1024:
-            logError('Too long message (%d): "%s"' % (message_length, message))
+            log_error('Too long message (%d): "%s"' % (message_length, message))
             return
 
         try:
@@ -289,10 +297,10 @@ class ChromeGNOMEShell(Gio.Application):
             # Write the message itself.
             stdout.write_chars(message.encode('utf-8'), message_length)
         except IOError as e:
-            logError('IOError occured: %s' % e.strerror)
+            log_error('IOError occured: %s' % e.strerror)
             sys.exit(1)
 
-    def get_variant(self, data, basic_type = False):
+    def get_variant(self, data, basic_type=False):
         if isinstance(data, ("".__class__, u"".__class__)) or type(data) is int or basic_type:
             if isinstance(data, ("".__class__, u"".__class__)):
                 return GLib.Variant.new_string(data)
@@ -336,19 +344,19 @@ class ChromeGNOMEShell(Gio.Application):
 
         if request['execute'] == 'initialize':
             settings = Gio.Settings.new(SHELL_SCHEMA)
-            shellVersion = self.shell_proxy.get_cached_property("ShellVersion")
+            shell_version = self.shell_proxy.get_cached_property("ShellVersion")
             if EXTENSION_DISABLE_VERSION_CHECK_KEY in settings.keys():
-                disableVersionCheck = settings.get_boolean(EXTENSION_DISABLE_VERSION_CHECK_KEY)
+                disable_version_check = settings.get_boolean(EXTENSION_DISABLE_VERSION_CHECK_KEY)
             else:
-                disableVersionCheck = False
+                disable_version_check = False
 
             self.send_message(
                 {
                     'success': True,
                     'properties': {
                         'connectorVersion': CONNECTOR_VERSION,
-                        'shellVersion': shellVersion.unpack(),
-                        'versionValidationEnabled': not disableVersionCheck
+                        'shellVersion': shell_version.unpack(),
+                        'versionValidationEnabled': not disable_version_check
                     },
                     'supports': [
                         'notifications',
@@ -397,10 +405,10 @@ class ChromeGNOMEShell(Gio.Application):
             if 'extensions' in request:
                 extensions = request['extensions']
             else:
-                extensions.append({'uuid': request['uuid'], 'enable': request['enable'] })
+                extensions.append({'uuid': request['uuid'], 'enable': request['enable']})
 
             for extension in extensions:
-                if not isUUID(extension['uuid']):
+                if not is_uuid(extension['uuid']):
                     continue
 
                 if extension['enable']:
@@ -413,28 +421,28 @@ class ChromeGNOMEShell(Gio.Application):
             self.send_message({'success': True})
 
         elif request['execute'] == 'launchExtensionPrefs':
-            self.proxy.call("LaunchExtensionPrefs",
-                       GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
-                       Gio.DBusCallFlags.NONE,
-                       -1,
-                       None,
-                       None,
-                       None)
+            self.shell_proxy.call("LaunchExtensionPrefs",
+                                  GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
+                                  Gio.DBusCallFlags.NONE,
+                                  -1,
+                                  None,
+                                  None,
+                                  None)
 
         elif request['execute'] == 'getExtensionErrors':
             self.dbus_call_response("GetExtensionErrors",
-                               GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
-                               "extensionErrors")
+                                    GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
+                                    "extensionErrors")
 
         elif request['execute'] == 'getExtensionInfo':
             self.dbus_call_response("GetExtensionInfo",
-                               GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
-                               "extensionInfo")
+                                    GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
+                                    "extensionInfo")
 
         elif request['execute'] == 'uninstallExtension':
             self.dbus_call_response("UninstallExtension",
-                               GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
-                               "status")
+                                    GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
+                                    "status")
 
         elif request['execute'] == 'checkUpdate':
             update_url = 'https://extensions.gnome.org/update-info/'
@@ -452,7 +460,7 @@ class ChromeGNOMEShell(Gio.Application):
                 'name': request['name'],
                 'title': request['options']['title'],
                 'message': request['options']['message'],
-                'buttons' : request['options']['buttons']
+                'buttons': request['options']['buttons']
             }))
 
         elif request['execute'] == 'removeNotification':
@@ -461,11 +469,13 @@ class ChromeGNOMEShell(Gio.Application):
         debug('Execute: from %s' % request['execute'])
 
     def check_update(self, update_url):
-        result = self.proxy.call_sync("ListExtensions",
-                                 None,
-                                 Gio.DBusCallFlags.NONE,
-                                 -1,
-                                 None)
+        result = self.shell_proxy.call_sync(
+            "ListExtensions",
+            None,
+            Gio.DBusCallFlags.NONE,
+            -1,
+            None
+        )
 
         extensions = result.unpack()[0]
 
@@ -478,7 +488,7 @@ class ChromeGNOMEShell(Gio.Application):
             for uuid in extensions:
                 # gnome-shell/js/misc/extensionUtils.js
                 # EXTENSION_TYPE.PER_USER = 2
-                if isUUID(uuid) and extensions[uuid]['type'] == 2:
+                if is_uuid(uuid) and extensions[uuid]['type'] == 2:
                     try:
                         http_request['installed'][uuid] = {
                             'version': int(extensions[uuid]['version'])
@@ -492,22 +502,22 @@ class ChromeGNOMEShell(Gio.Application):
 
             try:
                 response = requests.get(
-                                        update_url,
-                                        params=http_request,
-                                        timeout=5
-                                        )
+                    update_url,
+                    params=http_request,
+                    timeout=5
+                )
                 response.raise_for_status()
                 self.send_message({
-                             'success': True,
-                             'extensions': extensions,
-                             'upgrade': response.json()}
-                             )
+                    'success': True,
+                    'extensions': extensions,
+                    'upgrade': response.json()}
+                )
             except (
                     requests.ConnectionError, requests.HTTPError, requests.Timeout,
                     requests.TooManyRedirects, requests.RequestException, ValueError
                     ) as ex:
                 error_message = str(ex.message) if ('message' in ex) else str(ex)
-                logError('Unable to check extensions updates: %s' % error_message)
+                log_error('Unable to check extensions updates: %s' % error_message)
 
                 request_url = ex.response.url if ex.response is not None else ex.request.url
                 if request_url:
