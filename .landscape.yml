@@ -9,3 +9,5 @@ python-targets:
 pylint:
   disable:
     - unused-argument
+pyflakes:
+  run: false
