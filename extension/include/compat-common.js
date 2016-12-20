@@ -49,7 +49,7 @@ if(typeof(chrome.permissions) === 'undefined')
 	COMPAT.PERMISSIONS_CONTAINS = false;
 }
 
-if(typeof(chrome.storage.sync) === 'undefined')
+if(typeof(chrome.storage.sync) === 'undefined' || COMPAT.IS_FIREFOX)
 {
 	chrome.storage.sync = chrome.storage.local;
 	COMPAT.SYNC_STORAGE = false;
