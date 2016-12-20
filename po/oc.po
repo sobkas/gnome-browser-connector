@@ -1,84 +1,83 @@
-# German translation for GNOME Shell integration for Chrome
+# Occitan translation for chrome-gnome-shell.
+# Copyright (C) 2016 chrome-gnome-shell's COPYRIGHT HOLDER
+# This file is distributed under the same license as the chrome-gnome-shell package.
 #
-# This file is auto generated with chrome-messages2pot tool.
-#
-# Stefan Kirrmann, 2016.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2016.
-# Wolfgang Stöggl <c72578@yahoo.de>, 2016.
-#
+# Cédric VALMARY <cvalmary@yahoo.fr>, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.0\n"
+"Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
 "POT-Creation-Date: 2016-11-19 19:31+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
-"Language-Team: \n"
-"Language: de\n"
+"PO-Revision-Date: 2016-10-24 08:18+0200\n"
+"Last-Translator: Cédric VALMARY <cvalmary@yahoo.fr>\n"
+"Language-Team: Tot en òc (totenoc.eu)\n"
+"Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.9\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
-msgstr "Schließen"
+msgstr "Tampar"
 
 #. Shown to user when Web extension sent request to native host messaging
 #. application and waiting for result.
 #: chrome-gnome-shell-key-connecting_host_app:1
 msgid "Connecting to native host application…"
-msgstr "Verbindung mit nativer Rechneranwendung wird hergestellt …"
+msgstr "Connexion a una aplicacion nativa de l'òste…"
 
 #. Shown to user when response of extension API call does not follow known
 #. format.
 #: chrome-gnome-shell-key-error_extension_response:1
 msgid "Wrong extension response received"
-msgstr "Falsche Antwort von Erweiterung erhalten"
+msgstr "Marrida responsa recebuda de l'extension"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension
 #. enabled?'
 #: chrome-gnome-shell-key-extension_enabled:1
 msgid "Enabled"
-msgstr "Aktiviert"
+msgstr "Activat"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension
 #. installed?'
 #: chrome-gnome-shell-key-extension_installed:1
 msgid "Installed"
-msgstr "Installiert"
+msgstr "Installat"
 
 #. Used as title, eg in table header. Means 'GNOME Shell extension name'.
 #: chrome-gnome-shell-key-extension_name:1
 msgid "Extension"
-msgstr "Erweiterung"
+msgstr "Extension"
 
 #. This is a part of phrase like 'Extension Top Icons must be downgraded'.
 #: chrome-gnome-shell-key-extension_status_downgrade:1
 msgid "must be downgraded"
-msgstr "muss zurückgestuft werden"
+msgstr "deu èsser retrogradat"
 
 #. This is a part of phrase like 'Extension Top Icons can be upgraded'.
 #: chrome-gnome-shell-key-extension_status_upgrade:1
 msgid "can be upgraded"
-msgstr "kann aktualisiert werden"
+msgstr "pòt èsser mes a nivèl"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension status
 #. synchronized with remote browser storage?'
 #: chrome-gnome-shell-key-extension_synchronized:1
 msgid "Synchronized"
-msgstr "Abgeglichenen"
+msgstr "Sincronizat"
 
 #. This is a project title. Used as extension name in Chrome Store and in some
 #. titlebars.
 #: chrome-gnome-shell-key-gs_chrome:1
 msgid "GNOME Shell integration"
-msgstr "GNOME Shell-Integration"
+msgstr "Integracion a GNOME Shell"
 
 #. This is a part of phrase 'Update check period: xx hours'
 #: chrome-gnome-shell-key-hours:1
 msgid "hours"
-msgstr "Stunden"
+msgstr "oras"
 
 #. Used as extension description in Chrome Store
 #: chrome-gnome-shell-key-manifest_description:1
@@ -86,8 +85,8 @@ msgid ""
 "This extension provides integration with GNOME Shell and the corresponding "
 "extensions repository https://extensions.gnome.org"
 msgstr ""
-"Diese Erweiterung ermöglicht die Integration mit der GNOME Shell und dem "
-"dazugehörenden Erweiterungs-Repository von https://extensions.gnome.org"
+"Aquesta extension permet l'integracion a GNOME Shell e a las extensions "
+"correspondentas del depaus https://extensions.gnome.org"
 
 #. $REQUEST$ is a placeholder for technical name of request that web extension
 #. make via native messaging host application.
@@ -97,24 +96,24 @@ msgstr ""
 #.
 #: chrome-gnome-shell-key-native_request_failed:1
 msgid "«$REQUEST$» native request failed"
-msgstr "«$REQUEST$» Native Anfrage fehlgeschlagen"
+msgstr "La requèsta nativa « $REQUEST$ » a fracassat"
 
 #: chrome-gnome-shell-key-network_error:1
 msgid ""
 "A network error has occurred. Please check your Internet connection and/or "
 "proxy settings."
 msgstr ""
-"Ein Netzwerkfehler ist aufgetreten. Bitte überprüfen Sie Ihre "
-"Internetverbindung und/oder Ihre Proxy-Einstellungen."
+"Una error de ret s'es produita. Verificatz vòstra connexion Internet e/o los "
+"paramètres de vòstre servidor mandatari."
 
 #. This is a part of phrase 'Last check: never'
 #: chrome-gnome-shell-key-never:1
 msgid "never"
-msgstr "niemals"
+msgstr "jamai"
 
 #: chrome-gnome-shell-key-no:1
 msgid "No"
-msgstr "Nein"
+msgstr "Non"
 
 #: chrome-gnome-shell-key-no_host_connector:1
 msgid ""
@@ -123,76 +122,75 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions about installing connector."
 msgstr ""
-"Obwohl die GNOME Shell-Integrations-Erweiterung läuft, wurde der Native Host-"
-"Connector nicht erkannt. In <a href='https://wiki.gnome.org/Projects/"
-"GnomeShellIntegrationForChrome/Installation'>documentation</a> finden Sie "
-"Anweisungen zum Installieren des Connectors."
+"Quitament se l'extension d'integracion a GNOME Shell es activa, lo "
+"connectador de l'òste natiu es pas reconegut. Consultatz lo <a href='https://"
+"wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>manual</"
+"a> d'installacion del connectador."
 
 #. Means 'Web extension does not received answer from native messaging host
 #. application.'
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
-msgstr "Keine Antwort vom Host"
+msgstr "Pas cap de responsa de l'òste"
 
 #. Part of phrase eg 'You are using different versions of GNOME Shell
 #. integration extension (version 5) and native host connector (older than
 #. version 4)'.
 #: chrome-gnome-shell-key-older_connector:1
 msgid "older than version 4"
-msgstr "älter als Version 4"
+msgstr "mai ancian que la version 4"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
 #: chrome-gnome-shell-key-options_check_period:1
 msgid "Update check period"
-msgstr "Prüfintervall für Aktualisierungen"
+msgstr "Periodicitat de las verificacions de mesa a jorn"
 
 #. This is a start of phrase (followed by date/time) of last GNOME Shell
 #. extensions update check.
 #: chrome-gnome-shell-key-options_last_check:1
 msgid "Last check"
-msgstr "Letzte Prüfung"
+msgstr "Darrièra verificacion"
 
 #. Link name for options tab.
 #: chrome-gnome-shell-key-options_link:1
 msgid "Options"
-msgstr "Optionen"
+msgstr "Opcions"
 
 #. This is a start of phrase (followed by date/time) of next GNOME Shell
 #. extensions update check.
 #: chrome-gnome-shell-key-options_next_check:1
 msgid "Next check"
-msgstr "Nächste Prüfung"
+msgstr "Verificacion seguenta"
 
 #. Means 'Options were saved successfully after user clicked Save button'
 #: chrome-gnome-shell-key-options_saved:1
 msgid "Options saved."
-msgstr "Optionen gespeichert."
+msgstr "Opcions enregistradas."
 
 #. Option name. By default Chrome do not reveal exact network error in case of
 #. request failure. Allow enable/disable extended error information.
 #: chrome-gnome-shell-key-options_show_network_errors:1
 msgid "Show information about network errors"
-msgstr "Informationen zu Netzwerkfehlern anzeigen"
+msgstr "Afichar las informacions sus las errors de ret"
 
 #. This is a notice under option name. Warns user that additional browser
 #. permission is required if option will be enabled.
 #: chrome-gnome-shell-key-options_show_network_errors_notice:1
 msgid "Chrome permission «webRequest» required."
-msgstr "Chrome-Zugriffsrecht »webRequest« ist erforderlich."
+msgstr "Permission « webRequest » de Chrome requesida."
 
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
 msgid "Show release notes when extension updated"
-msgstr ""
-"Veröffentlichungshinweise anzeigen, wenn Erweiterungen aktualisiert wurden"
+msgstr "Afichar las nòtas de version aprèp la mesa a jorn de l'extension"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
 msgid "Synchronize extensions list"
-msgstr "Erweiterungsliste abgleichen"
+msgstr "Sincronizar la lista de las extensions"
 
 #. This is a notice under option name.
 #: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
@@ -200,8 +198,8 @@ msgid ""
 "If enabled, your GNOME Shell extensions list will be synchronized with your "
 "Google account."
 msgstr ""
-"Falls aktiviert, wird die Liste Ihrer Erweiterungen für die GNOME Shell mit "
-"Ihrem Google-Konto abgeglichen."
+"Se activat, vòstra lista d'extensions GNOME Shell serà sincronizada amb "
+"vòstre compte Google."
 
 #. $GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This
 #. string used as title for Options page. This title is not shown in Chrome,
@@ -212,33 +210,34 @@ msgstr ""
 #.
 #: chrome-gnome-shell-key-options_title:1
 msgid "$GS_CHROME$ options"
-msgstr "$GS_CHROME$-Optionen"
+msgstr "Opcions $GS_CHROME$"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
 msgid "Check for extensions update"
-msgstr "Auf Aktualisierungen für Erweiterungen prüfen"
+msgstr "Verificar las mesas a jorn de las extensions"
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
-msgstr "Nativer Host-Connector wird auf dieser Plattform nicht unterstützt."
+msgstr ""
+"Lo connectador natiu de l'òste es pas pres en carga per vòstra plataforma."
 
 #: chrome-gnome-shell-key-retry:1
 msgid "Retry"
-msgstr "Wiederholen"
+msgstr "Tornar ensajar"
 
 #: chrome-gnome-shell-key-save:1
 msgid "Save"
-msgstr "Speichern"
+msgstr "Enregistrar"
 
 #. Link name for synchronization tab in options dialog.
 #: chrome-gnome-shell-key-synchronization:1
 msgid "Synchronization"
-msgstr "Abgleich"
+msgstr "Sincronizacion"
 
 #: chrome-gnome-shell-key-synchronization_cancel:1
 msgid "Do not enable synchronization."
-msgstr "Abgleich nicht aktivieren."
+msgstr "Activar pas la sincronizac*ion."
 
 #. $CAUSE$ is placeholder for error that caused synchronization failure.
 #.
@@ -247,45 +246,42 @@ msgstr "Abgleich nicht aktivieren."
 #.
 #: chrome-gnome-shell-key-synchronization_failed:1
 msgid "Failed to synchronize extensions: $CAUSE$"
-msgstr "Abgleich der Erweiterungen ist fehlgeschlagen: $CAUSE$"
+msgstr "Impossible de sincronizar las extensions : $CAUSE$"
 
 #: chrome-gnome-shell-key-synchronization_storage_exists:1
 msgid "Your remote synchronization storage already contains extensions list."
 msgstr ""
-"Ihr entfernter Abgleichspeicher enthält bereits eine Erweiterungsliste."
+"Vòstre emmagazinatge de sincronizacion distant conten ja una lista "
+"d'extensions."
 
 #: chrome-gnome-shell-key-synchronization_use_local:1
 msgid "Use local extensions list, overwrite remote."
-msgstr ""
-"Lokale Erweiterungsliste verwenden, wodurch die entfernte Liste außer Kraft "
-"gesetzt wird."
+msgstr "Utilizar la lista d'extensions locala, espotir la lista distanta."
 
 #: chrome-gnome-shell-key-synchronization_use_remote:1
 msgid "Use remote extensions list, overwrite local."
-msgstr ""
-"Entfernte Erweiterungsliste verwenden, wodurch die lokale Liste außer Kraft "
-"gesetzt wird."
+msgstr "Utilizar la lista d'extensions distanta, espotir la lista locala."
 
 #. This is content of 'About translation' tab in Options dialog. Thank you for
 #. translation and feel free to add yourself here. HTML markup enabled for
 #. this string.
 #: chrome-gnome-shell-key-translation_credits:1
 msgid "translation_credits"
-msgstr "Stefan Kirrmann, 2016<br />Mario Blättermann, 2016"
+msgstr "Cédric Valmary <cvalmary@yahoo.fr>"
 
 #. Link name for translation credits tab in options dialog.
 #: chrome-gnome-shell-key-translation_credits_title:1
 msgid "About translation"
-msgstr "Übersetzung"
+msgstr "Traduit par"
 
 #. This should newer be shown to user. However better safe than sorry.
 #: chrome-gnome-shell-key-unknown_error:1
 msgid "unknown error"
-msgstr "Unbekannter Fehler"
+msgstr "Error desconeguda"
 
 #: chrome-gnome-shell-key-update_available:1
 msgid "An update for GNOME Shell extensions available"
-msgstr "Eine Aktualisierung für die GNOME Shell-Erweiterung ist verfügbar"
+msgstr "I a una mesa a jorn disponibla per las extensions de GNOME Shell"
 
 #. $CAUSE$ is placeholder for error that caused update failure.
 #.
@@ -294,25 +290,25 @@ msgstr "Eine Aktualisierung für die GNOME Shell-Erweiterung ist verfügbar"
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
 msgid "Failed to check extensions updates: $CAUSE$"
-msgstr "Prüfung auf Erweiterungs-Aktualisierungen ist fehlgeschlagen: $CAUSE$"
+msgstr "Impossible de verificar las mesas a jorn de las extensions : $CAUSE$"
 
 #. Part of phrase eg 'GNOME Shell integration extension (version 5)'
 #: chrome-gnome-shell-key-version:1
 msgid "version $$1"
-msgstr "Version $$1"
+msgstr "version $$1"
 
 #: chrome-gnome-shell-key-warning_versions_mismatch:1
 msgid ""
 "You are using different versions of GNOME Shell integration extension ($$1) "
 "and native host connector ($$2). Some features may not work or work wrong."
 msgstr ""
-"Sie benutzten eine andere Version der GNOME Shell-Integrations-Erweiterung ($"
-"$1) und des Nativen Host-Connectors ($$2). Manche Funktionsmerkmale stehen "
-"möglicherweise nur eingeschränkt oder gar nicht zur Verfügung."
+"Utilizatz de versions diferentas de l'extension d'integracion ($$1) a GNOME "
+"Shell e del connectador natiu ($$2) a l'òste. Es possible que certanas "
+"foncions foncionen pas o que sián faussadas."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
-msgstr "Ja"
+msgstr "Òc"
 
 #. Chrome store description
 #: chrome-gnome-shell-store-description:1
@@ -337,24 +333,23 @@ msgid ""
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
 msgstr ""
-"Sie müssen den Nativen Host-Connector installieren, damit diese Erweiterung "
-"funktioniert.\n"
+"Vos cal installar lo connectador natiu per far foncionar aquesta extension.\n"
 "\n"
-"Für Archlinux ist ein PKGBUILD im AUR verfügbar: https://aur.archlinux.org/"
-"packages/chrome-gnome-shell-git\n"
+"Per Arch Linux, i a un PKGBUILD disponible dins lo AUR : https://aur."
+"archlinux.org/packages/chrome-gnome-shell-git\n"
 "\n"
-"Für Fedora Linux ist ein Paket in einer Copr-Quelle verfügbar: https://copr."
+"Per Fedora Linux, i a un paquet disponible dins Copr : https://copr."
 "fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
 "\n"
-"In Gentoo Linux können Sie den Connector mit folgendem Befehl installieren:\n"
+"Per Gento Linux, podètz installar lo connectador per la comanda :\n"
 "emerge gnome-extra/chrome-gnome-shell\n"
 "\n"
-"Für Ubuntu Linux steht ein Paket im PPA ne0sight/chrome-gnome-shell bereit. "
-"Installieren Sie es mit folgenden Befehlen:\n"
+"Per Ubuntu Linux, i a un paquet disponible dins lo PPA ne0sight/chrome-gnome-"
+"shell. Per l'installar, executatz las comandas :\n"
 "sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
 "sudo apt-get update\n"
 "sudo apt-get install chrome-gnome-shell\n"
 "\n"
-"Sie können den Connector auch manuell installieren. Installationshinweise "
-"finden Sie auf https://wiki.gnome.org/Projects/"
+"Podètz tanben installar lo connectador manualament. Las instruccions son "
+"disponiblas dins https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation.\n"

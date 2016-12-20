@@ -1,3 +1,26 @@
+= 2016-11-19 chrome-gnome-shell 7.2 =
+
+== Changes ==
+ * Fixed Ubuntu/Debian packaging.
+ * Prepared extension to extensions.gnome.org site update.
+ * Code cleanup.
+
+== Translations ==
+ * Danish (Alan Mortensen)
+ * Occitan (Cédric Valmary)
+
+== Known issues ==
+ * Native host connector is not working in Google Chrome when installed via Debian Sid repository
+   or Ubuntu 16.10 Universe repository. To know "why?" look
+   here (https://github.com/nE0sIghT/chrome-gnome-shell-mirror/issues/17),
+   here (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=840804) and
+   here (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=840235). For a workaround
+   look here
+   (https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation#Troubleshooting).
+ * Web extension is broken on FreeBSD because of bug 212925
+   (https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212925).
+
+
 = 2016-09-24 chrome-gnome-shell 7.1 =
 
 == Changes ==
