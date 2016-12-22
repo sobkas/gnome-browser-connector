@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
 "POT-Creation-Date: 2016-12-22 18:39+0000\n"
-"PO-Revision-Date: 2016-12-20 08:00-0200\n"
+"PO-Revision-Date: 2016-12-22 21:08-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -278,7 +278,6 @@ msgstr "Falha ao verificar atualizações de extensões: $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
-#, fuzzy
 msgid ""
 "Your native host connector do not support following APIs: $$1. Probably you "
 "should upgrade native host connector or install plugins for missing APIs. "
@@ -286,10 +285,11 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Apesar da extensão de integração do GNOME Shell estar em execução, o "
-"conector nativo de máquina não foi detectado. Veja a <a href='https://wiki."
-"gnome.org/Projects/GnomeShellIntegrationForChrome/"
-"Installation'>documentação</a> para instruções sobre instalação do conector."
+"Seu conector nativo de máquina não oferece suporte a seguinte API: $$1. "
+"Provavelmente você deveria atualizar o conector nativo de máquina ou "
+"instalar plug-ins para as APIs em falta. Veja a <a href='https://wiki.gnome.o"
+"rg/Projects/GnomeShellIntegrationForChrome/Installation'>documentação</a> "
+"para instruções."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
