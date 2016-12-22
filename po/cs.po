@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
 "POT-Creation-Date: 2016-12-22 18:39+0000\n"
-"PO-Revision-Date: 2016-09-15 10:43+0200\n"
+"PO-Revision-Date: 2016-12-23 00:24+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -277,7 +277,6 @@ msgstr "Selhala kontrola aktualizací rozšíření: $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
-#, fuzzy
 msgid ""
 "Your native host connector do not support following APIs: $$1. Probably you "
 "should upgrade native host connector or install plugins for missing APIs. "
@@ -285,10 +284,11 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Ačkoliv rozšíření integrující GNOME Shell běží, nebyl nalezen konektor pro "
-"nativního hostitele. Podívejte se do <a href='https://wiki.gnome.org/"
-"Projects/GnomeShellIntegrationForChrome/Installation'>dokumentace</a>, jak "
-"konektor nainstalovat."
+"Konektor pro vašeho nativního hostitele nepodporuje následující API: $$1. "
+"Pravděpodobně jej budete muset povýšit na novější verzi nebo nainstalovat "
+"zásuvný modul pro chybějící API. Na instrukce se podívejte se do <a "
+"href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/"
+"Installation'>dokumentace</a>."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -296,7 +296,6 @@ msgstr "Ano"
 
 #. Chrome store description
 #: chrome-gnome-shell-store-description:1
-#, fuzzy
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
@@ -326,6 +325,9 @@ msgstr ""
 "Pro Arch Linux je k dispozici PKGBUILD v AUR: https://aur.archlinux.org/"
 "packages/chrome-gnome-shell-git\n"
 "\n"
+"Pro Debian Linux je k dispozici balíček dostupný pro vydání Sid a Stretch: "
+"https://tracker.debian.org/pkg/chrome-gnome-shell\n"
+"\n"
 "Pro Fedora Linux je k dispozici balíček v Copr: https://copr."
 "fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
 "\n"
@@ -340,21 +342,3 @@ msgstr ""
 "\n"
 "Můžete konektor nainstalovat i ručně. Instalační instrukce viz https://wiki."
 "gnome.org/Projects/GnomeShellIntegrationForChrome/Installation.\n"
-
-#~ msgid "older than version 4"
-#~ msgstr "starší než verze 4"
-
-#~ msgid "version $$1"
-#~ msgstr "verze $$1"
-
-#~ msgid ""
-#~ "You are using different versions of GNOME Shell integration extension ($"
-#~ "$1) and native host connector ($$2). Some features may not work or work "
-#~ "wrong."
-#~ msgstr ""
-#~ "Používáte jinou verzi rozšíření pro integraci GNOME Shell ($$1) a jiný "
-#~ "konektor pro nativního hostitele ($$2). Některé funkce nemusí fungovat "
-#~ "nebo mohou fungovat nesprávně."
-
-#~ msgid "Connecting to native host application…"
-#~ msgstr "Připojování k nativní hostitelské aplikaci…"
