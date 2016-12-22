@@ -30,7 +30,10 @@ if(COMPAT.IS_FIREFOX)
 
 					chrome.runtime.sendMessage(extensionId, message, options)
 						.then(result => {
-							responseCallback(cloneInto(result, window));
+							if(typeof(responseCallback) == 'function')
+							{
+								responseCallback(cloneInto(result, window));
+							}
 						})
 						.catch(err => {
 							console.error("firefox-external-messaging: runtime.sendMessage error", err);
