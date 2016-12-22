@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-19 17:17+0000\n"
+"POT-Creation-Date: 2016-12-22 18:39+0000\n"
 "PO-Revision-Date: 2016-10-31 20:36+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -125,13 +125,6 @@ msgstr ""
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
 msgstr "Intet svar fra vært"
-
-#. Part of phrase eg 'You are using different versions of GNOME Shell
-#. integration extension (version 5) and native host connector (older than
-#. version 4)'.
-#: chrome-gnome-shell-key-older_connector:1
-msgid "older than version 4"
-msgstr "ældre end version 4"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -289,19 +282,20 @@ msgstr "En opdatering til GNOME Shell-udvidelser er tilgængelig"
 msgid "Failed to check extensions updates: $CAUSE$"
 msgstr "Kunne ikke søge efter opdateringer til udvidelser: $CAUSE$"
 
-#. Part of phrase eg 'GNOME Shell integration extension (version 5)'
-#: chrome-gnome-shell-key-version:1
-msgid "version $$1"
-msgstr "version $$1"
-
-#: chrome-gnome-shell-key-warning_versions_mismatch:1
+#. $$1 is a placeholder for a list of missing APIs
+#: chrome-gnome-shell-key-warning_apis_missing:1
+#, fuzzy
 msgid ""
-"You are using different versions of GNOME Shell integration extension ($$1) "
-"and native host connector ($$2). Some features may not work or work wrong."
+"Your native host connector do not support following APIs: $$1. Probably you "
+"should upgrade native host connector or install plugins for missing APIs. "
+"Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions."
 msgstr ""
-"Du anvender forskellige versioner af udvidelse ($$1) til GNOME Shell-"
-"integration og oprindelig værtsforbindelseskomponent ($$2). Nogle funktioner "
-"virker måske ikke eller virker forkert."
+"Selvom udvidelsen til GNOME Shell-integration kører, kan den oprindelige "
+"værtsforbindelseskomponent ikke detekteres. Se <a href='https://wiki.gnome."
+"org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> "
+"for instruktioner vedrørende installering af forbindelseskomponent."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -355,6 +349,21 @@ msgstr ""
 "Du kan også installere forbindelseskomponenten manuelt. Se https://wiki."
 "gnome.org/Projects/GnomeShellIntegrationForChrome/Installation for "
 "instruktioner vedrørende installation.\n"
+
+#~ msgid "older than version 4"
+#~ msgstr "ældre end version 4"
+
+#~ msgid "version $$1"
+#~ msgstr "version $$1"
+
+#~ msgid ""
+#~ "You are using different versions of GNOME Shell integration extension ($"
+#~ "$1) and native host connector ($$2). Some features may not work or work "
+#~ "wrong."
+#~ msgstr ""
+#~ "Du anvender forskellige versioner af udvidelse ($$1) til GNOME Shell-"
+#~ "integration og oprindelig værtsforbindelseskomponent ($$2). Nogle "
+#~ "funktioner virker måske ikke eller virker forkert."
 
 #~ msgid "Connecting to native host application…"
 #~ msgstr "Forbinder til værtssystem…"

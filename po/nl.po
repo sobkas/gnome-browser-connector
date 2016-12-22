@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-19 17:17+0000\n"
+"POT-Creation-Date: 2016-12-22 18:39+0000\n"
 "PO-Revision-Date: 2016-08-31 12:25+0100\n"
 "Last-Translator: Hannie Dumoleyn <hannie@ubuntu-nl.org>\n"
 "Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
@@ -125,13 +125,6 @@ msgstr ""
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
 msgstr "Geen respons van host"
-
-#. Part of phrase eg 'You are using different versions of GNOME Shell
-#. integration extension (version 5) and native host connector (older than
-#. version 4)'.
-#: chrome-gnome-shell-key-older_connector:1
-msgid "older than version 4"
-msgstr "ouder dan versie 4"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -282,19 +275,20 @@ msgstr "Er is een update voor Gnome-shell extensies beschikbaar"
 msgid "Failed to check extensions updates: $CAUSE$"
 msgstr "Controleren op extensies-update mislukt: $CAUSE$"
 
-#. Part of phrase eg 'GNOME Shell integration extension (version 5)'
-#: chrome-gnome-shell-key-version:1
-msgid "version $$1"
-msgstr "versie $$1"
-
-#: chrome-gnome-shell-key-warning_versions_mismatch:1
+#. $$1 is a placeholder for a list of missing APIs
+#: chrome-gnome-shell-key-warning_apis_missing:1
+#, fuzzy
 msgid ""
-"You are using different versions of GNOME Shell integration extension ($$1) "
-"and native host connector ($$2). Some features may not work or work wrong."
+"Your native host connector do not support following APIs: $$1. Probably you "
+"should upgrade native host connector or install plugins for missing APIs. "
+"Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions."
 msgstr ""
-"U gebruikt verschillende versies van Gnome-shell integratie-extensie ($$1) "
-"en platform-eigen hostconnector ($$2). Sommige functies werken mogelijk niet "
-"of verkeerd."
+"Alhoewel de extensie Gnome-shell integratie draait, wordt de platform-eigen "
+"hostconnector niet gedetecteerd. Ga naar <a href='https://wiki.gnome.org/"
+"Projects/GnomeShellIntegrationForChrome/Installation'>documentatie</a> voor "
+"instructies met betrekking tot het installeren van de connector."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -347,6 +341,21 @@ msgstr ""
 "U kunt connector ook handmatig installeren. Zie https://wiki.gnome.org/"
 "Projects/GnomeShellIntegrationForChrome/Installation voor installatie-"
 "instructies.\n"
+
+#~ msgid "older than version 4"
+#~ msgstr "ouder dan versie 4"
+
+#~ msgid "version $$1"
+#~ msgstr "versie $$1"
+
+#~ msgid ""
+#~ "You are using different versions of GNOME Shell integration extension ($"
+#~ "$1) and native host connector ($$2). Some features may not work or work "
+#~ "wrong."
+#~ msgstr ""
+#~ "U gebruikt verschillende versies van Gnome-shell integratie-extensie ($"
+#~ "$1) en platform-eigen hostconnector ($$2). Sommige functies werken "
+#~ "mogelijk niet of verkeerd."
 
 #~ msgid "Connecting to native host application…"
 #~ msgstr "Verbinding maken met platform-eigen host-toepassing…"

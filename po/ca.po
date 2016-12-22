@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-19 17:17+0000\n"
+"POT-Creation-Date: 2016-12-22 18:39+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jordi Mas i Hernàndez <jmas@softcatala.org>\n"
 "Language-Team: ca_ES <tradgnome@softcatala.net>\n"
@@ -125,13 +125,6 @@ msgstr ""
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
 msgstr "Sense resposta de l'amfitrió:"
-
-#. Part of phrase eg 'You are using different versions of GNOME Shell
-#. integration extension (version 5) and native host connector (older than
-#. version 4)'.
-#: chrome-gnome-shell-key-older_connector:1
-msgid "older than version 4"
-msgstr "més antic de la versió 4"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -284,19 +277,21 @@ msgstr "Hi ha una actualització disponible per les extensions del GNOME Shell"
 msgid "Failed to check extensions updates: $CAUSE$"
 msgstr "La comprovació d'actualitzacions ha fallat: $CAUSE$"
 
-#. Part of phrase eg 'GNOME Shell integration extension (version 5)'
-#: chrome-gnome-shell-key-version:1
-msgid "version $$1"
-msgstr "Versió $$1"
-
-#: chrome-gnome-shell-key-warning_versions_mismatch:1
+#. $$1 is a placeholder for a list of missing APIs
+#: chrome-gnome-shell-key-warning_apis_missing:1
+#, fuzzy
 msgid ""
-"You are using different versions of GNOME Shell integration extension ($$1) "
-"and native host connector ($$2). Some features may not work or work wrong."
+"Your native host connector do not support following APIs: $$1. Probably you "
+"should upgrade native host connector or install plugins for missing APIs. "
+"Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions."
 msgstr ""
-"Esteu utilitzant diferents versions de l'extensió d'integració del GNOME "
-"Shell ($$1) i del connector amfitrió nadiu ($$2). Algunes característiques "
-"poden no funcionar o funcionar malament."
+"Encara que l'extensió d'integració del GNOME Shell està executant-se, no "
+"s'ha detectat el connector amfitrió nadiu. Vegeu la <a href='https://wiki."
+"gnome.org/Projects/GnomeShellIntegrationForChrome/"
+"Installation'>documentació</a> per obtenir instruccions de com instal·lar el "
+"connector."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -349,6 +344,21 @@ msgstr ""
 "També podeu instal·lar el connector manualment. Vegeu les instruccions "
 "d'instal·lació a https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation.\n"
+
+#~ msgid "older than version 4"
+#~ msgstr "més antic de la versió 4"
+
+#~ msgid "version $$1"
+#~ msgstr "Versió $$1"
+
+#~ msgid ""
+#~ "You are using different versions of GNOME Shell integration extension ($"
+#~ "$1) and native host connector ($$2). Some features may not work or work "
+#~ "wrong."
+#~ msgstr ""
+#~ "Esteu utilitzant diferents versions de l'extensió d'integració del GNOME "
+#~ "Shell ($$1) i del connector amfitrió nadiu ($$2). Algunes "
+#~ "característiques poden no funcionar o funcionar malament."
 
 #~ msgid "Connecting to native host application…"
 #~ msgstr "S'està connectant a una aplicació amfitriona nativa..."

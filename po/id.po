@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-19 17:17+0000\n"
+"POT-Creation-Date: 2016-12-22 18:39+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -126,13 +126,6 @@ msgstr ""
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
 msgstr "Tidak ada respon host"
-
-#. Part of phrase eg 'You are using different versions of GNOME Shell
-#. integration extension (version 5) and native host connector (older than
-#. version 4)'.
-#: chrome-gnome-shell-key-older_connector:1
-msgid "older than version 4"
-msgstr "lebih tua dari versi 4"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -282,18 +275,20 @@ msgstr "Tersedia pemutakhiran untuk Shell GNOME"
 msgid "Failed to check extensions updates: $CAUSE$"
 msgstr "Gagal memeriksa pemutakhiran ekstensi: $CAUSE$"
 
-#. Part of phrase eg 'GNOME Shell integration extension (version 5)'
-#: chrome-gnome-shell-key-version:1
-msgid "version $$1"
-msgstr "version $$1"
-
-#: chrome-gnome-shell-key-warning_versions_mismatch:1
+#. $$1 is a placeholder for a list of missing APIs
+#: chrome-gnome-shell-key-warning_apis_missing:1
+#, fuzzy
 msgid ""
-"You are using different versions of GNOME Shell integration extension ($$1) "
-"and native host connector ($$2). Some features may not work or work wrong."
+"Your native host connector do not support following APIs: $$1. Probably you "
+"should upgrade native host connector or install plugins for missing APIs. "
+"Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions."
 msgstr ""
-"Anda memakai ekstensi integrasi Shell GNOME dengan versi berbeda ($$1) dan "
-"konektor host native ($$2). Beberapa fitur mungkin tak berjalan atau salah."
+"Walaupun ektensi integrasi Shell GNOME berjalan, konektor host native tidak "
+"terdeteksi. Lihat <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>dokumentasi</a> untuk instruksi "
+"tentang memasang konektor."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -346,3 +341,18 @@ msgstr ""
 "Anda juga dapat memasang konektor secara manual. Lihat https://wiki.gnome."
 "org/Projects/GnomeShellIntegrationForChrome/Installation untuk instruksi "
 "instalasi.\n"
+
+#~ msgid "older than version 4"
+#~ msgstr "lebih tua dari versi 4"
+
+#~ msgid "version $$1"
+#~ msgstr "version $$1"
+
+#~ msgid ""
+#~ "You are using different versions of GNOME Shell integration extension ($"
+#~ "$1) and native host connector ($$2). Some features may not work or work "
+#~ "wrong."
+#~ msgstr ""
+#~ "Anda memakai ekstensi integrasi Shell GNOME dengan versi berbeda ($$1) "
+#~ "dan konektor host native ($$2). Beberapa fitur mungkin tak berjalan atau "
+#~ "salah."

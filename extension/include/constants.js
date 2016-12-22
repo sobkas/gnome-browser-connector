@@ -49,9 +49,7 @@ EXTERNAL_MESSAGES			= [
 	"connecting_host_app",
 	"error_extension_response",
 	"no_host_connector",
-	"older_connector",
-	"version",
-	"warning_versions_mismatch"
+	"warning_apis_missing"
 ];
 
 // gnome-shell/js/ui/extensionSystem.js

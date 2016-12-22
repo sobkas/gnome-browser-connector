@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-19 17:17+0000\n"
+"POT-Creation-Date: 2016-12-22 18:39+0000\n"
 "PO-Revision-Date: 2016-08-31 18:32+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
@@ -123,13 +123,6 @@ msgstr ""
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
 msgstr ""
-
-#. Part of phrase eg 'You are using different versions of GNOME Shell
-#. integration extension (version 5) and native host connector (older than
-#. version 4)'.
-#: chrome-gnome-shell-key-older_connector:1
-msgid "older than version 4"
-msgstr "vanhempi kuin versio 4"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -280,15 +273,14 @@ msgstr "Päivitys Gnome Shell -laajennuksiin on tarjolla"
 msgid "Failed to check extensions updates: $CAUSE$"
 msgstr "Laajennusten päivitysten tarkistaminen epäonnistui: $CAUSE$"
 
-#. Part of phrase eg 'GNOME Shell integration extension (version 5)'
-#: chrome-gnome-shell-key-version:1
-msgid "version $$1"
-msgstr "versio $$1"
-
-#: chrome-gnome-shell-key-warning_versions_mismatch:1
+#. $$1 is a placeholder for a list of missing APIs
+#: chrome-gnome-shell-key-warning_apis_missing:1
 msgid ""
-"You are using different versions of GNOME Shell integration extension ($$1) "
-"and native host connector ($$2). Some features may not work or work wrong."
+"Your native host connector do not support following APIs: $$1. Probably you "
+"should upgrade native host connector or install plugins for missing APIs. "
+"Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions."
 msgstr ""
 
 #: chrome-gnome-shell-key-yes:1
@@ -321,3 +313,9 @@ msgid ""
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
 msgstr ""
+
+#~ msgid "older than version 4"
+#~ msgstr "vanhempi kuin versio 4"
+
+#~ msgid "version $$1"
+#~ msgstr "versio $$1"

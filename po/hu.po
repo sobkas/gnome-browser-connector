@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-19 17:17+0000\n"
+"POT-Creation-Date: 2016-12-22 18:39+0000\n"
 "PO-Revision-Date: 2016-08-15 12:38+0200\n"
 "Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
@@ -126,13 +126,6 @@ msgstr ""
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
 msgstr "Nincs válasz a gazdától"
-
-#. Part of phrase eg 'You are using different versions of GNOME Shell
-#. integration extension (version 5) and native host connector (older than
-#. version 4)'.
-#: chrome-gnome-shell-key-older_connector:1
-msgid "older than version 4"
-msgstr "régebbi, mint a 4-es verzió"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -283,18 +276,20 @@ msgstr "Egy GNOME Shell bővítményfrissítés elérhető"
 msgid "Failed to check extensions updates: $CAUSE$"
 msgstr "A bővítményfrissítések keresése sikertelen: $CAUSE$"
 
-#. Part of phrase eg 'GNOME Shell integration extension (version 5)'
-#: chrome-gnome-shell-key-version:1
-msgid "version $$1"
-msgstr "$$1 verzió"
-
-#: chrome-gnome-shell-key-warning_versions_mismatch:1
+#. $$1 is a placeholder for a list of missing APIs
+#: chrome-gnome-shell-key-warning_apis_missing:1
+#, fuzzy
 msgid ""
-"You are using different versions of GNOME Shell integration extension ($$1) "
-"and native host connector ($$2). Some features may not work or work wrong."
+"Your native host connector do not support following APIs: $$1. Probably you "
+"should upgrade native host connector or install plugins for missing APIs. "
+"Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions."
 msgstr ""
-"A GNOME Shell integrációs bővítmény ($$1) és a natív gazdacsatlakozó ($$2) "
-"verziói eltérnek. Néhány funkció lehet hogy nem, vagy hibásan működik."
+"Ugyan a GNOME Shell integrációs bővítmény fut, a natív gazdacsatlakozó nem "
+"észlelhető. Nézze meg a <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>dokumentációt</a> a csatlakozó "
+"telepítési utasításaiért."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -347,6 +342,20 @@ msgstr ""
 "Kézzel is telepítheti a csatlakozót. Lásd a https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation oldalt a telepítési "
 "utasításokért.\n"
+
+#~ msgid "older than version 4"
+#~ msgstr "régebbi, mint a 4-es verzió"
+
+#~ msgid "version $$1"
+#~ msgstr "$$1 verzió"
+
+#~ msgid ""
+#~ "You are using different versions of GNOME Shell integration extension ($"
+#~ "$1) and native host connector ($$2). Some features may not work or work "
+#~ "wrong."
+#~ msgstr ""
+#~ "A GNOME Shell integrációs bővítmény ($$1) és a natív gazdacsatlakozó ($"
+#~ "$2) verziói eltérnek. Néhány funkció lehet hogy nem, vagy hibásan működik."
 
 #~ msgid "Connecting to native host application…"
 #~ msgstr "Kapcsolódás a natív gazdaalkalmazáshoz…"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-19 17:17+0000\n"
+"POT-Creation-Date: 2016-12-22 18:39+0000\n"
 "PO-Revision-Date: 2016-09-01 00:42+0200\n"
 "Last-Translator: Alain Lojewski <allomervan@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
@@ -124,13 +124,6 @@ msgstr ""
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
 msgstr "Aucune réponse de l'hôte"
-
-#. Part of phrase eg 'You are using different versions of GNOME Shell
-#. integration extension (version 5) and native host connector (older than
-#. version 4)'.
-#: chrome-gnome-shell-key-older_connector:1
-msgid "older than version 4"
-msgstr "plus ancien que la version 4"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -287,19 +280,20 @@ msgstr "Il y a une mise à jour disponible pour les extensions de GNOME Shell"
 msgid "Failed to check extensions updates: $CAUSE$"
 msgstr "Impossible de vérifier les mises à jour des extensions : $CAUSE$"
 
-#. Part of phrase eg 'GNOME Shell integration extension (version 5)'
-#: chrome-gnome-shell-key-version:1
-msgid "version $$1"
-msgstr "version $$1"
-
-#: chrome-gnome-shell-key-warning_versions_mismatch:1
+#. $$1 is a placeholder for a list of missing APIs
+#: chrome-gnome-shell-key-warning_apis_missing:1
+#, fuzzy
 msgid ""
-"You are using different versions of GNOME Shell integration extension ($$1) "
-"and native host connector ($$2). Some features may not work or work wrong."
+"Your native host connector do not support following APIs: $$1. Probably you "
+"should upgrade native host connector or install plugins for missing APIs. "
+"Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions."
 msgstr ""
-"Vous utilisez des versions différentes de l'extension d'intégration ($$1) à "
-"GNOME Shell et du connecteur natif ($$2) à l'hôte. Certaines fonctions "
-"pourraient ne pas marcher ou être faussées."
+"Bien que l'extension d'intégration à GNOME Shell soit active, le connecteur "
+"de l'hôte natif n'est pas reconnu. Veuillez consulter le <a href='https://"
+"wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>manuel</"
+"a> d'installation du connecteur."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -353,6 +347,21 @@ msgstr ""
 "Vous pouvez aussi installer le connecteur manuellement. Les instructions "
 "sont disponibles dans https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation.\n"
+
+#~ msgid "older than version 4"
+#~ msgstr "plus ancien que la version 4"
+
+#~ msgid "version $$1"
+#~ msgstr "version $$1"
+
+#~ msgid ""
+#~ "You are using different versions of GNOME Shell integration extension ($"
+#~ "$1) and native host connector ($$2). Some features may not work or work "
+#~ "wrong."
+#~ msgstr ""
+#~ "Vous utilisez des versions différentes de l'extension d'intégration ($$1) "
+#~ "à GNOME Shell et du connecteur natif ($$2) à l'hôte. Certaines fonctions "
+#~ "pourraient ne pas marcher ou être faussées."
 
 #~ msgid "Connecting to native host application…"
 #~ msgstr "Connexion à une application native de l'hôte…"

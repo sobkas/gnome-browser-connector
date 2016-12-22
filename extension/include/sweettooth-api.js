@@ -76,19 +76,27 @@ window.SweetTooth = function () {
 				apiObject.shellVersion = response.shellVersion;
 				apiObject.versionValidationEnabled = response.versionValidationEnabled;
 
-				if (!response.connectorVersion || response.connectorVersion != GS_CHROME_VERSION)
-				{
-					if (!response.connectorVersion)
-					{
-						response.connectorVersion = GSC.getMessage('older_connector');
-					}
-					else
-					{
-						response.connectorVersion = GSC.getMessage('version', response.connectorVersion);
-					}
+				let REQUIRED_APIS = [
+					"notifications",
+					"update-check"
+				];
 
+				if(response.supports)
+				{
+					for(let api in response.supports)
+					{
+						let api_index;
+						if((api_index = REQUIRED_APIS.index(api)) != -1)
+						{
+							REQUIRED_APIS.splice(api_index, 1);
+						}
+					}
+				}
+
+				if (REQUIRED_APIS.length > 0)
+				{
 					require(['messages'], function (messages) {
-						messages.addWarning(GSC.getMessage('warning_versions_mismatch', GSC.getMessage('version', GS_CHROME_VERSION), response.connectorVersion));
+						messages.addWarning(GSC.getMessage('warning_apis_missing', REQUIRED_APIS.join(", ")));
 					});
 				}
 			}, function (message) {

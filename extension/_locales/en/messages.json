@@ -182,15 +182,8 @@
 	"no_host_connector": {
 		"message": "Although GNOME Shell integration extension is running, native host connector is not detected. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions about installing connector."
 	},
-	"older_connector": {
-		"message": "older than version 4",
-		"description": "Part of phrase eg 'You are using different versions of GNOME Shell integration extension (version 5) and native host connector (older than version 4)'."
-	},
-	"version": {
-		"message": "version $$1",
-		"description": "Part of phrase eg 'GNOME Shell integration extension (version 5)'"
-	},
-	"warning_versions_mismatch": {
-		"message": "You are using different versions of GNOME Shell integration extension ($$1) and native host connector ($$2). Some features may not work or work wrong."
+	"warning_apis_missing": {
+		"message": "Your native host connector do not support following APIs: $$1. Probably you should upgrade native host connector or install plugins for missing APIs. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions.",
+		"description": "$$1 is a placeholder for a list of missing APIs"
 	}
 }

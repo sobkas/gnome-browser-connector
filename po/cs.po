@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-19 17:17+0000\n"
+"POT-Creation-Date: 2016-12-22 18:39+0000\n"
 "PO-Revision-Date: 2016-09-15 10:43+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
@@ -125,13 +125,6 @@ msgstr ""
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
 msgstr "Žádný hostitel neodpovídá"
-
-#. Part of phrase eg 'You are using different versions of GNOME Shell
-#. integration extension (version 5) and native host connector (older than
-#. version 4)'.
-#: chrome-gnome-shell-key-older_connector:1
-msgid "older than version 4"
-msgstr "starší než verze 4"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -282,19 +275,20 @@ msgstr "Je dostupná aktualizace rozšíření GNOME Shell"
 msgid "Failed to check extensions updates: $CAUSE$"
 msgstr "Selhala kontrola aktualizací rozšíření: $CAUSE$"
 
-#. Part of phrase eg 'GNOME Shell integration extension (version 5)'
-#: chrome-gnome-shell-key-version:1
-msgid "version $$1"
-msgstr "verze $$1"
-
-#: chrome-gnome-shell-key-warning_versions_mismatch:1
+#. $$1 is a placeholder for a list of missing APIs
+#: chrome-gnome-shell-key-warning_apis_missing:1
+#, fuzzy
 msgid ""
-"You are using different versions of GNOME Shell integration extension ($$1) "
-"and native host connector ($$2). Some features may not work or work wrong."
+"Your native host connector do not support following APIs: $$1. Probably you "
+"should upgrade native host connector or install plugins for missing APIs. "
+"Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions."
 msgstr ""
-"Používáte jinou verzi rozšíření pro integraci GNOME Shell ($$1) a jiný "
-"konektor pro nativního hostitele ($$2). Některé funkce nemusí fungovat nebo "
-"mohou fungovat nesprávně."
+"Ačkoliv rozšíření integrující GNOME Shell běží, nebyl nalezen konektor pro "
+"nativního hostitele. Podívejte se do <a href='https://wiki.gnome.org/"
+"Projects/GnomeShellIntegrationForChrome/Installation'>dokumentace</a>, jak "
+"konektor nainstalovat."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -346,6 +340,21 @@ msgstr ""
 "\n"
 "Můžete konektor nainstalovat i ručně. Instalační instrukce viz https://wiki."
 "gnome.org/Projects/GnomeShellIntegrationForChrome/Installation.\n"
+
+#~ msgid "older than version 4"
+#~ msgstr "starší než verze 4"
+
+#~ msgid "version $$1"
+#~ msgstr "verze $$1"
+
+#~ msgid ""
+#~ "You are using different versions of GNOME Shell integration extension ($"
+#~ "$1) and native host connector ($$2). Some features may not work or work "
+#~ "wrong."
+#~ msgstr ""
+#~ "Používáte jinou verzi rozšíření pro integraci GNOME Shell ($$1) a jiný "
+#~ "konektor pro nativního hostitele ($$2). Některé funkce nemusí fungovat "
+#~ "nebo mohou fungovat nesprávně."
 
 #~ msgid "Connecting to native host application…"
 #~ msgstr "Připojování k nativní hostitelské aplikaci…"
