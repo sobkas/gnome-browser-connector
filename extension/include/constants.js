@@ -33,7 +33,7 @@ EXTENSION_CHANGED_UUID			= 0;
 EXTENSION_CHANGED_STATE			= 1;
 EXTENSION_CHANGED_ERROR			= 2;
 
-NATIVE_HOST				= 'io.github.ne0sight.gs_chrome_connector';
+NATIVE_HOST				= 'org.gnome.chrome_gnome_shell';
 
 EXTENSIONS_WEBSITE			= 'https://extensions.gnome.org/';
 UPDATE_URL				= EXTENSIONS_WEBSITE + 'update-info/';

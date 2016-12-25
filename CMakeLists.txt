@@ -155,8 +155,6 @@ if(BUILD_CONNECTOR)
 	add_custom_target(build-connector ALL
                        COMMAND ${PYTHON_EXECUTABLE} ${CONNECTOR_SETUP} build)
 
-	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/connector/io.github.ne0sight.gs_chrome_connector.json"
-			"${CMAKE_BINARY_DIR}/")
 	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/connector/org.gnome.chrome_gnome_shell.json"
 			"${CMAKE_BINARY_DIR}/")
 	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/connector/org.gnome.ChromeGnomeShell.service.in"
@@ -168,11 +166,7 @@ if(BUILD_CONNECTOR)
 			COMMAND "${JQ_EXECUTABLE}" -s "'add|del(.allowed_origins)'"
 				"${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json"
 				"${CMAKE_CURRENT_SOURCE_DIR}/connector/org.gnome.chrome_gnome_shell.firefox.json"
-				> "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.firefox.json"
-			COMMAND "${JQ_EXECUTABLE}" -s "'add|del(.allowed_origins)'"
-				"${CMAKE_BINARY_DIR}/io.github.ne0sight.gs_chrome_connector.json"
-				"${CMAKE_CURRENT_SOURCE_DIR}/connector/org.gnome.chrome_gnome_shell.firefox.json"
-				> "${CMAKE_BINARY_DIR}/io.github.ne0sight.gs_chrome_connector.firefox.json")
+				> "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.firefox.json")
 
 	if(USE_DEBIAN_LAYOUT)
 		set(DISTUTILS_EXTRA_ARGS "--install-layout=deb")
@@ -191,13 +185,8 @@ if(BUILD_CONNECTOR)
 					install ${DISTUTILS_EXTRA_ARGS}
 						--root \"\${DESTDIR}\"
 						--prefix \"${CMAKE_INSTALL_PREFIX}\")")
-	install(FILES "${CMAKE_BINARY_DIR}/io.github.ne0sight.gs_chrome_connector.json" DESTINATION "/etc/chromium/native-messaging-hosts/")
-	install(FILES "${CMAKE_BINARY_DIR}/io.github.ne0sight.gs_chrome_connector.json" DESTINATION "/etc/opt/chrome/native-messaging-hosts/")
 	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/chromium/native-messaging-hosts/")
 	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/opt/chrome/native-messaging-hosts/")
-	install(FILES "${CMAKE_BINARY_DIR}/io.github.ne0sight.gs_chrome_connector.firefox.json"
-			DESTINATION "${CMAKE_INSTALL_LIBDIR}/mozilla/native-messaging-hosts/"
-			RENAME "io.github.ne0sight.gs_chrome_connector.json")
 	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.firefox.json"
 			DESTINATION "${CMAKE_INSTALL_LIBDIR}/mozilla/native-messaging-hosts/"
 			RENAME "org.gnome.chrome_gnome_shell.json")
@@ -221,7 +210,6 @@ if(BUILD_CONNECTOR)
 	# /usr/local/etc/chrome/native-messaging-hosts for native messaging host manifest.
 	# https://svn0.us-east.freebsd.org/ports/head/www/chromium/files/patch-chrome_common_chrome__paths.cc
 	if(CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
-		install(FILES "${CMAKE_BINARY_DIR}/io.github.ne0sight.gs_chrome_connector.json" DESTINATION "/usr/local/etc/chrome/native-messaging-hosts/")
 		install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/usr/local/etc/chrome/native-messaging-hosts/")
 		install(FILES "${CMAKE_BINARY_DIR}/chrome-gnome-shell.json" DESTINATION "/usr/local/etc/chrome/policies/managed/")
 	endif(CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
