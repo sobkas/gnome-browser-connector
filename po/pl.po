@@ -272,7 +272,6 @@ msgstr "Wyszukanie aktualizacji rozszerzeń się nie powiodło: $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
-#, fuzzy
 msgid ""
 "Your native host connector do not support following APIs: $$1. Probably you "
 "should upgrade native host connector or install plugins for missing APIs. "
@@ -280,10 +279,10 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Chociaż rozszerzenie integracji z GNOME Shell jest uruchomione, to nie "
-"wykryto natywnego łącznika serwera. <a href='https://wiki.gnome.org/Projects/"
-"GnomeShellIntegrationForChrome/Installation'>Dokumentacja</a> zawiera "
-"instrukcje na temat instalacji łącznika."
+"Natywny łącznik serwera nie obsługuje tych API: $$1. Należy go zaktualizować "
+"lub zainstalować wtyczki dla brakujących API. <a href='https://wiki.gnome."
+"org/Projects/GnomeShellIntegrationForChrome/Installation'>Dokumentacja</a> "
+"zawiera odpowiednie instrukcje."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -291,7 +290,6 @@ msgstr "Tak"
 
 #. Chrome store description
 #: chrome-gnome-shell-store-description:1
-#, fuzzy
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
@@ -321,6 +319,9 @@ msgstr ""
 "Dla systemu Arch Linux dostępny jest pakiet PKGBUILD w repozytorium AUR: "
 "https://aur.archlinux.org/packages/chrome-gnome-shell-git\n"
 "\n"
+"Dla systemu Debian Linux dostępny jest pakiet w wersjach Sid i Stretch: "
+"https://tracker.debian.org/pkg/chrome-gnome-shell\n"
+"\n"
 "Dla systemu Fedora dostępny jest pakiet w repozytorium Copr: https://copr."
 "fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
 "\n"
@@ -335,21 +336,3 @@ msgstr ""
 "\n"
 "Można także zainstalować łącznika ręcznie. Instrukcje instalacji: https://"
 "wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation\n"
-
-#~ msgid "older than version 4"
-#~ msgstr "starszy niż wersja 4"
-
-#~ msgid "version $$1"
-#~ msgstr "wersja $$1"
-
-#~ msgid ""
-#~ "You are using different versions of GNOME Shell integration extension ($"
-#~ "$1) and native host connector ($$2). Some features may not work or work "
-#~ "wrong."
-#~ msgstr ""
-#~ "Używane są różne wersje rozszerzenia integracji z GNOME Shell ($$1) "
-#~ "i natywnego łącznika serwera ($$2). Niektóre funkcje mogą nie działać lub "
-#~ "działać niepoprawnie."
-
-#~ msgid "Connecting to native host application…"
-#~ msgstr "Łączenie z natywnym programem serwera…"
