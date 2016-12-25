@@ -15,7 +15,6 @@ if(COMPAT.IS_FIREFOX)
 		var externalMessaging = {
 			runtime: {
 				sendMessage: function (extensionId, message, options, responseCallback) {
-					console.log('In sendMessage');
 					if(extensionId !== chrome.i18n.getMessage('@@extension_id'))
 					{
 						console.error('Wrong extension id provided.')
