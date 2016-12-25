@@ -83,10 +83,10 @@ window.SweetTooth = function () {
 
 				if(response.supports)
 				{
-					for(let api in response.supports)
+					for(let api of response.supports)
 					{
 						let api_index;
-						if((api_index = REQUIRED_APIS.index(api)) != -1)
+						if((api_index = REQUIRED_APIS.indexOf(api)) != -1)
 						{
 							REQUIRED_APIS.splice(api_index, 1);
 						}

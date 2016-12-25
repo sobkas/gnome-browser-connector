@@ -368,12 +368,12 @@ class ChromeGNOMEShell(Gio.Application):
                     'properties': {
                         'connectorVersion': CONNECTOR_VERSION,
                         'shellVersion': shell_version.unpack(),
-                        'versionValidationEnabled': not disable_version_check
-                    },
-                    'supports': [
-                        'notifications',
-                        'update-check'
-                    ]
+                        'versionValidationEnabled': not disable_version_check,
+                        'supports': [
+                            'notifications',
+                            'update-check'
+                        ]
+                    }
                 }
             )
 
