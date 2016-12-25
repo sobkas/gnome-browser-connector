@@ -100,7 +100,7 @@ function restore_options()
 		setNetworkErrors(result);
 	});
 
-	if(!IS_OPERA)
+	if(COMPAT.SYNC_STORAGE)
 	{
 		updateSynchronizationStatus();
 		chrome.storage.local.get(DEFAULT_LOCAL_OPTIONS, function (items) {
@@ -111,6 +111,21 @@ function restore_options()
 	{
 		$('a[data-i18n="synchronization"]').parent().remove();
 		$('#synchronize_extensions_yes').closest('dl').hide();
+	}
+
+	if(COMPAT.IS_FIREFOX)
+	{
+		$('dialog').hide();
+	}
+
+	if(!COMPAT.PERMISSIONS_CONTAINS)
+	{
+		$('#show_network_errors_yes').parents('dl:first').hide();
+	}
+
+	if(!COMPAT.ON_INSTALLED)
+	{
+		$('#show_release_notes_yes').parents('dl:first').hide();
 	}
 }
 

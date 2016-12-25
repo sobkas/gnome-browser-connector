@@ -1,0 +1,16 @@
+{
+  "applications": {
+    "gecko": {
+      "id": "chrome-gnome-shell@gnome.org",
+      "strict_min_version": "50.0"
+    }
+  },
+  "permissions": [
+    "alarms",
+    "nativeMessaging",
+    "notifications",
+    "storage",
+    "tabs",
+    "https://extensions.gnome.org/"
+  ]
+}

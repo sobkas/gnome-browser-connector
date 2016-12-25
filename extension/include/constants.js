@@ -11,7 +11,10 @@
 GS_CHROME_ID				= chrome.i18n.getMessage('@@extension_id');
 PLATFORMS_WHITELIST			= ["linux", "openbsd"];
 
-IS_OPERA				= navigator.userAgent.indexOf(' OPR/') >= 0;
+COMPAT = {
+	IS_FIREFOX:	 (typeof(InstallTrigger) !== 'undefined'),
+	IS_OPERA:	 navigator.userAgent.indexOf(' OPR/') >= 0
+};
 
 NOTIFICATION_SYNC_FAILED		= 'gs-chrome-sync-fail';
 NOTIFICATION_UPDATE_AVAILABLE		= 'gs-chrome-update';

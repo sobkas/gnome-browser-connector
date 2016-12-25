@@ -20,6 +20,7 @@ set(EXTENSION_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/extension)
 set(EXTENSION_BUILD_DIR ${CMAKE_BINARY_DIR}/extension)
 set(CHROME_BUILD_DIR ${EXTENSION_BUILD_DIR}/chrome)
 set(OPERA_BUILD_DIR ${EXTENSION_BUILD_DIR}/opera)
+set(FIREFOX_BUILD_DIR ${EXTENSION_BUILD_DIR}/firefox)
 
 # Options
 option(BUILD_EXTENSION		"Build extension zip package"	TRUE)
@@ -91,6 +92,7 @@ if(BUILD_EXTENSION OR BUILD_CONNECTOR)
 	find_program_ex(sha256sum gsha256sum FATAL_ERROR)
 	find_program_ex(head ghead FATAL_ERROR)
 	find_program_ex(tr gtr FATAL_ERROR)
+	find_program_ex(jq FATAL_ERROR)
 
 	# https://github.com/adobe/chromium/blob/master/chrome/common/extensions/extension.cc#L696
 	# http://stackoverflow.com/questions/23873623/obtaining-chrome-extension-id-for-development
@@ -116,10 +118,13 @@ if(BUILD_EXTENSION)
 	find_program_ex(7z FATAL_ERROR)
 
 	file(COPY "${EXTENSION_SOURCES}/" DESTINATION "${CHROME_BUILD_DIR}"
-		PATTERN "manifest.json" EXCLUDE)
+		PATTERN "manifest*.json" EXCLUDE)
 
 	file(COPY "${EXTENSION_SOURCES}/" DESTINATION "${OPERA_BUILD_DIR}"
-		PATTERN "manifest.json" EXCLUDE)
+		PATTERN "manifest*.json" EXCLUDE)
+
+	file(COPY "${EXTENSION_SOURCES}/" DESTINATION "${FIREFOX_BUILD_DIR}"
+		PATTERN "manifest*.json" EXCLUDE)
 
 	set(PUBLIC_KEY ${CHROME_EXTENSION_KEY})
 	configure_file("${EXTENSION_SOURCES}/manifest.json" "${CHROME_BUILD_DIR}/")
@@ -135,6 +140,12 @@ if(BUILD_EXTENSION)
 	add_custom_target(opera-extension ALL
 		COMMAND "${7Z_EXECUTABLE}" a -tzip "${CMAKE_BINARY_DIR}/extension-opera.zip" ./
 		WORKING_DIRECTORY "${OPERA_BUILD_DIR}")
+	add_custom_target(firefox-extension ALL
+		COMMAND "${JQ_EXECUTABLE}" -s "'add|del(.key)'"
+				'${EXTENSION_SOURCES}/manifest.json' '${EXTENSION_SOURCES}/manifest.firefox.json'
+				> "${FIREFOX_BUILD_DIR}/manifest.json"
+		COMMAND "${7Z_EXECUTABLE}" a -tzip "${CMAKE_BINARY_DIR}/extension-firefox.zip" ./
+		WORKING_DIRECTORY "${FIREFOX_BUILD_DIR}")
 endif(BUILD_EXTENSION)
 
 if(BUILD_CONNECTOR)
@@ -152,6 +163,16 @@ if(BUILD_CONNECTOR)
 			"${CMAKE_BINARY_DIR}/org.gnome.ChromeGnomeShell.service")
 	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/policies/chrome-gnome-shell.json"
 			"${CMAKE_BINARY_DIR}/")
+
+	add_custom_target(firefox-native-manifest ALL
+			COMMAND "${JQ_EXECUTABLE}" -s "'add|del(.allowed_origins)'"
+				"${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json"
+				"${CMAKE_CURRENT_SOURCE_DIR}/connector/org.gnome.chrome_gnome_shell.firefox.json"
+				> "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.firefox.json"
+			COMMAND "${JQ_EXECUTABLE}" -s "'add|del(.allowed_origins)'"
+				"${CMAKE_BINARY_DIR}/io.github.ne0sight.gs_chrome_connector.json"
+				"${CMAKE_CURRENT_SOURCE_DIR}/connector/org.gnome.chrome_gnome_shell.firefox.json"
+				> "${CMAKE_BINARY_DIR}/io.github.ne0sight.gs_chrome_connector.firefox.json")
 
 	if(USE_DEBIAN_LAYOUT)
 		set(DISTUTILS_EXTRA_ARGS "--install-layout=deb")
@@ -174,6 +195,12 @@ if(BUILD_CONNECTOR)
 	install(FILES "${CMAKE_BINARY_DIR}/io.github.ne0sight.gs_chrome_connector.json" DESTINATION "/etc/opt/chrome/native-messaging-hosts/")
 	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/chromium/native-messaging-hosts/")
 	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/opt/chrome/native-messaging-hosts/")
+	install(FILES "${CMAKE_BINARY_DIR}/io.github.ne0sight.gs_chrome_connector.firefox.json"
+			DESTINATION "${CMAKE_INSTALL_LIBDIR}/mozilla/native-messaging-hosts/"
+			RENAME "io.github.ne0sight.gs_chrome_connector.json")
+	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.firefox.json"
+			DESTINATION "${CMAKE_INSTALL_LIBDIR}/mozilla/native-messaging-hosts/"
+			RENAME "org.gnome.chrome_gnome_shell.json")
 	install(FILES "${CMAKE_BINARY_DIR}/chrome-gnome-shell.json" DESTINATION "/etc/opt/chrome/policies/managed/")
 	install(FILES "${CMAKE_BINARY_DIR}/chrome-gnome-shell.json" DESTINATION "/etc/chromium/policies/managed/")
 

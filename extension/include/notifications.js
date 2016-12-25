@@ -52,9 +52,11 @@ GSC.notifications = (function($) {
 	 */
 	var browser = (function() {
 		function init() {
-			chrome.runtime.onStartup.addListener(function() {
-				// Do nothing. We just need this callback to restore notifications
-			});
+			if(COMPAT.ON_STARTUP) {
+				chrome.runtime.onStartup.addListener(function() {
+					// Do nothing. We just need this callback to restore notifications
+				});
+			}
 
 			chrome.notifications.onClosed.addListener(function (notificationId, byUser) {
 				if (!byUser)
@@ -86,17 +88,19 @@ GSC.notifications = (function($) {
 					chrome.storage.local.set({
 						notifications: notifications
 					});
-
-					update(notificationId);
 				});
 			});
 		}
 
 		function _create(name, options, callback)
 		{
-			if(IS_OPERA && options.buttons)
+			if(!COMPAT.NOTIFICATIONS_BUTTONS && options.buttons)
 			{
 				delete options.buttons;
+			}
+
+			if(COMPAT.IS_OPERA)
+			{
 				if(options.type === chrome.notifications.TemplateType.LIST)
 				{
 					options = remove_list(options);

@@ -16,8 +16,7 @@ GSC.sync = (function($) {
 	 * Initialization rutines.
 	 */
 	function init() {
-		// Opera do not supports remote storage yet.
-		if(IS_OPERA)
+		if(!COMPAT.SYNC_STORAGE)
 		{
 			return;
 		}
@@ -309,7 +308,7 @@ GSC.sync = (function($) {
 	 */
 	function onExtensionChanged(request)
 	{
-		if(IS_OPERA)
+		if(!COMPAT.SYNC_STORAGE)
 		{
 			return;
 		}
@@ -329,7 +328,7 @@ GSC.sync = (function($) {
 	 */
 	function onSyncFromRemote(remoteExtensions)
 	{
-		if(IS_OPERA)
+		if(!COMPAT.SYNC_STORAGE)
 		{
 			return;
 		}
