@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
 "POT-Creation-Date: 2016-12-22 18:39+0000\n"
-"PO-Revision-Date: 2016-12-21 23:21+0100\n"
-"Last-Translator: Josef Andersson <josef.andersson@fripost.org>\n"
+"PO-Revision-Date: 2016-12-26 23:27+0100\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
@@ -277,7 +277,6 @@ msgstr "Kunde inte söka efter uppdateringar för tillägg: $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
-#, fuzzy
 msgid ""
 "Your native host connector do not support following APIs: $$1. Probably you "
 "should upgrade native host connector or install plugins for missing APIs. "
@@ -285,10 +284,11 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Även om tillägget för GNOME Shell-integration körs, så hittades inget "
-"inhemskt värdanslutningsprogram. Se <a href='https://wiki.gnome.org/Projects/"
-"GnomeShellIntegrationForChrome/Installation'>dokumentationen</a> för "
-"instruktioner om hur ett anslutningsprogram installeras."
+"Ditt inhemska värdanslutningsprogram stöder inte följande API:er: $$1. Du "
+"bör troligen uppgradera det inhemska värdanslutningsprogrammet eller "
+"installera insticksmoduler för saknade API:er. Se <a href='https://wiki."
+"gnome.org/Projects/GnomeShellIntegrationForChrome/"
+"Installation'>dokumentationen</a> för instruktioner."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
