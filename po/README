@@ -5,9 +5,9 @@ ar, am, bg, bn, ca, cs, da, de, el, en, en_GB, en_US, es, es_419, et, fa, fi, fi
 kn, ko, lt, lv, ml, mr, ms, nl, no, pl, pt_BR, pt_PT, ro, ru, sk, sl, sr, sv, sw, ta, te, th, tr, uk, vi, zh_CN, zh_TW
 
 Opera supports:
-af, az, be, bg, bn, ca, cs, da, de, el, en-GB, en-US, es-419, es, fi, fil, fr-CA, fr, fy, gd, he, hi, hr, hu, id, it,
-ja, kk, ko, lt, lv, me, mk, ms, nb, nl, nn, pa, pl, pt-BR, pt-PT, ro, ru, sk, sr, sv, sw, ta, te, th, tr, uk, uz, vi,
-zh-CN, zh-TW, zu
+af, az, be, bg, bn, ca, cs, da, de, el, en_GB, en_US, es_419, es, fi, fil, fr_CA, fr, fy, gd, he, hi, hr, hu, id, it,
+ja, kk, ko, lt, lv, me, mk, ms, nb, nl, nn, pa, pl, pt_BR, pt_PT, ro, ru, sk, sr, sv, sw, ta, te, th, tr, uk, uz, vi,
+zh_CN, zh_TW, zu
 
 Firefox supports:
 ach, af, an, ar, as, ast, az, be, bg, bn_BD, bn_IN, br, bs, ca, cs, cy, da, de, el, en, en_GB, en_US, en_ZA, eo, es_AR,
