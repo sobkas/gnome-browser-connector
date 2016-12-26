@@ -4,7 +4,7 @@ Upstream-Contact: https://github.com/nE0sIghT/chrome-gnome-shell/issues
 Source: https://git.gnome.org/browse/chrome-gnome-shell/
 
 Files: *
-Copyright: 2016 Yuri Konotopov <ykonotopov@gmail.com>
+Copyright: 2016 Yuri Konotopov <ykonotopov@gnome.org>
 License: GPL-3+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by

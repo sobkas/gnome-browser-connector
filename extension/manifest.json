@@ -8,7 +8,7 @@
 
   "default_locale": "en",
 
-  "author": "Yuri Konotopov <ykonotopov@gmail.com>",
+  "author": "Yuri Konotopov <ykonotopov@gnome.org>",
   "key": "${PUBLIC_KEY}",
 
   "icons": {
