@@ -104,3 +104,8 @@ dialog#syncChoice button {
 	width: 90%;
 	margin: 0.3em auto;
 }
+
+div#translation_credits div
+{
+	white-space: pre-line;
+}
