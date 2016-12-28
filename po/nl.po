@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
 "POT-Creation-Date: 2016-12-22 18:39+0000\n"
-"PO-Revision-Date: 2016-12-28 10:01+0100\n"
+"PO-Revision-Date: 2016-12-28 16:55+0100\n"
 "Last-Translator: Hannie Dumoleyn <hannie@ubuntu-nl.org>\n"
 "Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
 "Language: nl\n"
@@ -26,7 +26,7 @@ msgstr "Sluiten"
 #. format.
 #: chrome-gnome-shell-key-error_extension_response:1
 msgid "Wrong extension response received"
-msgstr "Verkeerde extensie-respons ontvangen"
+msgstr "Verkeerde extensierespons ontvangen"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension
 #. enabled?'
@@ -53,7 +53,7 @@ msgstr "moet naar een lagere versie worden gebracht"
 #. This is a part of phrase like 'Extension Top Icons can be upgraded'.
 #: chrome-gnome-shell-key-extension_status_upgrade:1
 msgid "can be upgraded"
-msgstr "kan worden opgewaardeerd"
+msgstr "kan worden bijgewerkt"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension status
 #. synchronized with remote browser storage?'
@@ -65,7 +65,7 @@ msgstr "Gesynchroniseerd"
 #. titlebars.
 #: chrome-gnome-shell-key-gs_chrome:1
 msgid "GNOME Shell integration"
-msgstr "Gnome-shell integratie"
+msgstr "Gnome-shell-integratie"
 
 #. This is a part of phrase 'Update check period: xx hours'
 #: chrome-gnome-shell-key-hours:1
@@ -79,7 +79,7 @@ msgid ""
 "extensions repository https://extensions.gnome.org"
 msgstr ""
 "Deze extensie voorziet in de integratie met Gnome-shell en de bijbehorende "
-"bron met extensies https://extensions.gnome.org"
+"website met extensies https://extensions.gnome.org"
 
 #. $REQUEST$ is a placeholder for technical name of request that web extension
 #. make via native messaging host application.
@@ -96,7 +96,7 @@ msgid ""
 "A network error has occurred. Please check your Internet connection and/or "
 "proxy settings."
 msgstr ""
-"Er is een netwerkfout opgetreden. Controleer uw Internetverbinding en/of "
+"Er is een netwerkfout opgetreden. Controleer uw internetverbinding en/of "
 "proxy-instellingen."
 
 #. This is a part of phrase 'Last check: never'
@@ -196,12 +196,12 @@ msgstr ""
 #.
 #: chrome-gnome-shell-key-options_title:1
 msgid "$GS_CHROME$ options"
-msgstr "$GS_CHROME$ opties"
+msgstr "$GS_CHROME$-opties"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
 msgid "Check for extensions update"
-msgstr "Controleren op extensies-update"
+msgstr "Controleren op extensie-updates"
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -235,7 +235,7 @@ msgstr "Synchroniseren van extensies mislukt: $CAUSE$"
 
 #: chrome-gnome-shell-key-synchronization_storage_exists:1
 msgid "Your remote synchronization storage already contains extensions list."
-msgstr "Uw externe synchronisatie-opslag bevat reeds een lijst met extensies."
+msgstr "Uw externe synchronisatieopslag bevat reeds een lijst met extensies."
 
 #: chrome-gnome-shell-key-synchronization_use_local:1
 msgid "Use local extensions list, overwrite remote."
@@ -250,17 +250,20 @@ msgstr "Externe lijst met extensies gebruiken, de lokale lijst overschrijven."
 #. this string.
 #: chrome-gnome-shell-key-translation_credits:1
 msgid "translation_credits"
-msgstr "Bijdragen aan vertaling"
+msgstr ""
+"Hannie Dumoleyn\n"
+"Nathan Follens\n"
+"Meer info over Gnome-NL op http://nl.gnome.org"
 
 #. Link name for translation credits tab in options dialog.
 #: chrome-gnome-shell-key-translation_credits_title:1
 msgid "About translation"
-msgstr "Info vertaling"
+msgstr "Vertaling"
 
 #. This should newer be shown to user. However better safe than sorry.
 #: chrome-gnome-shell-key-unknown_error:1
 msgid "unknown error"
-msgstr "Onbekende fout"
+msgstr "onbekende fout"
 
 #: chrome-gnome-shell-key-update_available:1
 msgid "An update for GNOME Shell extensions available"
@@ -273,7 +276,7 @@ msgstr "Er is een update voor Gnome-shell-extensies beschikbaar"
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
 msgid "Failed to check extensions updates: $CAUSE$"
-msgstr "Controleren op extensies-update mislukt: $CAUSE$"
+msgstr "Controleren op extensie-updates mislukt: $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
@@ -285,10 +288,10 @@ msgid ""
 "instructions."
 msgstr ""
 "Uw platform-eigen hostconnector ondesteunt de volgende API's niet: $$1. "
-"Waarschijnlijk moet u de platform-eigen hostconnector opwaarderen of plug-ins "
+"Waarschijnlijk moet u de platform-eigen hostconnector bijwerken of plug-ins "
 "voor de ontbrekende API's installeren. Ga voor instructies naar <a "
-"href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installat"
-"ion'>documentatie</a>"
+"href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/"
+"Installation'>documentatie</a>."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -331,7 +334,7 @@ msgstr ""
 "Voor Fedora Linux is er een pakket beschikbaar in Copr: https://copr."
 "fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
 "\n"
-"In Gentoo Linux kunt u connector installeren met de opdracht:\n"
+"In Gentoo Linux kunt u de connector installeren met de opdracht:\n"
 "emerge gnome-extra/chrome-gnome-shell\n"
 "\n"
 "Voor Ubuntu Linux is er een pakket beschikbaar in ne0sight/chrome-gnome-"
