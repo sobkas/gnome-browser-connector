@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
 "POT-Creation-Date: 2016-12-22 18:39+0000\n"
-"PO-Revision-Date: 2016-08-31 12:25+0100\n"
+"PO-Revision-Date: 2016-12-28 10:01+0100\n"
 "Last-Translator: Hannie Dumoleyn <hannie@ubuntu-nl.org>\n"
 "Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
@@ -115,7 +115,7 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions about installing connector."
 msgstr ""
-"Alhoewel de extensie Gnome-shell integratie draait, wordt de platform-eigen "
+"Alhoewel de extensie Gnome-shell-integratie draait, wordt de platform-eigen "
 "hostconnector niet gedetecteerd. Ga naar <a href='https://wiki.gnome.org/"
 "Projects/GnomeShellIntegrationForChrome/Installation'>documentatie</a> voor "
 "instructies met betrekking tot het installeren van de connector."
@@ -184,7 +184,7 @@ msgid ""
 "If enabled, your GNOME Shell extensions list will be synchronized with your "
 "Google account."
 msgstr ""
-"Indien ingeschakeld, zal uw lijst met Gnome Shell-extensies gesynchroniseerd "
+"Indien ingeschakeld, zal uw lijst met Gnome-shell-extensies gesynchroniseerd "
 "worden met uw Google-account."
 
 #. $GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This
@@ -264,7 +264,7 @@ msgstr "Onbekende fout"
 
 #: chrome-gnome-shell-key-update_available:1
 msgid "An update for GNOME Shell extensions available"
-msgstr "Er is een update voor Gnome-shell extensies beschikbaar"
+msgstr "Er is een update voor Gnome-shell-extensies beschikbaar"
 
 #. $CAUSE$ is placeholder for error that caused update failure.
 #.
@@ -277,7 +277,6 @@ msgstr "Controleren op extensies-update mislukt: $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
-#, fuzzy
 msgid ""
 "Your native host connector do not support following APIs: $$1. Probably you "
 "should upgrade native host connector or install plugins for missing APIs. "
@@ -285,10 +284,11 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Alhoewel de extensie Gnome-shell integratie draait, wordt de platform-eigen "
-"hostconnector niet gedetecteerd. Ga naar <a href='https://wiki.gnome.org/"
-"Projects/GnomeShellIntegrationForChrome/Installation'>documentatie</a> voor "
-"instructies met betrekking tot het installeren van de connector."
+"Uw platform-eigen hostconnector ondesteunt de volgende API's niet: $$1. "
+"Waarschijnlijk moet u de platform-eigen hostconnector opwaarderen of plug-ins "
+"voor de ontbrekende API's installeren. Ga voor instructies naar <a "
+"href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installat"
+"ion'>documentatie</a>"
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -296,7 +296,6 @@ msgstr "Ja"
 
 #. Chrome store description
 #: chrome-gnome-shell-store-description:1
-#, fuzzy
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
@@ -325,6 +324,9 @@ msgstr ""
 "\n"
 "Voor Arch Linux is PKGBUILD beschikbaar in de AUR: https://aur.archlinux.org/"
 "packages/chrome-gnome-shell-git\n"
+"\n"
+"Voor Debian Linux is er een pakket beschikbaar in Sid en Stretch: https://"
+"tracker.debian.org/pkg/chrome-gnome-shell\n"
 "\n"
 "Voor Fedora Linux is er een pakket beschikbaar in Copr: https://copr."
 "fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
