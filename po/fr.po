@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
 "POT-Creation-Date: 2016-12-22 18:39+0000\n"
-"PO-Revision-Date: 2016-09-01 00:42+0200\n"
+"PO-Revision-Date: 2016-12-30 09:27+0100\n"
 "Last-Translator: Alain Lojewski <allomervan@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -301,7 +301,6 @@ msgstr "Oui"
 
 #. Chrome store description
 #: chrome-gnome-shell-store-description:1
-#, fuzzy
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
