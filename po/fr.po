@@ -282,7 +282,6 @@ msgstr "Impossible de vérifier les mises à jour des extensions : $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
-#, fuzzy
 msgid ""
 "Your native host connector do not support following APIs: $$1. Probably you "
 "should upgrade native host connector or install plugins for missing APIs. "
@@ -290,10 +289,11 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Bien que l'extension d'intégration à GNOME Shell soit active, le connecteur "
-"de l'hôte natif n'est pas reconnu. Veuillez consulter le <a href='https://"
-"wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>manuel</"
-"a> d'installation du connecteur."
+"Le connecteur de l'hôte natif ne prend pas en charge les API suivantes : "
+"$$1. Vous devriez probablement mettre à niveau le connecteur de l'hôte natif "
+"ou installer des greffons pour les API manquantes. Veuillez consulter la <a href='https://"
+"wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</"
+"a> pour les instructions."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -332,6 +332,9 @@ msgstr ""
 "Pour Arch Linux, il y a un PKGBUILD disponible dans le AUR : https://aur."
 "archlinux.org/packages/chrome-gnome-shell-git\n"
 "\n"
+"Pour Debian Linux, il y a un paquet disponible dans Sid et Stretch : https://"
+"tracker.debian.org/pkg/chrome-gnome-shell\n"
+"\n"
 "Pour Fedora Linux, il y a un paquet disponible dans Copr : https://copr."
 "fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
 "\n"
@@ -348,12 +351,6 @@ msgstr ""
 "sont disponibles dans https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation.\n"
 
-#~ msgid "older than version 4"
-#~ msgstr "plus ancien que la version 4"
-
-#~ msgid "version $$1"
-#~ msgstr "version $$1"
-
 #~ msgid ""
 #~ "You are using different versions of GNOME Shell integration extension ($"
 #~ "$1) and native host connector ($$2). Some features may not work or work "
@@ -363,5 +360,3 @@ msgstr ""
 #~ "à GNOME Shell et du connecteur natif ($$2) à l'hôte. Certaines fonctions "
 #~ "pourraient ne pas marcher ou être faussées."
 
-#~ msgid "Connecting to native host application…"
-#~ msgstr "Connexion à une application native de l'hôte…"
