@@ -249,7 +249,7 @@ msgstr "Использовать удалённый список расшире�
 #. this string.
 #: chrome-gnome-shell-key-translation_credits:1
 msgid "translation_credits"
-msgstr ""
+msgstr "<a href='mailto:ykonotopov@gnome.org'>Юрий Конотопов</a>"
 
 #. Link name for translation credits tab in options dialog.
 #: chrome-gnome-shell-key-translation_credits_title:1
@@ -276,7 +276,6 @@ msgstr "Ошибка проверки обновлений расширений:
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
-#, fuzzy
 msgid ""
 "Your native host connector do not support following APIs: $$1. Probably you "
 "should upgrade native host connector or install plugins for missing APIs. "
@@ -284,10 +283,11 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Хотя расширение GNOME Shell integration работает, нативный хост-коннектор не "
-"обнаружен. Обратитесь к <a href='https://wiki.gnome.org/Projects/"
+"Ваш нативный хост-коннектор не поддерживает следующие API: $$1. Вероятно, вы "
+"должны обновить нативный хост-коннектор или установить плагины для "
+"отсутствующих API. Обратитесь к <a href='https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation/ru'>документации</a> за "
-"инструкциями по установке коннектора."
+"инструкциями."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -295,7 +295,6 @@ msgstr "Да"
 
 #. Chrome store description
 #: chrome-gnome-shell-store-description:1
-#, fuzzy
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
@@ -324,6 +323,9 @@ msgstr ""
 "\n"
 "PKGBUILD для Arch Linux доступен в AUR: https://aur.archlinux.org/packages/"
 "chrome-gnome-shell-git\n"
+"\n"
+"Пакет для Debian Linux доступен в Sid и Stretch: https://tracker.debian.org/"
+"pkg/chrome-gnome-shell\n"
 "\n"
 "Пакет для Fedora Linux доступен в Copr: https://copr.fedorainfracloud.org/"
 "coprs/region51/chrome-gnome-shell\n"
