@@ -250,7 +250,7 @@ msgstr "Usar a lista remota de extensões, sobrescrever a local."
 #: chrome-gnome-shell-key-translation_credits:1
 msgid "translation_credits"
 msgstr ""
-"<a href=\"mailto:rafaelff@gnome.org\">Rafael Fontenelle</a><br>\n"
+"<a href=\"mailto:rafaelff@gnome.org\">Rafael Fontenelle</a>\n"
 "<a href=\"mailto:liverig@gmail.com\">Enrico Nicoletto</a>"
 
 #. Link name for translation credits tab in options dialog.
