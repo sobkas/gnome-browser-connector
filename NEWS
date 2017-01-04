@@ -1,3 +1,39 @@
+= 2017-01-04 chrome-gnome-shell 8 =
+
+== Changes ==
+ * Added Mozilla Firefox support (https://addons.mozilla.org/ru/firefox/addon/gnome-shell-integration/).
+   Native host connector version 8 or newer required.
+ * Added support for asynchronous browser API to extensions.gnome.org and switched chrome-gnome-shell to using such API.
+   Review pages are works well now when browser extension is enabled.
+ * Moved update check code to native connector to be able to get verbose error messages when update check is failed.
+   Python Requests 2 required now.
+ * Implemented notifications support in native connector. This will unify notifications for all supported browsers.
+   As part of this change native connector rewritten as GApplication with DBus activation. DBus support is required now.
+ * Code cleanup.
+
+== Translations ==
+ * Czech (Marek Černocký)
+ * Dutch (Hannie Dumoleyn)
+ * French (Alexandre Franke)
+ * Italian (Gianvito Cavasoli)
+ * Polish (Piotr Drąg)
+ * Portuguese (Brazil) (Rafael Fontenelle)
+ * Spanish (Daniel Mustieles)
+ * Swedish (Anders Jonsson, Josef Andersson)
+ * Turkish (Muhammet Kara)
+
+== Known issues ==
+ * Native host connector is not working in Google Chrome and Opera when installed via Debian Stretch or Sid
+   repositories. To know "why?" look
+   here (https://github.com/nE0sIghT/chrome-gnome-shell-mirror/issues/17),
+   here (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=840804) and
+   here (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=840235). For a workaround
+   look here
+   (https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation#Troubleshooting).
+ * Web extension is broken on FreeBSD because of bug 212925
+   (https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212925).
+
+
 = 2016-11-19 chrome-gnome-shell 7.2 =
 
 == Changes ==
