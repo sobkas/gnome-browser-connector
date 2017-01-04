@@ -85,7 +85,8 @@ GSC = (function() {
 	}
 
 	function isSupported(feature, response) {
-		return response.supports && response.supports.indexOf(feature) !== -1;
+		return response.properties &&
+				response.properties.supports && response.properties.supports.indexOf(feature) !== -1;
 	}
 
 	return {
