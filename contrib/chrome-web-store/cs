@@ -2,6 +2,8 @@ Aby tohle rozšíření fungovalo, MUSÍTE nainstalovat nativní konektor.
 
 Pro Arch Linux je k dispozici PKGBUILD v AUR: https://aur.archlinux.org/packages/chrome-gnome-shell-git
 
+Pro Debian Linux je k dispozici balíček dostupný pro vydání Sid a Stretch: https://tracker.debian.org/pkg/chrome-gnome-shell
+
 Pro Fedora Linux je k dispozici balíček v Copr: https://copr.fedorainfracloud.org/coprs/region51/chrome-gnome-shell
 
 V Gentoo Linux můžete konektor nainstalovat pomocí příkazu:

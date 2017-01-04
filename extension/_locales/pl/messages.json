@@ -72,10 +72,6 @@
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Brak odpowiedzi serwera"
 	},
-	"older_connector": {
-		"description": "Part of phrase eg 'You are using different versions of GNOME Shell integration extension (version 5) and native host connector (older than version 4)'.",
-		"message": "starszy ni\u017c wersja 4"
-	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
 		"message": "Czas mi\u0119dzy sprawdzaniem aktualizacji"
@@ -164,7 +160,7 @@
 		"message": "U\u017cyj zdalnej listy rozszerze\u0144, zast\u0105p lokaln\u0105."
 	},
 	"translation_credits": {
-		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string.",
+		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
 		"message": "Piotr Dr\u0105g, 2016"
 	},
 	"translation_credits_title": {
@@ -187,12 +183,9 @@
 			}
 		}
 	},
-	"version": {
-		"description": "Part of phrase eg 'GNOME Shell integration extension (version 5)'",
-		"message": "wersja $$1"
-	},
-	"warning_versions_mismatch": {
-		"message": "U\u017cywane s\u0105 r\u00f3\u017cne wersje rozszerzenia integracji z\u00a0GNOME Shell ($$1) i\u00a0natywnego \u0142\u0105cznika serwera ($$2). Niekt\u00f3re funkcje mog\u0105 nie dzia\u0142a\u0107 lub dzia\u0142a\u0107 niepoprawnie."
+	"warning_apis_missing": {
+		"description": "$$1 is a placeholder for a list of missing APIs",
+		"message": "Natywny \u0142\u0105cznik serwera nie obs\u0142uguje tych API: $$1. Nale\u017cy go zaktualizowa\u0107 lub zainstalowa\u0107 wtyczki dla brakuj\u0105cych API. <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>Dokumentacja</a> zawiera odpowiednie instrukcje."
 	},
 	"yes": {
 		"message": "Tak"

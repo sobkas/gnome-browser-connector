@@ -72,10 +72,6 @@
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "No host response"
 	},
-	"older_connector": {
-		"description": "Part of phrase eg 'You are using different versions of GNOME Shell integration extension (version 5) and native host connector (older than version 4)'.",
-		"message": "older than version 4"
-	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
 		"message": "Update check period"
@@ -164,7 +160,7 @@
 		"message": "Use remote extensions list, overwrite local."
 	},
 	"translation_credits": {
-		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string.",
+		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
 		"message": "Tiago Santos <tiagofsantos81@sapo.pt>"
 	},
 	"translation_credits_title": {
@@ -187,12 +183,9 @@
 			}
 		}
 	},
-	"version": {
-		"description": "Part of phrase eg 'GNOME Shell integration extension (version 5)'",
-		"message": "Vers\u00e3o $$1"
-	},
-	"warning_versions_mismatch": {
-		"message": "You are using different versions of GNOME Shell integration extension ($$1) and native host connector ($$2). Some features may not work or work wrong."
+	"warning_apis_missing": {
+		"description": "$$1 is a placeholder for a list of missing APIs",
+		"message": "Your native host connector do not support following APIs: $$1. Probably you should upgrade native host connector or install plugins for missing APIs. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions."
 	},
 	"yes": {
 		"message": "Sim"

@@ -72,10 +72,6 @@
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "\u017d\u00e1dn\u00fd hostitel neodpov\u00edd\u00e1"
 	},
-	"older_connector": {
-		"description": "Part of phrase eg 'You are using different versions of GNOME Shell integration extension (version 5) and native host connector (older than version 4)'.",
-		"message": "star\u0161\u00ed ne\u017e verze 4"
-	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
 		"message": "Aktualizovat dobu mezi kontrolami"
@@ -164,7 +160,7 @@
 		"message": "Pou\u017e\u00edt vzd\u00e1len\u00fd seznam roz\u0161\u00ed\u0159en\u00ed, p\u0159epsat m\u00edstn\u00ed."
 	},
 	"translation_credits": {
-		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string.",
+		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
 		"message": "Marek \u010cernock\u00fd <marek@manet.cz>"
 	},
 	"translation_credits_title": {
@@ -187,12 +183,9 @@
 			}
 		}
 	},
-	"version": {
-		"description": "Part of phrase eg 'GNOME Shell integration extension (version 5)'",
-		"message": "verze $$1"
-	},
-	"warning_versions_mismatch": {
-		"message": "Pou\u017e\u00edv\u00e1te jinou verzi roz\u0161\u00ed\u0159en\u00ed pro integraci GNOME Shell ($$1) a jin\u00fd konektor pro nativn\u00edho hostitele ($$2). N\u011bkter\u00e9 funkce nemus\u00ed fungovat nebo mohou fungovat nespr\u00e1vn\u011b."
+	"warning_apis_missing": {
+		"description": "$$1 is a placeholder for a list of missing APIs",
+		"message": "Konektor pro va\u0161eho nativn\u00edho hostitele nepodporuje n\u00e1sleduj\u00edc\u00ed API: $$1. Pravd\u011bpodobn\u011b jej budete muset pov\u00fd\u0161it na nov\u011bj\u0161\u00ed verzi nebo nainstalovat z\u00e1suvn\u00fd modul pro chyb\u011bj\u00edc\u00ed API. Na instrukce se pod\u00edvejte se do <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokumentace</a>."
 	},
 	"yes": {
 		"message": "Ano"

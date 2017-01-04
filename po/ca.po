@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-22 18:39+0000\n"
+"POT-Creation-Date: 2017-01-04 06:47+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jordi Mas i Hernàndez <jmas@softcatala.org>\n"
 "Language-Team: ca_ES <tradgnome@softcatala.net>\n"
@@ -249,7 +249,7 @@ msgstr "Utilitza la llista remota d'extensions, sobreescrivint la local."
 
 #. This is content of 'About translation' tab in Options dialog. Thank you for
 #. translation and feel free to add yourself here. HTML markup enabled for
-#. this string.
+#. this string. New line character is treated as line break (<br />)
 #: chrome-gnome-shell-key-translation_credits:1
 msgid "translation_credits"
 msgstr "Jordi Mas i Hernàndez <jmas@softcatala.org>"

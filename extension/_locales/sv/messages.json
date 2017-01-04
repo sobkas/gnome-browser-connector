@@ -72,10 +72,6 @@
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Inget v\u00e4rdsvar"
 	},
-	"older_connector": {
-		"description": "Part of phrase eg 'You are using different versions of GNOME Shell integration extension (version 5) and native host connector (older than version 4)'.",
-		"message": "\u00e4ldre \u00e4n version 4"
-	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
 		"message": "Intervall f\u00f6r uppdateringskontroll"
@@ -164,7 +160,7 @@
 		"message": "Anv\u00e4nd fj\u00e4rrtill\u00e4ggslista, skriv \u00f6ver lokal."
 	},
 	"translation_credits": {
-		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string.",
+		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
 		"message": "Anders Jonsson <anders.jonsson@norsjovallen.se>, 2016"
 	},
 	"translation_credits_title": {
@@ -187,12 +183,9 @@
 			}
 		}
 	},
-	"version": {
-		"description": "Part of phrase eg 'GNOME Shell integration extension (version 5)'",
-		"message": "version $$1"
-	},
-	"warning_versions_mismatch": {
-		"message": "Du anv\u00e4nder olika versioner av till\u00e4gget f\u00f6r GNOME Shell-integration ($$1) och inhemskt v\u00e4rdanslutningsprogram ($$2). Vissa funktioner kan komma att inte fungera eller fungera felaktigt."
+	"warning_apis_missing": {
+		"description": "$$1 is a placeholder for a list of missing APIs",
+		"message": "Ditt inhemska v\u00e4rdanslutningsprogram st\u00f6der inte f\u00f6ljande API:er: $$1. Du b\u00f6r troligen uppgradera det inhemska v\u00e4rdanslutningsprogrammet eller installera insticksmoduler f\u00f6r saknade API:er. Se <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokumentationen</a> f\u00f6r instruktioner."
 	},
 	"yes": {
 		"message": "Ja"

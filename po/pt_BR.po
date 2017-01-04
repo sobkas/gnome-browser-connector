@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-22 18:39+0000\n"
+"POT-Creation-Date: 2017-01-04 06:47+0000\n"
 "PO-Revision-Date: 2016-12-22 21:08-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: \n"
@@ -246,7 +246,7 @@ msgstr "Usar a lista remota de extensões, sobrescrever a local."
 
 #. This is content of 'About translation' tab in Options dialog. Thank you for
 #. translation and feel free to add yourself here. HTML markup enabled for
-#. this string.
+#. this string. New line character is treated as line break (<br />)
 #: chrome-gnome-shell-key-translation_credits:1
 msgid "translation_credits"
 msgstr ""
@@ -287,8 +287,8 @@ msgid ""
 msgstr ""
 "Seu conector nativo de máquina não oferece suporte a seguinte API: $$1. "
 "Provavelmente você deveria atualizar o conector nativo de máquina ou "
-"instalar plug-ins para as APIs em falta. Veja a <a href='https://wiki.gnome.o"
-"rg/Projects/GnomeShellIntegrationForChrome/Installation'>documentação</a> "
+"instalar plug-ins para as APIs em falta. Veja a <a href='https://wiki.gnome."
+"org/Projects/GnomeShellIntegrationForChrome/Installation'>documentação</a> "
 "para instruções."
 
 #: chrome-gnome-shell-key-yes:1

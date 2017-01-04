@@ -72,10 +72,6 @@
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Sin respuesta del equipo"
 	},
-	"older_connector": {
-		"description": "Part of phrase eg 'You are using different versions of GNOME Shell integration extension (version 5) and native host connector (older than version 4)'.",
-		"message": "anterior a la versi\u00f3n 4"
-	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
 		"message": "Frecuencia de comprobaci\u00f3n de actualizaciones"
@@ -164,7 +160,7 @@
 		"message": "Usar lista de extensiones remota, sobrescribir la local."
 	},
 	"translation_credits": {
-		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string.",
+		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
 		"message": "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016"
 	},
 	"translation_credits_title": {
@@ -187,12 +183,9 @@
 			}
 		}
 	},
-	"version": {
-		"description": "Part of phrase eg 'GNOME Shell integration extension (version 5)'",
-		"message": "versi\u00f3n $$1"
-	},
-	"warning_versions_mismatch": {
-		"message": "Est\u00e1 usando diferentes versiones de la extensi\u00f3n de integraci\u00f3n de GNOME Shell ($$1) y el conector nativo del equipo ($$2). Algunas caracter\u00edsticas pueden no funcionar o funcionar mal."
+	"warning_apis_missing": {
+		"description": "$$1 is a placeholder for a list of missing APIs",
+		"message": "Your native host connector do not support following APIs: $$1. Probably you should upgrade native host connector or install plugins for missing APIs. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions."
 	},
 	"yes": {
 		"message": "S\u00ed"

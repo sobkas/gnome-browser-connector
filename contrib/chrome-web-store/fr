@@ -2,6 +2,8 @@ Vous devez installer le connecteur natif pour faire fonctionner cette extension.
 
 Pour Arch Linux, il y a un PKGBUILD disponible dans le AUR : https://aur.archlinux.org/packages/chrome-gnome-shell-git
 
+Pour Debian Linux, il y a un paquet disponible dans Sid et Stretch : https://tracker.debian.org/pkg/chrome-gnome-shell
+
 Pour Fedora Linux, il y a un paquet disponible dans Copr : https://copr.fedorainfracloud.org/coprs/region51/chrome-gnome-shell
 
 Pour Gento Linux, vous pouvez installer le connecteur par la commande :

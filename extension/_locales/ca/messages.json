@@ -72,10 +72,6 @@
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Sense resposta de l'amfitri\u00f3:"
 	},
-	"older_connector": {
-		"description": "Part of phrase eg 'You are using different versions of GNOME Shell integration extension (version 5) and native host connector (older than version 4)'.",
-		"message": "m\u00e9s antic de la versi\u00f3 4"
-	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
 		"message": "Per\u00edode de comprovaci\u00f3 d'actualitzacions"
@@ -164,7 +160,7 @@
 		"message": "Utilitza la llista remota d'extensions, sobreescrivint la local."
 	},
 	"translation_credits": {
-		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string.",
+		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
 		"message": "Jordi Mas i Hern\u00e0ndez <jmas@softcatala.org>"
 	},
 	"translation_credits_title": {
@@ -187,12 +183,9 @@
 			}
 		}
 	},
-	"version": {
-		"description": "Part of phrase eg 'GNOME Shell integration extension (version 5)'",
-		"message": "Versi\u00f3 $$1"
-	},
-	"warning_versions_mismatch": {
-		"message": "Esteu utilitzant diferents versions de l'extensi\u00f3 d'integraci\u00f3 del GNOME Shell ($$1) i del connector amfitri\u00f3 nadiu ($$2). Algunes caracter\u00edstiques poden no funcionar o funcionar malament."
+	"warning_apis_missing": {
+		"description": "$$1 is a placeholder for a list of missing APIs",
+		"message": "Your native host connector do not support following APIs: $$1. Probably you should upgrade native host connector or install plugins for missing APIs. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions."
 	},
 	"yes": {
 		"message": "S\u00ed"

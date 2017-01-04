@@ -2,6 +2,8 @@ Du MÅSTE installera ett inhemskt anslutningsprogram för att detta tillägg ska
 
 För Arch Linux finns en PKGBUILD tillgänglig i AUR: https://aur.archlinux.org/packages/chrome-gnome-shell-git
 
+För Debian Linux finns ett paket tillgängligt i Sid och Stretch: https://tracker.debian.org/pkg/chrome-gnome-shell
+
 För Fedora Linux finns ett paket tillgängligt i Copr: https://copr.fedorainfracloud.org/coprs/region51/chrome-gnome-shell
 
 I Gentoo Linux kan du installera anslutningsprogrammet med kommandot:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-22 18:39+0000\n"
+"POT-Creation-Date: 2017-01-04 06:47+0000\n"
 "PO-Revision-Date: 2016-08-29 19:48+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
@@ -256,7 +256,7 @@ msgstr ""
 
 #. This is content of 'About translation' tab in Options dialog. Thank you for
 #. translation and feel free to add yourself here. HTML markup enabled for
-#. this string.
+#. this string. New line character is treated as line break (<br />)
 #: chrome-gnome-shell-key-translation_credits:1
 #, fuzzy
 msgid "translation_credits"

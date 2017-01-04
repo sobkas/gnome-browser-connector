@@ -72,10 +72,6 @@
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Aucune r\u00e9ponse de l'h\u00f4te"
 	},
-	"older_connector": {
-		"description": "Part of phrase eg 'You are using different versions of GNOME Shell integration extension (version 5) and native host connector (older than version 4)'.",
-		"message": "plus ancien que la version 4"
-	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
 		"message": "P\u00e9riodicit\u00e9 des v\u00e9rifications de mise \u00e0 jour"
@@ -164,7 +160,7 @@
 		"message": "Utiliser la liste d'extensions distante, \u00e9craser la liste locale."
 	},
 	"translation_credits": {
-		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string.",
+		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
 		"message": "Alain Lojewski <allomervan@gmail.com>\nAlexandre Franke <alexandre.franke@gmail.com>"
 	},
 	"translation_credits_title": {
@@ -187,12 +183,9 @@
 			}
 		}
 	},
-	"version": {
-		"description": "Part of phrase eg 'GNOME Shell integration extension (version 5)'",
-		"message": "version $$1"
-	},
-	"warning_versions_mismatch": {
-		"message": "Vous utilisez des versions diff\u00e9rentes de l'extension d'int\u00e9gration ($$1) \u00e0 GNOME Shell et du connecteur natif ($$2) \u00e0 l'h\u00f4te. Certaines fonctions pourraient ne pas marcher ou \u00eatre fauss\u00e9es."
+	"warning_apis_missing": {
+		"description": "$$1 is a placeholder for a list of missing APIs",
+		"message": "Le connecteur de l'h\u00f4te natif ne prend pas en charge les API suivantes\u00a0: $$1. Vous devriez probablement mettre \u00e0 niveau le connecteur de l'h\u00f4te natif ou installer des greffons pour les API manquantes. Veuillez consulter la <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> pour les instructions."
 	},
 	"yes": {
 		"message": "Oui"

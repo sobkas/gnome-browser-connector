@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2016-12-22 18:39+0000\n"
+"POT-Creation-Date: 2017-01-04 06:47+0000\n"
 "PO-Revision-Date: 2016-08-15 12:38+0200\n"
 "Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
@@ -248,7 +248,7 @@ msgstr "Használja a távoli bővítménylistát, írja felül a helyit."
 
 #. This is content of 'About translation' tab in Options dialog. Thank you for
 #. translation and feel free to add yourself here. HTML markup enabled for
-#. this string.
+#. this string. New line character is treated as line break (<br />)
 #: chrome-gnome-shell-key-translation_credits:1
 msgid "translation_credits"
 msgstr "Meskó Balázs <meskobalazs at gmail dot com>"
