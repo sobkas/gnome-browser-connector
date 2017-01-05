@@ -8,4 +8,4 @@
 	dh $@ 
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DBUILD_EXTENSION=OFF -DUSE_DEBIAN_LAYOUT=ON
+	dh_auto_configure -- -DBUILD_EXTENSION=OFF -DUSE_DEBIAN_LAYOUT=ON -DCMAKE_INSTALL_LIBDIR=lib
