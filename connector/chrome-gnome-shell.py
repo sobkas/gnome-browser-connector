@@ -424,9 +424,10 @@ class ChromeGNOMEShell(Gio.Application):
                     continue
 
                 if extension['enable']:
-                    uuids.append(extension['uuid'])
+                    if not extension['uuid'] in uuids:
+                        uuids.append(extension['uuid'])
                 elif extension['uuid'] in uuids:
-                    uuids.remove(extension['uuid'])
+                    uuids = [value for value in uuids if value != extension['uuid']]
 
             settings.set_strv(ENABLED_EXTENSIONS_KEY, uuids)
 
