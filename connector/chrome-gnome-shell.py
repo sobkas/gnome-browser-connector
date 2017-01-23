@@ -506,7 +506,7 @@ class ChromeGNOMEShell(Gio.Application):
                         http_request['installed'][uuid] = {
                             'version': int(extensions[uuid]['version'])
                         }
-                    except ValueError:
+                    except (ValueError, KeyError):
                         http_request['installed'][uuid] = {
                             'version': 1
                         }
