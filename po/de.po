@@ -3,7 +3,7 @@
 # This file is auto generated with chrome-messages2pot tool.
 #
 # Stefan Kirrmann, 2016.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2016.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2016, 2017.
 # Wolfgang Stöggl <c72578@yahoo.de>, 2016.
 #
 msgid ""
@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
@@ -285,7 +285,6 @@ msgstr "Prüfung auf Erweiterungs-Aktualisierungen ist fehlgeschlagen: $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
-#, fuzzy
 msgid ""
 "Your native host connector do not support following APIs: $$1. Probably you "
 "should upgrade native host connector or install plugins for missing APIs. "
@@ -293,10 +292,12 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Obwohl die GNOME Shell-Integrations-Erweiterung läuft, wurde der Native Host-"
-"Connector nicht erkannt. In <a href='https://wiki.gnome.org/Projects/"
-"GnomeShellIntegrationForChrome/Installation'>documentation</a> finden Sie "
-"Anweisungen zum Installieren des Connectors."
+"Ihr Nativer Host-Connector unterstützt die folgenden APIs nicht: $$1. "
+"Wahrscheinlich sollten Sie den Nativen Host-Connector aktualisieren oder "
+"fehlende Erweiterungen oder APIs installieren. In der <a href='https://wiki."
+"gnome.org/Projects/GnomeShellIntegrationForChrome/"
+"Installation'>Dokumentation</a> finden Sie Anweisungen zum Installieren des "
+"Connectors."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -304,7 +305,6 @@ msgstr "Ja"
 
 #. Chrome store description
 #: chrome-gnome-shell-store-description:1
-#, fuzzy
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
@@ -335,6 +335,9 @@ msgstr ""
 "Für Archlinux ist ein PKGBUILD im AUR verfügbar: https://aur.archlinux.org/"
 "packages/chrome-gnome-shell-git\n"
 "\n"
+"Für Debian Linux ist ein Paket in Sid und Stretch verfügbar: https://tracker."
+"debian.org/pkg/chrome-gnome-shell\n"
+"\n"
 "Für Fedora Linux ist ein Paket in einer Copr-Quelle verfügbar: https://copr."
 "fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
 "\n"
@@ -351,21 +354,3 @@ msgstr ""
 "finden Sie auf https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation.\n"
 
-#~ msgid "older than version 4"
-#~ msgstr "älter als Version 4"
-
-#~ msgid "version $$1"
-#~ msgstr "Version $$1"
-
-#~ msgid ""
-#~ "You are using different versions of GNOME Shell integration extension ($"
-#~ "$1) and native host connector ($$2). Some features may not work or work "
-#~ "wrong."
-#~ msgstr ""
-#~ "Sie benutzten eine andere Version der GNOME Shell-Integrations-"
-#~ "Erweiterung ($$1) und des Nativen Host-Connectors ($$2). Manche "
-#~ "Funktionsmerkmale stehen möglicherweise nur eingeschränkt oder gar nicht "
-#~ "zur Verfügung."
-
-#~ msgid "Connecting to native host application…"
-#~ msgstr "Verbindung mit nativer Rechneranwendung wird hergestellt …"
