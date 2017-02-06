@@ -32,11 +32,7 @@ function save_options()
 					GSC.sync.getExtensions($.Deferred().done(function (extensions) {
 						var localExtensions = {};
 						$.each(extensions, function (uuid, extension) {
-							if(
-								extension.local &&
-								$.inArray(extension.localState,
-									[EXTENSION_STATE.ENABLED, EXTENSION_STATE.DISABLED]) !== -1
-							)
+							if(extension.local && extension.localState != EXTENSION_STATE.UNINSTALLED)
 							{
 								localExtensions[extension.uuid] = {
 									uuid:	extension.uuid,
