@@ -534,7 +534,7 @@ class ChromeGNOMEShell(Gio.Application):
                     requests.ConnectionError, requests.HTTPError, requests.Timeout,
                     requests.TooManyRedirects, requests.RequestException, ValueError
                     ) as ex:
-                error_message = str(ex.message) if ('message' in ex) else str(ex)
+                error_message = str(ex.message) if hasattr(ex, 'message') else str(ex)
                 log_error('Unable to check extensions updates: %s' % error_message)
 
                 request_url = ex.response.url if ex.response is not None else ex.request.url
