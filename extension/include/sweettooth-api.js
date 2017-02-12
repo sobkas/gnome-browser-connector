@@ -61,7 +61,7 @@ window.SweetTooth = function () {
 		},
 
 		uninstallExtension: function (uuid) {
-			return sendResolveExtensionMessage("uninstallExtension", "success", {uuid: uuid});
+			return sendResolveExtensionMessage("uninstallExtension", "status", {uuid: uuid});
 		},
 
 		initialize: function () {
