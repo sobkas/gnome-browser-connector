@@ -1,3 +1,31 @@
+= 2017-02-12 chrome-gnome-shell 8.1 =
+
+== Changes ==
+ * Added check to make sure that "enabled-extensions" GNOME Shell setting does not contains duplicated values
+   (GNOME Shell bug 777650).
+ * Fixed error that breaks update check if there was extension installed without "version" key in manifest.
+ * Fixed error that prevents error message to be shown when update check is failed.
+ * Fixed connector segfault on browser close.
+ * Fixed possible error in synchronization process that may delete some extensions.
+ * Switched Ubuntu PPA packages to use Python 3.
+
+== Translations ==
+ * Danish (Alan Mortensen)
+ * German (Mario Blättermann)
+ * Slovak (Dušan Kazik)
+
+== Known issues ==
+ * Native host connector is not working in Google Chrome and Opera when installed via Debian Stretch or Sid
+   repositories. To know "why?" look
+   here (https://github.com/nE0sIghT/chrome-gnome-shell-mirror/issues/17),
+   here (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=840804) and
+   here (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=840235). For a workaround
+   look here
+   (https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation#Troubleshooting).
+ * Web extension is broken on FreeBSD because of bug 212925
+   (https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212925).
+
+
 = 2017-01-04 chrome-gnome-shell 8 =
 
 == Changes ==
