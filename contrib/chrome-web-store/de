@@ -2,6 +2,8 @@ Sie müssen den Nativen Host-Connector installieren, damit diese Erweiterung fun
 
 Für Archlinux ist ein PKGBUILD im AUR verfügbar: https://aur.archlinux.org/packages/chrome-gnome-shell-git
 
+Für Debian Linux ist ein Paket in Sid und Stretch verfügbar: https://tracker.debian.org/pkg/chrome-gnome-shell
+
 Für Fedora Linux ist ein Paket in einer Copr-Quelle verfügbar: https://copr.fedorainfracloud.org/coprs/region51/chrome-gnome-shell
 
 In Gentoo Linux können Sie den Connector mit folgendem Befehl installieren:

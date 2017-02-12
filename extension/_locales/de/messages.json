@@ -185,7 +185,7 @@
 	},
 	"warning_apis_missing": {
 		"description": "$$1 is a placeholder for a list of missing APIs",
-		"message": "Your native host connector do not support following APIs: $$1. Probably you should upgrade native host connector or install plugins for missing APIs. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions."
+		"message": "Ihr Nativer Host-Connector unterst\u00fctzt die folgenden APIs nicht: $$1. Wahrscheinlich sollten Sie den Nativen Host-Connector aktualisieren oder fehlende Erweiterungen oder APIs installieren. In der <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>Dokumentation</a> finden Sie Anweisungen zum Installieren des Connectors."
 	},
 	"yes": {
 		"message": "Ja"
