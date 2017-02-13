@@ -8,4 +8,4 @@
 	dh $@ --with gnome
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DBUILD_EXTENSION=OFF -DUSE_DEBIAN_LAYOUT=ON -DCMAKE_INSTALL_LIBDIR=lib -DPython_ADDITIONAL_VERSIONS=3
+	dh_auto_configure -- -DBUILD_EXTENSION=OFF -DUSE_DEBIAN_LAYOUT=ON -DCMAKE_INSTALL_LIBDIR=lib -DPythonInterp_FIND_VERSION=3
