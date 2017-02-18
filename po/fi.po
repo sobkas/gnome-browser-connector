@@ -3,14 +3,14 @@
 #
 # DO NOT EDIT!
 # This file is auto generated with chrome-messages2po tool.
-# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2016.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
 "POT-Creation-Date: 2017-01-04 06:47+0000\n"
-"PO-Revision-Date: 2016-08-31 18:32+0300\n"
+"PO-Revision-Date: 2017-02-18 18:05+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: \n"
@@ -194,7 +194,7 @@ msgstr ""
 #.
 #: chrome-gnome-shell-key-options_title:1
 msgid "$GS_CHROME$ options"
-msgstr ""
+msgstr "$GS_CHROME$ -valinnat"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
@@ -313,6 +313,29 @@ msgid ""
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
 msgstr ""
+"Sinun TÄYTYY asentaa natiiviyhdistin, jotta tämä laajennus toimii.\n"
+"\n"
+"Arch Linuxille on tarjolla PKGBUILD AUR:in kautta: https://aur.archlinux.org/"
+"packages/chrome-gnome-shell-git\n"
+"\n"
+"Debian Linuxille on tarjolla paketti Sidissä ja Stretchissä: https://tracker."
+"debian.org/pkg/chrome-gnome-shell\n"
+"\n"
+"Fedora Linuxille on tarjolla paketti Copr-ohjelmistolähteen kautta: https://"
+"copr.fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
+"\n"
+"Gentoossa voit asentaa yhdistimen komennolla:\n"
+"emerge gnome-extra/chrome-gnome-shell\n"
+"\n"
+"Ubuntu Linuxille on tarjolla PPA-ohjelmistolähde ne0sight/chrome-gnome-"
+"shell. Asenna yhdistin antamalla seuraavat komennot:\n"
+"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
+"sudo apt-get update\n"
+"sudo apt-get install chrome-gnome-shell\n"
+"\n"
+"Voit halutessasi asentaa yhdistimen manuaalisesti. Lue https://wiki.gnome."
+"org/Projects/GnomeShellIntegrationForChrome/Installation saadaksesi "
+"asennusohjeet.\n"
 
 #~ msgid "older than version 4"
 #~ msgstr "vanhempi kuin versio 4"
