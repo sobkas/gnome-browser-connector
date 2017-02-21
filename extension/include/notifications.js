@@ -172,11 +172,11 @@ GSC.notifications = (function($) {
 		function create(name, options) {
 			options = remove_list(options);
 
-			chrome.runtime.sendMessage({
+			window.postMessage({
 				execute: 'createNotification',
 				name: name,
 				options: $.extend(DEFAULT_NOTIFICATION_OPTIONS, options)
-			});
+			}, "*");
 		}
 
 		function remove(notificationId) {

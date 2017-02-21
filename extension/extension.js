@@ -153,19 +153,17 @@ port.onMessage.addListener(function (message) {
  */
 port.postMessage({execute: 'subscribeSignals'});
 
-chrome.runtime.onMessage.addListener(
-	function (request, sender, sendResponse) {
-		if(
-			sender.id && sender.id === GS_CHROME_ID &&
-			request && request.execute)
+window.addEventListener("message", function (event) {
+		// We only accept messages from ourselves
+		if (event.source == window && event.data && event.data.execute)
 		{
-			switch (request.execute)
+			switch (event.data.execute)
 			{
 				case 'createNotification':
-					port.postMessage(request);
+					port.postMessage(event.data);
 					break;
 				case 'removeNotification':
-					port.postMessage(request);
+					port.postMessage(event.data);
 					break;
 			}
 		}
