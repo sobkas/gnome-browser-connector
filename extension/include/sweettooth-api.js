@@ -106,6 +106,8 @@ window.SweetTooth = function () {
 					});
 				}
 			}, function (message) {
+				apiObject.apiVersion = null;
+
 				require(['messages'], function (messages) {
 					messages.addWarning(message ? message : GSC.getMessage('no_host_connector'));
 				})
