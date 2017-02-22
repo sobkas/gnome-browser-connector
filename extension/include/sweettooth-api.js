@@ -73,6 +73,12 @@ window.SweetTooth = function () {
 			var ready = sendResolveExtensionMessage("initialize", "properties", null);
 
 			ready.then(function (response) {
+				if(!response.shellVersion)
+				{
+					apiObject.apiVersion = null;
+					return;
+				}
+
 				apiObject.shellVersion = response.shellVersion;
 				apiObject.versionValidationEnabled = response.versionValidationEnabled;
 
