@@ -234,23 +234,19 @@ GSC.update = (function($) {
 			}
 			else
 			{
-				chrome.runtime.onMessage.addListener(
-					function (request, sender, sendResponse) {
-						if(
-							sender.id && sender.id === GS_CHROME_ID &&
-							request && request.signal)
+				window.addEventListener("message", function (event) {
+					if (event.source == window && event.data && event.data.signal)
+					{
+						if(event.data.signal == SIGNAL_NOTIFICATION_ACTION)
 						{
-							if(request.signal == SIGNAL_NOTIFICATION_ACTION)
-							{
-								onNotificationAction(request.name, request.button_id);
-							}
-							else if(request.signal == SIGNAL_NOTIFICATION_CLICKED)
-							{
-								onNotificationClicked(request.name);
-							}
+							onNotificationAction(event.data.name, event.data.button_id);
+						}
+						else if(event.data.signal == SIGNAL_NOTIFICATION_CLICKED)
+						{
+							onNotificationClicked(event.data.name);
 						}
 					}
-				);
+				});
 			}
 		});
 

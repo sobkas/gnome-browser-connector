@@ -144,7 +144,7 @@ port.onMessage.addListener(function (message) {
 		}
 		else if([SIGNAL_NOTIFICATION_ACTION, SIGNAL_NOTIFICATION_CLICKED].indexOf(message.signal) != -1)
 		{
-			chrome.runtime.sendMessage(message);
+			window.postMessage(message, "*");
 		}
 	}
 });
