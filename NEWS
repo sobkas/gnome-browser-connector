@@ -1,3 +1,26 @@
+= 2017-03-02 chrome-gnome-shell 8.2 =
+
+== Changes ==
+ * Fixed error that prevents update notification to appear (github#36).
+ * Fixed error that prevents extensions.gnome.org to be opened when update notification was clicked.
+ * Fixed crash in native host connector when GNOME Shell is not running (github#35).
+
+== Translations ==
+ * Finnish (Jiri Grönroos)
+ * Serbian (Мирослав Николић)
+
+== Known issues ==
+ * Native host connector is not working in Google Chrome and Opera when installed via Debian Stretch or Sid
+   repositories. To know "why?" look
+   here (https://github.com/nE0sIghT/chrome-gnome-shell-mirror/issues/17),
+   here (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=840804) and
+   here (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=840235). For a workaround
+   look here
+   (https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation#Troubleshooting).
+ * Web extension is broken on FreeBSD because of bug 212925
+   (https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212925).
+
+
 = 2017-02-12 chrome-gnome-shell 8.1 =
 
 == Changes ==
