@@ -1,0 +1,17 @@
+Sinun TÄYTYY asentaa natiiviyhdistin, jotta tämä laajennus toimii.
+
+Arch Linuxille on tarjolla PKGBUILD AUR:in kautta: https://aur.archlinux.org/packages/chrome-gnome-shell-git
+
+Debian Linuxille on tarjolla paketti Sidissä ja Stretchissä: https://tracker.debian.org/pkg/chrome-gnome-shell
+
+Fedora Linuxille on tarjolla paketti Copr-ohjelmistolähteen kautta: https://copr.fedorainfracloud.org/coprs/region51/chrome-gnome-shell
+
+Gentoossa voit asentaa yhdistimen komennolla:
+emerge gnome-extra/chrome-gnome-shell
+
+Ubuntu Linuxille on tarjolla PPA-ohjelmistolähde ne0sight/chrome-gnome-shell. Asenna yhdistin antamalla seuraavat komennot:
+sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell
+sudo apt-get update
+sudo apt-get install chrome-gnome-shell
+
+Voit halutessasi asentaa yhdistimen manuaalisesti. Lue https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation saadaksesi asennusohjeet.

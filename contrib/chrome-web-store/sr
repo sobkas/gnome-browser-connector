@@ -2,6 +2,8 @@
 
 За Арч Линукс постоји „PKGBUILD“ доступан у АУР-у: https://aur.archlinux.org/packages/chrome-gnome-shell-git
 
+За Дебијан Линукс постоји доступан пакет у Сиду и Стречу: https://tracker.debian.org/pkg/chrome-gnome-shell
+
 За Федору Линукс пакет је доступан у Копр-у: https://copr.fedorainfracloud.org/coprs/region51/chrome-gnome-shell
 
 У Џенту Линуксу конектор можете инсталирати наредбом:

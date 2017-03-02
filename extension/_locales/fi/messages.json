@@ -114,7 +114,7 @@
 	},
 	"options_title": {
 		"description": "$GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This string used as title for Options page. This title is not shown in Chrome, but may be shown in other browsers.",
-		"message": "$GS_CHROME$ options",
+		"message": "$GS_CHROME$ -valinnat",
 		"placeholders": {
 			"gs_chrome": {
 				"content": "$1"
