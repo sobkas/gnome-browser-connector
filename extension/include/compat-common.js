@@ -10,27 +10,9 @@
 
 /* global chrome, COMPAT */
 
-COMPAT.ON_INSTALLED				= true;
-COMPAT.ON_STARTUP				= true;
 COMPAT.PERMISSIONS_CONTAINS		= true;
 COMPAT.SYNC_STORAGE				= (!COMPAT.IS_OPERA || false);
 COMPAT.NOTIFICATIONS_BUTTONS	= (!COMPAT.IS_OPERA && !COMPAT.IS_FIREFOX || false);
-
-if (typeof (chrome.runtime.onStartup) === 'undefined')
-{
-	chrome.runtime.onStartup = {
-		addListener: function() { }
-	};
-	COMPAT.ON_STARTUP = false;
-}
-
-if(typeof(chrome.runtime.onInstalled) === 'undefined')
-{
-	chrome.runtime.onInstalled = {
-		addListener: function() { }
-	};
-	COMPAT.ON_INSTALLED = false;
-}
 
 if(typeof(chrome.runtime.onMessageExternal) === 'undefined')
 {

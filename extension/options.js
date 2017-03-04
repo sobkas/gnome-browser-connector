@@ -119,10 +119,7 @@ function restore_options()
 		$('#show_network_errors_yes').parents('dl:first').hide();
 	}
 
-	if(!COMPAT.ON_INSTALLED)
-	{
-		$('#show_release_notes_yes').parents('dl:first').hide();
-	}
+	$('#show_release_notes_yes').parents('dl:first').hide();
 }
 
 function retrieveUpdateTimes()
