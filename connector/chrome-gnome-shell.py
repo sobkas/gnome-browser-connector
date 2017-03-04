@@ -3,7 +3,7 @@
 
 """
     GNOME Shell integration for Chrome
-    Copyright (C) 2016  Yuri Konotopov <ykonotopov@gnome.org>
+    Copyright (C) 2016-2017  Yuri Konotopov <ykonotopov@gnome.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -134,12 +134,6 @@ class ChromeGNOMEShell(Gio.Application):
         )
         action.connect('activate', callback)
         self.add_action(action)
-
-    def do_local_command_line(self, arguments):
-        if '--gapplication-service' in arguments:
-            arguments.remove('--gapplication-service')
-
-        return Gio.Application.do_local_command_line(self, arguments)
 
     # Service events
     # noinspection PyUnusedLocal
@@ -547,8 +541,13 @@ class ChromeGNOMEShell(Gio.Application):
 
 if __name__ == '__main__':
     debug('Main. Use CTRL+D to quit.')
-    app = ChromeGNOMEShell('--gapplication-service' in sys.argv)
 
+    run_as_service = False
+    if '--gapplication-service' in sys.argv:
+        run_as_service = True
+        sys.argv.remove('--gapplication-service')
+
+    app = ChromeGNOMEShell(run_as_service)
     app.run(sys.argv)
 
     debug('Quit')
