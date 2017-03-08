@@ -43,6 +43,10 @@
 	"network_error": {
 		"message": "A network error has occurred. Please check your Internet connection and/or proxy settings."
 	},
+	"no_gnome_shell": {
+		"message": "Unable to locate GNOME Shell settings or version. Make sure it is installed and running.",
+		"description": "Shown to user when native connector unable to query GNOME Shell version or settings"
+	},
 	"no_host_response": {
 		"message": "No host response",
 		"description": "Means 'Web extension does not received answer from native messaging host application.'"

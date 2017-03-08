@@ -70,15 +70,21 @@ window.SweetTooth = function () {
 				return Promise.resolve(apiObject);
 			}
 
-			var ready = sendResolveExtensionMessage("initialize", "properties", null);
+			var ready = new Promise(function(resolve, reject) {
+				sendExtensionMessage("initialize", response => {
+					if (response && response.success && response.properties && response.properties.shellVersion)
+					{
+						resolve(response.properties);
+					}
+					else
+					{
+						var message = response && response.message ? GSC.getMessage(response.message) : GSC.getMessage('error_extension_response');
+						reject(message);
+					}
+				});
+			});
 
 			ready.then(function (response) {
-				if(!response.shellVersion)
-				{
-					apiObject.apiVersion = null;
-					return;
-				}
-
 				apiObject.shellVersion = response.shellVersion;
 				apiObject.versionValidationEnabled = response.versionValidationEnabled;
 

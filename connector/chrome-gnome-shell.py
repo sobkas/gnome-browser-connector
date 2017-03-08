@@ -354,27 +354,38 @@ class ChromeGNOMEShell(Gio.Application):
         debug('Execute: to %s' % request['execute'])
 
         if request['execute'] == 'initialize':
-            settings = Gio.Settings.new(SHELL_SCHEMA)
+            source = Gio.SettingsSchemaSource.get_default()
             shell_version = self.shell_proxy.get_cached_property("ShellVersion")
-            if EXTENSION_DISABLE_VERSION_CHECK_KEY in settings.keys():
-                disable_version_check = settings.get_boolean(EXTENSION_DISABLE_VERSION_CHECK_KEY)
-            else:
-                disable_version_check = False
 
-            self.send_message(
-                {
-                    'success': True,
-                    'properties': {
-                        'connectorVersion': CONNECTOR_VERSION,
-                        'shellVersion': shell_version.unpack() if shell_version is not None else None,
-                        'versionValidationEnabled': not disable_version_check,
-                        'supports': [
-                            'notifications',
-                            'update-check'
-                        ]
+            if source.lookup(SHELL_SCHEMA, False) is not None and shell_version is not None:
+                settings = Gio.Settings.new(SHELL_SCHEMA)
+
+                if EXTENSION_DISABLE_VERSION_CHECK_KEY in settings.keys():
+                    disable_version_check = settings.get_boolean(EXTENSION_DISABLE_VERSION_CHECK_KEY)
+                else:
+                    disable_version_check = False
+
+                self.send_message(
+                    {
+                        'success': True,
+                        'properties': {
+                            'connectorVersion': CONNECTOR_VERSION,
+                            'shellVersion': shell_version.unpack() if shell_version is not None else None,
+                            'versionValidationEnabled': not disable_version_check,
+                            'supports': [
+                                'notifications',
+                                'update-check'
+                            ]
+                        }
                     }
-                }
-            )
+                )
+            else:
+                self.send_message(
+                    {
+                        'success': False,
+                        'message': "no_gnome_shell"
+                    }
+                )
 
         elif request['execute'] == 'subscribeSignals':
             if not self.shellAppearedId:
