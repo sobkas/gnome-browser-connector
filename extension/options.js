@@ -49,7 +49,7 @@ function save_options()
 						});
 					}).fail(function (message) {
 						$('#error')
-							.text(message)
+							.html(message)
 							.show()
 							.delay(15000)
 							.hide(250);
@@ -252,7 +252,7 @@ function updateSynchronizationStatus()
 		});
 	}).fail(function (message) {
 		$('#error')
-			.text(message)
+			.html(message)
 			.show()
 			.delay(15000)
 			.hide(250);
