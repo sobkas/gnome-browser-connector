@@ -1,14 +1,14 @@
 # Swedish translation for chrome-gnome-shell.
-# Copyright © 2016 chrome-gnome-shell's COPYRIGHT HOLDER
+# Copyright © 2016, 2017 chrome-gnome-shell's COPYRIGHT HOLDER
 # This file is distributed under the same license as the chrome-gnome-shell package.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2016.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-01-04 06:47+0000\n"
-"PO-Revision-Date: 2016-12-26 23:27+0100\n"
+"POT-Creation-Date: 2017-03-08 18:00+0000\n"
+"PO-Revision-Date: 2017-03-09 01:22+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -107,6 +107,16 @@ msgstr "aldrig"
 #: chrome-gnome-shell-key-no:1
 msgid "No"
 msgstr "Nej"
+
+#. Shown to user when native connector unable to query GNOME Shell version or
+#. settings
+#: chrome-gnome-shell-key-no_gnome_shell:1
+msgid ""
+"Unable to locate GNOME Shell settings or version. Make sure it is installed "
+"and running."
+msgstr ""
+"Kan inte hitta inställningar eller version för GNOME Shell. Säkerställ att "
+"det är installerat och körs."
 
 #: chrome-gnome-shell-key-no_host_connector:1
 msgid ""
