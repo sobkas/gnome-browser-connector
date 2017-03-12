@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-01-04 06:47+0000\n"
+"POT-Creation-Date: 2017-03-08 18:00+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"Last-Translator: Florian Heiser <gnu.l10n.de@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
@@ -109,6 +109,17 @@ msgstr "niemals"
 #: chrome-gnome-shell-key-no:1
 msgid "No"
 msgstr "Nein"
+
+#. Shown to user when native connector unable to query GNOME Shell version or
+#. settings
+#: chrome-gnome-shell-key-no_gnome_shell:1
+msgid ""
+"Unable to locate GNOME Shell settings or version. Make sure it is installed "
+"and running."
+msgstr ""
+"Die Version oder Einstellungen von GNOME Shell konnten nicht festgestellt "
+"werden. Bitte stellen Sie sicher, dass das Paket «chrome-gnome-shell» "
+"installiert ist."
 
 #: chrome-gnome-shell-key-no_host_connector:1
 msgid ""
@@ -353,4 +364,3 @@ msgstr ""
 "Sie können den Connector auch manuell installieren. Installationshinweise "
 "finden Sie auf https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation.\n"
-
