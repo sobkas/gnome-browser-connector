@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-01-04 06:47+0000\n"
-"PO-Revision-Date: 2017-01-08 14:29+0100\n"
+"POT-Creation-Date: 2017-03-08 18:00+0000\n"
+"PO-Revision-Date: 2017-03-18 13:48+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -107,6 +107,16 @@ msgstr "aldrig"
 #: chrome-gnome-shell-key-no:1
 msgid "No"
 msgstr "Nej"
+
+#. Shown to user when native connector unable to query GNOME Shell version or
+#. settings
+#: chrome-gnome-shell-key-no_gnome_shell:1
+msgid ""
+"Unable to locate GNOME Shell settings or version. Make sure it is installed "
+"and running."
+msgstr ""
+"Kunne ikke finde GNOME Shells indstillinger eller version. Sørg for at den "
+"er installeret og kører."
 
 #: chrome-gnome-shell-key-no_host_connector:1
 msgid ""
