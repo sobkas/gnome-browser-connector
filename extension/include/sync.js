@@ -12,14 +12,69 @@
  * Main object that handles extensions synchronization with remote storage.
  */
 GSC.sync = (function($) {
+	var enabled = true;
+	var extensionChangedTimeout = false;
+	var extensionChangedQueue = {};
+
+	const SYNC_QUEUE_TIMEOUT = 3000;
+
 	/*
 	 * Initialization rutines.
 	 */
 	function init() {
 		if(!COMPAT.SYNC_STORAGE)
 		{
+			enabled = false;
 			return;
 		}
+
+		function onIdleStateChanged(state) {
+			if (state === 'locked')
+			{
+				enabled = false;
+
+				// Remove all disabled extensions from queue
+				$.each(extensionChangedQueue, function(extensionId, extension) {
+					if(extension.state == EXTENSION_STATE.DISABLED)
+					{
+						delete extensionChangedQueue[extensionId];
+					}
+				});
+			}
+			else if (state === 'active')
+			{
+				enabled = true;
+			}
+		}
+
+		chrome.permissions.contains({
+			permissions: ["idle"]
+		}, function (result) {
+			if(result)
+			{
+				chrome.idle.onStateChanged.addListener(onIdleStateChanged);
+			}
+			else
+			{
+				enabled = false;
+			}
+		});
+
+		chrome.permissions.onAdded.addListener(function(permissions) {
+			if(permissions.permissions && permissions.permissions.indexOf('idle') !== -1)
+			{
+				enabled = true;
+				chrome.idle.onStateChanged.addListener(onIdleStateChanged);
+			}
+		});
+
+		chrome.permissions.onRemoved.addListener(function(permissions) {
+			if(permissions.permissions && permissions.permissions.indexOf('idle') !== -1)
+			{
+				enabled = false;
+				chrome.idle.onStateChanged.removeListener(onIdleStateChanged);
+			}
+		});
 
 		function onNotificationAction(notificationId, buttonIndex) {
 			if (notificationId !== NOTIFICATION_SYNC_FAILED)
@@ -182,47 +237,55 @@ GSC.sync = (function($) {
 
 	/*
 	 * Synchronize local changed extensions to remote list.
-	 * 
-	 * @param extension - extension object:
-	 * {
-	 *	uuid:	extension uuid,
-	 *	name:	extension name,
-	 *	state:	extension state
-	 * }
 	 */
-	function localExtensionChanged(extension) {
-		if($.inArray(extension.state, [EXTENSION_STATE.ENABLED, EXTENSION_STATE.DISABLED, EXTENSION_STATE.UNINSTALLED]) !== -1)
+	function localExtensionsChanged() {
+		extensionChangedTimeout = false;
+
+		if (!$.isEmptyObject(extensionChangedQueue))
 		{
-			chrome.storage.sync.get({
-				extensions: {}
-			}, function (options) {
-				GSC.sendNativeRequest({
-					execute:	'getExtensionInfo',
-					uuid:		extension.uuid
-				}, function(response) {
-					// Extension can be uninstalled already
-					if(response && response.extensionInfo && !$.isEmptyObject(response.extensionInfo))
-					{
-						extension = response.extensionInfo;
-					}
+			GSC.sendNativeRequest({
+				execute: 'listExtensions'
+			}, function (response) {
+				if (response && response.success && response.extensions)
+				{
+					chrome.storage.sync.get({
+						extensions: {}
+					}, function (options) {
+						$.each(extensionChangedQueue, function (extensionId, extension) {
+							if ($.inArray(extension.state, [EXTENSION_STATE.ENABLED, EXTENSION_STATE.DISABLED, EXTENSION_STATE.UNINSTALLED]) !== -1)
+							{
+								// Extension can be uninstalled already
+								if (response.extensions[extensionId] && !$.isEmptyObject(response.extensions[extensionId]))
+								{
+									extension = response.extensions[extensionId];
+								}
 
-					if(extension.state === EXTENSION_STATE.UNINSTALLED && options.extensions[extension.uuid])
-					{
-						delete options.extensions[extension.uuid];
-					}
-					else
-					{
-						options.extensions[extension.uuid] = {
-							uuid:	extension.uuid,
-							name:	extension.name,
-							state:	extension.state
-						};
-					}
+								if (extension.state === EXTENSION_STATE.UNINSTALLED && options.extensions[extension.uuid])
+								{
+									delete options.extensions[extension.uuid];
+								}
+								else
+								{
+									options.extensions[extension.uuid] = {
+										uuid: extension.uuid,
+										name: extension.name,
+										state: extension.state
+									};
+								}
+							}
+						});
 
-					chrome.storage.sync.set({
-						extensions: options.extensions
+						chrome.storage.sync.set({
+							extensions: options.extensions
+						});
+
+						extensionChangedQueue = {};
 					});
-				});
+				}
+				else
+				{
+					createSyncFailedNotification();
+				}
 			});
 		}
 	}
@@ -233,6 +296,7 @@ GSC.sync = (function($) {
 	 * @param remoteExtensions - (optional) remote extensions list
 	 */
 	function remoteExtensionsChanged(remoteExtensions) {
+
 		getExtensions($.Deferred().done(function(extensions) {
 			var enableExtensions = [];
 			$.each(extensions, function(uuid, extension) {
@@ -308,17 +372,26 @@ GSC.sync = (function($) {
 	 */
 	function onExtensionChanged(request)
 	{
-		if(!COMPAT.SYNC_STORAGE)
+		if(!COMPAT.SYNC_STORAGE || !enabled)
 		{
 			return;
 		}
 
-		runIfSyncEnabled(function() {
-			localExtensionChanged({
-				uuid:	request.parameters[EXTENSION_CHANGED_UUID],
-				state:	request.parameters[EXTENSION_CHANGED_STATE],
-				error:	request.parameters[EXTENSION_CHANGED_ERROR]
-			});
+		runIfSyncEnabled(() => {
+			if (extensionChangedTimeout)
+			{
+				clearTimeout(extensionChangedTimeout);
+			}
+
+			extensionChangedQueue[request.parameters[EXTENSION_CHANGED_UUID]] = {
+				uuid: request.parameters[EXTENSION_CHANGED_UUID],
+				state: request.parameters[EXTENSION_CHANGED_STATE],
+				error: request.parameters[EXTENSION_CHANGED_ERROR]
+			};
+
+			extensionChangedTimeout = setTimeout(function () {
+				localExtensionsChanged();
+			}, SYNC_QUEUE_TIMEOUT);
 		});
 	}
 
@@ -349,7 +422,15 @@ GSC.sync = (function($) {
 		}, function (options) {
 			if (options.syncExtensions)
 			{
-				callback();
+				chrome.permissions.contains({
+					permissions: ["idle"]
+				}, function (result) {
+					if (result)
+					{
+						callback();
+					}
+				});
+
 			}
 		});
 	}

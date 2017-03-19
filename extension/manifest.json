@@ -47,6 +47,9 @@
     "storage",
     "https://extensions.gnome.org/"
   ],
-  "optional_permissions": [ "webRequest" ],
+  "optional_permissions": [
+    "idle",
+    "webRequest"
+  ],
   "web_accessible_resources": ["include/sweettooth-api.js"]
 }

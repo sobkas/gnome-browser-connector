@@ -100,7 +100,18 @@ function restore_options()
 	{
 		updateSynchronizationStatus();
 		chrome.storage.local.get(DEFAULT_LOCAL_OPTIONS, function (items) {
-			setSyncExtensions(items.syncExtensions);
+			if(items.syncExtensions)
+			{
+				chrome.permissions.contains({
+					permissions: ["idle"]
+				}, function (result) {
+					setSyncExtensions(result);
+				});
+			}
+			else
+			{
+				setSyncExtensions(false);
+			}
 		});
 	}
 	else
@@ -204,6 +215,40 @@ function handleWebrequestPermission()
 	}
 }
 
+function handleSynchronize()
+{
+	if($('#synchronize_extensions_yes').is(':checked'))
+	{
+		chrome.permissions.request({
+			permissions: ["idle"]
+		}, function(granted) {
+			if(granted)
+			{
+				chrome.storage.sync.get({
+					extensions: {}
+				}, function (options) {
+					if(!$.isEmptyObject(options.extensions))
+					{
+						document.getElementById('syncChoice').showModal();
+					}
+				});
+			}
+			else
+			{
+				setSyncExtensions(false);
+			}
+		});
+	}
+	else
+	{
+		chrome.permissions.remove({
+			permissions: ["idle"]
+		}, function(removed) {
+			setSyncExtensions(!removed);
+		});
+	}
+}
+
 function updateSynchronizationStatus()
 {
 	GSC.sync.getExtensions($.Deferred().done(function (extensions) {
@@ -263,26 +308,22 @@ i18n();
 
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
+
 $.each(document.getElementsByName('show_network_errors'), function(index, control) {
 	control.addEventListener('change', handleWebrequestPermission);
+});
+
+$.each(document.getElementsByName('synchronize_extensions'), function(index, control) {
+	control.addEventListener('change', handleSynchronize);
 });
 
 document.getElementById('syncChoice').addEventListener('close', function() {
 	if(document.getElementById('syncChoice').returnValue === 'cancel')
 	{
-		$('#synchronize_extensions_no').prop('checked', 'checked');
-	}
-});
-$('input[type="radio"][name="synchronize_extensions"]').change(function() {
-	if($('#synchronize_extensions_yes').is(':checked'))
-	{
-		chrome.storage.sync.get({
-			extensions: {}
-		}, function (options) {
-			if(!$.isEmptyObject(options.extensions))
-			{
-				document.getElementById('syncChoice').showModal();
-			}
+		chrome.permissions.remove({
+			permissions: ["idle"]
+		}, function(removed) {
+			setSyncExtensions(!removed);
 		});
 	}
 });
