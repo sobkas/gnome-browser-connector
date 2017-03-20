@@ -18,6 +18,7 @@ body {
 
 .buttons { text-align: center; margin-top: 1em; }
 .notice { font-size: 90%; font-weight: normal; margin-top: 0.5em; white-space: nowrap; }
+.update-notice { display: none; }
 .wrapped { white-space: normal; }
 
 fieldset {

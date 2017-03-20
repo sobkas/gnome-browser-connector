@@ -87,17 +87,12 @@
 		"message": "Check for extensions update",
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions."
 	},
+	"options_update_check_notice": {
+		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
+	},
 	"options_check_period": {
 		"message": "Update check period",
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks."
-	},
-	"options_show_network_errors": {
-		"message": "Show information about network errors",
-		"description": "Option name. By default Chrome do not reveal exact network error in case of request failure. Allow enable/disable extended error information."
-	},
-	"options_show_network_errors_notice": {
-		"message": "Chrome permission «webRequest» required.",
-		"description": "This is a notice under option name. Warns user that additional browser permission is required if option will be enabled."
 	},
 	"options_show_release_notes": {
 		"message": "Show release notes when extension updated",

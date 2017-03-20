@@ -83,17 +83,54 @@ function restore_options()
 	tabby.init();
 
 	chrome.storage.sync.get(DEFAULT_SYNC_OPTIONS, function (items) {
-		setCheckUpdate(items.updateCheck);
-		$('#update_check_period').val(items.updateCheckPeriod);
+		function toggle_update_notice(show) {
+			let notice = $('#update_check_yes')
+				.closest('dl')
+				.find('dt br, dt span.notice');
+
+			if (show)
+			{
+				notice.show();
+			}
+			else
+			{
+				notice.hide();
+			}
+		}
+
+		function disable_update_check() {
+			if (items.updateCheck)
+			{
+				items.updateCheck = false;
+
+				chrome.storage.sync.set({
+					updateCheck: items.updateCheck
+				});
+			}
+
+			$("[name='update_check'], #update_check_period").prop('disabled', 'disabled');
+
+			toggle_update_notice(true);
+		}
+
+		GSC.onInitialize().then(function (response) {
+			if (!GSC.nativeUpdateCheckSupported(response))
+			{
+				disable_update_check();
+			}
+			else
+			{
+				$('#update_check_period').val(items.updateCheckPeriod);
+				toggle_update_notice(false);
+				retrieveUpdateTimes();
+			}
+
+			setCheckUpdate(items.updateCheck);
+		}, function(response) {
+			disable_update_check();
+		});
+
 		setReleaseNotes(items.showReleaseNotes);
-
-		retrieveUpdateTimes();
-	});
-
-	chrome.permissions.contains({
-		permissions: ["webRequest"]
-	}, function(result) {
-		setNetworkErrors(result);
 	});
 
 	if(COMPAT.SYNC_STORAGE)
@@ -123,11 +160,6 @@ function restore_options()
 	if(COMPAT.IS_FIREFOX)
 	{
 		$('dialog').hide();
-	}
-
-	if(!COMPAT.PERMISSIONS_CONTAINS)
-	{
-		$('#show_network_errors_yes').parents('dl:first').hide();
 	}
 }
 
@@ -179,40 +211,12 @@ function setReleaseNotes(result)
 		$('#show_release_notes_no').prop('checked', true);
 }
 
-function setNetworkErrors(result)
-{
-	if(result)
-		$('#show_network_errors_yes').prop('checked', true);
-	else
-		$('#show_network_errors_no').prop('checked', true);
-}
-
 function setSyncExtensions(result)
 {
 	if(result)
 		$('#synchronize_extensions_yes').prop('checked', true);
 	else
 		$('#synchronize_extensions_no').prop('checked', true);
-}
-
-function handleWebrequestPermission()
-{
-	if($('#show_network_errors_yes').prop('checked'))
-	{
-		chrome.permissions.request({
-			permissions: ["webRequest"]
-		}, function(granted) {
-			setNetworkErrors(granted);
-		});
-	}
-	else
-	{
-		chrome.permissions.remove({
-			permissions: ["webRequest"]
-		}, function(removed) {
-			setNetworkErrors(!removed);
-		});
-	}
 }
 
 function handleSynchronize()
@@ -308,10 +312,6 @@ i18n();
 
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
-
-$.each(document.getElementsByName('show_network_errors'), function(index, control) {
-	control.addEventListener('change', handleWebrequestPermission);
-});
 
 $.each(document.getElementsByName('synchronize_extensions'), function(index, control) {
 	control.addEventListener('change', handleSynchronize);

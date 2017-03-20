@@ -89,8 +89,7 @@ window.SweetTooth = function () {
 				apiObject.versionValidationEnabled = response.versionValidationEnabled;
 
 				let REQUIRED_APIS = [
-					"notifications",
-					"update-check"
+					"notifications"
 				];
 
 				if(response.supports)

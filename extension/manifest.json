@@ -48,8 +48,7 @@
     "https://extensions.gnome.org/"
   ],
   "optional_permissions": [
-    "idle",
-    "webRequest"
+    "idle"
   ],
   "web_accessible_resources": ["include/sweettooth-api.js"]
 }

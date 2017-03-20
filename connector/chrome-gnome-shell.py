@@ -23,6 +23,12 @@ import struct
 import sys
 import traceback
 
+REQUESTS_IMPORTED = True
+try:
+    import requests
+except ImportError:
+    REQUESTS_IMPORTED = False
+
 CONNECTOR_VERSION = 8.2
 DEBUG_ENABLED = False
 
@@ -365,6 +371,10 @@ class ChromeGNOMEShell(Gio.Application):
                 else:
                     disable_version_check = False
 
+                supports = ['notifications']
+                if REQUESTS_IMPORTED:
+                    supports.append('update-check')
+
                 self.send_message(
                     {
                         'success': True,
@@ -372,10 +382,7 @@ class ChromeGNOMEShell(Gio.Application):
                             'connectorVersion': CONNECTOR_VERSION,
                             'shellVersion': shell_version.unpack() if shell_version is not None else None,
                             'versionValidationEnabled': not disable_version_check,
-                            'supports': [
-                                'notifications',
-                                'update-check'
-                            ]
+                            'supports': supports
                         }
                     }
                 )
