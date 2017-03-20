@@ -49,7 +49,6 @@ DEFAULT_LOCAL_OPTIONS			= {
 };
 
 EXTERNAL_MESSAGES			= [
-	"connecting_host_app",
 	"error_extension_response",
 	"no_gnome_shell",
 	"no_host_connector",
