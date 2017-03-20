@@ -54,7 +54,8 @@ GSC = (function() {
 							if (
 								chrome.runtime.lastError &&
 								chrome.runtime.lastError.message &&
-								chrome.runtime.lastError.message.indexOf("host not found") === -1
+								chrome.runtime.lastError.message.indexOf("host not found") === -1 && // Chrome
+								chrome.runtime.lastError.message.indexOf("disconnected port") === -1 // Firefox
 							)
 							{
 								// Some error occured. Show to user
