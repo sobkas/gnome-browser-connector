@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-03-08 18:00+0000\n"
-"PO-Revision-Date: 2017-03-15 18:55+0100\n"
+"POT-Creation-Date: 2017-03-20 19:36+0000\n"
+"PO-Revision-Date: 2017-03-21 16:01+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -166,18 +166,6 @@ msgstr "Következő keresés"
 msgid "Options saved."
 msgstr "Beállítások mentve."
 
-#. Option name. By default Chrome do not reveal exact network error in case of
-#. request failure. Allow enable/disable extended error information.
-#: chrome-gnome-shell-key-options_show_network_errors:1
-msgid "Show information about network errors"
-msgstr "Információk megjelenítése a hálózati hibákról"
-
-#. This is a notice under option name. Warns user that additional browser
-#. permission is required if option will be enabled.
-#: chrome-gnome-shell-key-options_show_network_errors_notice:1
-msgid "Chrome permission «webRequest» required."
-msgstr "A „webRequest” Chrome engedély szükséges."
-
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
@@ -214,6 +202,14 @@ msgstr "$GS_CHROME$ beállítások"
 #: chrome-gnome-shell-key-options_update_check:1
 msgid "Check for extensions update"
 msgstr "Bővítményfrissítés keresése"
+
+#: chrome-gnome-shell-key-options_update_check_notice:1
+msgid ""
+"Your native host connector does not support check for GNOME Shell extensions "
+"updates. Probably python-requests package is missing."
+msgstr ""
+"A natív gazdacsatlakozója nem támogatja a GNOME Shell kiterjesztések "
+"frissítéseinek ellenőrzését. Valószínűleg a python-requests csomag hiányzik."
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -298,9 +294,9 @@ msgid ""
 msgstr ""
 "A natív gazdacsatlakozó nem támogatja a következő API-kat: $$1. Valószínűleg "
 "frissítenie kell a natív gazdacsatlakozót, vagy bővítményeket kell "
-"telepítenie a hiányzó API-khoz. Nézz meg a <a href='https://wiki.gnome."
-"org/Projects/GnomeShellIntegrationForChrome/Installation'>dokumentációt</a> "
-"az utasításokért."
+"telepítenie a hiányzó API-khoz. Nézz meg a <a href='https://wiki.gnome.org/"
+"Projects/GnomeShellIntegrationForChrome/Installation'>dokumentációt</a> az "
+"utasításokért."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -334,14 +330,14 @@ msgid ""
 msgstr ""
 "A bővítmény működéséhez telepíteni KELL a natív csatlakozót.\n"
 "\n"
-"Arch Linuxhoz elérhető PKGBUILD az AUR-ban: https://aur.archlinux."
-"org/packages/chrome-gnome-shell-git\n"
+"Arch Linuxhoz elérhető PKGBUILD az AUR-ban: https://aur.archlinux.org/"
+"packages/chrome-gnome-shell-git\n"
 "\n"
-"Debian Linux esetén elérhető egy csomag a Sid és Stretch ágban: "
-"https://tracker.debian.org/pkg/chrome-gnome-shell\n"
+"Debian Linux esetén elérhető egy csomag a Sid és Stretch ágban: https://"
+"tracker.debian.org/pkg/chrome-gnome-shell\n"
 "\n"
-"Fedora Linux esetén létezik Copr csomag: https://copr.fedorainfracloud."
-"org/coprs/region51/chrome-gnome-shell\n"
+"Fedora Linux esetén létezik Copr csomag: https://copr.fedorainfracloud.org/"
+"coprs/region51/chrome-gnome-shell\n"
 "\n"
 "Gentoo Linux esetén telepítheti a csatlakozót a paranccsal:\n"
 "emerge gnome-extra/chrome-gnome-shell\n"
@@ -352,7 +348,7 @@ msgstr ""
 "sudo apt-get update\n"
 "sudo apt-get install chrome-gnome-shell\n"
 "\n"
-"Kézzel is telepítheti a csatlakozót. Nézze meg a https://wiki.gnome."
-"org/Projects/GnomeShellIntegrationForChrome/Installation oldalt a telepítési "
+"Kézzel is telepítheti a csatlakozót. Nézze meg a https://wiki.gnome.org/"
+"Projects/GnomeShellIntegrationForChrome/Installation oldalt a telepítési "
 "utasításokért.\n"
 
