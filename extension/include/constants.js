@@ -8,7 +8,7 @@
     (at your option) any later version.
  */
 
-GS_CHROME_ID				= chrome.i18n.getMessage('@@extension_id');
+GS_CHROME_ID				= chrome.runtime.id;
 PLATFORMS_WHITELIST			= ["linux", "openbsd"];
 
 COMPAT = {

@@ -14,7 +14,7 @@ COMPAT.PERMISSIONS_CONTAINS		= true;
 COMPAT.SYNC_STORAGE				= (!COMPAT.IS_OPERA || false);
 COMPAT.NOTIFICATIONS_BUTTONS	= (!COMPAT.IS_OPERA && !COMPAT.IS_FIREFOX || false);
 
-if(typeof(chrome.runtime.onMessageExternal) === 'undefined')
+if(COMPAT.IS_FIREFOX)
 {
 	chrome.runtime.onMessageExternal = {
 		addListener: chrome.runtime.onMessage.addListener
