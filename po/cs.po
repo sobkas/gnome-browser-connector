@@ -1,14 +1,14 @@
 # Czech translation for chrome-gnome-shell.
 # Copyright (C) 2016 chrome-gnome-shell's COPYRIGHT HOLDER
 # This file is distributed under the same license as the chrome-gnome-shell package.
-# Marek Černocký <marek@manet.cz>, 2016.
+# Marek Černocký <marek@manet.cz>, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-01-04 06:47+0000\n"
-"PO-Revision-Date: 2016-12-23 00:24+0100\n"
+"POT-Creation-Date: 2017-03-20 19:36+0000\n"
+"PO-Revision-Date: 2017-03-23 21:09+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -108,6 +108,16 @@ msgstr "nikdy"
 msgid "No"
 msgstr "Ne"
 
+#. Shown to user when native connector unable to query GNOME Shell version or
+#. settings
+#: chrome-gnome-shell-key-no_gnome_shell:1
+msgid ""
+"Unable to locate GNOME Shell settings or version. Make sure it is installed "
+"and running."
+msgstr ""
+"Nelze najít nastavení nebo verzi GNOME Shellu. Ujistěte se, že je "
+"nainstalován a běží."
+
 #: chrome-gnome-shell-key-no_host_connector:1
 msgid ""
 "Although GNOME Shell integration extension is running, native host connector "
@@ -116,7 +126,7 @@ msgid ""
 "instructions about installing connector."
 msgstr ""
 "Ačkoliv rozšíření integrující GNOME Shell běží, nebyl nalezen konektor pro "
-"nativního hostitele. Podívejte se do <a href='https://wiki.gnome.org/"
+"přirozeného hostitele. Podívejte se do <a href='https://wiki.gnome.org/"
 "Projects/GnomeShellIntegrationForChrome/Installation'>dokumentace</a>, jak "
 "konektor nainstalovat."
 
@@ -153,18 +163,6 @@ msgstr "Příští kontrola"
 #: chrome-gnome-shell-key-options_saved:1
 msgid "Options saved."
 msgstr "Volba byla uložena."
-
-#. Option name. By default Chrome do not reveal exact network error in case of
-#. request failure. Allow enable/disable extended error information.
-#: chrome-gnome-shell-key-options_show_network_errors:1
-msgid "Show information about network errors"
-msgstr "Zobrazovat informace o chybách sítě"
-
-#. This is a notice under option name. Warns user that additional browser
-#. permission is required if option will be enabled.
-#: chrome-gnome-shell-key-options_show_network_errors_notice:1
-msgid "Chrome permission «webRequest» required."
-msgstr "Je vyžadováno oprávnění Chrome «webRequest»."
 
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
@@ -203,9 +201,17 @@ msgstr "Volby $GS_CHROME$"
 msgid "Check for extensions update"
 msgstr "Zkontrolovat aktualizace rozšíření"
 
+#: chrome-gnome-shell-key-options_update_check_notice:1
+msgid ""
+"Your native host connector does not support check for GNOME Shell extensions "
+"updates. Probably python-requests package is missing."
+msgstr ""
+"Váš konektor pro přirozeného hostitele nepodporuje kontrolu pro aktualizace "
+"rozšíření GNOME Shellu. Nejspíše chybí balíček python-requests."
+
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
-msgstr "Konektor pro nativního hostitele není vaší platformou podporován."
+msgstr "Konektor pro přirozeného hostitele není vaší platformou podporován."
 
 #: chrome-gnome-shell-key-retry:1
 msgid "Retry"
@@ -284,7 +290,7 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Konektor pro vašeho nativního hostitele nepodporuje následující API: $$1. "
+"Konektor pro vašeho přirozeného hostitele nepodporuje následující API: $$1. "
 "Pravděpodobně jej budete muset povýšit na novější verzi nebo nainstalovat "
 "zásuvný modul pro chybějící API. Na instrukce se podívejte se do <a "
 "href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/"
@@ -320,7 +326,7 @@ msgid ""
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
 msgstr ""
-"Aby tohle rozšíření fungovalo, MUSÍTE nainstalovat nativní konektor.\n"
+"Aby tohle rozšíření fungovalo, MUSÍTE nainstalovat přirozený konektor.\n"
 "\n"
 "Pro Arch Linux je k dispozici PKGBUILD v AUR: https://aur.archlinux.org/"
 "packages/chrome-gnome-shell-git\n"
@@ -342,3 +348,9 @@ msgstr ""
 "\n"
 "Můžete konektor nainstalovat i ručně. Instalační instrukce viz https://wiki."
 "gnome.org/Projects/GnomeShellIntegrationForChrome/Installation.\n"
+
+#~ msgid "Show information about network errors"
+#~ msgstr "Zobrazovat informace o chybách sítě"
+
+#~ msgid "Chrome permission «webRequest» required."
+#~ msgstr "Je vyžadováno oprávnění Chrome «webRequest»."
