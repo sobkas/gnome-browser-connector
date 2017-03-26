@@ -40,9 +40,6 @@
 			}
 		}
 	},
-	"network_error": {
-		"message": "A network error has occurred. Please check your Internet connection and/or proxy settings."
-	},
 	"no_gnome_shell": {
 		"message": "Unable to locate GNOME Shell settings or version. Make sure it is installed and running.",
 		"description": "Shown to user when native connector unable to query GNOME Shell version or settings"
@@ -59,7 +56,7 @@
 		"message": "Native host connector is not supported for your platform."
 	},
 	"update_check_failed": {
-		"message": "Failed to check extensions updates: $CAUSE$",
+		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
 		"placeholders": {
 			"cause": {
@@ -88,7 +85,7 @@
 		"description": "Means 'Options were saved successfully after user clicked Save button'"
 	},
 	"options_update_check": {
-		"message": "Check for extensions update",
+		"message": "Check for GNOME Shell extensions update",
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions."
 	},
 	"options_update_check_notice": {
@@ -99,11 +96,11 @@
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks."
 	},
 	"options_show_release_notes": {
-		"message": "Show release notes when extension updated",
+		"message": "Show release notes when browser extension updated",
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated."
 	},
 	"options_synchronize_extensions": {
-		"message": "Synchronize extensions list",
+		"message": "Synchronize GNOME Shell extensions list",
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage."
 	},
 	"options_synchronize_extensions_notice": {
