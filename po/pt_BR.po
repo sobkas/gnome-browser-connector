@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-03-08 18:00+0000\n"
-"PO-Revision-Date: 2017-03-09 20:25-0200\n"
+"POT-Creation-Date: 2017-03-20 19:36+0000\n"
+"PO-Revision-Date: 2017-03-25 21:09-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -163,18 +163,6 @@ msgstr "Próxima verificação"
 msgid "Options saved."
 msgstr "Opções salvas."
 
-#. Option name. By default Chrome do not reveal exact network error in case of
-#. request failure. Allow enable/disable extended error information.
-#: chrome-gnome-shell-key-options_show_network_errors:1
-msgid "Show information about network errors"
-msgstr "Mostrar informação sobre erros de rede"
-
-#. This is a notice under option name. Warns user that additional browser
-#. permission is required if option will be enabled.
-#: chrome-gnome-shell-key-options_show_network_errors_notice:1
-msgid "Chrome permission «webRequest» required."
-msgstr "É necessário ter permissão de «webRequest» do Chrome."
-
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
@@ -211,6 +199,15 @@ msgstr "Opções de $GS_CHROME$"
 #: chrome-gnome-shell-key-options_update_check:1
 msgid "Check for extensions update"
 msgstr "Verificar atualização de extensões"
+
+#: chrome-gnome-shell-key-options_update_check_notice:1
+msgid ""
+"Your native host connector does not support check for GNOME Shell extensions "
+"updates. Probably python-requests package is missing."
+msgstr ""
+"Seu conector nativo de máquina não oferece suporte a verificação por "
+"atualizações de extensões do GNOME Shell. Provavelmente está faltando o "
+"pacote python-requests."
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -354,6 +351,12 @@ msgstr ""
 "Você também pode instalar o conector manualmente. Veja https://wiki.gnome."
 "org/Projects/GnomeShellIntegrationForChrome/Installation/pt_BR para "
 "instruções de instalação.\n"
+
+#~ msgid "Show information about network errors"
+#~ msgstr "Mostrar informação sobre erros de rede"
+
+#~ msgid "Chrome permission «webRequest» required."
+#~ msgstr "É necessário ter permissão de «webRequest» do Chrome."
 
 #~ msgid "older than version 4"
 #~ msgstr "versão anterior a 4"
