@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-03-20 19:36+0000\n"
+"POT-Creation-Date: 2017-03-26 07:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -119,6 +119,11 @@ msgstr ""
 #. application.'
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
+msgstr ""
+
+#. Tooltip for browser extensions icon.
+#: chrome-gnome-shell-key-open_website:1
+msgid "Open GNOME Shell extensions website"
 msgstr ""
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
