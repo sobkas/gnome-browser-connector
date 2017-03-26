@@ -51,6 +51,10 @@
 		"message": "No host response",
 		"description": "Means 'Web extension does not received answer from native messaging host application.'"
 	},
+	"open_website": {
+		"message": "Open GNOME Shell extensions website",
+		"description": "Tooltip for browser extensions icon."
+	},
 	"platform_not_supported": {
 		"message": "Native host connector is not supported for your platform."
 	},

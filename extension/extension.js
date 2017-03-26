@@ -67,6 +67,13 @@ chrome.runtime.onMessageExternal.addListener(function (request, sender, sendResp
 	}
 });
 
+chrome.browserAction.onClicked.addListener(function () {
+	chrome.tabs.create({
+		url: EXTENSIONS_WEBSITE,
+		active: true
+	});
+});
+
 var disabledExtensionTimeout = null;
 var lastPortMessage = {message: null, date: 0};
 var port = chrome.runtime.connectNative(NATIVE_HOST);
