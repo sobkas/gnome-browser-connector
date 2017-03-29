@@ -5,20 +5,21 @@
 # Stefan Kirrmann, 2016.
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2016, 2017.
 # Wolfgang Stöggl <c72578@yahoo.de>, 2016.
+# Florian Heiser <gnu.l10n.de@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-03-08 18:00+0000\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Florian Heiser <gnu.l10n.de@gmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2017-03-26 07:19+0000\n"
+"PO-Revision-Date: 2017-03-29 21:27+0200\n"
+"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.8.12\n"
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
@@ -93,14 +94,6 @@ msgstr ""
 msgid "«$REQUEST$» native request failed"
 msgstr "«$REQUEST$» Native Anfrage fehlgeschlagen"
 
-#: chrome-gnome-shell-key-network_error:1
-msgid ""
-"A network error has occurred. Please check your Internet connection and/or "
-"proxy settings."
-msgstr ""
-"Ein Netzwerkfehler ist aufgetreten. Bitte überprüfen Sie Ihre "
-"Internetverbindung und/oder Ihre Proxy-Einstellungen."
-
 #. This is a part of phrase 'Last check: never'
 #: chrome-gnome-shell-key-never:1
 msgid "never"
@@ -139,6 +132,11 @@ msgstr ""
 msgid "No host response"
 msgstr "Keine Antwort vom Host"
 
+#. Tooltip for browser extensions icon.
+#: chrome-gnome-shell-key-open_website:1
+msgid "Open GNOME Shell extensions website"
+msgstr "Webseite der GNOME Shell-Erweiterungen öffnen"
+
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
 #: chrome-gnome-shell-key-options_check_period:1
@@ -167,30 +165,19 @@ msgstr "Nächste Prüfung"
 msgid "Options saved."
 msgstr "Optionen gespeichert."
 
-#. Option name. By default Chrome do not reveal exact network error in case of
-#. request failure. Allow enable/disable extended error information.
-#: chrome-gnome-shell-key-options_show_network_errors:1
-msgid "Show information about network errors"
-msgstr "Informationen zu Netzwerkfehlern anzeigen"
-
-#. This is a notice under option name. Warns user that additional browser
-#. permission is required if option will be enabled.
-#: chrome-gnome-shell-key-options_show_network_errors_notice:1
-msgid "Chrome permission «webRequest» required."
-msgstr "Chrome-Zugriffsrecht »webRequest« ist erforderlich."
-
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
-msgid "Show release notes when extension updated"
+msgid "Show release notes when browser extension updated"
 msgstr ""
-"Veröffentlichungshinweise anzeigen, wenn Erweiterungen aktualisiert wurden"
+"Veröffentlichungshinweise anzeigen, wenn die Browser-Erweiterung "
+"aktualisiert wird"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
-msgid "Synchronize extensions list"
-msgstr "Erweiterungsliste abgleichen"
+msgid "Synchronize GNOME Shell extensions list"
+msgstr "GNOME-Shell-Erweiterungsliste abgleichen"
 
 #. This is a notice under option name.
 #: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
@@ -214,8 +201,17 @@ msgstr "$GS_CHROME$-Optionen"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-msgid "Check for extensions update"
-msgstr "Auf Aktualisierungen für Erweiterungen prüfen"
+msgid "Check for GNOME Shell extensions update"
+msgstr "Auf Aktualisierungen für GNOME-Shell-Erweiterungen prüfen"
+
+#: chrome-gnome-shell-key-options_update_check_notice:1
+msgid ""
+"Your native host connector does not support check for GNOME Shell extensions "
+"updates. Probably python-requests package is missing."
+msgstr ""
+"Ihr nativer Host-Connector unterstützt keine Prüfung auf Aktualisierungen "
+"für GNOME-Shell-Erweiterungen. Wahrscheinlich fehlt das Paket python-"
+"requests."
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -291,8 +287,10 @@ msgstr "Eine Aktualisierung für die GNOME Shell-Erweiterung ist verfügbar"
 #. cause
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
-msgid "Failed to check extensions updates: $CAUSE$"
-msgstr "Prüfung auf Erweiterungs-Aktualisierungen ist fehlgeschlagen: $CAUSE$"
+msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
+msgstr ""
+"Prüfung auf GNOME-Shell-Erweiterungs-Aktualisierungen ist fehlgeschlagen: "
+"$CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
@@ -364,3 +362,4 @@ msgstr ""
 "Sie können den Connector auch manuell installieren. Installationshinweise "
 "finden Sie auf https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation.\n"
+
