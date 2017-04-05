@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-03-20 19:36+0000\n"
+"POT-Creation-Date: 2017-03-26 07:19+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: \n"
@@ -92,14 +92,6 @@ msgstr ""
 msgid "«$REQUEST$» native request failed"
 msgstr "«$REQUEST$» permintaan native gagal"
 
-#: chrome-gnome-shell-key-network_error:1
-msgid ""
-"A network error has occurred. Please check your Internet connection and/or "
-"proxy settings."
-msgstr ""
-"Telah terjadi kesalahan jaringan. Harap periksa koneksi Internet Anda dan/"
-"atau pengaturan proksi."
-
 #. This is a part of phrase 'Last check: never'
 #: chrome-gnome-shell-key-never:1
 msgid "never"
@@ -137,6 +129,11 @@ msgstr ""
 msgid "No host response"
 msgstr "Tidak ada respon host"
 
+#. Tooltip for browser extensions icon.
+#: chrome-gnome-shell-key-open_website:1
+msgid "Open GNOME Shell extensions website"
+msgstr "Buka situs web ekstensi GNOME Shell"
+
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
 #: chrome-gnome-shell-key-options_check_period:1
@@ -168,14 +165,14 @@ msgstr "Opsi disimpan."
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
-msgid "Show release notes when extension updated"
-msgstr "Tampilkan catatan rilis ketika ekstensi dimutakhirkan"
+msgid "Show release notes when browser extension updated"
+msgstr "Tampilkan catatan rilis saat ekstensi peramban diperbarui"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
-msgid "Synchronize extensions list"
-msgstr "Selaraskan daftar ekstensi"
+msgid "Synchronize GNOME Shell extensions list"
+msgstr "Selaraskan daftar ekstensi GNOME Shell"
 
 #. This is a notice under option name.
 #: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
@@ -199,8 +196,8 @@ msgstr "Opsi $GS_CHROME$"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-msgid "Check for extensions update"
-msgstr "Periksa pemutakhiran ekstensi"
+msgid "Check for GNOME Shell extensions update"
+msgstr "Periksa pemutakhiran ekstensi GNOME Shell"
 
 #: chrome-gnome-shell-key-options_update_check_notice:1
 msgid ""
@@ -281,8 +278,8 @@ msgstr "Tersedia pemutakhiran untuk Shell GNOME"
 #. cause
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
-msgid "Failed to check extensions updates: $CAUSE$"
-msgstr "Gagal memeriksa pemutakhiran ekstensi: $CAUSE$"
+msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
+msgstr "Gagal memeriksa pemutakhiran ekstensi GNOME Shell: $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
@@ -351,6 +348,13 @@ msgstr ""
 "Anda juga dapat memasang konektor secara manual. Lihat https://wiki.gnome."
 "org/Projects/GnomeShellIntegrationForChrome/Installation untuk instruksi "
 "instalasi.\n"
+
+#~ msgid ""
+#~ "A network error has occurred. Please check your Internet connection and/"
+#~ "or proxy settings."
+#~ msgstr ""
+#~ "Telah terjadi kesalahan jaringan. Harap periksa koneksi Internet Anda dan/"
+#~ "atau pengaturan proksi."
 
 #~ msgid "Show information about network errors"
 #~ msgstr "Tampilkan informasi tentang kesalahan jaringan"
