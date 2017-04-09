@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-01-04 06:47+0000\n"
-"PO-Revision-Date: 2016-12-30 09:27+0100\n"
+"POT-Creation-Date: 2017-04-09 15:03+0000\n"
+"PO-Revision-Date: 2017-04-09 18:07+0200\n"
 "Last-Translator: Alain Lojewski <allomervan@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Close"
 msgstr "Fermer"
 
-#. Shown to user when response of extension API call does not follow known
+#. Shown to user when response from connector API call does not follow known
 #. format.
-#: chrome-gnome-shell-key-error_extension_response:1
-msgid "Wrong extension response received"
-msgstr "Mauvaise réponse reçue de l'extension"
+#: chrome-gnome-shell-key-error_connector_response:1
+msgid "Wrong connector response received"
+msgstr "Mauvaise réponse reçue du connecteur"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension
 #. enabled?'
@@ -90,14 +90,6 @@ msgstr ""
 msgid "«$REQUEST$» native request failed"
 msgstr "La requête native « $REQUEST$ » a échoué"
 
-#: chrome-gnome-shell-key-network_error:1
-msgid ""
-"A network error has occurred. Please check your Internet connection and/or "
-"proxy settings."
-msgstr ""
-"Une erreur réseau est survenue. Veuillez vérifier votre connexion Internet "
-"et/ou les paramètres de votre serveur mandataire."
-
 #. This is a part of phrase 'Last check: never'
 #: chrome-gnome-shell-key-never:1
 msgid "never"
@@ -106,6 +98,15 @@ msgstr "jamais"
 #: chrome-gnome-shell-key-no:1
 msgid "No"
 msgstr "Non"
+
+#. Shown to user when native connector unable to query GNOME Shell version or
+#. settings
+#: chrome-gnome-shell-key-no_gnome_shell:1
+msgid ""
+"Unable to locate GNOME Shell settings or version. Make sure it is installed "
+"and running."
+msgstr ""
+"Impossible de trouver les paramètres ou la version de GNOME Shell. Assurez-vous qu’il soit installé et en cours d’exécution."
 
 #: chrome-gnome-shell-key-no_host_connector:1
 msgid ""
@@ -124,6 +125,11 @@ msgstr ""
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
 msgstr "Aucune réponse de l'hôte"
+
+#. Tooltip for browser extensions icon.
+#: chrome-gnome-shell-key-open_website:1
+msgid "Open GNOME Shell extensions website"
+msgstr "Ouvrer le site Web pour les extensions de GNOME Shell"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -153,29 +159,17 @@ msgstr "Vérification suivante"
 msgid "Options saved."
 msgstr "Options enregistrées."
 
-#. Option name. By default Chrome do not reveal exact network error in case of
-#. request failure. Allow enable/disable extended error information.
-#: chrome-gnome-shell-key-options_show_network_errors:1
-msgid "Show information about network errors"
-msgstr "Afficher les informations sur les erreurs réseau"
-
-#. This is a notice under option name. Warns user that additional browser
-#. permission is required if option will be enabled.
-#: chrome-gnome-shell-key-options_show_network_errors_notice:1
-msgid "Chrome permission «webRequest» required."
-msgstr "Permission « webRequest » de Chrome requise."
-
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
-msgid "Show release notes when extension updated"
-msgstr "Afficher les notes de version après la mise à jour de l'extension"
+msgid "Show release notes when browser extension updated"
+msgstr "Afficher les notes de version après la mise à jour de l'extension du navigateur"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
-msgid "Synchronize extensions list"
-msgstr "Synchroniser la liste des extensions"
+msgid "Synchronize GNOME Shell extensions list"
+msgstr "Synchroniser la liste des extensions GNOME Shell"
 
 #. This is a notice under option name.
 #: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
@@ -199,8 +193,15 @@ msgstr "Options $GS_CHROME$"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-msgid "Check for extensions update"
-msgstr "Vérifier les mises à jour des extensions"
+msgid "Check for GNOME Shell extensions update"
+msgstr "Vérifier les mises à jour des extensions GNOME Shell"
+
+#: chrome-gnome-shell-key-options_update_check_notice:1
+msgid ""
+"Your native host connector does not support check for GNOME Shell extensions "
+"updates. Probably python-requests package is missing."
+msgstr ""
+"Votre connecteur d’hôte natif ne prend pas en charge la vérification des mises à jour pour les extensions GNOME Shell. Le paquet python-requests est probablement manquant."
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -277,8 +278,8 @@ msgstr "Il y a une mise à jour disponible pour les extensions de GNOME Shell"
 #. cause
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
-msgid "Failed to check extensions updates: $CAUSE$"
-msgstr "Impossible de vérifier les mises à jour des extensions : $CAUSE$"
+msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
+msgstr "Impossible de vérifier les mises à jour des extensions GNOME Shell : $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
@@ -349,6 +350,19 @@ msgstr ""
 "Vous pouvez aussi installer le connecteur manuellement. Les instructions "
 "sont disponibles dans https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation.\n"
+
+#~ msgid ""
+#~ "A network error has occurred. Please check your Internet connection and/"
+#~ "or proxy settings."
+#~ msgstr ""
+#~ "Une erreur réseau est survenue. Veuillez vérifier votre connexion "
+#~ "Internet et/ou les paramètres de votre serveur mandataire."
+
+#~ msgid "Show information about network errors"
+#~ msgstr "Afficher les informations sur les erreurs réseau"
+
+#~ msgid "Chrome permission «webRequest» required."
+#~ msgstr "Permission « webRequest » de Chrome requise."
 
 #~ msgid ""
 #~ "You are using different versions of GNOME Shell integration extension ($"
