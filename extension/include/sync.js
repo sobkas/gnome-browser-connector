@@ -175,7 +175,7 @@ GSC.sync = (function($) {
 			}
 			else
 			{
-				var message = response && response.message ? response.message : m('error_extension_response');
+				var message = response && response.message ? response.message : m('error_connector_response');
 				deferred.reject(message);
 			}
 		});

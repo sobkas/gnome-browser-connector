@@ -49,7 +49,7 @@ DEFAULT_LOCAL_OPTIONS			= {
 };
 
 EXTERNAL_MESSAGES			= [
-	"error_extension_response",
+	"error_connector_response",
 	"no_gnome_shell",
 	"no_host_connector",
 	"warning_apis_missing"

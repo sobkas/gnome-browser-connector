@@ -78,7 +78,7 @@ window.SweetTooth = function () {
 					}
 					else
 					{
-						var message = response && response.message ? GSC.getMessage(response.message) : GSC.getMessage('error_extension_response');
+						var message = response && response.message ? GSC.getMessage(response.message) : GSC.getMessage('error_connector_response');
 						reject(message);
 					}
 				});
@@ -158,7 +158,7 @@ window.SweetTooth = function () {
 					}
 					else
 					{
-						var message = response && response.message ? response.message : GSC.getMessage('error_extension_response');
+						var message = response && response.message ? response.message : GSC.getMessage('error_connector_response');
 						reject(message);
 					}
 				},
