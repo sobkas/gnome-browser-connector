@@ -1,13 +1,13 @@
 # Scottish Gaelic translation for chrome-gnome-shell.
 # Copyright (C) 2016 chrome-gnome-shell's COPYRIGHT HOLDER
 # This file is distributed under the same license as the chrome-gnome-shell package.
-# GunChleoc <fios@foramnagaidhlig.net>, 2016.
+# GunChleoc <fios@foramnagaidhlig.net>, 2016, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-01-04 06:47+0000\n"
-"PO-Revision-Date: 2016-09-01 17:42+0100\n"
+"POT-Creation-Date: 2017-04-09 15:03+0000\n"
+"PO-Revision-Date: 2017-04-10 11:13+0200\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "Language: gd\n"
@@ -23,11 +23,12 @@ msgstr ""
 msgid "Close"
 msgstr "Dùin"
 
-#. Shown to user when response of extension API call does not follow known
+#. Shown to user when response from connector API call does not follow known
 #. format.
-#: chrome-gnome-shell-key-error_extension_response:1
-msgid "Wrong extension response received"
-msgstr "Fhuaras freagairt chearr an leudachain"
+#: chrome-gnome-shell-key-error_connector_response:1
+#| msgid "Wrong extension response received"
+msgid "Wrong connector response received"
+msgstr "Fhuaras freagairt chearr a' cheangladair"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension
 #. enabled?'
@@ -92,14 +93,6 @@ msgstr ""
 msgid "«$REQUEST$» native request failed"
 msgstr "Dh'fhàillig leis an iarrtas tùsail \"$REQUEST$\""
 
-#: chrome-gnome-shell-key-network_error:1
-msgid ""
-"A network error has occurred. Please check your Internet connection and/or "
-"proxy settings."
-msgstr ""
-"Thachair mearachd lìonraidh. Thoir sùil air a' cheangal dhan eadar-lìon agad "
-"agus/no rèiteachadh a' phrogsaidh."
-
 #. This is a part of phrase 'Last check: never'
 #: chrome-gnome-shell-key-never:1
 msgid "never"
@@ -108,6 +101,16 @@ msgstr "chan ann idir"
 #: chrome-gnome-shell-key-no:1
 msgid "No"
 msgstr "Chan eil"
+
+#. Shown to user when native connector unable to query GNOME Shell version or
+#. settings
+#: chrome-gnome-shell-key-no_gnome_shell:1
+msgid ""
+"Unable to locate GNOME Shell settings or version. Make sure it is installed "
+"and running."
+msgstr ""
+"Cha deach roghainnean no tionndadh na Slige GNOME a lorg. Dèan cinnteach gun "
+"deach a stàladh 's bu beil i 'ga ruith."
 
 #: chrome-gnome-shell-key-no_host_connector:1
 msgid ""
@@ -126,6 +129,12 @@ msgstr ""
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
 msgstr "Cha do fhreagair an t-òstair"
+
+#. Tooltip for browser extensions icon.
+#: chrome-gnome-shell-key-open_website:1
+#| msgid "An update for GNOME Shell extensions available"
+msgid "Open GNOME Shell extensions website"
+msgstr "Làrach-lìn leudachan Slige GNOME fosgailte"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -155,29 +164,20 @@ msgstr "An t-ath-sgrùdadh"
 msgid "Options saved."
 msgstr "Chaidh na roghainnean a shàbhaladh."
 
-#. Option name. By default Chrome do not reveal exact network error in case of
-#. request failure. Allow enable/disable extended error information.
-#: chrome-gnome-shell-key-options_show_network_errors:1
-msgid "Show information about network errors"
-msgstr "Seall fiosrachadh mu mhearachdan lìonraidh"
-
-#. This is a notice under option name. Warns user that additional browser
-#. permission is required if option will be enabled.
-#: chrome-gnome-shell-key-options_show_network_errors_notice:1
-msgid "Chrome permission «webRequest» required."
-msgstr "Tha feum air cead Chrome \"webRequest\"."
-
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
-msgid "Show release notes when extension updated"
-msgstr "Seall na nòtaichean-sgaoilidh nuair a thèid an leudachan ùrachadh"
+#| msgid "Show release notes when extension updated"
+msgid "Show release notes when browser extension updated"
+msgstr ""
+"Seall na nòtaichean-sgaoilidh nuair a thèid an leudachan brabhsair ùrachadh"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
-msgid "Synchronize extensions list"
-msgstr "Sioncronaich liosta nan leudachan"
+#| msgid "Synchronize extensions list"
+msgid "Synchronize GNOME Shell extensions list"
+msgstr "Sioncronaich liosta nan leudachan Slige GNOME"
 
 #. This is a notice under option name.
 #: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
@@ -201,8 +201,17 @@ msgstr "Roghainnean $GS_CHROME$"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-msgid "Check for extensions update"
-msgstr "Thoir sùil airson ùrachadh nan leudachan"
+#| msgid "Check for extensions update"
+msgid "Check for GNOME Shell extensions update"
+msgstr "Thoir sùil airson ùrachadh nan leudachan Slige GNOME"
+
+#: chrome-gnome-shell-key-options_update_check_notice:1
+msgid ""
+"Your native host connector does not support check for GNOME Shell extensions "
+"updates. Probably python-requests package is missing."
+msgstr ""
+"Cha doir ceangladair tùsail an òstair agad taic ri ùrachadh leudachan Slige "
+"GNOME. Saoil gu bheil pacaid python-request a dhìth ort?"
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -277,13 +286,14 @@ msgstr "Tha ùrachadh air leudachain Slige GNOME ri fhaighinn"
 #. cause
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
-msgid "Failed to check extensions updates: $CAUSE$"
+#| msgid "Failed to check extensions updates: $CAUSE$"
+msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
 msgstr ""
-"Cha deach leinn sùil a thoirt airson ùrachaidhean nan leudachan: $CAUSE$"
+"Cha deach leinn sùil a thoirt airson ùrachaidhean nan leudachan Slige GNOME: "
+"$CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
-#, fuzzy
 msgid ""
 "Your native host connector do not support following APIs: $$1. Probably you "
 "should upgrade native host connector or install plugins for missing APIs. "
@@ -291,10 +301,11 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Ger a tha leudachan amalachadh Slige GNOME Shell 'na ruith, cha do mhothaich "
-"sinn dha cheangladair òstair tùsail. Faic an <a href='https://wiki.gnome.org/"
-"Projects/GnomeShellIntegrationForChrome/Installation'>docamaideadh</a> "
-"airson stiùireadh air mar a stàlaicheas tu an ceangladair."
+"Cha doir ceangladair tùsail an òstair agad taic ris na h-APIean seo: $$1. "
+"Mholamaid gun àrdaich thu ceangladair tùsail an òstair no gun stàlaich thu "
+"plugain da na h-APIean a tha a dhìth. Thoir sùil air an <a href='https://wik"
+"i.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>docamaidea"
+"dh</a> airson stiùireadh."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -302,7 +313,6 @@ msgstr "Tha"
 
 #. Chrome store description
 #: chrome-gnome-shell-store-description:1
-#, fuzzy
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
@@ -329,11 +339,14 @@ msgid ""
 msgstr ""
 "Feumaidh tu ceangladair tùsail a stàladh mus obraich an leudachan seo.\n"
 "\n"
-"Airson Arch Linux, tha PKGBUILD ri fhaighinn san AUR: https://aur.archlinux."
-"org/packages/chrome-gnome-shell-git\n"
+"Airson Arch Linux, tha PKGBUILD ri fhaighinn san AUR: "
+"https://aur.archlinux.org/packages/chrome-gnome-shell-git\n"
 "\n"
-"Airson Fedora Linux, tha pacaid ri faighinn ann an Copr: https://copr."
-"fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
+"Airson Debian Linux, tha pacaid ri faighinn ann an Sid agus Stretch: "
+"https://tracker.debian.org/pkg/chrome-gnome-shell\n"
+"\n"
+"Airson Fedora Linux, tha pacaid ri faighinn ann an Copr: "
+"https://copr.fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
 "\n"
 "Airson Gentoo Linux, 's urrainn dhut ceangladair a stàladh leis an àithne:\n"
 "emerge gnome-extra/chrome-gnome-shell\n"
@@ -344,9 +357,22 @@ msgstr ""
 "sudo apt-get update\n"
 "sudo apt-get install chrome-gnome-shell\n"
 "\n"
-"'S urrainn dhut ceangladair a stàladh a làimh cuideachd. Faic https://wiki."
-"gnome.org/Projects/GnomeShellIntegrationForChrome/Installation airson "
-"stiùireadh air an stàladh.\n"
+"'S urrainn dhut ceangladair a stàladh a làimh cuideachd. Faic "
+"https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation "
+"airson stiùireadh air an stàladh.\n"
+
+#~ msgid ""
+#~ "A network error has occurred. Please check your Internet connection and/"
+#~ "or proxy settings."
+#~ msgstr ""
+#~ "Thachair mearachd lìonraidh. Thoir sùil air a' cheangal dhan eadar-lìon "
+#~ "agad agus/no rèiteachadh a' phrogsaidh."
+
+#~ msgid "Show information about network errors"
+#~ msgstr "Seall fiosrachadh mu mhearachdan lìonraidh"
+
+#~ msgid "Chrome permission «webRequest» required."
+#~ msgstr "Tha feum air cead Chrome \"webRequest\"."
 
 #~ msgid "older than version 4"
 #~ msgstr "nas sine na tionndadh 4"
