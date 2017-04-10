@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-03-26 07:19+0000\n"
-"PO-Revision-Date: 2017-03-27 02:13-0300\n"
+"POT-Creation-Date: 2017-04-09 15:03+0000\n"
+"PO-Revision-Date: 2017-04-10 06:04-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -21,11 +21,12 @@ msgstr ""
 msgid "Close"
 msgstr "Fechar"
 
-#. Shown to user when response of extension API call does not follow known
+#. Shown to user when response from connector API call does not follow known
 #. format.
-#: chrome-gnome-shell-key-error_extension_response:1
-msgid "Wrong extension response received"
-msgstr "Resposta de extensão errada recebida"
+#: chrome-gnome-shell-key-error_connector_response:1
+#| msgid "Wrong extension response received"
+msgid "Wrong connector response received"
+msgstr "Resposta do conector errada recebida"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension
 #. enabled?'
@@ -129,7 +130,6 @@ msgstr "Nenhuma resposta da máquina"
 
 #. Tooltip for browser extensions icon.
 #: chrome-gnome-shell-key-open_website:1
-#| msgid "An update for GNOME Shell extensions available"
 msgid "Open GNOME Shell extensions website"
 msgstr "Abre o site de extensões do GNOME Shell"
 
@@ -164,14 +164,12 @@ msgstr "Opções salvas."
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
-#| msgid "Show release notes when extension updated"
 msgid "Show release notes when browser extension updated"
 msgstr "Mostrar notas de lançamento ao navegar na extensão atualizada"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
-#| msgid "Synchronize extensions list"
 msgid "Synchronize GNOME Shell extensions list"
 msgstr "Sincronizar a lista de extensões do GNOME Shell"
 
@@ -197,7 +195,6 @@ msgstr "Opções de $GS_CHROME$"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-#| msgid "Check for extensions update"
 msgid "Check for GNOME Shell extensions update"
 msgstr "Verificar atualização de extensões do GNOME Shell"
 
@@ -281,7 +278,6 @@ msgstr "Uma atualização para extensões do GNOME Shell está disponível"
 #. cause
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
-#| msgid "Failed to check extensions updates: $CAUSE$"
 msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
 msgstr "Falha ao verificar atualizações de extensões do GNOME Shell: $CAUSE$"
 
