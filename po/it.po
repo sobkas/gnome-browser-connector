@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-03-08 18:00+0000\n"
-"PO-Revision-Date: 2017-03-17 13:30+0100\n"
+"POT-Creation-Date: 2017-04-09 15:03+0000\n"
+"PO-Revision-Date: 2017-04-11 12:03+0200\n"
 "Last-Translator: Gianvito Cavasoli <gianvito@gmx.it>\n"
 "Language-Team: Italiano <gnome-it-list@gnome.org>\n"
 "Language: it\n"
@@ -22,11 +22,12 @@ msgstr ""
 msgid "Close"
 msgstr "Chiudi"
 
-#. Shown to user when response of extension API call does not follow known
+#. Shown to user when response from connector API call does not follow known
 #. format.
-#: chrome-gnome-shell-key-error_extension_response:1
-msgid "Wrong extension response received"
-msgstr "Ricevuta risposta estensione errata"
+#: chrome-gnome-shell-key-error_connector_response:1
+#| msgid "Wrong extension response received"
+msgid "Wrong connector response received"
+msgstr "Ricevuta risposta connettore errato"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension
 #. enabled?'
@@ -91,14 +92,6 @@ msgstr ""
 msgid "«$REQUEST$» native request failed"
 msgstr "Richiesta nativa «$REQUEST$» non riuscita"
 
-#: chrome-gnome-shell-key-network_error:1
-msgid ""
-"A network error has occurred. Please check your Internet connection and/or "
-"proxy settings."
-msgstr ""
-"Si è verificato un errore di rete. Verificare la connessione Internet e/o le "
-"impostazioni del proxy."
-
 #. This is a part of phrase 'Last check: never'
 #: chrome-gnome-shell-key-never:1
 msgid "never"
@@ -137,6 +130,12 @@ msgstr ""
 msgid "No host response"
 msgstr "Nessuna risposta dall'host"
 
+#. Tooltip for browser extensions icon.
+#: chrome-gnome-shell-key-open_website:1
+#| msgid "An update for GNOME Shell extensions available"
+msgid "Open GNOME Shell extensions website"
+msgstr "Apre il sito web delle estensioni di GNOME Shell"
+
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
 #: chrome-gnome-shell-key-options_check_period:1
@@ -165,29 +164,20 @@ msgstr "Prossima verifica"
 msgid "Options saved."
 msgstr "Opzioni salvate."
 
-#. Option name. By default Chrome do not reveal exact network error in case of
-#. request failure. Allow enable/disable extended error information.
-#: chrome-gnome-shell-key-options_show_network_errors:1
-msgid "Show information about network errors"
-msgstr "Mostrare informazioni sugli errori della rete"
-
-#. This is a notice under option name. Warns user that additional browser
-#. permission is required if option will be enabled.
-#: chrome-gnome-shell-key-options_show_network_errors_notice:1
-msgid "Chrome permission «webRequest» required."
-msgstr "Richiede i permessi «webRequest» dell'applicazione."
-
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
-msgid "Show release notes when extension updated"
-msgstr "Mostrare le note di rilascio quando l'estensione è aggiornata"
+#| msgid "Show release notes when extension updated"
+msgid "Show release notes when browser extension updated"
+msgstr ""
+"Mostrare le note di rilascio quando l'estensione del browser è aggiornata"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
-msgid "Synchronize extensions list"
-msgstr "Sincronizzare l'elenco delle estensioni"
+#| msgid "Synchronize extensions list"
+msgid "Synchronize GNOME Shell extensions list"
+msgstr "Sincronizzare l'elenco delle estensioni di GNOME Shell"
 
 #. This is a notice under option name.
 #: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
@@ -211,8 +201,17 @@ msgstr "Opzioni di $GS_CHROME$"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-msgid "Check for extensions update"
-msgstr "Verificare gli aggiornamenti delle estensioni"
+#| msgid "Check for extensions update"
+msgid "Check for GNOME Shell extensions update"
+msgstr "Verificare gli aggiornamenti delle estensioni di GNOME Shell"
+
+#: chrome-gnome-shell-key-options_update_check_notice:1
+msgid ""
+"Your native host connector does not support check for GNOME Shell extensions "
+"updates. Probably python-requests package is missing."
+msgstr ""
+"Il connettore host nativo non supporta la verifica degli aggiornamenti delle "
+"estensioni di GNOME Shell. Probabilmente manca il pacchetto python-requests."
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -285,8 +284,11 @@ msgstr "È disponibile un aggiornamento delle estensioni di GNOME Shell"
 #. cause
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
-msgid "Failed to check extensions updates: $CAUSE$"
-msgstr "Verifica dell'aggiornamento delle estensioni non riuscita: $CAUSE$"
+#| msgid "Failed to check extensions updates: $CAUSE$"
+msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
+msgstr ""
+"Verifica dell'aggiornamento delle estensioni di GNOME Shell non riuscita: "
+"$CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
