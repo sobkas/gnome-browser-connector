@@ -1,0 +1,352 @@
+# Korean translation for chrome-gnome-shell.
+# Copyright (C) 2017 chrome-gnome-shell's COPYRIGHT HOLDER
+# This file is distributed under the same license as the chrome-gnome-shell package.
+# Seong-ho Cho <shcho@gnome.org>, 2017.
+#
+# !! 주의 !! 주의 !! 주의 !!
+#
+# 이 익스텐션은 gnome-shell과 직접적인 관계가 있으므로
+# gnome-shell의 번역 용어를 준수하도록 한다.
+# "shell"은 "셸"이라고 하고 "셸"이라고 하지 않는다.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: chrome-gnome-shell master\n"
+"Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
+"POT-Creation-Date: 2017-04-09 15:03+0000\n"
+"PO-Revision-Date: 2017-04-11 22:28+0900\n"
+"Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
+"Language-Team: Korean <gnome-kr@googlegroups.com>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.7\n"
+
+#: chrome-gnome-shell-key-close:1
+msgid "Close"
+msgstr "닫기"
+
+#. Shown to user when response from connector API call does not follow known
+#. format.
+#: chrome-gnome-shell-key-error_connector_response:1
+msgid "Wrong connector response received"
+msgstr "잘못된 연결 응답이 왔습니다"
+
+#. Used as title, eg in table header. Means 'Does GNOME Shell extension
+#. enabled?'
+#: chrome-gnome-shell-key-extension_enabled:1
+msgid "Enabled"
+msgstr "활성"
+
+#. Used as title, eg in table header. Means 'Does GNOME Shell extension
+#. installed?'
+#: chrome-gnome-shell-key-extension_installed:1
+msgid "Installed"
+msgstr "설치함"
+
+#. Used as title, eg in table header. Means 'GNOME Shell extension name'.
+#: chrome-gnome-shell-key-extension_name:1
+msgid "Extension"
+msgstr "확장 기능"
+
+#. This is a part of phrase like 'Extension Top Icons must be downgraded'.
+#: chrome-gnome-shell-key-extension_status_downgrade:1
+msgid "must be downgraded"
+msgstr "다운그레이드 해야 함"
+
+#. This is a part of phrase like 'Extension Top Icons can be upgraded'.
+#: chrome-gnome-shell-key-extension_status_upgrade:1
+msgid "can be upgraded"
+msgstr "업그레이드할 수 있음"
+
+#. Used as title, eg in table header. Means 'Does GNOME Shell extension status
+#. synchronized with remote browser storage?'
+#: chrome-gnome-shell-key-extension_synchronized:1
+msgid "Synchronized"
+msgstr "동기화 함"
+
+#. This is a project title. Used as extension name in Chrome Store and in some
+#. titlebars.
+#: chrome-gnome-shell-key-gs_chrome:1
+msgid "GNOME Shell integration"
+msgstr "그놈 셸 확장 기능"
+
+#. This is a part of phrase 'Update check period: xx hours'
+#: chrome-gnome-shell-key-hours:1
+msgid "hours"
+msgstr "시간"
+
+#. Used as extension description in Chrome Store
+#: chrome-gnome-shell-key-manifest_description:1
+msgid ""
+"This extension provides integration with GNOME Shell and the corresponding "
+"extensions repository https://extensions.gnome.org"
+msgstr ""
+"이 확장 기능은 그놈 셸 통합 기능이 있으며 관련 확장 기능 저장소는 https://"
+"extensions.gnome.org에 있습니다"
+
+#. $REQUEST$ is a placeholder for technical name of request that web extension
+#. make via native messaging host application.
+#.
+#. String placeholders:
+#. request
+#.
+#: chrome-gnome-shell-key-native_request_failed:1
+msgid "«$REQUEST$» native request failed"
+msgstr "«$REQUEST$» 자체 요청에 실패했습니다"
+
+#. This is a part of phrase 'Last check: never'
+#: chrome-gnome-shell-key-never:1
+msgid "never"
+msgstr "안 함"
+
+#: chrome-gnome-shell-key-no:1
+msgid "No"
+msgstr "아니요"
+
+#. Shown to user when native connector unable to query GNOME Shell version or
+#. settings
+#: chrome-gnome-shell-key-no_gnome_shell:1
+msgid ""
+"Unable to locate GNOME Shell settings or version. Make sure it is installed "
+"and running."
+msgstr ""
+"그놈 셸 설정 위치 또는 버전을 찾을 수 없습니다. 그놈 셸을 설치했고 실행 중인"
+"지 확인하십시오."
+
+#: chrome-gnome-shell-key-no_host_connector:1
+msgid ""
+"Although GNOME Shell integration extension is running, native host connector "
+"is not detected. Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions about installing connector."
+msgstr ""
+"그놈 셸 확장 기능을 실행하고 있지만, 자체 호스트 연결 프로그램을 찾지 못했습"
+"니다. 연결 프로그램 설치 방법은 <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>문서</a>를 참고하십시오."
+
+#. Means 'Web extension does not received answer from native messaging host
+#. application.'
+#: chrome-gnome-shell-key-no_host_response:1
+msgid "No host response"
+msgstr "호스트 응답 없음"
+
+#. Tooltip for browser extensions icon.
+#: chrome-gnome-shell-key-open_website:1
+msgid "Open GNOME Shell extensions website"
+msgstr "그놈 셸 확장 기능 웹사이트 열기"
+
+#. Option name. Allow to set interval between GNOME Shell extensions update
+#. checks.
+#: chrome-gnome-shell-key-options_check_period:1
+msgid "Update check period"
+msgstr "업데이트 확인 주기"
+
+#. This is a start of phrase (followed by date/time) of last GNOME Shell
+#. extensions update check.
+#: chrome-gnome-shell-key-options_last_check:1
+msgid "Last check"
+msgstr "최근 확인"
+
+#. Link name for options tab.
+#: chrome-gnome-shell-key-options_link:1
+msgid "Options"
+msgstr "옵션"
+
+#. This is a start of phrase (followed by date/time) of next GNOME Shell
+#. extensions update check.
+#: chrome-gnome-shell-key-options_next_check:1
+msgid "Next check"
+msgstr "다음 확인"
+
+#. Means 'Options were saved successfully after user clicked Save button'
+#: chrome-gnome-shell-key-options_saved:1
+msgid "Options saved."
+msgstr "옵션을 저장했습니다."
+
+#. Option name. Allow to enable/disable popup with release notes when Web
+#. extension is updated.
+#: chrome-gnome-shell-key-options_show_release_notes:1
+msgid "Show release notes when browser extension updated"
+msgstr "브라우저 확장 기능을 업데이트했을 때 출시 기록 표시"
+
+#. Option name. Allow to enable/disable synchronization of GNOME Shell
+#. extensions with remote browser storage.
+#: chrome-gnome-shell-key-options_synchronize_extensions:1
+msgid "Synchronize GNOME Shell extensions list"
+msgstr "그놈 셸 확장 기능 목록 동기화"
+
+#. This is a notice under option name.
+#: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
+msgid ""
+"If enabled, your GNOME Shell extensions list will be synchronized with your "
+"Google account."
+msgstr ""
+"이 항목을 활성화하면, 그놈 셸 확장 기능 목록을 구글 계정과 동기화합니다."
+
+#. $GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This
+#. string used as title for Options page. This title is not shown in Chrome,
+#. but may be shown in other browsers.
+#.
+#. String placeholders:
+#. gs_chrome
+#.
+#: chrome-gnome-shell-key-options_title:1
+msgid "$GS_CHROME$ options"
+msgstr "$GS_CHROME$ 옵션"
+
+#. Option name. Allow enable/disable update check for GNOME Shell extensions.
+#: chrome-gnome-shell-key-options_update_check:1
+msgid "Check for GNOME Shell extensions update"
+msgstr "그놈 셸 확장 기능 업데이트 확인"
+
+#: chrome-gnome-shell-key-options_update_check_notice:1
+msgid ""
+"Your native host connector does not support check for GNOME Shell extensions "
+"updates. Probably python-requests package is missing."
+msgstr ""
+"이 자체 플랫폼 연결 프로그램에서 그놈 셸 확장 기능 업데이트 확인을 지원하지 "
+"않습니다. python-request 패키지가 빠진 것 같습니다."
+
+#: chrome-gnome-shell-key-platform_not_supported:1
+msgid "Native host connector is not supported for your platform."
+msgstr "자체 호스트 연결 프로그램에서 이 플랫폼을 지원하지 않습니다."
+
+#: chrome-gnome-shell-key-retry:1
+msgid "Retry"
+msgstr "다시 시도"
+
+#: chrome-gnome-shell-key-save:1
+msgid "Save"
+msgstr "저장"
+
+#. Link name for synchronization tab in options dialog.
+#: chrome-gnome-shell-key-synchronization:1
+msgid "Synchronization"
+msgstr "동기화"
+
+#: chrome-gnome-shell-key-synchronization_cancel:1
+msgid "Do not enable synchronization."
+msgstr "동기화를 활성화하지 않습니다."
+
+#. $CAUSE$ is placeholder for error that caused synchronization failure.
+#.
+#. String placeholders:
+#. cause
+#.
+#: chrome-gnome-shell-key-synchronization_failed:1
+msgid "Failed to synchronize extensions: $CAUSE$"
+msgstr "확장 기능 동기화에 실패했습니다: $CAUSE$"
+
+#: chrome-gnome-shell-key-synchronization_storage_exists:1
+msgid "Your remote synchronization storage already contains extensions list."
+msgstr "원격 동기화 저장소에 이미 확장 기능 목록이 있습니다."
+
+#: chrome-gnome-shell-key-synchronization_use_local:1
+msgid "Use local extensions list, overwrite remote."
+msgstr "로컬 확장 기능 목록을 사용하고 원격 확장 기능을 덮어씁니다."
+
+#: chrome-gnome-shell-key-synchronization_use_remote:1
+msgid "Use remote extensions list, overwrite local."
+msgstr "원격 확장 기능 목록을 사용하고 로컬 확장 기능을 덮어씁니다."
+
+#. This is content of 'About translation' tab in Options dialog. Thank you for
+#. translation and feel free to add yourself here. HTML markup enabled for
+#. this string. New line character is treated as line break (<br />)
+#: chrome-gnome-shell-key-translation_credits:1
+msgid "translation_credits"
+msgstr ""
+"<a href=\"mailto:shcho@gnome.org\">조성호 &lt;shcho@gnome.org&gt;, 2017</a>"
+
+#. Link name for translation credits tab in options dialog.
+#: chrome-gnome-shell-key-translation_credits_title:1
+msgid "About translation"
+msgstr "번역 정보"
+
+#. This should newer be shown to user. However better safe than sorry.
+#: chrome-gnome-shell-key-unknown_error:1
+msgid "unknown error"
+msgstr "알 수 없는 오류"
+
+#: chrome-gnome-shell-key-update_available:1
+msgid "An update for GNOME Shell extensions available"
+msgstr "그놈 셸 확장 기능 업데이트가 있습니다"
+
+#. $CAUSE$ is placeholder for error that caused update failure.
+#.
+#. String placeholders:
+#. cause
+#.
+#: chrome-gnome-shell-key-update_check_failed:1
+msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
+msgstr "그놈 셸 확장 기능 업데이트 확인에 실패했습니다: $CAUSE$"
+
+#. $$1 is a placeholder for a list of missing APIs
+#: chrome-gnome-shell-key-warning_apis_missing:1
+msgid ""
+"Your native host connector do not support following APIs: $$1. Probably you "
+"should upgrade native host connector or install plugins for missing APIs. "
+"Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions."
+msgstr ""
+"자체 호스트 연결 프로그램에서 $$1 API를 지원하지 않습니다. 아마도 자체 호스"
+"트 연결 프로그램을 업그레이드 하거나 빠진 API 플러그인을 설치해야 할 지도 모"
+"릅니다. 관련 절차는 <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>문서</a>를 참고하십시오."
+
+#: chrome-gnome-shell-key-yes:1
+msgid "Yes"
+msgstr "예"
+
+#. Chrome store description
+#: chrome-gnome-shell-store-description:1
+msgid ""
+"You MUST install native connector for this extension to work.\n"
+"\n"
+"For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
+"archlinux.org/packages/chrome-gnome-shell-git\n"
+"\n"
+"For Debian Linux there is package available in Sid and Stretch: https://"
+"tracker.debian.org/pkg/chrome-gnome-shell\n"
+"\n"
+"For Fedora Linux there is package available in Copr: https://copr."
+"fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
+"\n"
+"In Gentoo Linux you can install connector with command:\n"
+"emerge gnome-extra/chrome-gnome-shell\n"
+"\n"
+"For Ubuntu Linux package is available in ne0sight/chrome-gnome-shell PPA. To "
+"install it type:\n"
+"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
+"sudo apt-get update\n"
+"sudo apt-get install chrome-gnome-shell\n"
+"\n"
+"You also can install connector manually. See https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation for install instructions.\n"
+msgstr ""
+"이 확장 기능을 활용하려면 자체 연결 프로그램을 설치해야합니다.\n"
+"\n"
+"아치 리눅스에서는 AUR의 PKGBUILD를 활용하십시오: https://aur.archlinux.org/"
+"packages/chrome-gnome-shell-git\n"
+"\n"
+"데비안 리눅스에서는 Sid와 Stretch 버전에 패키지가 있습니다: https://tracker."
+"debian.org/pkg/chrome-gnome-shell\n"
+"\n"
+"페도라 리눅스에서는 Copr버전에 패키지가 있습니다: https://copr."
+"fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
+"\n"
+"젠투 리눅스에서는 다음 명령으로 연결 프로그램을 설치할 수 있습니다:\n"
+"emerge gnome-extra/chrome-gnome-shell\n"
+"\n"
+"우분투 리눅스에서는 ne0sight/chrome-gnome-shell PPA 저장소에 해당 패키지가 있"
+"습니다. 설치하려면 다음 명령어를 입력하십시오:\n"
+"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
+"sudo apt-get update\n"
+"sudo apt-get install chrome-gnome-shell\n"
+"\n"
+"연결 프로그램을 직접 설치할 수도 있습니다. 설치 방법은 https://wiki.gnome."
+"org/Projects/GnomeShellIntegrationForChrome/Installation 페이지를 참고하십시"
+"오.\n"
