@@ -16,7 +16,7 @@ GSC.sync = (function($) {
 	var extensionChangedTimeout = false;
 	var extensionChangedQueue = {};
 
-	const SYNC_QUEUE_TIMEOUT = 3000;
+	const SYNC_QUEUE_TIMEOUT = 7000;
 
 	/*
 	 * Initialization rutines.
