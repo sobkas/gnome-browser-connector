@@ -1,3 +1,50 @@
+= 2017-04-16 chrome-gnome-shell 9 =
+
+== Changes ==
+ * Shell extensions website is now opened on GNOME icon click.
+ * Show useful error message in Firefox instead of "Attempt to postMessage on
+   disconnected port" in case native connector is not installed.
+ * Improved error handling when GNOME Shell is not installed or not running.
+ * In case native connector not found show warning instead of error.
+ * Python-requests made optional dependency for native connector. In case it is
+   missed update check will not work.
+ * Implemented synchronization queue that will lower events overhead.
+ * Fixed synchronization issue that may disable all Shell extensions.
+ * Fixed compatibility issue with Firefox 54+.
+ * Fixed crash in native connector on older distros like Ubuntu Trusty.
+ * Fixed formating of error message in options page.
+ * Fixed gsettings GNOME Shell schema lookup in native connector.
+ * Removed deprecated and compatibility code. Firefox 52 is minimal supported
+   version now.
+
+== Translations ==
+ * Czech (Marek Černocký)
+ * Danish (Alan Mortensen)
+ * Dutch (Hannie Dumoleyn)
+ * French (Alexandre Franke)
+ * Hungarian (Balázs Úr)
+ * Indonesian (Andika Triwidada, Kukuh Syafaat)
+ * Italian (Gianvito Cavasoli)
+ * Galician (Fran Dieguez)
+ * German (Florian Heiser, Mario Blättermann)
+ * Korean (Seong-ho Cho)
+ * Polish (Piotr Drąg)
+ * Portuguese (Brazil) (Rafael Fontenelle)
+ * Scottish Gaelic (GunChleoc)
+ * Swedish (Anders Jonsson)
+
+== Known issues ==
+ * Native host connector is not working in Google Chrome and Opera when
+   installed via Debian Stretch or Sid repositories. To know "why?" look
+   here (https://github.com/nE0sIghT/chrome-gnome-shell-mirror/issues/17),
+   here (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=840804) and
+   here (https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=840235). For a
+   workaround look here
+   (https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation#Troubleshooting).
+ * Web extension is broken on FreeBSD because of bug 212925
+   (https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212925).
+
+
 = 2017-03-02 chrome-gnome-shell 8.2 =
 
 == Changes ==
