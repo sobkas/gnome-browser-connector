@@ -1,0 +1,17 @@
+DEBE instalar o conector nativo para que esta extensión funcione.
+
+Para Arch Linux hai un PKGBUILD dispoñíbel en AUR: https://aur.archlinux.org/packages/chrome-gnome-shell-git
+
+Para Debian Linux hai un paquete dispoñíbel en Sid e Stretch: https://tracker.debian.org/pkg/chrome-gnome-shell
+
+Para Fedora Linux hai un paquete dispoñíbel en Copr: https://copr.fedorainfracloud.org/coprs/region51/chrome-gnome-shell
+
+En Gentoo Linux pode instalar o conector coa orde:
+emerge gnome-extra/chrome-gnome-shell
+
+Para Ubuntu Linux hai un paquete dispoñíbel en ne0sight/chrome-gnome-shell PPA. Para instalalo debe escribir:
+sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell
+sudo apt-get update
+sudo apt-get install chrome-gnome-shell
+
+Tamén pode instalar o conector manualmente. Vexa https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation para obter as instrucións de instalación.

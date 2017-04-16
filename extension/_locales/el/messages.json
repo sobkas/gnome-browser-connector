@@ -6,9 +6,9 @@
 	"close": {
 		"message": "\u039a\u03bb\u03b5\u03af\u03c3\u03b9\u03bc\u03bf"
 	},
-	"error_extension_response": {
-		"description": "Shown to user when response of extension API call does not follow known format.",
-		"message": "\u039b\u03ae\u03c6\u03b8\u03b7\u03ba\u03b5 \u03bb\u03b1\u03b8\u03b5\u03bc\u03ad\u03bd\u03b7 \u03b1\u03c0\u03cc\u03ba\u03c1\u03b9\u03c3\u03b7 \u03b5\u03c0\u03ad\u03ba\u03c4\u03b1\u03c3\u03b7\u03c2"
+	"error_connector_response": {
+		"description": "Shown to user when response from connector API call does not follow known format.",
+		"message": "Wrong connector response received"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -55,9 +55,6 @@
 			}
 		}
 	},
-	"network_error": {
-		"message": "A network error has occurred. Please check your Internet connection and/or proxy settings."
-	},
 	"never": {
 		"description": "This is a part of phrase 'Last check: never'",
 		"message": "\u03c0\u03bf\u03c4\u03ad"
@@ -65,12 +62,20 @@
 	"no": {
 		"message": "\u038c\u03c7\u03b9"
 	},
+	"no_gnome_shell": {
+		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
+		"message": "Unable to locate GNOME Shell settings or version. Make sure it is installed and running."
+	},
 	"no_host_connector": {
 		"message": "\u0391\u03bd \u03ba\u03b1\u03b9 \u03b7 \u03b5\u03c0\u03ad\u03ba\u03c4\u03b1\u03c3\u03b7 \u03b5\u03bd\u03c3\u03c9\u03bc\u03ac\u03c4\u03c9\u03c3\u03b7\u03c2 \u03bc\u03b5 \u03c4\u03bf GNOME Shell \u03b5\u03af\u03bd\u03b1\u03b9 \u03c3\u03b5 \u03bb\u03b5\u03b9\u03c4\u03bf\u03c5\u03c1\u03b3\u03af\u03b1, \u03b7 \u03b5\u03b3\u03b3\u03b5\u03bd\u03ae\u03c2 \u03b5\u03c6\u03b1\u03c1\u03bc\u03bf\u03b3\u03ae \u03c4\u03bf\u03c5 \u03c3\u03c5\u03c3\u03c4\u03ae\u03bc\u03b1\u03c4\u03bf\u03c2 \u03b4\u03b5\u03bd \u03ad\u03c7\u03b5\u03b9 \u03b5\u03bd\u03c4\u03bf\u03c0\u03b9\u03c3\u03c4\u03b5\u03af. \u03a0\u03b1\u03c1\u03b1\u03ba\u03b1\u03bb\u03bf\u03cd\u03bc\u03b5, \u03b4\u03b5\u03af\u03c4\u03b5 \u03c3\u03c4\u03b9\u03c2 \u03bf\u03b4\u03b7\u03b3\u03af\u03b5\u03c2 \u03c4\u03b7\u03c2 <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>\u03c4\u03b5\u03ba\u03bc\u03b7\u03c1\u03af\u03c9\u03c3\u03b7\u03c2</a> \u03c0\u03c9\u03c2 \u03bd\u03b1 \u03c4\u03b7\u03bd \u03b5\u03b3\u03ba\u03b1\u03c4\u03b1\u03c3\u03c4\u03ae\u03c3\u03b5\u03c4\u03b5."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "\u039a\u03b1\u03bc\u03af\u03b1 \u03b1\u03c0\u03cc\u03ba\u03c1\u03b9\u03c3\u03b7 \u03b1\u03c0\u03cc \u03c4\u03bf\u03bd \u03ba\u03b5\u03bd\u03c4\u03c1\u03b9\u03ba\u03cc \u03c5\u03c0\u03bf\u03bb\u03bf\u03b3\u03b9\u03c3\u03c4\u03ae"
+	},
+	"open_website": {
+		"description": "Tooltip for browser extensions icon.",
+		"message": "Open GNOME Shell extensions website"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -92,21 +97,13 @@
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
 		"message": "\u0391\u03c0\u03bf\u03b8\u03b7\u03ba\u03b5\u03cd\u03c4\u03b7\u03ba\u03b1\u03bd \u03bf\u03b9 \u03c1\u03c5\u03b8\u03bc\u03af\u03c3\u03b5\u03b9\u03c2."
 	},
-	"options_show_network_errors": {
-		"description": "Option name. By default Chrome do not reveal exact network error in case of request failure. Allow enable/disable extended error information.",
-		"message": "Show information about network errors"
-	},
-	"options_show_network_errors_notice": {
-		"description": "This is a notice under option name. Warns user that additional browser permission is required if option will be enabled.",
-		"message": "Chrome permission \u00abwebRequest\u00bb required."
-	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "\u0395\u03bc\u03c6\u03ac\u03bd\u03b9\u03c3\u03b7 \u03c3\u03b7\u03bc\u03b5\u03b9\u03ce\u03c3\u03b5\u03c9\u03bd \u03ad\u03ba\u03b4\u03bf\u03c3\u03b7\u03c2 \u03c3\u03c4\u03b7\u03bd \u03b5\u03bd\u03b7\u03bc\u03ad\u03c1\u03c9\u03c3\u03b7 \u03c4\u03b7\u03c2 \u03b5\u03c0\u03ad\u03ba\u03c4\u03b1\u03c3\u03b7\u03c2"
+		"message": "Show release notes when browser extension updated"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synchronize extensions list"
+		"message": "Synchronize GNOME Shell extensions list"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -123,7 +120,10 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "\u0388\u03bb\u03b5\u03b3\u03c7\u03bf\u03c2 \u03b3\u03b9\u03b1 \u03b5\u03bd\u03b7\u03bc\u03b5\u03c1\u03ce\u03c3\u03b5\u03b9\u03c2 \u03b5\u03c0\u03b5\u03ba\u03c4\u03ac\u03c3\u03b5\u03c9\u03bd"
+		"message": "Check for GNOME Shell extensions update"
+	},
+	"options_update_check_notice": {
+		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
 	},
 	"platform_not_supported": {
 		"message": "\u0397 \u03b5\u03b3\u03b3\u03b5\u03bd\u03ae\u03c2 \u03b5\u03c6\u03b1\u03c1\u03bc\u03bf\u03b3\u03ae \u03c4\u03bf\u03c5 \u03c3\u03c5\u03c3\u03c4\u03ae\u03bc\u03b1\u03c4\u03bf\u03c2 \u03b4\u03b5\u03bd \u03c5\u03c0\u03bf\u03c3\u03c4\u03b7\u03c1\u03af\u03b6\u03b5\u03c4\u03b1\u03b9 \u03b1\u03c0\u03cc \u03c4\u03b7\u03bd \u03c0\u03bb\u03b1\u03c4\u03c6\u03cc\u03c1\u03bc\u03b1."
@@ -176,7 +176,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "\u0391\u03c0\u03ad\u03c4\u03c5\u03c7\u03b5 \u03bf \u03ad\u03bb\u03b5\u03b3\u03c7\u03bf\u03c2 \u03b3\u03b9\u03b1 \u03b5\u03bd\u03b7\u03bc\u03b5\u03c1\u03ce\u03c3\u03b5\u03b9\u03c2 \u03b5\u03c0\u03b5\u03ba\u03c4\u03ac\u03c3\u03b5\u03c9\u03bd: $CAUSE$",
+		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"

@@ -6,9 +6,9 @@
 	"close": {
 		"message": "Zamknij"
 	},
-	"error_extension_response": {
-		"description": "Shown to user when response of extension API call does not follow known format.",
-		"message": "Otrzymano b\u0142\u0119dn\u0105 odpowied\u017a rozszerzenia"
+	"error_connector_response": {
+		"description": "Shown to user when response from connector API call does not follow known format.",
+		"message": "Otrzymano b\u0142\u0119dn\u0105 odpowied\u017a \u0142\u0105cznika"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -55,9 +55,6 @@
 			}
 		}
 	},
-	"network_error": {
-		"message": "Wyst\u0105pi\u0142 b\u0142\u0105d sieci. Prosz\u0119 sprawdzi\u0107 po\u0142\u0105czenie z\u00a0Internetem i/lub ustawienia po\u015brednika."
-	},
 	"never": {
 		"description": "This is a part of phrase 'Last check: never'",
 		"message": "nigdy"
@@ -65,12 +62,20 @@
 	"no": {
 		"message": "Nie"
 	},
+	"no_gnome_shell": {
+		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
+		"message": "Nie mo\u017cna ustali\u0107 ustawie\u0144 ani wersji GNOME Shell. Prosz\u0119 si\u0119 upewni\u0107, \u017ce GNOME Shell jest zainstalowane i\u00a0uruchomione."
+	},
 	"no_host_connector": {
 		"message": "Chocia\u017c rozszerzenie integracji z\u00a0GNOME Shell jest uruchomione, to nie wykryto natywnego \u0142\u0105cznika serwera. <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>Dokumentacja</a> zawiera instrukcje na temat instalacji \u0142\u0105cznika."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Brak odpowiedzi serwera"
+	},
+	"open_website": {
+		"description": "Tooltip for browser extensions icon.",
+		"message": "Otwiera stron\u0119 rozszerze\u0144 GNOME Shell"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -92,21 +97,13 @@
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
 		"message": "Zapisano opcje."
 	},
-	"options_show_network_errors": {
-		"description": "Option name. By default Chrome do not reveal exact network error in case of request failure. Allow enable/disable extended error information.",
-		"message": "Wy\u015bwietlanie informacji o\u00a0b\u0142\u0119dach sieci"
-	},
-	"options_show_network_errors_notice": {
-		"description": "This is a notice under option name. Warns user that additional browser permission is required if option will be enabled.",
-		"message": "Wymagane jest uprawnienie \u201ewebRequest\u201d przegl\u0105darki Chrome."
-	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Wy\u015bwietlanie informacji o\u00a0wydaniu po aktualizacji rozszerzenia"
+		"message": "Wy\u015bwietlanie informacji o\u00a0wydaniu po aktualizacji rozszerzenia przegl\u0105darki"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synchronizowanie listy rozszerze\u0144"
+		"message": "Synchronizowanie listy rozszerze\u0144 GNOME Shell"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -114,7 +111,7 @@
 	},
 	"options_title": {
 		"description": "$GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This string used as title for Options page. This title is not shown in Chrome, but may be shown in other browsers.",
-		"message": "Opcje $GS_CHROME$",
+		"message": "Opcje rozszerzenia \u201e$GS_CHROME$\u201d",
 		"placeholders": {
 			"gs_chrome": {
 				"content": "$1"
@@ -123,7 +120,10 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Wyszukaj aktualizacje rozszerze\u0144"
+		"message": "Wyszukiwanie aktualizacji rozszerze\u0144 GNOME Shell"
+	},
+	"options_update_check_notice": {
+		"message": "Natywny \u0142\u0105cznik serwera nie obs\u0142uguje wyszukiwania aktualizacji rozszerze\u0144 GNOME Shell. Prawdopodobnie brakuje pakietu python-requests."
 	},
 	"platform_not_supported": {
 		"message": "Natywny \u0142\u0105cznik serwera nie jest obs\u0142ugiwany dla tej platformy."
@@ -161,7 +161,7 @@
 	},
 	"translation_credits": {
 		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
-		"message": "Piotr Dr\u0105g, 2016"
+		"message": "Piotr Dr\u0105g, 2016-2017"
 	},
 	"translation_credits_title": {
 		"description": "Link name for translation credits tab in options dialog.",
@@ -172,11 +172,11 @@
 		"message": "nieznany b\u0142\u0105d"
 	},
 	"update_available": {
-		"message": "Dost\u0119pna jest aktualizacja dla rozszerze\u0144 GNOME Shell"
+		"message": "Dost\u0119pna jest aktualizacja rozszerze\u0144 GNOME Shell"
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Wyszukanie aktualizacji rozszerze\u0144 si\u0119 nie powiod\u0142o: $CAUSE$",
+		"message": "Wyszukanie aktualizacji rozszerze\u0144 GNOME Shell si\u0119 nie powiod\u0142o: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"

@@ -6,9 +6,9 @@
 	"close": {
 		"message": "Tanca"
 	},
-	"error_extension_response": {
-		"description": "Shown to user when response of extension API call does not follow known format.",
-		"message": "S'ha rebut una resposta incorrecta d'una extensi\u00f3"
+	"error_connector_response": {
+		"description": "Shown to user when response from connector API call does not follow known format.",
+		"message": "Wrong connector response received"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -55,9 +55,6 @@
 			}
 		}
 	},
-	"network_error": {
-		"message": "S'ha produ\u00eft un error de xarxa. Comproveu la connexi\u00f3 a Internet i la configuraci\u00f3 del servidor intermediari."
-	},
 	"never": {
 		"description": "This is a part of phrase 'Last check: never'",
 		"message": "mai"
@@ -65,12 +62,20 @@
 	"no": {
 		"message": "No"
 	},
+	"no_gnome_shell": {
+		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
+		"message": "Unable to locate GNOME Shell settings or version. Make sure it is installed and running."
+	},
 	"no_host_connector": {
 		"message": "Encara que l'extensi\u00f3 d'integraci\u00f3 del GNOME Shell est\u00e0 executant-se, no s'ha detectat el connector amfitri\u00f3 nadiu. Vegeu la <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentaci\u00f3</a> per obtenir instruccions de com instal\u00b7lar el connector."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Sense resposta de l'amfitri\u00f3:"
+	},
+	"open_website": {
+		"description": "Tooltip for browser extensions icon.",
+		"message": "Open GNOME Shell extensions website"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -92,21 +97,13 @@
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
 		"message": "Configuraci\u00f3 desada."
 	},
-	"options_show_network_errors": {
-		"description": "Option name. By default Chrome do not reveal exact network error in case of request failure. Allow enable/disable extended error information.",
-		"message": "Notifica els errors de xarxa"
-	},
-	"options_show_network_errors_notice": {
-		"description": "This is a notice under option name. Warns user that additional browser permission is required if option will be enabled.",
-		"message": "Es requereix el perm\u00eds de Chrome \u00abwebRequest\u00bb."
-	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Mostra les notes de la versi\u00f3 quan s'actualitza l'extensi\u00f3"
+		"message": "Show release notes when browser extension updated"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Sincronitza la llista d'extensions"
+		"message": "Synchronize GNOME Shell extensions list"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -123,7 +120,10 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Comprova si hi ha actualitzacions de l'extensi\u00f3"
+		"message": "Check for GNOME Shell extensions update"
+	},
+	"options_update_check_notice": {
+		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
 	},
 	"platform_not_supported": {
 		"message": "El connector amfitri\u00f3 nadiu no es compatible amb aquesta plataforma."
@@ -176,7 +176,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "La comprovaci\u00f3 d'actualitzacions ha fallat: $CAUSE$",
+		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"

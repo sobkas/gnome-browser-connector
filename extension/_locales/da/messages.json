@@ -6,9 +6,9 @@
 	"close": {
 		"message": "Luk"
 	},
-	"error_extension_response": {
-		"description": "Shown to user when response of extension API call does not follow known format.",
-		"message": "Modtog forkert svar fra udvidelse"
+	"error_connector_response": {
+		"description": "Shown to user when response from connector API call does not follow known format.",
+		"message": "Wrong connector response received"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -55,9 +55,6 @@
 			}
 		}
 	},
-	"network_error": {
-		"message": "Der opstod en netv\u00e6rksfejl. Unders\u00f8g venligst din internetforbindelse og/eller proxyindstillinger."
-	},
 	"never": {
 		"description": "This is a part of phrase 'Last check: never'",
 		"message": "aldrig"
@@ -65,12 +62,20 @@
 	"no": {
 		"message": "Nej"
 	},
+	"no_gnome_shell": {
+		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
+		"message": "Kunne ikke finde GNOME Shells indstillinger eller version. S\u00f8rg for at den er installeret og k\u00f8rer."
+	},
 	"no_host_connector": {
 		"message": "Selvom udvidelsen til GNOME Shell-integration k\u00f8rer, kan den oprindelige v\u00e6rtsforbindelseskomponent ikke detekteres. Se <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instruktioner vedr\u00f8rende installering af forbindelseskomponent."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Intet svar fra v\u00e6rt"
+	},
+	"open_website": {
+		"description": "Tooltip for browser extensions icon.",
+		"message": "Open GNOME Shell extensions website"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -92,21 +97,13 @@
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
 		"message": "Valgmuligheder gemt."
 	},
-	"options_show_network_errors": {
-		"description": "Option name. By default Chrome do not reveal exact network error in case of request failure. Allow enable/disable extended error information.",
-		"message": "Vis information om netv\u00e6rksfejl"
-	},
-	"options_show_network_errors_notice": {
-		"description": "This is a notice under option name. Warns user that additional browser permission is required if option will be enabled.",
-		"message": "Chrome-rettighed \"webRequest\" p\u00e5kr\u00e6vet."
-	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Vis udgivelsesnoter, n\u00e5r udvidelsen er opdateret"
+		"message": "Show release notes when browser extension updated"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synkronis\u00e9r udvidelsesliste"
+		"message": "Synchronize GNOME Shell extensions list"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -123,7 +120,10 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Tjek for opdateringer til udvidelser"
+		"message": "Check for GNOME Shell extensions update"
+	},
+	"options_update_check_notice": {
+		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
 	},
 	"platform_not_supported": {
 		"message": "Den oprindelige v\u00e6rtsforbindelseskomponent underst\u00f8ttes ikke til din platform."
@@ -176,7 +176,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Kunne ikke s\u00f8ge efter opdateringer til udvidelser: $CAUSE$",
+		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"

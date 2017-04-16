@@ -6,9 +6,9 @@
 	"close": {
 		"message": "Bez\u00e1r\u00e1s"
 	},
-	"error_extension_response": {
-		"description": "Shown to user when response of extension API call does not follow known format.",
-		"message": "Hib\u00e1s b\u0151v\u00edtm\u00e9nyv\u00e1lasz \u00e9rkezett"
+	"error_connector_response": {
+		"description": "Shown to user when response from connector API call does not follow known format.",
+		"message": "Wrong connector response received"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -55,9 +55,6 @@
 			}
 		}
 	},
-	"network_error": {
-		"message": "H\u00e1l\u00f3zati hiba t\u00f6rt\u00e9nt. Ellen\u0151rizze az internetkapcsolat\u00e1t \u00e9s a proxy be\u00e1ll\u00edt\u00e1sait."
-	},
 	"never": {
 		"description": "This is a part of phrase 'Last check: never'",
 		"message": "soha"
@@ -65,12 +62,20 @@
 	"no": {
 		"message": "Nem"
 	},
+	"no_gnome_shell": {
+		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
+		"message": "Nem tal\u00e1lhat\u00f3k a GNOME Shell be\u00e1ll\u00edt\u00e1sai vagy verzi\u00f3ja. Gy\u0151z\u0151dj\u00f6n meg arr\u00f3l, hogy telep\u00edtve van-e \u00e9s fut-e."
+	},
 	"no_host_connector": {
 		"message": "Ugyan a GNOME Shell integr\u00e1ci\u00f3s b\u0151v\u00edtm\u00e9ny fut, a nat\u00edv gazdacsatlakoz\u00f3 nem \u00e9szlelhet\u0151. N\u00e9zze meg a <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokument\u00e1ci\u00f3t</a> a csatlakoz\u00f3 telep\u00edt\u00e9si utas\u00edt\u00e1sai\u00e9rt."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Nincs v\u00e1lasz a gazd\u00e1t\u00f3l"
+	},
+	"open_website": {
+		"description": "Tooltip for browser extensions icon.",
+		"message": "Open GNOME Shell extensions website"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -92,21 +97,13 @@
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
 		"message": "Be\u00e1ll\u00edt\u00e1sok mentve."
 	},
-	"options_show_network_errors": {
-		"description": "Option name. By default Chrome do not reveal exact network error in case of request failure. Allow enable/disable extended error information.",
-		"message": "Inform\u00e1ci\u00f3k megjelen\u00edt\u00e9se a h\u00e1l\u00f3zati hib\u00e1kr\u00f3l"
-	},
-	"options_show_network_errors_notice": {
-		"description": "This is a notice under option name. Warns user that additional browser permission is required if option will be enabled.",
-		"message": "A \u201ewebRequest\u201d Chrome enged\u00e9ly sz\u00fcks\u00e9ges."
-	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "A kiad\u00e1si megjegyz\u00e9sek megjelen\u00edt\u00e9se a kieg\u00e9sz\u00edt\u0151 friss\u00edt\u00e9sekor"
+		"message": "Show release notes when browser extension updated"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "B\u0151v\u00edtm\u00e9nylista szinkroniz\u00e1l\u00e1sa"
+		"message": "Synchronize GNOME Shell extensions list"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -123,7 +120,10 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "B\u0151v\u00edtm\u00e9nyfriss\u00edt\u00e9s keres\u00e9se"
+		"message": "Check for GNOME Shell extensions update"
+	},
+	"options_update_check_notice": {
+		"message": "A nat\u00edv gazdacsatlakoz\u00f3ja nem t\u00e1mogatja a GNOME Shell kiterjeszt\u00e9sek friss\u00edt\u00e9seinek ellen\u0151rz\u00e9s\u00e9t. Val\u00f3sz\u00edn\u0171leg a python-requests csomag hi\u00e1nyzik."
 	},
 	"platform_not_supported": {
 		"message": "A nat\u00edv gazdacsatlakoz\u00f3 nem t\u00e1mogatott a platformj\u00e1n."
@@ -176,7 +176,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "A b\u0151v\u00edtm\u00e9nyfriss\u00edt\u00e9sek keres\u00e9se sikertelen: $CAUSE$",
+		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -185,7 +185,7 @@
 	},
 	"warning_apis_missing": {
 		"description": "$$1 is a placeholder for a list of missing APIs",
-		"message": "Your native host connector do not support following APIs: $$1. Probably you should upgrade native host connector or install plugins for missing APIs. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions."
+		"message": "A nat\u00edv gazdacsatlakoz\u00f3 nem t\u00e1mogatja a k\u00f6vetkez\u0151 API-kat: $$1. Val\u00f3sz\u00edn\u0171leg friss\u00edtenie kell a nat\u00edv gazdacsatlakoz\u00f3t, vagy b\u0151v\u00edtm\u00e9nyeket kell telep\u00edtenie a hi\u00e1nyz\u00f3 API-khoz. N\u00e9zz meg a <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokument\u00e1ci\u00f3t</a> az utas\u00edt\u00e1sok\u00e9rt."
 	},
 	"yes": {
 		"message": "Igen"

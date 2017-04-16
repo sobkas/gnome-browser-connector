@@ -2,7 +2,7 @@ Si deve installare il connettore nativo per far funzionare questa estensione.
 
 Per Arch Linux è disponibile un PKGBUILD in AUR: https://aur.archlinux.org/packages/chrome-gnome-shell-git
 
-PEr Debian Linux è disponibile un pacchetto in Sid e Stretch: https://tracker.debian.org/pkg/chrome-gnome-shell
+Per Debian Linux è disponibile un pacchetto in Sid e Stretch: https://tracker.debian.org/pkg/chrome-gnome-shell
 
 Per Fedora Linux è disponibile un pacchetto in Copr: https://copr.fedorainfracloud.org/coprs/region51/chrome-gnome-shell
 

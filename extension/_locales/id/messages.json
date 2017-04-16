@@ -6,21 +6,21 @@
 	"close": {
 		"message": "Tutup"
 	},
-	"error_extension_response": {
-		"description": "Shown to user when response of extension API call does not follow known format.",
-		"message": "Menerima respon ekstensi yang salah"
+	"error_connector_response": {
+		"description": "Shown to user when response from connector API call does not follow known format.",
+		"message": "Menerima respon konektor yang salah"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
-		"message": "Enabled"
+		"message": "Difungsikan"
 	},
 	"extension_installed": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension installed?'",
-		"message": "Installed"
+		"message": "Terpasang"
 	},
 	"extension_name": {
 		"description": "Used as title, eg in table header. Means 'GNOME Shell extension name'.",
-		"message": "Extension"
+		"message": "Ekstensi"
 	},
 	"extension_status_downgrade": {
 		"description": "This is a part of phrase like 'Extension Top Icons must be downgraded'.",
@@ -32,7 +32,7 @@
 	},
 	"extension_synchronized": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension status synchronized with remote browser storage?'",
-		"message": "Synchronized"
+		"message": "Selaras"
 	},
 	"gs_chrome": {
 		"description": "This is a project title. Used as extension name in Chrome Store and in some titlebars.",
@@ -55,9 +55,6 @@
 			}
 		}
 	},
-	"network_error": {
-		"message": "Telah terjadi kesalahan jaringan. Harap periksa koneksi Internet Anda dan/atau pengaturan proksi."
-	},
 	"never": {
 		"description": "This is a part of phrase 'Last check: never'",
 		"message": "tidak pernah"
@@ -65,12 +62,20 @@
 	"no": {
 		"message": "Tidak"
 	},
+	"no_gnome_shell": {
+		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
+		"message": "Tidak bisa menemukan versi atau pengaturan Shell GNOME. Pastikan bahwa itu terpasang dan berjalan."
+	},
 	"no_host_connector": {
 		"message": "Walaupun ektensi integrasi Shell GNOME berjalan, konektor host native tidak terdeteksi. Lihat <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokumentasi</a> untuk instruksi tentang memasang konektor."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Tidak ada respon host"
+	},
+	"open_website": {
+		"description": "Tooltip for browser extensions icon.",
+		"message": "Buka situs web ekstensi GNOME Shell"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -92,25 +97,17 @@
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
 		"message": "Opsi disimpan."
 	},
-	"options_show_network_errors": {
-		"description": "Option name. By default Chrome do not reveal exact network error in case of request failure. Allow enable/disable extended error information.",
-		"message": "Tampilkan informasi tentang kesalahan jaringan"
-	},
-	"options_show_network_errors_notice": {
-		"description": "This is a notice under option name. Warns user that additional browser permission is required if option will be enabled.",
-		"message": "Perlu ijin \u00abwebRequest\u00bb Chrome."
-	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Tampilkan catatan rilis ketika ekstensi dimutakhirkan"
+		"message": "Tampilkan catatan rilis saat ekstensi peramban diperbarui"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synchronize extensions list"
+		"message": "Selaraskan daftar ekstensi GNOME Shell"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
-		"message": "If enabled, your GNOME Shell extensions list will be synchronized with your Google account."
+		"message": "Bila difungsikan, daftar ekstensi Shell GNOME Anda akan diselaraskan dengan akun Google Anda."
 	},
 	"options_title": {
 		"description": "$GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This string used as title for Options page. This title is not shown in Chrome, but may be shown in other browsers.",
@@ -123,7 +120,10 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Periksa pemutakhiran ekstensi"
+		"message": "Periksa pemutakhiran ekstensi GNOME Shell"
+	},
+	"options_update_check_notice": {
+		"message": "Konektor host native Anda tidak mendukung pengecekan untuk pemutakhiran ekstensi GNOME Shell. Mungkin paket python-requests hilang."
 	},
 	"platform_not_supported": {
 		"message": "Konektor host native tidak didukung untuk platform Anda."
@@ -136,14 +136,14 @@
 	},
 	"synchronization": {
 		"description": "Link name for synchronization tab in options dialog.",
-		"message": "Synchronization"
+		"message": "Penyelarasan"
 	},
 	"synchronization_cancel": {
-		"message": "Do not enable synchronization."
+		"message": "Jangan fungsikan penyelarasan."
 	},
 	"synchronization_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused synchronization failure.",
-		"message": "Failed to synchronize extensions: $CAUSE$",
+		"message": "Gagal menyelaraskan ekstensi: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -151,17 +151,17 @@
 		}
 	},
 	"synchronization_storage_exists": {
-		"message": "Your remote synchronization storage already contains extensions list."
+		"message": "Penyimpanan penyelarasan remote Anda telah memuat daftar ekstensi."
 	},
 	"synchronization_use_local": {
-		"message": "Use local extensions list, overwrite remote."
+		"message": "Gunakan daftar ekstensi lokal, timpa remote."
 	},
 	"synchronization_use_remote": {
-		"message": "Use remote extensions list, overwrite local."
+		"message": "Gunakan daftar ekstensi remote, timpa lokal."
 	},
 	"translation_credits": {
 		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
-		"message": "Andika Triwidada <andika@gmail.com>, 2016"
+		"message": "Andika Triwidada <andika@gmail.com>, 2016.\nKukuh Syafaat <syafaatkukuh@gmail.com>, 2017."
 	},
 	"translation_credits_title": {
 		"description": "Link name for translation credits tab in options dialog.",
@@ -169,14 +169,14 @@
 	},
 	"unknown_error": {
 		"description": "This should newer be shown to user. However better safe than sorry.",
-		"message": "unknown error"
+		"message": "galat tak dikenal"
 	},
 	"update_available": {
 		"message": "Tersedia pemutakhiran untuk Shell GNOME"
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Gagal memeriksa pemutakhiran ekstensi: $CAUSE$",
+		"message": "Gagal memeriksa pemutakhiran ekstensi GNOME Shell: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -185,7 +185,7 @@
 	},
 	"warning_apis_missing": {
 		"description": "$$1 is a placeholder for a list of missing APIs",
-		"message": "Your native host connector do not support following APIs: $$1. Probably you should upgrade native host connector or install plugins for missing APIs. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions."
+		"message": "Konektor host native Anda tidak mendukung API berikut: $$1. Mungkin Anda perlu meningkatkan konektor host native atau memasang pengaya bagi API yang kurang. Lihat <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokumentasi</a> untuk instruksi."
 	},
 	"yes": {
 		"message": "Ya"

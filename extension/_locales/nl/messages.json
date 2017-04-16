@@ -6,8 +6,8 @@
 	"close": {
 		"message": "Sluiten"
 	},
-	"error_extension_response": {
-		"description": "Shown to user when response of extension API call does not follow known format.",
+	"error_connector_response": {
+		"description": "Shown to user when response from connector API call does not follow known format.",
 		"message": "Verkeerde extensierespons ontvangen"
 	},
 	"extension_enabled": {
@@ -55,9 +55,6 @@
 			}
 		}
 	},
-	"network_error": {
-		"message": "Er is een netwerkfout opgetreden. Controleer uw internetverbinding en/of proxy-instellingen."
-	},
 	"never": {
 		"description": "This is a part of phrase 'Last check: never'",
 		"message": "nooit"
@@ -65,12 +62,20 @@
 	"no": {
 		"message": "Nee"
 	},
+	"no_gnome_shell": {
+		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
+		"message": "Geen Gnome-shell-instellingen of -versie gevonden. Zorg ervoor dat deze zijn ge\u00efnstalleerd en draaien."
+	},
 	"no_host_connector": {
 		"message": "Alhoewel de extensie Gnome-shell-integratie draait, wordt de platform-eigen hostconnector niet gedetecteerd. Ga naar <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentatie</a> voor instructies met betrekking tot het installeren van de connector."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Geen respons van host"
+	},
+	"open_website": {
+		"description": "Tooltip for browser extensions icon.",
+		"message": "Website met Gnome-shell-extensies openen"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -92,21 +97,13 @@
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
 		"message": "Opties opgeslagen."
 	},
-	"options_show_network_errors": {
-		"description": "Option name. By default Chrome do not reveal exact network error in case of request failure. Allow enable/disable extended error information.",
-		"message": "Informatie tonen over netwerkfouten"
-	},
-	"options_show_network_errors_notice": {
-		"description": "This is a notice under option name. Warns user that additional browser permission is required if option will be enabled.",
-		"message": "Chrome toestemming \u00abwebRequest\u00bb vereist."
-	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Uitgavenotities tonen wanneer extensie wordt bijgewerkt"
+		"message": "Uitgavenotities tonen wanneer browserextensie is bijgewerkt"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Lijst met extensies synchroniseren"
+		"message": "Lijst met Gnome-shell-extensies synchroniseren"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -123,7 +120,10 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Controleren op extensie-updates"
+		"message": "Controleren of Gnome-shell-extensies moeten worden bijgewerkt"
+	},
+	"options_update_check_notice": {
+		"message": "Het controleren of Gnome-shell-extensies moeten worden bijgewerkt wordt niet ondersteund door uw platform-eigen hostconnector. Mogelijk ontbreekt het pakket python-requests."
 	},
 	"platform_not_supported": {
 		"message": "Platform-eigen hostconnector wordt niet ondersteund voor uw platform."
@@ -176,7 +176,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Controleren op extensie-updates mislukt: $CAUSE$",
+		"message": "Controleren of Gnome-shell-extensies moeten worden bijgewerkt mislukt: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"

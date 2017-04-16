@@ -6,9 +6,9 @@
 	"close": {
 		"message": "Fermer"
 	},
-	"error_extension_response": {
-		"description": "Shown to user when response of extension API call does not follow known format.",
-		"message": "Mauvaise r\u00e9ponse re\u00e7ue de l'extension"
+	"error_connector_response": {
+		"description": "Shown to user when response from connector API call does not follow known format.",
+		"message": "Mauvaise r\u00e9ponse re\u00e7ue du connecteur"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -55,9 +55,6 @@
 			}
 		}
 	},
-	"network_error": {
-		"message": "Une erreur r\u00e9seau est survenue. Veuillez v\u00e9rifier votre connexion Internet et/ou les param\u00e8tres de votre serveur mandataire."
-	},
 	"never": {
 		"description": "This is a part of phrase 'Last check: never'",
 		"message": "jamais"
@@ -65,12 +62,20 @@
 	"no": {
 		"message": "Non"
 	},
+	"no_gnome_shell": {
+		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
+		"message": "Impossible de trouver les param\u00e8tres ou la version de GNOME Shell. Assurez-vous qu\u2019il soit install\u00e9 et en cours d\u2019ex\u00e9cution."
+	},
 	"no_host_connector": {
 		"message": "Bien que l'extension d'int\u00e9gration \u00e0 GNOME Shell soit active, le connecteur de l'h\u00f4te natif n'est pas reconnu. Veuillez consulter le <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>manuel</a> d'installation du connecteur."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
 		"message": "Aucune r\u00e9ponse de l'h\u00f4te"
+	},
+	"open_website": {
+		"description": "Tooltip for browser extensions icon.",
+		"message": "Ouvrer le site Web pour les extensions de GNOME Shell"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -92,21 +97,13 @@
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
 		"message": "Options enregistr\u00e9es."
 	},
-	"options_show_network_errors": {
-		"description": "Option name. By default Chrome do not reveal exact network error in case of request failure. Allow enable/disable extended error information.",
-		"message": "Afficher les informations sur les erreurs r\u00e9seau"
-	},
-	"options_show_network_errors_notice": {
-		"description": "This is a notice under option name. Warns user that additional browser permission is required if option will be enabled.",
-		"message": "Permission \u00ab\u00a0webRequest\u00a0\u00bb de Chrome requise."
-	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Afficher les notes de version apr\u00e8s la mise \u00e0 jour de l'extension"
+		"message": "Afficher les notes de version apr\u00e8s la mise \u00e0 jour de l'extension du navigateur"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synchroniser la liste des extensions"
+		"message": "Synchroniser la liste des extensions GNOME Shell"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -123,7 +120,10 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "V\u00e9rifier les mises \u00e0 jour des extensions"
+		"message": "V\u00e9rifier les mises \u00e0 jour des extensions GNOME Shell"
+	},
+	"options_update_check_notice": {
+		"message": "Votre connecteur d\u2019h\u00f4te natif ne prend pas en charge la v\u00e9rification des mises \u00e0 jour pour les extensions GNOME Shell. Le paquet python-requests est probablement manquant."
 	},
 	"platform_not_supported": {
 		"message": "Le connecteur natif de l'h\u00f4te n'est pas pris en charge pour votre plate-forme."
@@ -176,7 +176,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Impossible de v\u00e9rifier les mises \u00e0 jour des extensions\u00a0: $CAUSE$",
+		"message": "Impossible de v\u00e9rifier les mises \u00e0 jour des extensions GNOME Shell\u00a0: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"

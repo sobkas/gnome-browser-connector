@@ -14,4 +14,4 @@ sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell
 sudo apt-get update
 sudo apt-get install chrome-gnome-shell
 
-Você também pode instalar o conector manualmente. Veja https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation para instruções de instalação.
+Você também pode instalar o conector manualmente. Veja https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation/pt_BR para instruções de instalação.
