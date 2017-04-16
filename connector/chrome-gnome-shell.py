@@ -29,7 +29,7 @@ try:
 except ImportError:
     REQUESTS_IMPORTED = False
 
-CONNECTOR_VERSION = 8.2
+CONNECTOR_VERSION = 9
 DEBUG_ENABLED = False
 
 SHELL_SCHEMA = "org.gnome.shell"
