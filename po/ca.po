@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-01-04 06:47+0000\n"
+"POT-Creation-Date: 2017-04-09 15:03+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jordi Mas i Hernàndez <jmas@softcatala.org>\n"
 "Language-Team: ca_ES <tradgnome@softcatala.net>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Close"
 msgstr "Tanca"
 
-#. Shown to user when response of extension API call does not follow known
+#. Shown to user when response from connector API call does not follow known
 #. format.
-#: chrome-gnome-shell-key-error_extension_response:1
-msgid "Wrong extension response received"
-msgstr "S'ha rebut una resposta incorrecta d'una extensió"
+#: chrome-gnome-shell-key-error_connector_response:1
+msgid "Wrong connector response received"
+msgstr "S'ha rebut una resposta incorrecta d'un connector"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension
 #. enabled?'
@@ -90,14 +90,6 @@ msgstr ""
 msgid "«$REQUEST$» native request failed"
 msgstr "La sol·licitud nativa «$REQUEST$» ha fallat"
 
-#: chrome-gnome-shell-key-network_error:1
-msgid ""
-"A network error has occurred. Please check your Internet connection and/or "
-"proxy settings."
-msgstr ""
-"S'ha produït un error de xarxa. Comproveu la connexió a Internet i la "
-"configuració del servidor intermediari."
-
 #. This is a part of phrase 'Last check: never'
 #: chrome-gnome-shell-key-never:1
 msgid "never"
@@ -106,6 +98,16 @@ msgstr "mai"
 #: chrome-gnome-shell-key-no:1
 msgid "No"
 msgstr "No"
+
+#. Shown to user when native connector unable to query GNOME Shell version or
+#. settings
+#: chrome-gnome-shell-key-no_gnome_shell:1
+msgid ""
+"Unable to locate GNOME Shell settings or version. Make sure it is installed "
+"and running."
+msgstr ""
+"No es pot localitzar la configuració del GNOME Shell o la versió. Assegureu-"
+"vos que està instal·lat i en execució."
 
 #: chrome-gnome-shell-key-no_host_connector:1
 msgid ""
@@ -125,6 +127,11 @@ msgstr ""
 #: chrome-gnome-shell-key-no_host_response:1
 msgid "No host response"
 msgstr "Sense resposta de l'amfitrió:"
+
+#. Tooltip for browser extensions icon.
+#: chrome-gnome-shell-key-open_website:1
+msgid "Open GNOME Shell extensions website"
+msgstr "Obre el lloc web d'extensions del GNOME Shell"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -154,29 +161,18 @@ msgstr "Propera comprovació"
 msgid "Options saved."
 msgstr "Configuració desada."
 
-#. Option name. By default Chrome do not reveal exact network error in case of
-#. request failure. Allow enable/disable extended error information.
-#: chrome-gnome-shell-key-options_show_network_errors:1
-msgid "Show information about network errors"
-msgstr "Notifica els errors de xarxa"
-
-#. This is a notice under option name. Warns user that additional browser
-#. permission is required if option will be enabled.
-#: chrome-gnome-shell-key-options_show_network_errors_notice:1
-msgid "Chrome permission «webRequest» required."
-msgstr "Es requereix el permís de Chrome «webRequest»."
-
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
-msgid "Show release notes when extension updated"
-msgstr "Mostra les notes de la versió quan s'actualitza l'extensió"
+msgid "Show release notes when browser extension updated"
+msgstr ""
+"Mostra les notes de la versió quan s'actualitza l'extensió del navegador"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
-msgid "Synchronize extensions list"
-msgstr "Sincronitza la llista d'extensions"
+msgid "Synchronize GNOME Shell extensions list"
+msgstr "Sincronitza la llista d'extensions del GNOME Shell"
 
 #. This is a notice under option name.
 #: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
@@ -184,7 +180,7 @@ msgid ""
 "If enabled, your GNOME Shell extensions list will be synchronized with your "
 "Google account."
 msgstr ""
-"Si s'habilita, la llista d'extensions del GNOME Shell se sincronitzarà amb "
+"Si s'habilita, la llista d'extensions del GNOME Shell es sincronitzarà amb "
 "el compte de Google."
 
 #. $GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This
@@ -200,8 +196,16 @@ msgstr "Opcions de $GS_CHROME$"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-msgid "Check for extensions update"
-msgstr "Comprova si hi ha actualitzacions de l'extensió"
+msgid "Check for GNOME Shell extensions update"
+msgstr "Comprova si hi ha actualitzacions de l'extensió del Gnome Shell"
+
+#: chrome-gnome-shell-key-options_update_check_notice:1
+msgid ""
+"Your native host connector does not support check for GNOME Shell extensions "
+"updates. Probably python-requests package is missing."
+msgstr ""
+"El connector hoste natiu no admet verificació d'extensions actualitzades per "
+"al GNOME Shell. Probablement no es troba el paquet python-requests."
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -236,7 +240,7 @@ msgstr "S'ha produït un error en sincronitzar les extensions: $CAUSE$"
 #: chrome-gnome-shell-key-synchronization_storage_exists:1
 msgid "Your remote synchronization storage already contains extensions list."
 msgstr ""
-"L'emmagatzematge remot per la sincronització ja conté una llista "
+"L'emmagatzematge remot per a la sincronització ja conté una llista "
 "d'extensions."
 
 #: chrome-gnome-shell-key-synchronization_use_local:1
@@ -262,11 +266,12 @@ msgstr "Quant a la traducció"
 #. This should newer be shown to user. However better safe than sorry.
 #: chrome-gnome-shell-key-unknown_error:1
 msgid "unknown error"
-msgstr "Error desconegut"
+msgstr "error desconegut"
 
 #: chrome-gnome-shell-key-update_available:1
 msgid "An update for GNOME Shell extensions available"
-msgstr "Hi ha una actualització disponible per les extensions del GNOME Shell"
+msgstr ""
+"Hi ha una actualització disponible per a les extensions del GNOME Shell"
 
 #. $CAUSE$ is placeholder for error that caused update failure.
 #.
@@ -274,12 +279,13 @@ msgstr "Hi ha una actualització disponible per les extensions del GNOME Shell"
 #. cause
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
-msgid "Failed to check extensions updates: $CAUSE$"
-msgstr "La comprovació d'actualitzacions ha fallat: $CAUSE$"
+msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
+msgstr ""
+"No s'ha pogut comprovar les extensions d'actualització del GNOME Shell: "
+"$CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
-#, fuzzy
 msgid ""
 "Your native host connector do not support following APIs: $$1. Probably you "
 "should upgrade native host connector or install plugins for missing APIs. "
@@ -287,11 +293,11 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Encara que l'extensió d'integració del GNOME Shell està executant-se, no "
-"s'ha detectat el connector amfitrió nadiu. Vegeu la <a href='https://wiki."
-"gnome.org/Projects/GnomeShellIntegrationForChrome/"
-"Installation'>documentació</a> per obtenir instruccions de com instal·lar el "
-"connector."
+"El seu connector hoste natiu no és compatible amb les API's següents: $$1. "
+"Probablement s'hauria actualitzar el connector de l'hoste natiu o instal·lar "
+"connectors per a les API's que falten. Consulteu la documentació de <a "
+"href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/"
+"Installation'>documentation</a> per obtenir instruccions."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -299,7 +305,6 @@ msgstr "Sí"
 
 #. Chrome store description
 #: chrome-gnome-shell-store-description:1
-#, fuzzy
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
@@ -324,26 +329,42 @@ msgid ""
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
 msgstr ""
-"Heu d'instal·lar el connector nadiu perquè aquesta extensió funcioni.\n"
+"Cal instal·lar el connector nadiu perquè aquesta extensió funcioni.\n"
 "\n"
 "Per l'Arch Linux hi ha disponible un PKGBUILD a l'AUR: https://aur.archlinux."
 "org/packages/chrome-gnome-shell-git\n"
 "\n"
-"Pel Fedora Linux hi ha paquet disponible al Copr: https://copr."
+"Per Debian Linux hi ha un paquet disponible a Sid i Strecht: https://tracker."
+"debian.org/pkg/chrome-gnome-shell\n"
+"\n"
+"Per al Fedora Linux hi ha un paquet disponible al Copr: https://copr."
 "fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
 "\n"
 "Al Gentoo Linux podeu instal·lar el connector amb aquesta ordre:\n"
 "emerge gnome-extra/chrome-gnome-shell\n"
 "\n"
-"Per Ubuntu Linux el paquet està disponible al PPA: ne0sight/chrome-gnome-"
+"Per a l'Ubuntu Linux el paquet està disponible al PPA: ne0sight/chrome-gnome-"
 "shell. Per a instal·lar-lo introduïu:\n"
 "sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
 "sudo apt-get update\n"
 "sudo apt-get install chrome-gnome-shell\n"
 "\n"
-"També podeu instal·lar el connector manualment. Vegeu les instruccions "
-"d'instal·lació a https://wiki.gnome.org/Projects/"
+"També podeu instal·lar el connector manualment. Vegeu les instruccions de la "
+"instal·lació a https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation.\n"
+
+#~ msgid ""
+#~ "A network error has occurred. Please check your Internet connection and/"
+#~ "or proxy settings."
+#~ msgstr ""
+#~ "S'ha produït un error de xarxa. Comproveu la connexió a Internet i la "
+#~ "configuració del servidor intermediari."
+
+#~ msgid "Show information about network errors"
+#~ msgstr "Notifica els errors de xarxa"
+
+#~ msgid "Chrome permission «webRequest» required."
+#~ msgstr "Es requereix el permís de Chrome «webRequest»."
 
 #~ msgid "older than version 4"
 #~ msgstr "més antic de la versió 4"
