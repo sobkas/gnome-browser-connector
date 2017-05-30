@@ -9,7 +9,7 @@
  */
 
 GS_CHROME_ID				= chrome.runtime.id;
-PLATFORMS_WHITELIST			= ["linux", "openbsd"];
+PLATFORMS_WHITELIST			= ["freebsd", "linux", "openbsd"];
 
 COMPAT = {
 	IS_FIREFOX:	 (typeof(InstallTrigger) !== 'undefined'),
