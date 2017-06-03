@@ -9,9 +9,7 @@ For Fedora Linux there is package available in Copr: https://copr.fedorainfraclo
 In Gentoo Linux you can install connector with command:
 emerge gnome-extra/chrome-gnome-shell
 
-For Ubuntu Linux package is available in ne0sight/chrome-gnome-shell PPA. To install it type:
-sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell
-sudo apt-get update
-sudo apt-get install chrome-gnome-shell
+For Ubuntu Linux you can install connector with command:
+sudo apt install chrome-gnome-shell
 
 You also can install connector manually. See https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation for install instructions.
