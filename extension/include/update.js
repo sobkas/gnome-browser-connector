@@ -65,8 +65,6 @@ GSC.update = (function($) {
 	}
 
 	function onSweetToothResponse(data, installedExtensions) {
-		GSC.notifications.remove(NOTIFICATION_UPDATE_CHECK_FAILED);
-
 		var toUpgrade = [];
 		for (uuid in data)
 		{
@@ -96,13 +94,8 @@ GSC.update = (function($) {
 
 	function init() {
 		function onNotificationAction(notificationId, buttonIndex) {
-			if ($.inArray(notificationId, [NOTIFICATION_UPDATE_AVAILABLE, NOTIFICATION_UPDATE_CHECK_FAILED]) === -1)
+			if ($.inArray(notificationId, [NOTIFICATION_UPDATE_AVAILABLE]) === -1)
 				return;
-
-			if (notificationId === NOTIFICATION_UPDATE_CHECK_FAILED && buttonIndex == 0)
-			{
-				check();
-			}
 
 			GSC.notifications.remove(notificationId);
 		}

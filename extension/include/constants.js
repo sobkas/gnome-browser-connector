@@ -18,7 +18,6 @@ COMPAT = {
 
 NOTIFICATION_SYNC_FAILED		= 'gs-chrome-sync-fail';
 NOTIFICATION_UPDATE_AVAILABLE		= 'gs-chrome-update';
-NOTIFICATION_UPDATE_CHECK_FAILED	= 'gs-chrome-update-fail';
 ALARM_UPDATE_CHECK			= 'gs-chrome-update-check';
 
 MESSAGE_NEXT_UPDATE_CHANGED		= 'gs-next-update-changed';
