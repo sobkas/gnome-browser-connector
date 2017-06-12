@@ -43,9 +43,9 @@ GSC.update = (function($) {
 							{
 								onSweetToothResponse(response.upgrade, response.extensions);
 							}
-							else
+							else if(console)
 							{
-								createUpdateFailedNotification(response.message ? response.message : m('native_request_failed', 'checkUpdate'));
+								console.error(response.message ? response.message : m('native_request_failed', 'checkUpdate'));
 							}
 						});
 					});
@@ -57,9 +57,9 @@ GSC.update = (function($) {
 					});
 				}
 			}
-			else
+			else if(console)
 			{
-				createUpdateFailedNotification(response.message ? response.message : m('native_request_failed', 'initialize'));
+				console.error(response.message ? response.message : m('native_request_failed', 'initialize'));
 			}
 		});
 	}
@@ -91,16 +91,6 @@ GSC.update = (function($) {
 
 		chrome.storage.local.set({
 			lastUpdateCheck: new Date().toLocaleString()
-		});
-	}
-
-	function createUpdateFailedNotification(cause) {
-		GSC.notifications.create(NOTIFICATION_UPDATE_CHECK_FAILED, {
-			message: m('update_check_failed', cause),
-			buttons: [
-				{title: m('retry')},
-				{title: m('close')}
-			]
 		});
 	}
 
