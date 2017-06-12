@@ -13,12 +13,14 @@ function save_options()
 	var showReleaseNotes = $('#show_release_notes_yes').prop('checked');
 	var syncExtensions = $('#synchronize_extensions_yes').prop('checked');
 	var updateCheck = $('#update_check_yes').prop('checked');
+	var updateCheckEnabledOnly = $('#update_check_enabled_yes').prop('checked');
 	var updateCheckPeriod = $('#update_check_period').val();
 	updateCheckPeriod = Math.max(3, updateCheckPeriod);
 
 	chrome.storage.sync.set({
 		showReleaseNotes:	showReleaseNotes,
 		updateCheck:		updateCheck,
+		updateCheckEnabledOnly: updateCheckEnabledOnly,
 		updateCheckPeriod:	updateCheckPeriod
 	}, function () {
 		chrome.storage.local.set({
@@ -118,13 +120,14 @@ function restore_options()
 			}
 			else
 			{
-				$("input[name='update_check'], #update_check_period").removeAttr('disabled');
+				$("input[name='update_check'], input[name='update_check_enabled'], #update_check_period").removeAttr('disabled');
 				$('#update_check_period').val(items.updateCheckPeriod);
 				toggle_update_notice(false);
 				retrieveUpdateTimes();
 			}
 
 			setCheckUpdate(items.updateCheck);
+			setCheckUpdateEnabledOnly(items.updateCheckEnabledOnly);
 		}, function(response) {
 			disable_update_check();
 		});
@@ -200,6 +203,14 @@ function setCheckUpdate(result)
 		$('#update_check_yes').prop('checked', true);
 	else
 		$('#update_check_no').prop('checked', true);
+}
+
+function setCheckUpdateEnabledOnly(result)
+{
+	if(result)
+		$('#update_check_enabled_yes').prop('checked', true);
+	else
+		$('#update_check_enabled_no').prop('checked', true);
 }
 
 function setReleaseNotes(result)

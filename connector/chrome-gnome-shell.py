@@ -476,10 +476,14 @@ class ChromeGNOMEShell(Gio.Application):
 
         elif request['execute'] == 'checkUpdate':
             update_url = 'https://extensions.gnome.org/update-info/'
+            enabled_only = True
             if 'url' in request:
                 update_url = request['url']
 
-            self.check_update(update_url)
+            if 'enabledOnly' in request:
+                enabled_only = request['enabledOnly']
+
+            self.check_update(update_url, enabled_only)
 
         elif request['execute'] == 'createNotification':
             Gio.DBusActionGroup.get(
@@ -498,7 +502,7 @@ class ChromeGNOMEShell(Gio.Application):
 
         debug('Execute: from %s' % request['execute'])
 
-    def check_update(self, update_url):
+    def check_update(self, update_url, enabled_only):
         result = self.shell_proxy.call_sync(
             "ListExtensions",
             None,
@@ -508,6 +512,8 @@ class ChromeGNOMEShell(Gio.Application):
         )
 
         extensions = result.unpack()[0]
+        settings = Gio.Settings.new(SHELL_SCHEMA)
+        enabled_extensions = settings.get_strv(ENABLED_EXTENSIONS_KEY)
 
         if extensions:
             http_request = {
@@ -518,7 +524,7 @@ class ChromeGNOMEShell(Gio.Application):
             for uuid in extensions:
                 # gnome-shell/js/misc/extensionUtils.js
                 # EXTENSION_TYPE.PER_USER = 2
-                if is_uuid(uuid) and extensions[uuid]['type'] == 2:
+                if is_uuid(uuid) and extensions[uuid]['type'] == 2 and (not enabled_only or uuid in enabled_extensions):
                     try:
                         http_request['installed'][uuid] = {
                             'version': int(extensions[uuid]['version'])

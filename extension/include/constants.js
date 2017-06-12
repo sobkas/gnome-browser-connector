@@ -41,6 +41,7 @@ UPDATE_URL				= EXTENSIONS_WEBSITE + 'update-info/';
 DEFAULT_SYNC_OPTIONS			= {
 	showReleaseNotes:	true,
 	updateCheck:		true,
+	updateCheckEnabledOnly: true,
 	updateCheckPeriod:	6
 };
 

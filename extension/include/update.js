@@ -35,15 +35,22 @@ GSC.update = (function($) {
 				// TODO: remove deprecated in version 9
 				if(GSC.nativeUpdateCheckSupported(response))
 				{
-					GSC.sendNativeRequest({execute: 'checkUpdate', url: UPDATE_URL}, function (response) {
-						if (response.success)
-						{
-							onSweetToothResponse(response.upgrade, response.extensions);
-						}
-						else
-						{
-							createUpdateFailedNotification(response.message ? response.message : m('native_request_failed', 'checkUpdate'));
-						}
+					chrome.storage.sync.get(DEFAULT_SYNC_OPTIONS, function (options) {
+						GSC.sendNativeRequest(
+							{
+								execute: 'checkUpdate',
+								url: UPDATE_URL,
+								enabledOnly: options.updateCheckEnabledOnly
+							}, function (response) {
+							if (response.success)
+							{
+								onSweetToothResponse(response.upgrade, response.extensions);
+							}
+							else
+							{
+								createUpdateFailedNotification(response.message ? response.message : m('native_request_failed', 'checkUpdate'));
+							}
+						});
 					});
 				}
 				else
