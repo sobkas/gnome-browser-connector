@@ -30,9 +30,6 @@ GSC.update = (function($) {
 		GSC.onInitialize().then(response => {
 			if (response.success)
 			{
-				var shellVersion = response.properties.shellVersion;
-
-				// TODO: remove deprecated in version 9
 				if(GSC.nativeUpdateCheckSupported(response))
 				{
 					chrome.storage.sync.get(DEFAULT_SYNC_OPTIONS, function (options) {
