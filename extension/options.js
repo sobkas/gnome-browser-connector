@@ -108,8 +108,6 @@ function restore_options()
 				});
 			}
 
-			$("[name='update_check'], #update_check_period").prop('disabled', 'disabled');
-
 			toggle_update_notice(true);
 		}
 
@@ -120,6 +118,7 @@ function restore_options()
 			}
 			else
 			{
+				$("input[name='update_check'], #update_check_period").removeAttr('disabled');
 				$('#update_check_period').val(items.updateCheckPeriod);
 				toggle_update_notice(false);
 				retrieveUpdateTimes();
