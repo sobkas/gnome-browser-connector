@@ -1,5 +1,0 @@
-{
-	"ExtensionInstallForcelist": [
-		"${CHROME_EXTENSION_ID};https://clients2.google.com/service/update2/crx"
-	]
-}

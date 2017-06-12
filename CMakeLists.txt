@@ -159,8 +159,6 @@ if(BUILD_CONNECTOR)
 			"${CMAKE_BINARY_DIR}/")
 	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/connector/org.gnome.ChromeGnomeShell.service.in"
 			"${CMAKE_BINARY_DIR}/org.gnome.ChromeGnomeShell.service")
-	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/policies/chrome-gnome-shell.json"
-			"${CMAKE_BINARY_DIR}/")
 
 	add_custom_target(firefox-native-manifest ALL
 			COMMAND "${JQ_EXECUTABLE}" -s "'add|del(.allowed_origins)'"
@@ -190,8 +188,6 @@ if(BUILD_CONNECTOR)
 	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.firefox.json"
 			DESTINATION "${CMAKE_INSTALL_LIBDIR}/mozilla/native-messaging-hosts/"
 			RENAME "org.gnome.chrome_gnome_shell.json")
-	install(FILES "${CMAKE_BINARY_DIR}/chrome-gnome-shell.json" DESTINATION "/etc/opt/chrome/policies/managed/")
-	install(FILES "${CMAKE_BINARY_DIR}/chrome-gnome-shell.json" DESTINATION "/etc/chromium/policies/managed/")
 
 	install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/connector/org.gnome.ChromeGnomeShell.desktop" DESTINATION "${CMAKE_INSTALL_DATADIR}/applications/")
 	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.ChromeGnomeShell.service" DESTINATION "${CMAKE_INSTALL_DATADIR}/dbus-1/services/")
@@ -211,7 +207,6 @@ if(BUILD_CONNECTOR)
 	# https://svn0.us-east.freebsd.org/ports/head/www/chromium/files/patch-chrome_common_chrome__paths.cc
 	if(CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
 		install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/usr/local/etc/chrome/native-messaging-hosts/")
-		install(FILES "${CMAKE_BINARY_DIR}/chrome-gnome-shell.json" DESTINATION "/usr/local/etc/chrome/policies/managed/")
 	endif(CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
 endif(BUILD_CONNECTOR)
 
