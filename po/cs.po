@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-03-20 19:36+0000\n"
+"POT-Creation-Date: 2017-06-12 17:29+0000\n"
 "PO-Revision-Date: 2017-03-23 21:09+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
@@ -22,11 +22,11 @@ msgstr ""
 msgid "Close"
 msgstr "Zavřít"
 
-#. Shown to user when response of extension API call does not follow known
+#. Shown to user when response from connector API call does not follow known
 #. format.
-#: chrome-gnome-shell-key-error_extension_response:1
-msgid "Wrong extension response received"
-msgstr "Obdržena nesprávná odpověď od rozšíření"
+#: chrome-gnome-shell-key-error_connector_response:1
+msgid "Wrong connector response received"
+msgstr "Obdržena nesprávná odpověď od konektoru"
 
 #. Used as title, eg in table header. Means 'Does GNOME Shell extension
 #. enabled?'
@@ -91,14 +91,6 @@ msgstr ""
 msgid "«$REQUEST$» native request failed"
 msgstr "Přirozený požadavek «$REQUEST$» selhal"
 
-#: chrome-gnome-shell-key-network_error:1
-msgid ""
-"A network error has occurred. Please check your Internet connection and/or "
-"proxy settings."
-msgstr ""
-"Vyskytla se chyba sítě. Zkontrolujte prosím své připojení k Internetu a "
-"nastavení proxy."
-
 #. This is a part of phrase 'Last check: never'
 #: chrome-gnome-shell-key-never:1
 msgid "never"
@@ -136,6 +128,11 @@ msgstr ""
 msgid "No host response"
 msgstr "Žádný hostitel neodpovídá"
 
+#. Tooltip for browser extensions icon.
+#: chrome-gnome-shell-key-open_website:1
+msgid "Open GNOME Shell extensions website"
+msgstr "Otevřít webové stránky rozšíření GNOME Shell"
+
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
 #: chrome-gnome-shell-key-options_check_period:1
@@ -167,14 +164,14 @@ msgstr "Volba byla uložena."
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
-msgid "Show release notes when extension updated"
-msgstr "Po aktualizaci rozšíření zobrazit poznámky k vydání"
+msgid "Show release notes when browser extension updated"
+msgstr "Po aktualizaci rozšíření prohlížeče zobrazit poznámky k vydání"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
-msgid "Synchronize extensions list"
-msgstr "Synchronizovat seznam rozšíření"
+msgid "Synchronize GNOME Shell extensions list"
+msgstr "Synchronizovat seznam rozšíření GNOME Shell"
 
 #. This is a notice under option name.
 #: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
@@ -198,8 +195,13 @@ msgstr "Volby $GS_CHROME$"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-msgid "Check for extensions update"
-msgstr "Zkontrolovat aktualizace rozšíření"
+msgid "Check for GNOME Shell extensions update"
+msgstr "Kontrolovat aktualizace rozšíření GNOME Shell"
+
+#. Option name.
+#: chrome-gnome-shell-key-options_update_check_enabled:1
+msgid "Check update of enabled GNOME Shell extensions only"
+msgstr "Kontrolovat aktualizace jen pro povolená rozšíření GNOME Shell"
 
 #: chrome-gnome-shell-key-options_update_check_notice:1
 msgid ""
@@ -278,8 +280,8 @@ msgstr "Je dostupná aktualizace rozšíření GNOME Shell"
 #. cause
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
-msgid "Failed to check extensions updates: $CAUSE$"
-msgstr "Selhala kontrola aktualizací rozšíření: $CAUSE$"
+msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
+msgstr "Selhala kontrola aktualizací rozšíření GNOME Shell: $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
@@ -317,11 +319,8 @@ msgid ""
 "In Gentoo Linux you can install connector with command:\n"
 "emerge gnome-extra/chrome-gnome-shell\n"
 "\n"
-"For Ubuntu Linux package is available in ne0sight/chrome-gnome-shell PPA. To "
-"install it type:\n"
-"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
-"sudo apt-get update\n"
-"sudo apt-get install chrome-gnome-shell\n"
+"For Ubuntu Linux you can install connector with command:\n"
+"sudo apt install chrome-gnome-shell\n"
 "\n"
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
@@ -340,17 +339,9 @@ msgstr ""
 "V Gentoo Linux můžete konektor nainstalovat pomocí příkazu:\n"
 "emerge gnome-extra/chrome-gnome-shell\n"
 "\n"
-"V Ubuntu Linux je k dispozici balíček v PPA ne0sight/chrome-gnome-shell. "
-"Nainstalujte jej pomocí:\n"
-"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
-"sudo apt-get update\n"
-"sudo apt-get install chrome-gnome-shell\n"
+"V Ubuntu Linux můžet nainstalovat konektor pomocí příkazu:\n"
+"sudo apt install chrome-gnome-shell\n"
 "\n"
 "Můžete konektor nainstalovat i ručně. Instalační instrukce viz https://wiki."
 "gnome.org/Projects/GnomeShellIntegrationForChrome/Installation.\n"
 
-#~ msgid "Show information about network errors"
-#~ msgstr "Zobrazovat informace o chybách sítě"
-
-#~ msgid "Chrome permission «webRequest» required."
-#~ msgstr "Je vyžadováno oprávnění Chrome «webRequest»."
