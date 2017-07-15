@@ -536,10 +536,21 @@ class ChromeGNOMEShell(Gio.Application):
 
             http_request['installed'] = json.dumps(http_request['installed'])
 
+            proxies = Gio.ProxyResolver.get_default().lookup(update_url)
+            if proxies is not None:
+                proxy = proxies[0]
+                if proxy.startswith('direct'):
+                    proxies = None
+                else:
+                    proxies = {}
+                    for scheme in ('http', 'https'):
+                        proxies[scheme] = proxy
+
             try:
                 response = requests.get(
                     update_url,
                     params=http_request,
+                    proxies=proxies,
                     timeout=5
                 )
                 response.raise_for_status()
