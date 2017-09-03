@@ -185,12 +185,12 @@ if(BUILD_CONNECTOR)
 						--prefix \"${CMAKE_INSTALL_PREFIX}\")")
 
 	if(NOT CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
-	    install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/chromium/native-messaging-hosts/")
-	    install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/opt/chrome/native-messaging-hosts/")
-    else(NOT CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
-	    # FreeBSD uses patch that forces Chromium to look into undocumented
-	    # "/usr/local/etc/chrome/native-messaging-hosts" folder for native messaging host manifest.
-	    # https://github.com/freebsd/freebsd-ports/blob/master/www/chromium/files/patch-chrome_common_chrome__paths.cc
+		install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/chromium/native-messaging-hosts/")
+		install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/opt/chrome/native-messaging-hosts/")
+	else(NOT CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
+		# FreeBSD uses patch that forces Chromium to look into undocumented
+		# "/usr/local/etc/chrome/native-messaging-hosts" folder for native messaging host manifest.
+		# https://github.com/freebsd/freebsd-ports/blob/master/www/chromium/files/patch-chrome_common_chrome__paths.cc
 		install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/usr/local/etc/chrome/native-messaging-hosts/")
 	endif(NOT CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
 
