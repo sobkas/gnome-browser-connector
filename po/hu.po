@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-04-09 15:03+0000\n"
-"PO-Revision-Date: 2017-05-05 21:14+0200\n"
+"POT-Creation-Date: 2017-06-12 17:29+0000\n"
+"PO-Revision-Date: 2017-09-03 16:14+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -27,7 +27,6 @@ msgstr "Bezárás"
 #. Shown to user when response from connector API call does not follow known
 #. format.
 #: chrome-gnome-shell-key-error_connector_response:1
-#| msgid "Wrong extension response received"
 msgid "Wrong connector response received"
 msgstr "Hibás csatlakozóválasz érkezett"
 
@@ -133,7 +132,6 @@ msgstr "Nincs válasz a gazdától"
 
 #. Tooltip for browser extensions icon.
 #: chrome-gnome-shell-key-open_website:1
-#| msgid "An update for GNOME Shell extensions available"
 msgid "Open GNOME Shell extensions website"
 msgstr "GNOME Shell bővítmények weboldalának megnyitása"
 
@@ -168,14 +166,12 @@ msgstr "Beállítások mentve."
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
-#| msgid "Show release notes when extension updated"
 msgid "Show release notes when browser extension updated"
 msgstr "Kiadási megjegyzések megjelenítése a böngészőkiegészítő frissítésekor"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
-#| msgid "Synchronize extensions list"
 msgid "Synchronize GNOME Shell extensions list"
 msgstr "GNOME Shell bővítménylista szinkronizálása"
 
@@ -201,9 +197,14 @@ msgstr "$GS_CHROME$ beállítások"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-#| msgid "Check for extensions update"
 msgid "Check for GNOME Shell extensions update"
 msgstr "GNOME Shell bővítményfrissítés keresése"
+
+#. Option name.
+#: chrome-gnome-shell-key-options_update_check_enabled:1
+msgid "Check update of enabled GNOME Shell extensions only"
+msgstr ""
+"Csak az engedélyezett GNOME Shell kiterjesztések frissítésének ellenőrzése"
 
 #: chrome-gnome-shell-key-options_update_check_notice:1
 msgid ""
@@ -282,7 +283,6 @@ msgstr "Egy GNOME Shell bővítményfrissítés elérhető"
 #. cause
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
-#| msgid "Failed to check extensions updates: $CAUSE$"
 msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
 msgstr "A GNOME Shell bővítményfrissítések keresése sikertelen: $CAUSE$"
 
@@ -322,11 +322,8 @@ msgid ""
 "In Gentoo Linux you can install connector with command:\n"
 "emerge gnome-extra/chrome-gnome-shell\n"
 "\n"
-"For Ubuntu Linux package is available in ne0sight/chrome-gnome-shell PPA. To "
-"install it type:\n"
-"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
-"sudo apt-get update\n"
-"sudo apt-get install chrome-gnome-shell\n"
+"For Ubuntu Linux you can install connector with command:\n"
+"sudo apt install chrome-gnome-shell\n"
 "\n"
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
@@ -342,14 +339,11 @@ msgstr ""
 "Fedora Linux esetén létezik Copr csomag: https://copr.fedorainfracloud.org/"
 "coprs/region51/chrome-gnome-shell\n"
 "\n"
-"Gentoo Linux esetén telepítheti a csatlakozót a paranccsal:\n"
+"Gentoo Linux esetén telepítheti a csatlakozót ezzel a paranccsal:\n"
 "emerge gnome-extra/chrome-gnome-shell\n"
 "\n"
-"Ubuntu Linux esetén a csomag elérhető a ne0sight/chrome-gnome-shell PPA-ban. "
-"A telepítéshez írja be:\n"
-"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
-"sudo apt-get update\n"
-"sudo apt-get install chrome-gnome-shell\n"
+"Ubuntu Linux esetén telepítheti a csatlakozót ezzel a paranccsal:\n"
+"sudo apt install chrome-gnome-shell\n"
 "\n"
 "Kézzel is telepítheti a csatlakozót. Nézze meg a https://wiki.gnome.org/"
 "Projects/GnomeShellIntegrationForChrome/Installation oldalt a telepítési "
