@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-04-09 15:03+0000\n"
-"PO-Revision-Date: 2017-04-11 12:03+0200\n"
+"POT-Creation-Date: 2017-06-12 17:29+0000\n"
+"PO-Revision-Date: 2017-09-03 14:10+0200\n"
 "Last-Translator: Gianvito Cavasoli <gianvito@gmx.it>\n"
 "Language-Team: Italiano <gnome-it-list@gnome.org>\n"
 "Language: it\n"
@@ -25,7 +25,6 @@ msgstr "Chiudi"
 #. Shown to user when response from connector API call does not follow known
 #. format.
 #: chrome-gnome-shell-key-error_connector_response:1
-#| msgid "Wrong extension response received"
 msgid "Wrong connector response received"
 msgstr "Ricevuta risposta connettore errato"
 
@@ -132,7 +131,6 @@ msgstr "Nessuna risposta dall'host"
 
 #. Tooltip for browser extensions icon.
 #: chrome-gnome-shell-key-open_website:1
-#| msgid "An update for GNOME Shell extensions available"
 msgid "Open GNOME Shell extensions website"
 msgstr "Apre il sito web delle estensioni di GNOME Shell"
 
@@ -167,7 +165,6 @@ msgstr "Opzioni salvate."
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
-#| msgid "Show release notes when extension updated"
 msgid "Show release notes when browser extension updated"
 msgstr ""
 "Mostrare le note di rilascio quando l'estensione del browser è aggiornata"
@@ -175,7 +172,6 @@ msgstr ""
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
-#| msgid "Synchronize extensions list"
 msgid "Synchronize GNOME Shell extensions list"
 msgstr "Sincronizzare l'elenco delle estensioni di GNOME Shell"
 
@@ -201,9 +197,15 @@ msgstr "Opzioni di $GS_CHROME$"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-#| msgid "Check for extensions update"
 msgid "Check for GNOME Shell extensions update"
 msgstr "Verificare gli aggiornamenti delle estensioni di GNOME Shell"
+
+#. Option name.
+#: chrome-gnome-shell-key-options_update_check_enabled:1
+#| msgid "An update for GNOME Shell extensions available"
+msgid "Check update of enabled GNOME Shell extensions only"
+msgstr ""
+"Verificare gli aggiornamenti solo per le estensioni di GNOME Shell abilitate"
 
 #: chrome-gnome-shell-key-options_update_check_notice:1
 msgid ""
@@ -284,7 +286,6 @@ msgstr "È disponibile un aggiornamento delle estensioni di GNOME Shell"
 #. cause
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
-#| msgid "Failed to check extensions updates: $CAUSE$"
 msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
 msgstr ""
 "Verifica dell'aggiornamento delle estensioni di GNOME Shell non riuscita: "
@@ -311,6 +312,30 @@ msgstr "Sì"
 
 #. Chrome store description
 #: chrome-gnome-shell-store-description:1
+#| msgid ""
+#| "You MUST install native connector for this extension to work.\n"
+#| "\n"
+#| "For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
+#| "archlinux.org/packages/chrome-gnome-shell-git\n"
+#| "\n"
+#| "For Debian Linux there is package available in Sid and Stretch: https://"
+#| "tracker.debian.org/pkg/chrome-gnome-shell\n"
+#| "\n"
+#| "For Fedora Linux there is package available in Copr: https://copr."
+#| "fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
+#| "\n"
+#| "In Gentoo Linux you can install connector with command:\n"
+#| "emerge gnome-extra/chrome-gnome-shell\n"
+#| "\n"
+#| "For Ubuntu Linux package is available in ne0sight/chrome-gnome-shell PPA. "
+#| "To install it type:\n"
+#| "sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
+#| "sudo apt-get update\n"
+#| "sudo apt-get install chrome-gnome-shell\n"
+#| "\n"
+#| "You also can install connector manually. See https://wiki.gnome.org/"
+#| "Projects/GnomeShellIntegrationForChrome/Installation for install "
+#| "instructions.\n"
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
@@ -326,11 +351,8 @@ msgid ""
 "In Gentoo Linux you can install connector with command:\n"
 "emerge gnome-extra/chrome-gnome-shell\n"
 "\n"
-"For Ubuntu Linux package is available in ne0sight/chrome-gnome-shell PPA. To "
-"install it type:\n"
-"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
-"sudo apt-get update\n"
-"sudo apt-get install chrome-gnome-shell\n"
+"For Ubuntu Linux you can install connector with command:\n"
+"sudo apt install chrome-gnome-shell\n"
 "\n"
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
@@ -350,11 +372,8 @@ msgstr ""
 "In Gentoo Linux si può installare il connettore con il comando:\n"
 "emerge gnome-extra/chrome-gnome-shell\n"
 "\n"
-"Per Ubuntu Linux è disponibile un pacchetto nel PPA ne0sight/chrome-gnome-"
-"shell. Per installarlo digitare:\n"
-"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
-"sudo apt-get update\n"
-"sudo apt-get install chrome-gnome-shell\n"
+"Per Ubuntu Linux si può installare il connettore con il comando:\n"
+"sudo apt install chrome-gnome-shell\n"
 "\n"
 "Si può anche installare il connettore manualmente. Andare su https://wiki."
 "gnome.org/Projects/GnomeShellIntegrationForChrome/Installation per le "
