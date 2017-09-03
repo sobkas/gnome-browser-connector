@@ -183,8 +183,17 @@ if(BUILD_CONNECTOR)
 					install ${DISTUTILS_EXTRA_ARGS}
 						--root \"\${DESTDIR}\"
 						--prefix \"${CMAKE_INSTALL_PREFIX}\")")
-	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/chromium/native-messaging-hosts/")
-	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/opt/chrome/native-messaging-hosts/")
+
+	if(NOT CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
+	    install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/chromium/native-messaging-hosts/")
+	    install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/etc/opt/chrome/native-messaging-hosts/")
+    else(NOT CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
+	    # FreeBSD uses patch that forces Chromium to look into undocumented
+	    # "/usr/local/etc/chrome/native-messaging-hosts" folder for native messaging host manifest.
+	    # https://github.com/freebsd/freebsd-ports/blob/master/www/chromium/files/patch-chrome_common_chrome__paths.cc
+		install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/usr/local/etc/chrome/native-messaging-hosts/")
+	endif(NOT CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
+
 	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.firefox.json"
 			DESTINATION "${CMAKE_INSTALL_LIBDIR}/mozilla/native-messaging-hosts/"
 			RENAME "org.gnome.chrome_gnome_shell.json")
@@ -201,13 +210,6 @@ if(BUILD_CONNECTOR)
 	install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/extension/icons/GnomeLogo-128.png"
 		DESTINATION "${CMAKE_INSTALL_DATADIR}/icons/gnome/128x128/apps/"
 		RENAME org.gnome.ChromeGnomeShell.png)
-
-	# There is wrong patch in FreeBSD that forces Chromium to look into
-	# /usr/local/etc/chrome/native-messaging-hosts for native messaging host manifest.
-	# https://svn0.us-east.freebsd.org/ports/head/www/chromium/files/patch-chrome_common_chrome__paths.cc
-	if(CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
-		install(FILES "${CMAKE_BINARY_DIR}/org.gnome.chrome_gnome_shell.json" DESTINATION "/usr/local/etc/chrome/native-messaging-hosts/")
-	endif(CMAKE_SYSTEM_NAME MATCHES "DragonFly.*|FreeBSD")
 endif(BUILD_CONNECTOR)
 
 if(BUILD_SOURCE_PACKAGE)
