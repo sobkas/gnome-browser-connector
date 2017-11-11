@@ -89,7 +89,7 @@ msgstr ""
 #.
 #: chrome-gnome-shell-key-native_request_failed:1
 msgid "«$REQUEST$» native request failed"
-msgstr "Systemforespørgslen \"$REQUEST$\" slog fejl"
+msgstr "Systemforespørgslen “$REQUEST$” slog fejl"
 
 #. This is a part of phrase 'Last check: never'
 #: chrome-gnome-shell-key-never:1
@@ -366,7 +366,7 @@ msgstr ""
 #~ msgstr "Vis information om netværksfejl"
 
 #~ msgid "Chrome permission «webRequest» required."
-#~ msgstr "Chrome-rettighed \"webRequest\" påkrævet."
+#~ msgstr "Chrome-rettighed “webRequest” påkrævet."
 
 #~ msgid "older than version 4"
 #~ msgstr "ældre end version 4"
@@ -384,4 +384,4 @@ msgstr ""
 #~ "funktioner virker måske ikke eller virker forkert."
 
 #~ msgid "Connecting to native host application…"
-#~ msgstr "Forbinder til værtssystem…"
+#~ msgstr "Forbinder til værtssystem …"
