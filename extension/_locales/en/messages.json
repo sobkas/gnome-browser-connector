@@ -119,6 +119,10 @@
 		"message": "Next check",
 		"description": "This is a start of phrase (followed by date/time) of next GNOME Shell extensions update check."
 	},
+	"options_use_light_icon": {
+		"message": "Use light icon (dark theme)",
+		"description": "Use light icon that is looked better with dark themes."
+	},
 	"synchronization": {
 		"message": "Synchronization",
 		"description": "Link name for synchronization tab in options dialog."

@@ -1,6 +1,6 @@
 /*
     GNOME Shell integration for Chrome
-    Copyright (C) 2016  Yuri Konotopov <ykonotopov@gnome.org>
+    Copyright (C) 2016-2018  Yuri Konotopov <ykonotopov@gnome.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,6 +15,7 @@ function save_options()
 	var updateCheck = $('#update_check_yes').prop('checked');
 	var updateCheckEnabledOnly = $('#update_check_enabled_yes').prop('checked');
 	var updateCheckPeriod = $('#update_check_period').val();
+	var useLightIcon = $('#use_light_icon_yes').prop('checked');
 	updateCheckPeriod = Math.max(3, updateCheckPeriod);
 
 	chrome.storage.sync.set({
@@ -24,7 +25,8 @@ function save_options()
 		updateCheckPeriod:	updateCheckPeriod
 	}, function () {
 		chrome.storage.local.set({
-			syncExtensions:	syncExtensions
+			syncExtensions:	syncExtensions,
+			useLightIcon:	useLightIcon
 		}, function() {
 			if(syncExtensions)
 			{
@@ -138,26 +140,29 @@ function restore_options()
 	if(COMPAT.SYNC_STORAGE)
 	{
 		updateSynchronizationStatus();
-		chrome.storage.local.get(DEFAULT_LOCAL_OPTIONS, function (items) {
-			if(items.syncExtensions)
-			{
-				chrome.permissions.contains({
-					permissions: ["idle"]
-				}, function (result) {
-					setSyncExtensions(result);
-				});
-			}
-			else
-			{
-				setSyncExtensions(false);
-			}
-		});
 	}
 	else
 	{
 		$('a[data-i18n="synchronization"]').parent().remove();
 		$('#synchronize_extensions_yes').closest('dl').hide();
 	}
+
+	chrome.storage.local.get(DEFAULT_LOCAL_OPTIONS, function (items) {
+		if(items.syncExtensions)
+		{
+			chrome.permissions.contains({
+				permissions: ["idle"]
+			}, function (result) {
+				setSyncExtensions(result);
+			});
+		}
+		else if(COMPAT.SYNC_STORAGE)
+		{
+			setSyncExtensions(false);
+		}
+
+		setLightIcon(items.useLightIcon);
+	});
 
 	if(COMPAT.IS_FIREFOX)
 	{
@@ -211,6 +216,14 @@ function setCheckUpdateEnabledOnly(result)
 		$('#update_check_enabled_yes').prop('checked', true);
 	else
 		$('#update_check_enabled_no').prop('checked', true);
+}
+
+function setLightIcon(result)
+{
+	if(result)
+		$('#use_light_icon_yes').prop('checked', true);
+	else
+		$('#use_light_icon_no').prop('checked', true);
 }
 
 function setReleaseNotes(result)
