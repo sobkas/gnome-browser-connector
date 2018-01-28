@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2018-01-28 08:41+0000\n"
+"POT-Creation-Date: 2018-01-28 15:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -186,6 +186,12 @@ msgstr ""
 #. Option name.
 #: chrome-gnome-shell-key-options_update_check_enabled:1
 msgid "Check update of enabled GNOME Shell extensions only"
+msgstr ""
+
+#: chrome-gnome-shell-key-options_update_check_enabled_notice:1
+msgid ""
+"Your native host connector does not support updates check for enabled GNOME "
+"Shell extensions only. Consider update."
 msgstr ""
 
 #: chrome-gnome-shell-key-options_update_check_notice:1

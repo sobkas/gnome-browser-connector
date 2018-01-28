@@ -3,7 +3,7 @@
 
 """
     GNOME Shell integration for Chrome
-    Copyright (C) 2016-2017  Yuri Konotopov <ykonotopov@gnome.org>
+    Copyright (C) 2016-2018  Yuri Konotopov <ykonotopov@gnome.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -371,7 +371,7 @@ class ChromeGNOMEShell(Gio.Application):
                 else:
                     disable_version_check = False
 
-                supports = ['notifications']
+                supports = ['notifications', "update-enabled"]
                 if REQUESTS_IMPORTED:
                     supports.append('update-check')
 

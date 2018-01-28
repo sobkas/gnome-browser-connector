@@ -87,8 +87,8 @@ function restore_options()
 	tabby.init();
 
 	chrome.storage.sync.get(DEFAULT_SYNC_OPTIONS, function (items) {
-		function toggle_update_notice(show) {
-			let notice = $('#update_check_yes')
+		function toggle_notice(show, id) {
+			let notice = $('#' + id)
 				.closest('dl')
 				.find('dt br, dt span.notice');
 
@@ -100,6 +100,14 @@ function restore_options()
 			{
 				notice.hide();
 			}
+		}
+
+		function toggle_update_notice(show) {
+			toggle_notice(show, "update_check_yes");
+		}
+
+		function toggle_update_enable_notice(show) {
+			toggle_notice(show, "update_check_enabled_yes");
 		}
 
 		function disable_update_check() {
@@ -115,6 +123,19 @@ function restore_options()
 			toggle_update_notice(true);
 		}
 
+		function disable_update_enabled_only() {
+			if (items.updateCheckEnabledOnly)
+			{
+				items.updateCheckEnabledOnly = false;
+
+				chrome.storage.sync.set({
+					updateCheckEnabledOnly: items.updateCheckEnabledOnly
+				});
+			}
+
+			toggle_update_enable_notice(true);
+		}
+
 		GSC.onInitialize().then(function (response) {
 			if (!GSC.nativeUpdateCheckSupported(response))
 			{
@@ -122,10 +143,20 @@ function restore_options()
 			}
 			else
 			{
-				$("input[name='update_check'], input[name='update_check_enabled'], #update_check_period").removeAttr('disabled');
+				$("input[name='update_check'], #update_check_period").removeAttr('disabled');
 				$('#update_check_period').val(items.updateCheckPeriod);
 				toggle_update_notice(false);
 				retrieveUpdateTimes();
+			}
+
+			if (!GSC.nativeUpdateCheckEnabledOnlySupported(response))
+			{
+				disable_update_enabled_only();
+			}
+			else
+			{
+				$("input[name='update_check_enabled']").removeAttr('disabled');
+				toggle_update_enable_notice(false);
 			}
 
 			setCheckUpdate(items.updateCheck);

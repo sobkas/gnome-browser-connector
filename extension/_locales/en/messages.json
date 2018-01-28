@@ -95,6 +95,9 @@
 	"options_update_check_notice": {
 		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
 	},
+	"options_update_check_enabled_notice": {
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
+	},
 	"options_check_period": {
 		"message": "Update check period",
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks."
