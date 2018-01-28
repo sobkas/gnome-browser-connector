@@ -1,4 +1,10 @@
+# Idea
 /build/
 /nbproject/
 /.idea/
 *.iml
+
+# Eclipse
+.project
+.pydevproject
+.settings/
