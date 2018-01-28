@@ -5,6 +5,11 @@
       "strict_min_version": "52.0"
     }
   },
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true,
+    "open_in_tab": true
+  },
   "permissions": [
     "alarms",
     "nativeMessaging",
