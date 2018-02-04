@@ -1,3 +1,46 @@
+= 2018-02-04 chrome-gnome-shell 10 =
+
+== Changes ==
+ * FreeBSD is supported again.
+ * Enabled GNOME Shell extensions synchronization in Firefox.
+ * Added option to check updates of enabled only GNOME Shell extensions.
+ * Added GNOME proxy support for update checks.
+ * Update errors will not produce desktop notifications anymore. All errors now goes to
+   browser console.
+ * Chrome managed policies no longer got installed so browser extensions will not be
+   force installed along with connector.
+   It's possible to use inline installation of browser extensions through
+   https://extensions.gnome.org website now.
+ * Added light icon for dark browser themes. Use options page to switch icon.
+ * Various fixes for options page in Firefox
+
+== Translations ==
+ * Catalan (Jordi Mas)
+ * Croatian (gogo)
+ * Czech (Marek Cernocky)
+ * Danish (Alan Mortensen, Ask Hjorth Larsen)
+ * Dutch (Nathan Follens)
+ * Galician (Fran Dieguez)
+ * German (Mario Blättermann)
+ * Hungarian (Balázs Úr)
+ * Indonesian (Kukuh Syafaat)
+ * Italian (Gianvito Cavasoli)
+ * Norwegian (Kjartan Maraas)
+ * Polish (Piotr Drąg)
+ * Portuguese (Brazil) (Rafael Fontenelle)
+ * Serbian (Мирослав Николић)
+ * Slovak (Dušan Kazik)
+ * Spanish (Daniel Mustieles)
+ * Swedish (Anders Jonsson)
+
+== Known issues ==
+ * Chrome extension may be auto uninstalled after upgrade to connector version 10.
+   It can be restored using inline installation link at https://extensions.gnome.org or using
+   Chrome Store (https://chrome.google.com/webstore/detail/gphhapmejobijbbhgpjhcjognlahblep).
+ * Firefox can consume a lot of CPU and sometime crash on quit because of Mozilla's bug 1349874
+   (https://bugzilla.mozilla.org/show_bug.cgi?id=1349874).
+
+
 = 2017-04-16 chrome-gnome-shell 9 =
 
 == Changes ==
