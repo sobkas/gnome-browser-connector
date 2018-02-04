@@ -1,54 +1,54 @@
 {
 	"_DO_NOT_EDIT": {
-		"description": "This file is auto generated with po2chrome-messages tool from sv.po.",
+		"description": "This file is auto generated with po2chrome-messages tool from hr.po.",
 		"message": ""
 	},
 	"close": {
-		"message": "St\u00e4ng"
+		"message": "Zatvori"
 	},
 	"error_connector_response": {
 		"description": "Shown to user when response from connector API call does not follow known format.",
-		"message": "Felaktigt svar fr\u00e5n anslutningsprogram mottaget"
+		"message": "Primljen pogre\u0161an odgovor spajatelja"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
-		"message": "Aktiverad"
+		"message": "Omogu\u0107eno"
 	},
 	"extension_installed": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension installed?'",
-		"message": "Installerad"
+		"message": "Instalirano"
 	},
 	"extension_name": {
 		"description": "Used as title, eg in table header. Means 'GNOME Shell extension name'.",
-		"message": "Till\u00e4gg"
+		"message": "Pro\u0161irenje"
 	},
 	"extension_status_downgrade": {
 		"description": "This is a part of phrase like 'Extension Top Icons must be downgraded'.",
-		"message": "m\u00e5ste nedgraderas"
+		"message": "mora se vratiti na stariju ina\u010dicu"
 	},
 	"extension_status_upgrade": {
 		"description": "This is a part of phrase like 'Extension Top Icons can be upgraded'.",
-		"message": "kan uppgraderas"
+		"message": "mo\u017ee se nadograditi"
 	},
 	"extension_synchronized": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension status synchronized with remote browser storage?'",
-		"message": "Synkroniserad"
+		"message": "Uskla\u0111eno"
 	},
 	"gs_chrome": {
 		"description": "This is a project title. Used as extension name in Chrome Store and in some titlebars.",
-		"message": "GNOME Shell-integration"
+		"message": "Integracija GNOME ljuske"
 	},
 	"hours": {
 		"description": "This is a part of phrase 'Update check period: xx hours'",
-		"message": "timmar"
+		"message": "sata"
 	},
 	"manifest_description": {
 		"description": "Used as extension description in Chrome Store",
-		"message": "Detta till\u00e4gg tillhandah\u00e5ller integration med GNOME Shell och det motsvarande till\u00e4ggsf\u00f6rr\u00e5det https://extensions.gnome.org"
+		"message": "Ovo pro\u0161irenje omogu\u0107uje integraciju s GNOME ljuskom i odgovaraju\u0107em repozitoriju pro\u0161irenja https://extensions.gnome.org"
 	},
 	"native_request_failed": {
 		"description": "$REQUEST$ is a placeholder for technical name of request that web extension make via native messaging host application.",
-		"message": "Inhemsk f\u00f6rfr\u00e5gan \u00ab$REQUEST$\u00bb misslyckades",
+		"message": "\u00ab$REQUEST$\u00bb izvorni zahtjev neuspio",
 		"placeholders": {
 			"request": {
 				"content": "$1"
@@ -57,61 +57,61 @@
 	},
 	"never": {
 		"description": "This is a part of phrase 'Last check: never'",
-		"message": "aldrig"
+		"message": "nikada"
 	},
 	"no": {
-		"message": "Nej"
+		"message": "Ne"
 	},
 	"no_gnome_shell": {
 		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
-		"message": "Kan inte hitta inst\u00e4llningar eller version f\u00f6r GNOME Shell. S\u00e4kerst\u00e4ll att det \u00e4r installerat och k\u00f6rs."
+		"message": "Nemogu\u0107e lociranje postavki GNOME ljuske ili ina\u010dice. Provjerite je li instalirana i pokrenuta."
 	},
 	"no_host_connector": {
-		"message": "\u00c4ven om till\u00e4gget f\u00f6r GNOME Shell-integration k\u00f6rs, s\u00e5 hittades inget inhemskt v\u00e4rdanslutningsprogram. Se <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokumentationen</a> f\u00f6r instruktioner om hur ett anslutningsprogram installeras."
+		"message": "Iako je integracijsko pro\u0161irenje GNOME ljuske pokrenuto, izvorna spojnica poslu\u017eitelja nije otkrivena. Pogledajte <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokumentaciju</a> za upute o instalaciji spojnice."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
-		"message": "Inget v\u00e4rdsvar"
+		"message": "Nema odgovora poslu\u017eitelja"
 	},
 	"open_website": {
 		"description": "Tooltip for browser extensions icon.",
-		"message": "\u00d6ppna webbplatsen f\u00f6r GNOME Shell-till\u00e4gg"
+		"message": "Otvori web stranicu GNOME pro\u0161irenja"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
-		"message": "Intervall f\u00f6r uppdateringskontroll"
+		"message": "Razdoblje provjere nadopuna"
 	},
 	"options_last_check": {
 		"description": "This is a start of phrase (followed by date/time) of last GNOME Shell extensions update check.",
-		"message": "Senaste kontroll"
+		"message": "Posljednja provjera"
 	},
 	"options_link": {
 		"description": "Link name for options tab.",
-		"message": "Alternativ"
+		"message": "Mogu\u0107nosti"
 	},
 	"options_next_check": {
 		"description": "This is a start of phrase (followed by date/time) of next GNOME Shell extensions update check.",
-		"message": "N\u00e4sta kontroll"
+		"message": "Sljede\u0107a provjera"
 	},
 	"options_saved": {
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
-		"message": "Alternativ sparade."
+		"message": "Mogu\u0107nosti spremljene"
 	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Visa kommentarer till utg\u00e5va d\u00e5 webbl\u00e4sartill\u00e4gg uppdaterats"
+		"message": "Prika\u017ei bilje\u0161ke izdanja kada se pro\u0161irenje preglednika nadopuni"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synkronisera lista \u00f6ver GNOME Shell-till\u00e4gg"
+		"message": "Uskladi popis pro\u0161irenja GNOME ljuske"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
-		"message": "Om aktiverad kommer din till\u00e4ggslista f\u00f6r GNOME Shell att synkroniseras med ditt Googlekonto."
+		"message": "Ako je omogu\u0107eno, va\u0161 popis pro\u0161irenja GNOME ljuske \u0107e se uskladiti s va\u0161im Google ra\u010dunom."
 	},
 	"options_title": {
 		"description": "$GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This string used as title for Options page. This title is not shown in Chrome, but may be shown in other browsers.",
-		"message": "$GS_CHROME$-alternativ",
+		"message": "$GS_CHROME$ mogu\u0107nost",
 		"placeholders": {
 			"gs_chrome": {
 				"content": "$1"
@@ -120,41 +120,41 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "S\u00f6k efter uppdateringar f\u00f6r GNOME Shell-till\u00e4gg"
+		"message": "Provjeri nadopune pro\u0161irenja GNOME ljuske"
 	},
 	"options_update_check_enabled": {
 		"description": "Option name.",
-		"message": "S\u00f6k endast efter uppdatering f\u00f6r aktiverade GNOME Shell-till\u00e4gg"
+		"message": "Provjeri nadopune samo za omogu\u0107ena pro\u0161irenja GNOME ljuske"
 	},
 	"options_update_check_enabled_notice": {
-		"message": "Ditt inhemska v\u00e4rdanslutningsprogram st\u00f6der inte s\u00f6kning efter uppdateringar av endast aktiverade GNOME Shell-till\u00e4gg. \u00d6verv\u00e4g att uppdatera."
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
 	},
 	"options_update_check_notice": {
-		"message": "Ditt inhemska v\u00e4rdanslutningsprogram st\u00f6der inte s\u00f6kning efter uppdateringar av GNOME Shell-till\u00e4gg. Troligen saknas paketet python-requests."
+		"message": "Va\u0161a izvorna spojnica poslju\u017eitelja ne podr\u017eava provjeru nadopuna pro\u0161irenja GNOME ljuske. Najvjerojatnije python-requests paket nedostaje."
 	},
 	"options_use_light_icon": {
 		"description": "Use light icon that is looked better with dark themes.",
-		"message": "Anv\u00e4nd ljus ikon (m\u00f6rkt tema)"
+		"message": "Use light icon (dark theme)"
 	},
 	"platform_not_supported": {
-		"message": "Inhemskt v\u00e4rdanslutningsprogram st\u00f6ds inte f\u00f6r din plattform."
+		"message": "Izvorna spojnica poslju\u017eitelja nije podr\u017eana na va\u0161oj platformi."
 	},
 	"retry": {
-		"message": "F\u00f6rs\u00f6k igen"
+		"message": "Poku\u0161aj ponovno"
 	},
 	"save": {
-		"message": "Spara"
+		"message": "Spremi"
 	},
 	"synchronization": {
 		"description": "Link name for synchronization tab in options dialog.",
-		"message": "Synkronisering"
+		"message": "Uskla\u0111ivanje"
 	},
 	"synchronization_cancel": {
-		"message": "Aktivera inte synkronisering."
+		"message": "Nemoj omogu\u0107iti uskla\u0111ivanje."
 	},
 	"synchronization_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused synchronization failure.",
-		"message": "Kunde inte synkronisera till\u00e4gg: $CAUSE$",
+		"message": "Neuspje\u0161no uskla\u0111ivanje pro\u0161irenja: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -162,32 +162,32 @@
 		}
 	},
 	"synchronization_storage_exists": {
-		"message": "Din fj\u00e4rrsynkroniseringslagring inneh\u00e5ller redan en till\u00e4ggslista."
+		"message": "Va\u0161e udaljeno spremi\u0161te uskla\u0111ivanja ve\u0107 sadr\u017ei popis pro\u0161irenja."
 	},
 	"synchronization_use_local": {
-		"message": "Anv\u00e4nd lokal till\u00e4ggslista, skriv \u00f6ver fj\u00e4rr."
+		"message": "Koristi lokalni popis pro\u0161irenja, zamijeni udaljeni."
 	},
 	"synchronization_use_remote": {
-		"message": "Anv\u00e4nd fj\u00e4rrtill\u00e4ggslista, skriv \u00f6ver lokal."
+		"message": "Koristi udaljeni popis pro\u0161irenja, zamijeni lokalni."
 	},
 	"translation_credits": {
 		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
-		"message": "Anders Jonsson <anders.jonsson@norsjovallen.se>, 2016"
+		"message": "Launchpad Contributions:\n  gogo https://launchpad.net/~trebelnik-stefina\""
 	},
 	"translation_credits_title": {
 		"description": "Link name for translation credits tab in options dialog.",
-		"message": "Om \u00f6vers\u00e4ttning"
+		"message": "O prijevodu"
 	},
 	"unknown_error": {
 		"description": "This should newer be shown to user. However better safe than sorry.",
-		"message": "ok\u00e4nt fel"
+		"message": "nepoznata gre\u0161ka"
 	},
 	"update_available": {
-		"message": "En uppdatering f\u00f6r GNOME Shell-till\u00e4gg finns tillg\u00e4nglig"
+		"message": "Dostupna je nadopuna za pro\u0161irenje GNOME ljuske"
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Kunde inte s\u00f6ka efter uppdateringar f\u00f6r GNOME Shell-till\u00e4gg: $CAUSE$",
+		"message": "Neuspje\u0161na provjera nadopuna pro\u0161irenja GNOME ljuske: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -196,9 +196,9 @@
 	},
 	"warning_apis_missing": {
 		"description": "$$1 is a placeholder for a list of missing APIs",
-		"message": "Ditt inhemska v\u00e4rdanslutningsprogram st\u00f6der inte f\u00f6ljande API:er: $$1. Du b\u00f6r troligen uppgradera det inhemska v\u00e4rdanslutningsprogrammet eller installera insticksmoduler f\u00f6r saknade API:er. Se <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokumentationen</a> f\u00f6r instruktioner."
+		"message": "Va\u0161a izvorna spojnica poslu\u017eitelja ne podr\u017eava sljede\u0107e API-je: $$1. Najvjerojatnije trebate nadograditi izvornu spojnicu poslu\u017eitelja ili instalirati priklju\u010dak za nedostaju\u0107e API-je. Pogledajte <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokumentaciju</a> za upute."
 	},
 	"yes": {
-		"message": "Ja"
+		"message": "Da"
 	}
 }

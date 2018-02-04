@@ -122,8 +122,19 @@
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
 		"message": "Check for GNOME Shell extensions update"
 	},
+	"options_update_check_enabled": {
+		"description": "Option name.",
+		"message": "Check update of enabled GNOME Shell extensions only"
+	},
+	"options_update_check_enabled_notice": {
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
+	},
 	"options_update_check_notice": {
 		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
+	},
+	"options_use_light_icon": {
+		"description": "Use light icon that is looked better with dark themes.",
+		"message": "Use light icon (dark theme)"
 	},
 	"platform_not_supported": {
 		"message": "Native host connector is not supported for your platform."

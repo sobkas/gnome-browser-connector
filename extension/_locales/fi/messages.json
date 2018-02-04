@@ -75,7 +75,7 @@
 	},
 	"open_website": {
 		"description": "Tooltip for browser extensions icon.",
-		"message": "Open GNOME Shell extensions website"
+		"message": "Avaa Gnome Shell -laajennusten verkkosivusto"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -99,11 +99,11 @@
 	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Show release notes when browser extension updated"
+		"message": "N\u00e4yt\u00e4 julkaisutiedote kun selainlaajennus on p\u00e4ivitetty"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synchronize GNOME Shell extensions list"
+		"message": "Synkronoi Gnome Shell -laajennusluettelo"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -120,10 +120,21 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Check for GNOME Shell extensions update"
+		"message": "Tarkista Gnome Shell -laajennuksen p\u00e4ivitykset"
+	},
+	"options_update_check_enabled": {
+		"description": "Option name.",
+		"message": "Check update of enabled GNOME Shell extensions only"
+	},
+	"options_update_check_enabled_notice": {
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
 	},
 	"options_update_check_notice": {
 		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
+	},
+	"options_use_light_icon": {
+		"description": "Use light icon that is looked better with dark themes.",
+		"message": "K\u00e4yt\u00e4 vaaleaa kuvaketta (tumma teema)"
 	},
 	"platform_not_supported": {
 		"message": "Native host connector is not supported for your platform."
@@ -176,7 +187,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
+		"message": "Gnome Shell -laajennusten p\u00e4ivitysten tarkistaminen ep\u00e4onnistui: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"

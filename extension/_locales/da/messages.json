@@ -8,7 +8,7 @@
 	},
 	"error_connector_response": {
 		"description": "Shown to user when response from connector API call does not follow known format.",
-		"message": "Wrong connector response received"
+		"message": "Modtog forkert svar fra forbindelseskomponent"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -48,7 +48,7 @@
 	},
 	"native_request_failed": {
 		"description": "$REQUEST$ is a placeholder for technical name of request that web extension make via native messaging host application.",
-		"message": "Systemforesp\u00f8rgslen \"$REQUEST$\" slog fejl",
+		"message": "Systemforesp\u00f8rgslen \u201c$REQUEST$\u201d slog fejl",
 		"placeholders": {
 			"request": {
 				"content": "$1"
@@ -75,7 +75,7 @@
 	},
 	"open_website": {
 		"description": "Tooltip for browser extensions icon.",
-		"message": "Open GNOME Shell extensions website"
+		"message": "\u00c5bn websted for GNOME Shell-udvidelser"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -99,11 +99,11 @@
 	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Show release notes when browser extension updated"
+		"message": "Vis udgivelsesnoter, n\u00e5r browserudvidelsen er opdateret"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synchronize GNOME Shell extensions list"
+		"message": "Synkronis\u00e9r listen over GNOME Shell-udvidelser"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -120,10 +120,21 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Check for GNOME Shell extensions update"
+		"message": "Tjek for opdateringer til GNOME Shell-udvidelser"
+	},
+	"options_update_check_enabled": {
+		"description": "Option name.",
+		"message": "Tjek kun for opdateringer til aktiverede GNOME Shell-udvidelser"
+	},
+	"options_update_check_enabled_notice": {
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
 	},
 	"options_update_check_notice": {
-		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
+		"message": "Din oprindelige v\u00e6rtsforbindelseskomponent underst\u00f8tter ikke tjek for opdateringer til GNOME Shell-udvidelser. Sandsynligvis mangler pakken python-requests."
+	},
+	"options_use_light_icon": {
+		"description": "Use light icon that is looked better with dark themes.",
+		"message": "Use light icon (dark theme)"
 	},
 	"platform_not_supported": {
 		"message": "Den oprindelige v\u00e6rtsforbindelseskomponent underst\u00f8ttes ikke til din platform."
@@ -176,7 +187,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
+		"message": "Kunne ikke s\u00f8ge efter opdateringer til GNOME Shell-udvidelser: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"

@@ -8,7 +8,7 @@
 	},
 	"error_connector_response": {
 		"description": "Shown to user when response from connector API call does not follow known format.",
-		"message": "Wrong connector response received"
+		"message": "Respuesta del conector incorrecta recibida"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -64,7 +64,7 @@
 	},
 	"no_gnome_shell": {
 		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
-		"message": "Unable to locate GNOME Shell settings or version. Make sure it is installed and running."
+		"message": "No se puede encontrar la versi\u00f3n o la configuraci\u00f3n de GNOME Shell. Aseg\u00farese de que est\u00e1 instalado y en ejecuci\u00f3n."
 	},
 	"no_host_connector": {
 		"message": "Aunque la extensi\u00f3n de integraci\u00f3n con GNOME Shell est\u00e1 en ejecuci\u00f3n, no se ha detectado el conector del equipo. Consulte la <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentaci\u00f3n</a> para obtener instrucciones sobre c\u00f3mo instalar el conector."
@@ -75,7 +75,7 @@
 	},
 	"open_website": {
 		"description": "Tooltip for browser extensions icon.",
-		"message": "Open GNOME Shell extensions website"
+		"message": "Abrir la p\u00e1gina web de extensiones de GNOME Shell"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -99,11 +99,11 @@
 	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Show release notes when browser extension updated"
+		"message": "Mostrar las notas de publicaci\u00f3n cuando se actualice la extensi\u00f3n"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synchronize GNOME Shell extensions list"
+		"message": "Sincronizar la lista de extensiones de GNOME Shell"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -120,10 +120,21 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Check for GNOME Shell extensions update"
+		"message": "Comprobar si hay actualizaciones de las extensiones de GNOME Shell"
+	},
+	"options_update_check_enabled": {
+		"description": "Option name.",
+		"message": "Comprobar si hay actualizaciones disponibles solo para las extensiones de GNOME Shell activadas"
+	},
+	"options_update_check_enabled_notice": {
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
 	},
 	"options_update_check_notice": {
-		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
+		"message": "Su conector nativo del equipo no soporta comprobar si hay actualizaciones de las extensiones de GNOME Shell. Probablemente falte el paquete python-requests."
+	},
+	"options_use_light_icon": {
+		"description": "Use light icon that is looked better with dark themes.",
+		"message": "Use light icon (dark theme)"
 	},
 	"platform_not_supported": {
 		"message": "El conector nativo del equipo no est\u00e1 soportado en su plataforma."
@@ -176,7 +187,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
+		"message": "Fall\u00f3 al comprobar si hay actualizaciones de extensiones de GNOME Shell: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -185,7 +196,7 @@
 	},
 	"warning_apis_missing": {
 		"description": "$$1 is a placeholder for a list of missing APIs",
-		"message": "Your native host connector do not support following APIs: $$1. Probably you should upgrade native host connector or install plugins for missing APIs. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions."
+		"message": "Su conector nativo del equipo no soporta las siguientes API: $$1. Probablemente necesite actualizar el conector o instalar los complementos para las API que faltan. Consulte la <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentaci\u00f3n</a> para obtener instrucciones ."
 	},
 	"yes": {
 		"message": "S\u00ed"

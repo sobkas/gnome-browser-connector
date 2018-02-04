@@ -8,7 +8,7 @@
 	},
 	"error_connector_response": {
 		"description": "Shown to user when response from connector API call does not follow known format.",
-		"message": "Wrong connector response received"
+		"message": "Obdr\u017eena nespr\u00e1vn\u00e1 odpov\u011b\u010f od konektoru"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -75,7 +75,7 @@
 	},
 	"open_website": {
 		"description": "Tooltip for browser extensions icon.",
-		"message": "Open GNOME Shell extensions website"
+		"message": "Otev\u0159\u00edt webov\u00e9 str\u00e1nky roz\u0161\u00ed\u0159en\u00ed GNOME Shell"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -99,11 +99,11 @@
 	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Show release notes when browser extension updated"
+		"message": "Po aktualizaci roz\u0161\u00ed\u0159en\u00ed prohl\u00ed\u017ee\u010de zobrazit pozn\u00e1mky k vyd\u00e1n\u00ed"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synchronize GNOME Shell extensions list"
+		"message": "Synchronizovat seznam roz\u0161\u00ed\u0159en\u00ed GNOME Shell"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -120,10 +120,21 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Check for GNOME Shell extensions update"
+		"message": "Kontrolovat aktualizace roz\u0161\u00ed\u0159en\u00ed GNOME Shell"
+	},
+	"options_update_check_enabled": {
+		"description": "Option name.",
+		"message": "Kontrolovat aktualizace jen pro povolen\u00e1 roz\u0161\u00ed\u0159en\u00ed GNOME Shell"
+	},
+	"options_update_check_enabled_notice": {
+		"message": "V\u00e1\u0161 konektor pro p\u0159irozen\u00e9ho hostitele nepodporuje kontrolu aktualizac\u00ed jen pro zapnut\u00e1 roz\u0161\u00ed\u0159en\u00ed GNOME Shellu. Zva\u017ete p\u0159echod na nov\u011bj\u0161\u00ed verzi."
 	},
 	"options_update_check_notice": {
 		"message": "V\u00e1\u0161 konektor pro p\u0159irozen\u00e9ho hostitele nepodporuje kontrolu pro aktualizace roz\u0161\u00ed\u0159en\u00ed GNOME Shellu. Nejsp\u00ed\u0161e chyb\u00ed bal\u00ed\u010dek python-requests."
+	},
+	"options_use_light_icon": {
+		"description": "Use light icon that is looked better with dark themes.",
+		"message": "Pou\u017e\u00edvat sv\u011btl\u00e9 ikony (tmav\u00fd motiv)"
 	},
 	"platform_not_supported": {
 		"message": "Konektor pro p\u0159irozen\u00e9ho hostitele nen\u00ed va\u0161\u00ed platformou podporov\u00e1n."
@@ -176,7 +187,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
+		"message": "Selhala kontrola aktualizac\u00ed roz\u0161\u00ed\u0159en\u00ed GNOME Shell: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"

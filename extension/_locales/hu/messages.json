@@ -8,7 +8,7 @@
 	},
 	"error_connector_response": {
 		"description": "Shown to user when response from connector API call does not follow known format.",
-		"message": "Wrong connector response received"
+		"message": "Hib\u00e1s csatlakoz\u00f3v\u00e1lasz \u00e9rkezett"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -75,7 +75,7 @@
 	},
 	"open_website": {
 		"description": "Tooltip for browser extensions icon.",
-		"message": "Open GNOME Shell extensions website"
+		"message": "GNOME Shell b\u0151v\u00edtm\u00e9nyek weboldal\u00e1nak megnyit\u00e1sa"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -99,11 +99,11 @@
 	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Show release notes when browser extension updated"
+		"message": "Kiad\u00e1si megjegyz\u00e9sek megjelen\u00edt\u00e9se a b\u00f6ng\u00e9sz\u0151kieg\u00e9sz\u00edt\u0151 friss\u00edt\u00e9sekor"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synchronize GNOME Shell extensions list"
+		"message": "GNOME Shell b\u0151v\u00edtm\u00e9nylista szinkroniz\u00e1l\u00e1sa"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -120,10 +120,21 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Check for GNOME Shell extensions update"
+		"message": "GNOME Shell b\u0151v\u00edtm\u00e9nyfriss\u00edt\u00e9s keres\u00e9se"
+	},
+	"options_update_check_enabled": {
+		"description": "Option name.",
+		"message": "Csak az enged\u00e9lyezett GNOME Shell kiterjeszt\u00e9sek friss\u00edt\u00e9s\u00e9nek ellen\u0151rz\u00e9se"
+	},
+	"options_update_check_enabled_notice": {
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
 	},
 	"options_update_check_notice": {
 		"message": "A nat\u00edv gazdacsatlakoz\u00f3ja nem t\u00e1mogatja a GNOME Shell kiterjeszt\u00e9sek friss\u00edt\u00e9seinek ellen\u0151rz\u00e9s\u00e9t. Val\u00f3sz\u00edn\u0171leg a python-requests csomag hi\u00e1nyzik."
+	},
+	"options_use_light_icon": {
+		"description": "Use light icon that is looked better with dark themes.",
+		"message": "Use light icon (dark theme)"
 	},
 	"platform_not_supported": {
 		"message": "A nat\u00edv gazdacsatlakoz\u00f3 nem t\u00e1mogatott a platformj\u00e1n."
@@ -176,7 +187,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
+		"message": "A GNOME Shell b\u0151v\u00edtm\u00e9nyfriss\u00edt\u00e9sek keres\u00e9se sikertelen: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"

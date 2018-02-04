@@ -8,7 +8,7 @@
 	},
 	"error_connector_response": {
 		"description": "Shown to user when response from connector API call does not follow known format.",
-		"message": "Wrong connector response received"
+		"message": "S'ha rebut una resposta incorrecta d'un connector"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -64,7 +64,7 @@
 	},
 	"no_gnome_shell": {
 		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
-		"message": "Unable to locate GNOME Shell settings or version. Make sure it is installed and running."
+		"message": "No es pot localitzar la configuraci\u00f3 del GNOME Shell o la versi\u00f3. Assegureu-vos que est\u00e0 instal\u00b7lat i en execuci\u00f3."
 	},
 	"no_host_connector": {
 		"message": "Encara que l'extensi\u00f3 d'integraci\u00f3 del GNOME Shell est\u00e0 executant-se, no s'ha detectat el connector amfitri\u00f3 nadiu. Vegeu la <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentaci\u00f3</a> per obtenir instruccions de com instal\u00b7lar el connector."
@@ -75,7 +75,7 @@
 	},
 	"open_website": {
 		"description": "Tooltip for browser extensions icon.",
-		"message": "Open GNOME Shell extensions website"
+		"message": "Obre el lloc web d'extensions del GNOME Shell"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -99,15 +99,15 @@
 	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Show release notes when browser extension updated"
+		"message": "Mostra les notes de la versi\u00f3 quan s'actualitza l'extensi\u00f3 del navegador"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synchronize GNOME Shell extensions list"
+		"message": "Sincronitza la llista d'extensions del GNOME Shell"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
-		"message": "Si s'habilita, la llista d'extensions del GNOME Shell se sincronitzar\u00e0 amb el compte de Google."
+		"message": "Si s'habilita, la llista d'extensions del GNOME Shell es sincronitzar\u00e0 amb el compte de Google."
 	},
 	"options_title": {
 		"description": "$GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This string used as title for Options page. This title is not shown in Chrome, but may be shown in other browsers.",
@@ -120,13 +120,24 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Check for GNOME Shell extensions update"
+		"message": "Comprova si hi ha actualitzacions de l'extensi\u00f3 del Gnome Shell"
+	},
+	"options_update_check_enabled": {
+		"description": "Option name.",
+		"message": "Check update of enabled GNOME Shell extensions only"
+	},
+	"options_update_check_enabled_notice": {
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
 	},
 	"options_update_check_notice": {
-		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
+		"message": "El connector amfitri\u00f3 natiu no admet verificaci\u00f3 d'extensions actualitzades per al GNOME Shell. Probablement no es troba el paquet python-requests."
+	},
+	"options_use_light_icon": {
+		"description": "Use light icon that is looked better with dark themes.",
+		"message": "Use light icon (dark theme)"
 	},
 	"platform_not_supported": {
-		"message": "El connector amfitri\u00f3 nadiu no es compatible amb aquesta plataforma."
+		"message": "El connector amfitri\u00f3 nadiu no \u00e9s compatible amb aquesta plataforma."
 	},
 	"retry": {
 		"message": "Reintenta-ho"
@@ -151,7 +162,7 @@
 		}
 	},
 	"synchronization_storage_exists": {
-		"message": "L'emmagatzematge remot per la sincronitzaci\u00f3 ja cont\u00e9 una llista d'extensions."
+		"message": "L'emmagatzematge remot per a la sincronitzaci\u00f3 ja cont\u00e9 una llista d'extensions."
 	},
 	"synchronization_use_local": {
 		"message": "Utilitza la llista local d'extensions, sobreescrivint la remota."
@@ -169,14 +180,14 @@
 	},
 	"unknown_error": {
 		"description": "This should newer be shown to user. However better safe than sorry.",
-		"message": "Error desconegut"
+		"message": "error desconegut"
 	},
 	"update_available": {
-		"message": "Hi ha una actualitzaci\u00f3 disponible per les extensions del GNOME Shell"
+		"message": "Hi ha una actualitzaci\u00f3 disponible per a les extensions del GNOME Shell"
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
+		"message": "No s'ha pogut comprovar les extensions d'actualitzaci\u00f3 del GNOME Shell: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -185,7 +196,7 @@
 	},
 	"warning_apis_missing": {
 		"description": "$$1 is a placeholder for a list of missing APIs",
-		"message": "Your native host connector do not support following APIs: $$1. Probably you should upgrade native host connector or install plugins for missing APIs. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions."
+		"message": "El seu connector amfitri\u00f3 natiu no \u00e9s compatible amb les API's seg\u00fcents: $$1. Probablement s'hauria d'actualitzar el connector amfitri\u00f3 natiu o instal\u00b7lar connectors per a les API's que falten. Consulteu la documentaci\u00f3 de <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> per obtenir instruccions."
 	},
 	"yes": {
 		"message": "S\u00ed"

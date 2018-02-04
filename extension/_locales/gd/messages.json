@@ -122,8 +122,19 @@
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
 		"message": "Thoir s\u00f9il airson \u00f9rachadh nan leudachan Slige GNOME"
 	},
+	"options_update_check_enabled": {
+		"description": "Option name.",
+		"message": "Check update of enabled GNOME Shell extensions only"
+	},
+	"options_update_check_enabled_notice": {
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
+	},
 	"options_update_check_notice": {
 		"message": "Cha doir ceangladair t\u00f9sail an \u00f2stair agad taic ri \u00f9rachadh leudachan Slige GNOME. Saoil gu bheil pacaid python-request a dh\u00ecth ort?"
+	},
+	"options_use_light_icon": {
+		"description": "Use light icon that is looked better with dark themes.",
+		"message": "Use light icon (dark theme)"
 	},
 	"platform_not_supported": {
 		"message": "Cha chuirear taic ri ceangladair \u00f2stair t\u00f9sail air an \u00f9rlar agad."

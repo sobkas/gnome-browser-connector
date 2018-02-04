@@ -8,7 +8,7 @@
 	},
 	"error_connector_response": {
 		"description": "Shown to user when response from connector API call does not follow known format.",
-		"message": "Wrong connector response received"
+		"message": "Prijat\u00e1 nespr\u00e1vna odpove\u010f od konektoru"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
@@ -64,7 +64,7 @@
 	},
 	"no_gnome_shell": {
 		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
-		"message": "Unable to locate GNOME Shell settings or version. Make sure it is installed and running."
+		"message": "Nie je mo\u017en\u00e9 lokalizova\u0165 nastavenia alebo verziu Shellu prostredia GNOME. Uistite sa, \u017ee je nain\u0161talovan\u00fd a spusten\u00fd."
 	},
 	"no_host_connector": {
 		"message": "Napriek tomu, \u017ee roz\u0161\u00edrenie pre integr\u00e1ciu do Shellu prostredia GNOME je spusten\u00e9, konektor nat\u00edvneho hostite\u013ea nebol rozpoznan\u00fd. Pokyny ako nain\u0161talova\u0165 konektor n\u00e1jdete v <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokument\u00e1cii</a>."
@@ -75,7 +75,7 @@
 	},
 	"open_website": {
 		"description": "Tooltip for browser extensions icon.",
-		"message": "Open GNOME Shell extensions website"
+		"message": "Otvor\u00ed webov\u00fa str\u00e1nku roz\u0161\u00edren\u00ed Shellu prostredia GNOME"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -99,11 +99,11 @@
 	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Show release notes when browser extension updated"
+		"message": "Zobrazi\u0165 pozn\u00e1mky k vydaniu po aktualizovan\u00ed roz\u0161\u00edrenia prehliada\u010da"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "Synchronize GNOME Shell extensions list"
+		"message": "Synchronizova\u0165 zoznam roz\u0161\u00edren\u00ed Shellu prostredia GNOME"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
@@ -120,10 +120,21 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "Check for GNOME Shell extensions update"
+		"message": "Kontrolova\u0165 aktualiz\u00e1cie roz\u0161\u00edren\u00ed Shellu prostredia GNOME"
+	},
+	"options_update_check_enabled": {
+		"description": "Option name.",
+		"message": "Kontrolova\u0165 aktualiz\u00e1cie iba pre povolen\u00e9 roz\u0161\u00edrenia Shellu prostredia GNOME"
+	},
+	"options_update_check_enabled_notice": {
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
 	},
 	"options_update_check_notice": {
-		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
+		"message": "V\u00e1\u0161 konektor nat\u00edvneho hostite\u013ea nepodporuje kontrolu aktualiz\u00e1ci\u00ed roz\u0161\u00edren\u00ed Shellu prostredia GNOME. Pravdepodobne ch\u00fdba bal\u00edk python-requests."
+	},
+	"options_use_light_icon": {
+		"description": "Use light icon that is looked better with dark themes.",
+		"message": "Use light icon (dark theme)"
 	},
 	"platform_not_supported": {
 		"message": "Konektor nat\u00edvneho hostite\u013ea nie je podporovan\u00fd va\u0161ou platformou."
@@ -176,7 +187,7 @@
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "Failed to check GNOME Shell extensions updates: $CAUSE$",
+		"message": "Zlyhala kontrola aktualiz\u00e1ci\u00ed roz\u0161\u00edren\u00ed Shellu prostredia GNOME: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"

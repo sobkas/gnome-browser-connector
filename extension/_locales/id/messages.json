@@ -122,8 +122,19 @@
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
 		"message": "Periksa pemutakhiran ekstensi GNOME Shell"
 	},
+	"options_update_check_enabled": {
+		"description": "Option name.",
+		"message": "Periksa pembaruan ekstensi GNOME Shell yang diaktifkan saja"
+	},
+	"options_update_check_enabled_notice": {
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
+	},
 	"options_update_check_notice": {
 		"message": "Konektor host native Anda tidak mendukung pengecekan untuk pemutakhiran ekstensi GNOME Shell. Mungkin paket python-requests hilang."
+	},
+	"options_use_light_icon": {
+		"description": "Use light icon that is looked better with dark themes.",
+		"message": "Use light icon (dark theme)"
 	},
 	"platform_not_supported": {
 		"message": "Konektor host native tidak didukung untuk platform Anda."

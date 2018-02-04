@@ -79,11 +79,11 @@
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
-		"message": "Czas mi\u0119dzy sprawdzaniem aktualizacji"
+		"message": "Czas mi\u0119dzy wyszukiwaniem aktualizacji"
 	},
 	"options_last_check": {
 		"description": "This is a start of phrase (followed by date/time) of last GNOME Shell extensions update check.",
-		"message": "Ostatnio sprawdzono"
+		"message": "Ostatnio wyszukano"
 	},
 	"options_link": {
 		"description": "Link name for options tab.",
@@ -91,7 +91,7 @@
 	},
 	"options_next_check": {
 		"description": "This is a start of phrase (followed by date/time) of next GNOME Shell extensions update check.",
-		"message": "Nast\u0119pne sprawdzanie"
+		"message": "Nast\u0119pne wyszukiwanie"
 	},
 	"options_saved": {
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
@@ -122,8 +122,19 @@
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
 		"message": "Wyszukiwanie aktualizacji rozszerze\u0144 GNOME Shell"
 	},
+	"options_update_check_enabled": {
+		"description": "Option name.",
+		"message": "Wyszukiwanie aktualizacji tylko w\u0142\u0105czonych rozszerze\u0144 GNOME Shell"
+	},
+	"options_update_check_enabled_notice": {
+		"message": "Natywny \u0142\u0105cznik serwera nie obs\u0142uguje wyszukiwania aktualizacji tylko w\u0142\u0105czonych rozszerze\u0144 GNOME Shell. Prosz\u0119 go zaktualizowa\u0107."
+	},
 	"options_update_check_notice": {
 		"message": "Natywny \u0142\u0105cznik serwera nie obs\u0142uguje wyszukiwania aktualizacji rozszerze\u0144 GNOME Shell. Prawdopodobnie brakuje pakietu python-requests."
+	},
+	"options_use_light_icon": {
+		"description": "Use light icon that is looked better with dark themes.",
+		"message": "Jasna ikona (dla ciemnego motywu)"
 	},
 	"platform_not_supported": {
 		"message": "Natywny \u0142\u0105cznik serwera nie jest obs\u0142ugiwany dla tej platformy."
@@ -161,7 +172,7 @@
 	},
 	"translation_credits": {
 		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
-		"message": "Piotr Dr\u0105g, 2016-2017"
+		"message": "Piotr Dr\u0105g, 2016-2018"
 	},
 	"translation_credits_title": {
 		"description": "Link name for translation credits tab in options dialog.",
