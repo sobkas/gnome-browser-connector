@@ -1,13 +1,13 @@
 # GNOME Shell integration for Chrome
 # DO NOT EDIT!
 # This file is auto generated with chrome-messages2po tool.
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2016—2017.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2016—2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-06-12 17:29+0000\n"
-"PO-Revision-Date: 2017-08-13 07:20+0200\n"
+"POT-Creation-Date: 2018-01-28 18:25+0000\n"
+"PO-Revision-Date: 2018-02-22 23:51+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: српски <gnome-sr@googlegroups.org>\n"
 "Language: sr\n"
@@ -24,7 +24,6 @@ msgstr "Затвори"
 #. Shown to user when response from connector API call does not follow known
 #. format.
 #: chrome-gnome-shell-key-error_connector_response:1
-#| msgid "Wrong extension response received"
 msgid "Wrong connector response received"
 msgstr "Примљен је погрешан одговор конектора"
 
@@ -118,8 +117,8 @@ msgid ""
 "instructions about installing connector."
 msgstr ""
 "Иако проширење интеграције Гномове шкољке ради, изворни конектор домаћина "
-"није откривен. Погледајте у <a href='https://wiki.gnome.org/Projects/GnomeShe"
-"llIntegrationForChrome/Installation'>документацији</a> упутства о "
+"није откривен. Погледајте у <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>документацији</a> упутства о "
 "инсталирању конектора."
 
 #. Means 'Web extension does not received answer from native messaging host
@@ -130,7 +129,6 @@ msgstr "Нема одговора домаћина"
 
 #. Tooltip for browser extensions icon.
 #: chrome-gnome-shell-key-open_website:1
-#| msgid "An update for GNOME Shell extensions available"
 msgid "Open GNOME Shell extensions website"
 msgstr "Отвара веб сајт проширења Гномове шкољке"
 
@@ -165,14 +163,12 @@ msgstr "Опције су сачуване."
 #. Option name. Allow to enable/disable popup with release notes when Web
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
-#| msgid "Show release notes when extension updated"
 msgid "Show release notes when browser extension updated"
 msgstr "Прикажи напомене о издању када се освежи проширење прегледника"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
-#| msgid "Synchronize extensions list"
 msgid "Synchronize GNOME Shell extensions list"
 msgstr "Усагласи списак проширења Гномове шкољке"
 
@@ -198,15 +194,24 @@ msgstr "$GS_CHROME$ опције"
 
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
-#| msgid "Check for extensions update"
 msgid "Check for GNOME Shell extensions update"
 msgstr "Провери за освежењима проширења Гномове шкољке"
 
 #. Option name.
 #: chrome-gnome-shell-key-options_update_check_enabled:1
-#| msgid "An update for GNOME Shell extensions available"
 msgid "Check update of enabled GNOME Shell extensions only"
 msgstr "Провери само освежење укључених проширења Гномове шкољке"
+
+#: chrome-gnome-shell-key-options_update_check_enabled_notice:1
+#| msgid ""
+#| "Your native host connector does not support check for GNOME Shell "
+#| "extensions updates. Probably python-requests package is missing."
+msgid ""
+"Your native host connector does not support updates check for enabled GNOME "
+"Shell extensions only. Consider update."
+msgstr ""
+"Ваш изворни конектор домаћина не подржава проверу освежења само за укључена "
+"проширења Гномове шкољке. Размислите о освежењу система."
 
 #: chrome-gnome-shell-key-options_update_check_notice:1
 msgid ""
@@ -215,6 +220,11 @@ msgid ""
 msgstr ""
 "Ваш изворни конектор домаћина не подржава проверу за освежењима проширења "
 "Гномове шкољке. Вероватно недостаје пакет „python-requests“."
+
+#. Use light icon that is looked better with dark themes.
+#: chrome-gnome-shell-key-options_use_light_icon:1
+msgid "Use light icon (dark theme)"
+msgstr "Користи светлу иконицу (тамна тема)"
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -285,7 +295,6 @@ msgstr "Доступно је освежење за проширења Гном�
 #. cause
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
-#| msgid "Failed to check extensions updates: $CAUSE$"
 msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
 msgstr "Нисам успео да проверим освежења проширења Гномове шкољке: $CAUSE$"
 
@@ -300,8 +309,8 @@ msgid ""
 msgstr ""
 "Ваш изворни конектор домаћина не подржава следеће АПИ-је: $$1. Вероватно "
 "треба да надоградите изворни конектор домаћина или да инсталирате прикључке "
-"за недостајуће АПИ-је. Испратите <a href='https://wiki.gnome.org/Projects/Gno"
-"meShellIntegrationForChrome/Installation'>документацију</a> за упутствима."
+"за недостајуће АПИ-је. Испратите <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>документацију</a> за упутствима."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
@@ -324,11 +333,8 @@ msgstr "Да"
 #| "In Gentoo Linux you can install connector with command:\n"
 #| "emerge gnome-extra/chrome-gnome-shell\n"
 #| "\n"
-#| "For Ubuntu Linux package is available in ne0sight/chrome-gnome-shell PPA. "
-#| "To install it type:\n"
-#| "sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
-#| "sudo apt-get update\n"
-#| "sudo apt-get install chrome-gnome-shell\n"
+#| "For Ubuntu Linux you can install connector with command:\n"
+#| "sudo apt install chrome-gnome-shell\n"
 #| "\n"
 #| "You also can install connector manually. See https://wiki.gnome.org/"
 #| "Projects/GnomeShellIntegrationForChrome/Installation for install "
@@ -339,17 +345,8 @@ msgid ""
 "For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
 "archlinux.org/packages/chrome-gnome-shell-git\n"
 "\n"
-"For Debian Linux there is package available in Sid and Stretch: https://"
-"tracker.debian.org/pkg/chrome-gnome-shell\n"
-"\n"
-"For Fedora Linux there is package available in Copr: https://copr."
-"fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
-"\n"
-"In Gentoo Linux you can install connector with command:\n"
-"emerge gnome-extra/chrome-gnome-shell\n"
-"\n"
-"For Ubuntu Linux you can install connector with command:\n"
-"sudo apt install chrome-gnome-shell\n"
+"For Debian, Fedora, Gentoo and Ubuntu you can install package named \"chrome-"
+"gnome-shell\".\n"
 "\n"
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
@@ -359,17 +356,8 @@ msgstr ""
 "За Арч Линукс постоји „PKGBUILD“ доступан у АУР-у: "
 "https://aur.archlinux.org/packages/chrome-gnome-shell-git\n"
 "\n"
-"За Дебијан Линукс постоји доступан пакет у Сиду и Стречу: "
-"https://tracker.debian.org/pkg/chrome-gnome-shell\n"
-"\n"
-"За Федору Линукс пакет је доступан у Копр-у: "
-"https://copr.fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
-"\n"
-"У Џенту Линуксу конектор можете инсталирати наредбом:\n"
-"emerge gnome-extra/chrome-gnome-shell\n"
-"\n"
-"За Убунту Линукс конектор можете инсталирати наредбом:\n"
-"sudo apt install chrome-gnome-shell\n"
+"За Дебијан, Федору, Џенту и Убунту можете инсталирати пакет „chrome-gnome-"
+"shell“\n"
 "\n"
 "Можете такође и ручно да инсталирате конектор. Погледајте "
 "„https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation“"
