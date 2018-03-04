@@ -1,16 +1,16 @@
 # Hungarian translation for chrome-gnome-shell.
-# Copyright (C) 2016, 2017 Free Software Foundation, Inc.
+# Copyright (C) 2016, 2017, 2018 Free Software Foundation, Inc.
 # This file is distributed under the same license as the chrome-gnome-shell package.
 #
-# Balázs Meskó <meskobalazs@gmail.com>, 2016.
+# Balázs Meskó <meskobalazs at gmail dot com>, 2016.
 # Gabor Kelemen <kelemeng at ubuntu dot com>, 2016.
-# Balázs Úr <urbalazs at gmail dot com>, 2017.
+# Balázs Úr <urbalazs at gmail dot com>, 2017, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-06-12 17:29+0000\n"
-"PO-Revision-Date: 2017-09-03 16:14+0200\n"
+"POT-Creation-Date: 2018-01-28 18:25+0000\n"
+"PO-Revision-Date: 2018-03-05 00:43+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -45,7 +45,7 @@ msgstr "Telepítve"
 #. Used as title, eg in table header. Means 'GNOME Shell extension name'.
 #: chrome-gnome-shell-key-extension_name:1
 msgid "Extension"
-msgstr "Bővítmény"
+msgstr "Kiterjesztés"
 
 #. This is a part of phrase like 'Extension Top Icons must be downgraded'.
 #: chrome-gnome-shell-key-extension_status_downgrade:1
@@ -80,8 +80,8 @@ msgid ""
 "This extension provides integration with GNOME Shell and the corresponding "
 "extensions repository https://extensions.gnome.org"
 msgstr ""
-"A bővítmény integrációt biztosít a GNOME Shell-lel, és a hozzá tartozó "
-"kiegészítőtárolóhoz, a https://extensions.gnome.org-hoz"
+"Ez a kiterjesztés integrációt biztosít a GNOME Shell-lel, és a hozzá tartozó "
+"https://extensions.gnome.org kiterjesztéstárolóval"
 
 #. $REQUEST$ is a placeholder for technical name of request that web extension
 #. make via native messaging host application.
@@ -119,7 +119,7 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions about installing connector."
 msgstr ""
-"Ugyan a GNOME Shell integrációs bővítmény fut, a natív gazdacsatlakozó nem "
+"Ugyan a GNOME Shell integrációs kiterjesztés fut, a natív gazdacsatlakozó nem "
 "észlelhető. Nézze meg a <a href='https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation'>dokumentációt</a> a csatlakozó "
 "telepítési utasításaiért."
@@ -133,7 +133,7 @@ msgstr "Nincs válasz a gazdától"
 #. Tooltip for browser extensions icon.
 #: chrome-gnome-shell-key-open_website:1
 msgid "Open GNOME Shell extensions website"
-msgstr "GNOME Shell bővítmények weboldalának megnyitása"
+msgstr "GNOME Shell kiterjesztések weboldalának megnyitása"
 
 #. Option name. Allow to set interval between GNOME Shell extensions update
 #. checks.
@@ -167,13 +167,14 @@ msgstr "Beállítások mentve."
 #. extension is updated.
 #: chrome-gnome-shell-key-options_show_release_notes:1
 msgid "Show release notes when browser extension updated"
-msgstr "Kiadási megjegyzések megjelenítése a böngészőkiegészítő frissítésekor"
+msgstr ""
+"Kiadási megjegyzések megjelenítése a böngészőkiterjesztés frissítésekor"
 
 #. Option name. Allow to enable/disable synchronization of GNOME Shell
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
 msgid "Synchronize GNOME Shell extensions list"
-msgstr "GNOME Shell bővítménylista szinkronizálása"
+msgstr "GNOME Shell kiterjesztéslista szinkronizálása"
 
 #. This is a notice under option name.
 #: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
@@ -181,7 +182,7 @@ msgid ""
 "If enabled, your GNOME Shell extensions list will be synchronized with your "
 "Google account."
 msgstr ""
-"Ha engedélyezett, akkor a GNOME Shell bővítménylista a Google fiókjával "
+"Ha engedélyezett, akkor a GNOME Shell kiterjesztéslista a Google fiókjával "
 "kerül szinkronizálásra."
 
 #. $GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This
@@ -198,13 +199,21 @@ msgstr "$GS_CHROME$ beállítások"
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
 msgid "Check for GNOME Shell extensions update"
-msgstr "GNOME Shell bővítményfrissítés keresése"
+msgstr "GNOME Shell kiterjesztésfrissítés keresése"
 
 #. Option name.
 #: chrome-gnome-shell-key-options_update_check_enabled:1
 msgid "Check update of enabled GNOME Shell extensions only"
 msgstr ""
 "Csak az engedélyezett GNOME Shell kiterjesztések frissítésének ellenőrzése"
+
+#: chrome-gnome-shell-key-options_update_check_enabled_notice:1
+msgid ""
+"Your native host connector does not support updates check for enabled GNOME "
+"Shell extensions only. Consider update."
+msgstr ""
+"A natív gazdacsatlakozója nem támogatja csak az engedélyezett GNOME Shell "
+"kiterjesztések frissítéseinek ellenőrzését. Fontolja meg a frissítést."
 
 #: chrome-gnome-shell-key-options_update_check_notice:1
 msgid ""
@@ -213,6 +222,11 @@ msgid ""
 msgstr ""
 "A natív gazdacsatlakozója nem támogatja a GNOME Shell kiterjesztések "
 "frissítéseinek ellenőrzését. Valószínűleg a python-requests csomag hiányzik."
+
+#. Use light icon that is looked better with dark themes.
+#: chrome-gnome-shell-key-options_use_light_icon:1
+msgid "Use light icon (dark theme)"
+msgstr "Világos ikon használata (sötét téma)"
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -242,19 +256,19 @@ msgstr "Ne engedélyezze a szinkronizálást."
 #.
 #: chrome-gnome-shell-key-synchronization_failed:1
 msgid "Failed to synchronize extensions: $CAUSE$"
-msgstr "A bővítmények szinkronizálása sikertelen: $CAUSE$"
+msgstr "A kiterjesztések szinkronizálása sikertelen: $CAUSE$"
 
 #: chrome-gnome-shell-key-synchronization_storage_exists:1
 msgid "Your remote synchronization storage already contains extensions list."
-msgstr "A távoli szinkronizációs tároló már tartalmazza a bővítménylistát."
+msgstr "A távoli szinkronizációs tároló már tartalmazza a kiterjesztéslistát."
 
 #: chrome-gnome-shell-key-synchronization_use_local:1
 msgid "Use local extensions list, overwrite remote."
-msgstr "Használja a helyi bővítménylistát, írja felül a távolit."
+msgstr "Használja a helyi kiterjesztéslistát, írja felül a távolit."
 
 #: chrome-gnome-shell-key-synchronization_use_remote:1
 msgid "Use remote extensions list, overwrite local."
-msgstr "Használja a távoli bővítménylistát, írja felül a helyit."
+msgstr "Használja a távoli kiterjesztéslistát, írja felül a helyit."
 
 #. This is content of 'About translation' tab in Options dialog. Thank you for
 #. translation and feel free to add yourself here. HTML markup enabled for
@@ -275,7 +289,7 @@ msgstr "ismeretlen hiba"
 
 #: chrome-gnome-shell-key-update_available:1
 msgid "An update for GNOME Shell extensions available"
-msgstr "Egy GNOME Shell bővítményfrissítés elérhető"
+msgstr "Egy GNOME Shell kiterjesztésfrissítés érhető el"
 
 #. $CAUSE$ is placeholder for error that caused update failure.
 #.
@@ -284,7 +298,7 @@ msgstr "Egy GNOME Shell bővítményfrissítés elérhető"
 #.
 #: chrome-gnome-shell-key-update_check_failed:1
 msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
-msgstr "A GNOME Shell bővítményfrissítések keresése sikertelen: $CAUSE$"
+msgstr "A GNOME Shell kiterjesztésfrissítések keresése sikertelen: $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
@@ -313,37 +327,19 @@ msgid ""
 "For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
 "archlinux.org/packages/chrome-gnome-shell-git\n"
 "\n"
-"For Debian Linux there is package available in Sid and Stretch: https://"
-"tracker.debian.org/pkg/chrome-gnome-shell\n"
-"\n"
-"For Fedora Linux there is package available in Copr: https://copr."
-"fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
-"\n"
-"In Gentoo Linux you can install connector with command:\n"
-"emerge gnome-extra/chrome-gnome-shell\n"
-"\n"
-"For Ubuntu Linux you can install connector with command:\n"
-"sudo apt install chrome-gnome-shell\n"
+"For Debian, Fedora, Gentoo and Ubuntu you can install package named \"chrome-"
+"gnome-shell\".\n"
 "\n"
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
 msgstr ""
-"A bővítmény működéséhez telepíteni KELL a natív csatlakozót.\n"
+"A kiterjesztés működéséhez telepíteni KELL a natív csatlakozót.\n"
 "\n"
 "Arch Linuxhoz elérhető PKGBUILD az AUR-ban: https://aur.archlinux.org/"
 "packages/chrome-gnome-shell-git\n"
 "\n"
-"Debian Linux esetén elérhető egy csomag a Sid és Stretch ágban: https://"
-"tracker.debian.org/pkg/chrome-gnome-shell\n"
-"\n"
-"Fedora Linux esetén létezik Copr csomag: https://copr.fedorainfracloud.org/"
-"coprs/region51/chrome-gnome-shell\n"
-"\n"
-"Gentoo Linux esetén telepítheti a csatlakozót ezzel a paranccsal:\n"
-"emerge gnome-extra/chrome-gnome-shell\n"
-"\n"
-"Ubuntu Linux esetén telepítheti a csatlakozót ezzel a paranccsal:\n"
-"sudo apt install chrome-gnome-shell\n"
+"Debian, Fedora, Gentoo és Ubuntu Linuxokhoz a „chrome-gnome-shell” nevű "
+"csomagot telepítheti.\n"
 "\n"
 "Kézzel is telepítheti a csatlakozót. Nézze meg a https://wiki.gnome.org/"
 "Projects/GnomeShellIntegrationForChrome/Installation oldalt a telepítési "
