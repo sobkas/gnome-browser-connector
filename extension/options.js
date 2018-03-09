@@ -366,6 +366,9 @@ $.each(document.getElementsByName('synchronize_extensions'), function(index, con
 	control.addEventListener('change', handleSynchronize);
 });
 
+
+// Compat: Firefox
+dialogPolyfill.registerDialog(document.getElementById('syncChoice'));
 document.getElementById('syncChoice').addEventListener('close', function() {
 	if(document.getElementById('syncChoice').returnValue === 'cancel')
 	{
