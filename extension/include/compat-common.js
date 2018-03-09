@@ -31,6 +31,36 @@ if(typeof(chrome.permissions) === 'undefined')
 	COMPAT.PERMISSIONS_CONTAINS = false;
 }
 
+if(typeof(chrome.permissions.onAdded) === 'undefined')
+{
+	chrome.permissions.onAdded = {
+			addListener: function(callback) {
+				// Do nothing
+			},
+			removeListener: function(callback) {
+				// Do nothing
+			},
+			hasListener: function(callback) {
+				// Do nothing
+			}
+	}
+}
+
+if(typeof(chrome.permissions.onRemoved) === 'undefined')
+{
+	chrome.permissions.onRemoved = {
+			addListener: function(callback) {
+				// Do nothing
+			},
+			removeListener: function(callback) {
+				// Do nothing
+			},
+			hasListener: function(callback) {
+				// Do nothing
+			}
+	}
+}
+
 if(typeof(chrome.storage.sync) === 'undefined')
 {
 	chrome.storage.sync = chrome.storage.local;
