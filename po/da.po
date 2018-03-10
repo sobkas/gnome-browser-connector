@@ -1,14 +1,14 @@
 # Danish translation for chrome-gnome-shell.
-# Copyright (C) 2017 chrome-gnome-shell's COPYRIGHT HOLDER
+# Copyright (C) 2018 chrome-gnome-shell's COPYRIGHT HOLDER
 # This file is distributed under the same license as the chrome-gnome-shell package.
-# Alan Mortensen <alanmortensen.am@gmail.com>, 2016,2017.
+# Alan Mortensen <alanmortensen.am@gmail.com>, 2016-18.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-06-12 17:29+0000\n"
-"PO-Revision-Date: 2017-10-17 16:52+0200\n"
+"POT-Creation-Date: 2018-01-28 18:25+0000\n"
+"PO-Revision-Date: 2018-03-08 09:53+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
@@ -203,6 +203,14 @@ msgstr "Tjek for opdateringer til GNOME Shell-udvidelser"
 msgid "Check update of enabled GNOME Shell extensions only"
 msgstr "Tjek kun for opdateringer til aktiverede GNOME Shell-udvidelser"
 
+#: chrome-gnome-shell-key-options_update_check_enabled_notice:1
+msgid ""
+"Your native host connector does not support updates check for enabled GNOME "
+"Shell extensions only. Consider update."
+msgstr ""
+"Din oprindelige værtsforbindelseskomponent understøtter ikke tjek for "
+"opdateringer til GNOME Shell-udvidelser. Overvej at opdatere."
+
 #: chrome-gnome-shell-key-options_update_check_notice:1
 msgid ""
 "Your native host connector does not support check for GNOME Shell extensions "
@@ -211,6 +219,12 @@ msgstr ""
 "Din oprindelige værtsforbindelseskomponent understøtter ikke tjek for "
 "opdateringer til GNOME Shell-udvidelser. Sandsynligvis mangler pakken python-"
 "requests."
+
+# Jeg formoder, der er tale om mere end ét ikon
+#. Use light icon that is looked better with dark themes.
+#: chrome-gnome-shell-key-options_use_light_icon:1
+msgid "Use light icon (dark theme)"
+msgstr "Brug lyse ikoner (mørkt tema)"
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -318,17 +332,8 @@ msgid ""
 "For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
 "archlinux.org/packages/chrome-gnome-shell-git\n"
 "\n"
-"For Debian Linux there is package available in Sid and Stretch: https://"
-"tracker.debian.org/pkg/chrome-gnome-shell\n"
-"\n"
-"For Fedora Linux there is package available in Copr: https://copr."
-"fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
-"\n"
-"In Gentoo Linux you can install connector with command:\n"
-"emerge gnome-extra/chrome-gnome-shell\n"
-"\n"
-"For Ubuntu Linux you can install connector with command:\n"
-"sudo apt install chrome-gnome-shell\n"
+"For Debian, Fedora, Gentoo and Ubuntu you can install package named \"chrome-"
+"gnome-shell\".\n"
 "\n"
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
@@ -339,17 +344,9 @@ msgstr ""
 "Til Arch Linux findes der en PKGBUILD i AUR: https://aur.archlinux.org/"
 "packages/chrome-gnome-shell-git\n"
 "\n"
-"Til Debian Linux er der en pakke i Sid og Stretch: https://tracker.debian."
-"org/pkg/chrome-gnome-shell\n"
-"\n"
-"Til Fedora Linux er der en pakke i Copr: https://copr.fedorainfracloud.org/"
-"coprs/region51/chrome-gnome-shell\n"
-"\n"
-"I Gentoo Linux kan du installere forbindelsekomponenten med kommandoen:\n"
-"emerge gnome-extra/chrome-gnome-shell\n"
-"\n"
-"I Ubuntu Linux kan du installere forbindelsekomponenten med kommandoen:\n"
-"sudo apt install chrome-gnome-shell\n"
+"Til Debian, Fedora, Gentoo og Ubuntu kan du installere pakken “chrome-gnome-"
+"shell”.\n"
+"”\n"
 "\n"
 "Du kan også installere forbindelseskomponenten manuelt. Se https://wiki."
 "gnome.org/Projects/GnomeShellIntegrationForChrome/Installation for "
