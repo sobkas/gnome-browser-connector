@@ -34,30 +34,30 @@ if(typeof(chrome.permissions) === 'undefined')
 if(typeof(chrome.permissions.onAdded) === 'undefined')
 {
 	chrome.permissions.onAdded = {
-			addListener: function(callback) {
-				// Do nothing
-			},
-			removeListener: function(callback) {
-				// Do nothing
-			},
-			hasListener: function(callback) {
-				// Do nothing
-			}
+		addListener: function(callback) {
+			// Do nothing
+		},
+		removeListener: function(callback) {
+			// Do nothing
+		},
+		hasListener: function(callback) {
+			// Do nothing
+		}
 	}
 }
 
 if(typeof(chrome.permissions.onRemoved) === 'undefined')
 {
 	chrome.permissions.onRemoved = {
-			addListener: function(callback) {
-				// Do nothing
-			},
-			removeListener: function(callback) {
-				// Do nothing
-			},
-			hasListener: function(callback) {
-				// Do nothing
-			}
+		addListener: function(callback) {
+			// Do nothing
+		},
+		removeListener: function(callback) {
+			// Do nothing
+		},
+		hasListener: function(callback) {
+			// Do nothing
+		}
 	}
 }
 
