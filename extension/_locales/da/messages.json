@@ -127,14 +127,14 @@
 		"message": "Tjek kun for opdateringer til aktiverede GNOME Shell-udvidelser"
 	},
 	"options_update_check_enabled_notice": {
-		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
+		"message": "Din oprindelige v\u00e6rtsforbindelseskomponent underst\u00f8tter ikke tjek for opdateringer til GNOME Shell-udvidelser. Overvej at opdatere."
 	},
 	"options_update_check_notice": {
 		"message": "Din oprindelige v\u00e6rtsforbindelseskomponent underst\u00f8tter ikke tjek for opdateringer til GNOME Shell-udvidelser. Sandsynligvis mangler pakken python-requests."
 	},
 	"options_use_light_icon": {
 		"description": "Use light icon that is looked better with dark themes.",
-		"message": "Use light icon (dark theme)"
+		"message": "Brug lyse ikoner (m\u00f8rkt tema)"
 	},
 	"platform_not_supported": {
 		"message": "Den oprindelige v\u00e6rtsforbindelseskomponent underst\u00f8ttes ikke til din platform."

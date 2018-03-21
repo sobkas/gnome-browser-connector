@@ -127,14 +127,14 @@
 		"message": "Nur auf Aktualisierungen pr\u00fcfen, wenn die GNOME Shell-Erweiterungen aktiviert sind"
 	},
 	"options_update_check_enabled_notice": {
-		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
+		"message": "Ihr nativer Host-Connector unterst\u00fctzt keine Pr\u00fcfung auf Aktualisierungen f\u00fcr aktive GNOME-Shell-Erweiterungen. Sie sollten aktualisieren."
 	},
 	"options_update_check_notice": {
 		"message": "Ihr nativer Host-Connector unterst\u00fctzt keine Pr\u00fcfung auf Aktualisierungen f\u00fcr GNOME-Shell-Erweiterungen. Wahrscheinlich fehlt das Paket python-requests."
 	},
 	"options_use_light_icon": {
 		"description": "Use light icon that is looked better with dark themes.",
-		"message": "Use light icon (dark theme)"
+		"message": "Helles Symbol verwenden (bei dunklem Thema)"
 	},
 	"platform_not_supported": {
 		"message": "Nativer Host-Connector wird auf dieser Plattform nicht unterst\u00fctzt."

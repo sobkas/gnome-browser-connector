@@ -1,54 +1,54 @@
 {
 	"_DO_NOT_EDIT": {
-		"description": "This file is auto generated with po2chrome-messages tool from tr.po.",
+		"description": "This file is auto generated with po2chrome-messages tool from et.po.",
 		"message": ""
 	},
 	"close": {
-		"message": "Kapat"
+		"message": "Sulge"
 	},
 	"error_connector_response": {
 		"description": "Shown to user when response from connector API call does not follow known format.",
-		"message": "Yanl\u0131\u015f ba\u011flay\u0131c\u0131 yan\u0131t\u0131 al\u0131nd\u0131"
+		"message": "Wrong connector response received"
 	},
 	"extension_enabled": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension enabled?'",
-		"message": "Etkin"
+		"message": "Lubatud"
 	},
 	"extension_installed": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension installed?'",
-		"message": "Kuruldu"
+		"message": "Paigaldatud"
 	},
 	"extension_name": {
 		"description": "Used as title, eg in table header. Means 'GNOME Shell extension name'.",
-		"message": "Uzant\u0131"
+		"message": "Laiendus"
 	},
 	"extension_status_downgrade": {
 		"description": "This is a part of phrase like 'Extension Top Icons must be downgraded'.",
-		"message": "s\u00fcr\u00fcm\u00fc d\u00fc\u015f\u00fcr\u00fclmeli"
+		"message": "tuleb asendada vanema versiooniga"
 	},
 	"extension_status_upgrade": {
 		"description": "This is a part of phrase like 'Extension Top Icons can be upgraded'.",
-		"message": "y\u00fckseltilebilir"
+		"message": "on uuendatav"
 	},
 	"extension_synchronized": {
 		"description": "Used as title, eg in table header. Means 'Does GNOME Shell extension status synchronized with remote browser storage?'",
-		"message": "E\u015fzamanland\u0131"
+		"message": "S\u00fcnkroniseeritud"
 	},
 	"gs_chrome": {
 		"description": "This is a project title. Used as extension name in Chrome Store and in some titlebars.",
-		"message": "GNOME Kabuk b\u00fct\u00fcnle\u015fmesi"
+		"message": "Integratsioon GNOME Shelliga"
 	},
 	"hours": {
 		"description": "This is a part of phrase 'Update check period: xx hours'",
-		"message": "saat"
+		"message": "tundi"
 	},
 	"manifest_description": {
 		"description": "Used as extension description in Chrome Store",
-		"message": "Bu uygulama, GNOME Kabuk ve buna uygun uzant\u0131 deposu olan https://extensions.gnome.org ile b\u00fct\u00fcnle\u015fme sa\u011flar"
+		"message": "See laiendus v\u00f5imaldab integratsiooni GNOME Shelli ja selle laienduste hoidlaga aadressil https://extensions.gnome.org"
 	},
 	"native_request_failed": {
 		"description": "$REQUEST$ is a placeholder for technical name of request that web extension make via native messaging host application.",
-		"message": "\u00ab$REQUEST$\u00bb yerle\u015fik iste\u011fi ba\u015far\u0131s\u0131z oldu",
+		"message": "\u00ab$REQUEST$\u00bb native request failed",
 		"placeholders": {
 			"request": {
 				"content": "$1"
@@ -57,61 +57,61 @@
 	},
 	"never": {
 		"description": "This is a part of phrase 'Last check: never'",
-		"message": "hi\u00e7bir zaman"
+		"message": "mitte kunagi"
 	},
 	"no": {
-		"message": "Hay\u0131r"
+		"message": "Ei"
 	},
 	"no_gnome_shell": {
 		"description": "Shown to user when native connector unable to query GNOME Shell version or settings",
-		"message": "GNOME Kabuk ayarlar\u0131 veya s\u00fcr\u00fcm\u00fc saptanam\u0131yor. Kurulu oldu\u011fundan ve \u00e7al\u0131\u015ft\u0131\u011f\u0131ndan emin olun."
+		"message": "GNOME Shelli s\u00e4tteid ja versiooniinfot ei leitud. Palun veendu, et see on paigaldatud ja kasutusel."
 	},
 	"no_host_connector": {
-		"message": "Yine de GNOME Kabuk b\u00fct\u00fcnle\u015fme uzant\u0131s\u0131 \u00e7al\u0131\u015f\u0131yor ancak yerle\u015fik ana makine ba\u011flay\u0131c\u0131 saptanamad\u0131. Ba\u011flay\u0131c\u0131y\u0131 kurmakla ilgili y\u00f6nergeler i\u00e7in <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>belgelendirmeye</a> bak\u0131n."
+		"message": "Although GNOME Shell integration extension is running, native host connector is not detected. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions about installing connector."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
-		"message": "Ana makine yan\u0131t vermiyor"
+		"message": "No host response"
 	},
 	"open_website": {
 		"description": "Tooltip for browser extensions icon.",
-		"message": "GNOME Kabuk uzant\u0131lar\u0131 web sitesini a\u00e7"
+		"message": "Ava GNOME Shelli laienduste veebileht"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
-		"message": "G\u00fcncelleme denetleme s\u0131kl\u0131\u011f\u0131"
+		"message": "Uuenduste kontrolli periood"
 	},
 	"options_last_check": {
 		"description": "This is a start of phrase (followed by date/time) of last GNOME Shell extensions update check.",
-		"message": "Son denetleme"
+		"message": "Viimane kontroll"
 	},
 	"options_link": {
 		"description": "Link name for options tab.",
-		"message": "Se\u00e7enekler"
+		"message": "Valikud"
 	},
 	"options_next_check": {
 		"description": "This is a start of phrase (followed by date/time) of next GNOME Shell extensions update check.",
-		"message": "Sonraki denetleme"
+		"message": "J\u00e4rgmine kontroll"
 	},
 	"options_saved": {
 		"description": "Means 'Options were saved successfully after user clicked Save button'",
-		"message": "Se\u00e7enekler kaydedildi."
+		"message": "Valikud on salvestatud."
 	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Taray\u0131c\u0131 uzant\u0131s\u0131 g\u00fcncellendi\u011finde s\u00fcr\u00fcm notlar\u0131n\u0131 g\u00f6ster"
+		"message": "V\u00e4ljalasketeadete n\u00e4itamine brauseri laienduse uuendamisel"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "GNOME Kabuk uzant\u0131lar\u0131 listesini e\u015fzamanla"
+		"message": "GNOME Shelli laienduste nimekirja s\u00fcnkroniseerimine"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
-		"message": "E\u011fer etkinle\u015ftirilirse, GNOME Kabuk uzant\u0131lar\u0131 listeniz Google hesab\u0131n\u0131zla e\u015fzamanlanacakt\u0131r."
+		"message": "Kui see on lubatud, siis s\u00fcnkroniseeritakse sinu GNOME Shelli laienduste nimekiri su Google'i kontoga."
 	},
 	"options_title": {
 		"description": "$GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This string used as title for Options page. This title is not shown in Chrome, but may be shown in other browsers.",
-		"message": "$GS_CHROME$ se\u00e7enekleri",
+		"message": "$GS_CHROME$ valikud",
 		"placeholders": {
 			"gs_chrome": {
 				"content": "$1"
@@ -120,41 +120,41 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "GNOME Kabuk uzant\u0131lar\u0131n\u0131n g\u00fcncellemelerini denetle"
+		"message": "Uuenduste kontroll GNOME Shelli laiendustele"
 	},
 	"options_update_check_enabled": {
 		"description": "Option name.",
-		"message": "Yaln\u0131zca etkin GNOME Kabuk uzant\u0131lar\u0131n\u0131n g\u00fcncellemelerini denetle"
+		"message": "Uuendusi kontrollitakse ainult sissel\u00fclitatud GNOME Shelli laiendustele"
 	},
 	"options_update_check_enabled_notice": {
-		"message": "Yerle\u015fik ana makine ba\u011flay\u0131c\u0131n\u0131z yaln\u0131zca etkin GNOME Kabuk uzant\u0131lar\u0131n\u0131n yeni s\u00fcr\u00fcmlerini denetlemeyi desteklemiyor. G\u00fcncellemeyi d\u00fc\u015f\u00fcn\u00fcn."
+		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
 	},
 	"options_update_check_notice": {
-		"message": "Yerle\u015fik ana makine ba\u011flay\u0131c\u0131n\u0131z GNOME Kabuk uzant\u0131lar\u0131n\u0131n g\u00fcncellemelerini denetlemeyi desteklemiyor. B\u00fcy\u00fck olas\u0131l\u0131kla python-requests paketi eksik."
+		"message": "Your native host connector does not support check for GNOME Shell extensions updates. Probably python-requests package is missing."
 	},
 	"options_use_light_icon": {
 		"description": "Use light icon that is looked better with dark themes.",
-		"message": "Ayd\u0131nl\u0131k simge kullan (karanl\u0131k g\u00f6vde)"
+		"message": "Heleda ikooni kasutamine (tumedate toonidega teema jaoks)"
 	},
 	"platform_not_supported": {
-		"message": "Platformunuz yerle\u015fik ana makine ba\u011flay\u0131c\u0131s\u0131n\u0131 desteklenmiyor."
+		"message": "Native host connector is not supported for your platform."
 	},
 	"retry": {
-		"message": "Yeniden Dene"
+		"message": "Proovi uuesti"
 	},
 	"save": {
-		"message": "Kaydet"
+		"message": "Salvesta"
 	},
 	"synchronization": {
 		"description": "Link name for synchronization tab in options dialog.",
-		"message": "E\u015fzamanlama"
+		"message": "S\u00fcnkroniseerimine"
 	},
 	"synchronization_cancel": {
-		"message": "E\u015fzamanlamay\u0131 etkinle\u015ftirme."
+		"message": "S\u00fcnkroniseerimine keelatakse."
 	},
 	"synchronization_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused synchronization failure.",
-		"message": "Uzant\u0131lar\u0131n e\u015fzamanlamas\u0131 ba\u015far\u0131s\u0131z oldu: $CAUSE$",
+		"message": "Laienduste s\u00fcnkroniseerimine nurjus: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -162,32 +162,32 @@
 		}
 	},
 	"synchronization_storage_exists": {
-		"message": "Uzak e\u015fzamanlama deponuz zaten uzant\u0131 listesi bar\u0131nd\u0131r\u0131yor."
+		"message": "Sinu s\u00fcnkronisatsioon pilves juba sisaldab laienduste nimekirja."
 	},
 	"synchronization_use_local": {
-		"message": "Yerel uzant\u0131 listesini kullan ve uzaktakinin \u00fczerine yaz."
+		"message": "Kasutatakse kohalikku laienduste nimekirja, pilves asuv nimekiri kirjutatakse \u00fcle."
 	},
 	"synchronization_use_remote": {
-		"message": "Uzak uzant\u0131 listesi kullan, yerelin \u00fcst\u00fcne yaz."
+		"message": "Kasutatakse pilves asuvat laienduste nimekirja, kohalik nimekiri kirjutatakse \u00fcle."
 	},
 	"translation_credits": {
 		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
-		"message": "T\u00fcrk\u00e7e \u00e7eviri: <a href=\"mailto:muhammetk@gmail.com\">Muhammet Kara</a>,\n<a href=\"mailto:etcetin@gmail.com\">Emin Tufan \u00c7etin</a>"
+		"message": "Liivia Lillev\u00e4li\nMart Raudsepp"
 	},
 	"translation_credits_title": {
 		"description": "Link name for translation credits tab in options dialog.",
-		"message": "\u00c7eviri hakk\u0131nda"
+		"message": "T\u00f5lge"
 	},
 	"unknown_error": {
 		"description": "This should newer be shown to user. However better safe than sorry.",
-		"message": "bilinmeyen hata"
+		"message": "tundmatu viga"
 	},
 	"update_available": {
-		"message": "GNOME Kabuk uzant\u0131lar\u0131 i\u00e7in bir g\u00fcncelleme var"
+		"message": "GNOME Shelli laiendustele on saadaval uuendusi"
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "GNOME Kabuk uzant\u0131lar\u0131n\u0131n g\u00fcncellemeleri denetlenemedi: $CAUSE$",
+		"message": "Uuenduste kontroll GNOME Shelli laiendustele nurjus: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -196,9 +196,9 @@
 	},
 	"warning_apis_missing": {
 		"description": "$$1 is a placeholder for a list of missing APIs",
-		"message": "Yerle\u015fik ana makine ba\u011flay\u0131c\u0131 \u015fu API'leri desteklemiyor: $$1. B\u00fcy\u00fck olas\u0131l\u0131kla yerle\u015fik ana makine ba\u011flay\u0131c\u0131y\u0131 g\u00fcncellemelisiniz veya eksik API'ler i\u00e7in eklentileri kurmal\u0131s\u0131n\u0131z. Y\u00f6nergeler i\u00e7in <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>belgelendirmeye</a> bak\u0131n."
+		"message": "Your native host connector do not support following APIs: $$1. Probably you should upgrade native host connector or install plugins for missing APIs. Refer <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>documentation</a> for instructions."
 	},
 	"yes": {
-		"message": "Evet"
+		"message": "Jah"
 	}
 }

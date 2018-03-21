@@ -127,14 +127,14 @@
 		"message": "Provjeri nadopune samo za omogu\u0107ena pro\u0161irenja GNOME ljuske"
 	},
 	"options_update_check_enabled_notice": {
-		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
+		"message": "Va\u0161a izvorna spojnica poslju\u017eitelja ne podr\u017eava provjeru nadopuna pro\u0161irenja GNOME ljuske. Trebali bi ju nadopuniti."
 	},
 	"options_update_check_notice": {
 		"message": "Va\u0161a izvorna spojnica poslju\u017eitelja ne podr\u017eava provjeru nadopuna pro\u0161irenja GNOME ljuske. Najvjerojatnije python-requests paket nedostaje."
 	},
 	"options_use_light_icon": {
 		"description": "Use light icon that is looked better with dark themes.",
-		"message": "Use light icon (dark theme)"
+		"message": "Koristi svijetle ikone (tamna tema)"
 	},
 	"platform_not_supported": {
 		"message": "Izvorna spojnica poslju\u017eitelja nije podr\u017eana na va\u0161oj platformi."

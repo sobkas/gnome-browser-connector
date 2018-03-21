@@ -127,14 +127,14 @@
 		"message": "Comprobar si hay actualizaciones disponibles solo para las extensiones de GNOME Shell activadas"
 	},
 	"options_update_check_enabled_notice": {
-		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
+		"message": "Su conector nativo del equipo no soporta comprobar si hay actualizaciones de las extensiones de GNOME Shell. Considere actualizarlo."
 	},
 	"options_update_check_notice": {
 		"message": "Su conector nativo del equipo no soporta comprobar si hay actualizaciones de las extensiones de GNOME Shell. Probablemente falte el paquete python-requests."
 	},
 	"options_use_light_icon": {
 		"description": "Use light icon that is looked better with dark themes.",
-		"message": "Use light icon (dark theme)"
+		"message": "Usar icono claro (tema oscuro)"
 	},
 	"platform_not_supported": {
 		"message": "El conector nativo del equipo no est\u00e1 soportado en su plataforma."

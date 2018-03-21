@@ -1,0 +1,7 @@
+МОРАТЕ инсталирати изворни конектор да би ово проширење радило.
+
+За Арч Линукс постоји „PKGBUILD“ доступан у АУР-у: https://aur.archlinux.org/packages/chrome-gnome-shell-git
+
+За Дебијан, Федору, Џенту и Убунту можете инсталирати пакет „chrome-gnome-shell“
+
+Можете такође и ручно да инсталирате конектор. Погледајте „https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation“ за упутствима о инсталацији.

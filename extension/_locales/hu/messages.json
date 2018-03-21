@@ -20,7 +20,7 @@
 	},
 	"extension_name": {
 		"description": "Used as title, eg in table header. Means 'GNOME Shell extension name'.",
-		"message": "B\u0151v\u00edtm\u00e9ny"
+		"message": "Kiterjeszt\u00e9s"
 	},
 	"extension_status_downgrade": {
 		"description": "This is a part of phrase like 'Extension Top Icons must be downgraded'.",
@@ -44,7 +44,7 @@
 	},
 	"manifest_description": {
 		"description": "Used as extension description in Chrome Store",
-		"message": "A b\u0151v\u00edtm\u00e9ny integr\u00e1ci\u00f3t biztos\u00edt a GNOME Shell-lel, \u00e9s a hozz\u00e1 tartoz\u00f3 kieg\u00e9sz\u00edt\u0151t\u00e1rol\u00f3hoz, a https://extensions.gnome.org-hoz"
+		"message": "Ez a kiterjeszt\u00e9s integr\u00e1ci\u00f3t biztos\u00edt a GNOME Shell-lel, \u00e9s a hozz\u00e1 tartoz\u00f3 https://extensions.gnome.org kiterjeszt\u00e9st\u00e1rol\u00f3val"
 	},
 	"native_request_failed": {
 		"description": "$REQUEST$ is a placeholder for technical name of request that web extension make via native messaging host application.",
@@ -67,7 +67,7 @@
 		"message": "Nem tal\u00e1lhat\u00f3k a GNOME Shell be\u00e1ll\u00edt\u00e1sai vagy verzi\u00f3ja. Gy\u0151z\u0151dj\u00f6n meg arr\u00f3l, hogy telep\u00edtve van-e \u00e9s fut-e."
 	},
 	"no_host_connector": {
-		"message": "Ugyan a GNOME Shell integr\u00e1ci\u00f3s b\u0151v\u00edtm\u00e9ny fut, a nat\u00edv gazdacsatlakoz\u00f3 nem \u00e9szlelhet\u0151. N\u00e9zze meg a <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokument\u00e1ci\u00f3t</a> a csatlakoz\u00f3 telep\u00edt\u00e9si utas\u00edt\u00e1sai\u00e9rt."
+		"message": "Ugyan a GNOME Shell integr\u00e1ci\u00f3s kiterjeszt\u00e9s fut, a nat\u00edv gazdacsatlakoz\u00f3 nem \u00e9szlelhet\u0151. N\u00e9zze meg a <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation'>dokument\u00e1ci\u00f3t</a> a csatlakoz\u00f3 telep\u00edt\u00e9si utas\u00edt\u00e1sai\u00e9rt."
 	},
 	"no_host_response": {
 		"description": "Means 'Web extension does not received answer from native messaging host application.'",
@@ -75,7 +75,7 @@
 	},
 	"open_website": {
 		"description": "Tooltip for browser extensions icon.",
-		"message": "GNOME Shell b\u0151v\u00edtm\u00e9nyek weboldal\u00e1nak megnyit\u00e1sa"
+		"message": "GNOME Shell kiterjeszt\u00e9sek weboldal\u00e1nak megnyit\u00e1sa"
 	},
 	"options_check_period": {
 		"description": "Option name. Allow to set interval between GNOME Shell extensions update checks.",
@@ -99,15 +99,15 @@
 	},
 	"options_show_release_notes": {
 		"description": "Option name. Allow to enable/disable popup with release notes when Web extension is updated.",
-		"message": "Kiad\u00e1si megjegyz\u00e9sek megjelen\u00edt\u00e9se a b\u00f6ng\u00e9sz\u0151kieg\u00e9sz\u00edt\u0151 friss\u00edt\u00e9sekor"
+		"message": "Kiad\u00e1si megjegyz\u00e9sek megjelen\u00edt\u00e9se a b\u00f6ng\u00e9sz\u0151kiterjeszt\u00e9s friss\u00edt\u00e9sekor"
 	},
 	"options_synchronize_extensions": {
 		"description": "Option name. Allow to enable/disable synchronization of GNOME Shell extensions with remote browser storage.",
-		"message": "GNOME Shell b\u0151v\u00edtm\u00e9nylista szinkroniz\u00e1l\u00e1sa"
+		"message": "GNOME Shell kiterjeszt\u00e9slista szinkroniz\u00e1l\u00e1sa"
 	},
 	"options_synchronize_extensions_notice": {
 		"description": "This is a notice under option name.",
-		"message": "Ha enged\u00e9lyezett, akkor a GNOME Shell b\u0151v\u00edtm\u00e9nylista a Google fi\u00f3kj\u00e1val ker\u00fcl szinkroniz\u00e1l\u00e1sra."
+		"message": "Ha enged\u00e9lyezett, akkor a GNOME Shell kiterjeszt\u00e9slista a Google fi\u00f3kj\u00e1val ker\u00fcl szinkroniz\u00e1l\u00e1sra."
 	},
 	"options_title": {
 		"description": "$GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This string used as title for Options page. This title is not shown in Chrome, but may be shown in other browsers.",
@@ -120,21 +120,21 @@
 	},
 	"options_update_check": {
 		"description": "Option name. Allow enable/disable update check for GNOME Shell extensions.",
-		"message": "GNOME Shell b\u0151v\u00edtm\u00e9nyfriss\u00edt\u00e9s keres\u00e9se"
+		"message": "GNOME Shell kiterjeszt\u00e9sfriss\u00edt\u00e9s keres\u00e9se"
 	},
 	"options_update_check_enabled": {
 		"description": "Option name.",
 		"message": "Csak az enged\u00e9lyezett GNOME Shell kiterjeszt\u00e9sek friss\u00edt\u00e9s\u00e9nek ellen\u0151rz\u00e9se"
 	},
 	"options_update_check_enabled_notice": {
-		"message": "Your native host connector does not support updates check for enabled GNOME Shell extensions only. Consider update."
+		"message": "A nat\u00edv gazdacsatlakoz\u00f3ja nem t\u00e1mogatja csak az enged\u00e9lyezett GNOME Shell kiterjeszt\u00e9sek friss\u00edt\u00e9seinek ellen\u0151rz\u00e9s\u00e9t. Fontolja meg a friss\u00edt\u00e9st."
 	},
 	"options_update_check_notice": {
 		"message": "A nat\u00edv gazdacsatlakoz\u00f3ja nem t\u00e1mogatja a GNOME Shell kiterjeszt\u00e9sek friss\u00edt\u00e9seinek ellen\u0151rz\u00e9s\u00e9t. Val\u00f3sz\u00edn\u0171leg a python-requests csomag hi\u00e1nyzik."
 	},
 	"options_use_light_icon": {
 		"description": "Use light icon that is looked better with dark themes.",
-		"message": "Use light icon (dark theme)"
+		"message": "Vil\u00e1gos ikon haszn\u00e1lata (s\u00f6t\u00e9t t\u00e9ma)"
 	},
 	"platform_not_supported": {
 		"message": "A nat\u00edv gazdacsatlakoz\u00f3 nem t\u00e1mogatott a platformj\u00e1n."
@@ -154,7 +154,7 @@
 	},
 	"synchronization_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused synchronization failure.",
-		"message": "A b\u0151v\u00edtm\u00e9nyek szinkroniz\u00e1l\u00e1sa sikertelen: $CAUSE$",
+		"message": "A kiterjeszt\u00e9sek szinkroniz\u00e1l\u00e1sa sikertelen: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
@@ -162,13 +162,13 @@
 		}
 	},
 	"synchronization_storage_exists": {
-		"message": "A t\u00e1voli szinkroniz\u00e1ci\u00f3s t\u00e1rol\u00f3 m\u00e1r tartalmazza a b\u0151v\u00edtm\u00e9nylist\u00e1t."
+		"message": "A t\u00e1voli szinkroniz\u00e1ci\u00f3s t\u00e1rol\u00f3 m\u00e1r tartalmazza a kiterjeszt\u00e9slist\u00e1t."
 	},
 	"synchronization_use_local": {
-		"message": "Haszn\u00e1lja a helyi b\u0151v\u00edtm\u00e9nylist\u00e1t, \u00edrja fel\u00fcl a t\u00e1volit."
+		"message": "Haszn\u00e1lja a helyi kiterjeszt\u00e9slist\u00e1t, \u00edrja fel\u00fcl a t\u00e1volit."
 	},
 	"synchronization_use_remote": {
-		"message": "Haszn\u00e1lja a t\u00e1voli b\u0151v\u00edtm\u00e9nylist\u00e1t, \u00edrja fel\u00fcl a helyit."
+		"message": "Haszn\u00e1lja a t\u00e1voli kiterjeszt\u00e9slist\u00e1t, \u00edrja fel\u00fcl a helyit."
 	},
 	"translation_credits": {
 		"description": "This is content of 'About translation' tab in Options dialog. Thank you for translation and feel free to add yourself here. HTML markup enabled for this string. New line character is treated as line break (<br />)",
@@ -183,11 +183,11 @@
 		"message": "ismeretlen hiba"
 	},
 	"update_available": {
-		"message": "Egy GNOME Shell b\u0151v\u00edtm\u00e9nyfriss\u00edt\u00e9s el\u00e9rhet\u0151"
+		"message": "Egy GNOME Shell kiterjeszt\u00e9sfriss\u00edt\u00e9s \u00e9rhet\u0151 el"
 	},
 	"update_check_failed": {
 		"description": "$CAUSE$ is placeholder for error that caused update failure.",
-		"message": "A GNOME Shell b\u0151v\u00edtm\u00e9nyfriss\u00edt\u00e9sek keres\u00e9se sikertelen: $CAUSE$",
+		"message": "A GNOME Shell kiterjeszt\u00e9sfriss\u00edt\u00e9sek keres\u00e9se sikertelen: $CAUSE$",
 		"placeholders": {
 			"cause": {
 				"content": "$1"
