@@ -22,6 +22,8 @@ ALARM_UPDATE_CHECK			= 'gs-chrome-update-check';
 
 MESSAGE_NEXT_UPDATE_CHANGED		= 'gs-next-update-changed';
 MESSAGE_SYNC_FROM_REMOTE		= 'gs-sync-from-remote';
+MESSAGE_IDLE_PERMISSION_ADDED	= 'gs-idle-added';
+MESSAGE_IDLE_PERMISSION_REMOVED	= 'gs-idle-removed';
 
 SIGNAL_EXTENSION_CHANGED		= 'ExtensionStatusChanged';
 SIGNAL_NOTIFICATION_ACTION		= 'NotificationAction';

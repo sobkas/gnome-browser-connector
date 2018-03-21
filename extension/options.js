@@ -277,6 +277,11 @@ function handleSynchronize()
 		}, function(granted) {
 			if(granted)
 			{
+				if(!COMPAT.PERMISSIONS_EVENTS)
+				{
+					chrome.runtime.sendMessage(GS_CHROME_ID, MESSAGE_IDLE_PERMISSION_ADDED);
+				}
+
 				chrome.storage.sync.get({
 					extensions: {}
 				}, function (options) {
@@ -288,6 +293,11 @@ function handleSynchronize()
 			}
 			else
 			{
+				if(!COMPAT.PERMISSIONS_EVENTS)
+				{
+					chrome.runtime.sendMessage(GS_CHROME_ID, MESSAGE_IDLE_PERMISSION_REMOVED);
+				}
+
 				setSyncExtensions(false);
 			}
 		});
@@ -297,6 +307,11 @@ function handleSynchronize()
 		chrome.permissions.remove({
 			permissions: ["idle"]
 		}, function(removed) {
+			if(removed && !COMPAT.PERMISSIONS_EVENTS)
+			{
+				chrome.runtime.sendMessage(GS_CHROME_ID, MESSAGE_IDLE_PERMISSION_REMOVED);
+			}
+
 			setSyncExtensions(!removed);
 		});
 	}
@@ -375,6 +390,11 @@ document.getElementById('syncChoice').addEventListener('close', function() {
 		chrome.permissions.remove({
 			permissions: ["idle"]
 		}, function(removed) {
+			if(removed && !COMPAT.PERMISSIONS_EVENTS)
+			{
+				chrome.runtime.sendMessage(GS_CHROME_ID, MESSAGE_IDLE_PERMISSION_REMOVED);
+			}
+
 			setSyncExtensions(!removed);
 		});
 	}

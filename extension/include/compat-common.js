@@ -11,6 +11,7 @@
 /* global chrome, COMPAT */
 
 COMPAT.PERMISSIONS_CONTAINS		= true;
+COMPAT.PERMISSIONS_EVENTS		= true;
 COMPAT.SYNC_STORAGE				= (!COMPAT.IS_OPERA || false);
 COMPAT.NOTIFICATIONS_BUTTONS	= (!COMPAT.IS_OPERA && !COMPAT.IS_FIREFOX || false);
 
@@ -31,34 +32,57 @@ if(typeof(chrome.permissions) === 'undefined')
 	COMPAT.PERMISSIONS_CONTAINS = false;
 }
 
-if(typeof(chrome.permissions.onAdded) === 'undefined')
+if(typeof(chrome.permissions.onAdded) === 'undefined' || typeof(chrome.permissions.onRemoved) === 'undefined')
 {
 	chrome.permissions.onAdded = {
 		addListener: function(callback) {
-			// Do nothing
+			chrome.runtime.onMessage.addListener(
+				function (request, sender, sendResponse) {
+					if (sender.id && sender.id === GS_CHROME_ID && request)
+					{
+						if (request === MESSAGE_IDLE_PERMISSION_ADDED)
+						{
+							callback({
+								permissions: ['idle']
+							});
+						}
+					}
+				}
+			);
 		},
 		removeListener: function(callback) {
-			// Do nothing
+			chrome.runtime.onMessage.removeListener(callback);
 		},
 		hasListener: function(callback) {
-			// Do nothing
+			return chrome.runtime.onMessage.hasListener(callback);
 		}
 	}
-}
 
-if(typeof(chrome.permissions.onRemoved) === 'undefined')
-{
 	chrome.permissions.onRemoved = {
 		addListener: function(callback) {
-			// Do nothing
+			chrome.runtime.onMessage.addListener(
+				function (request, sender, sendResponse) {
+					if (sender.id && sender.id === GS_CHROME_ID && request)
+					{
+						if (request === MESSAGE_IDLE_PERMISSION_REMOVED)
+						{
+							callback({
+								permissions: ['idle']
+							});
+						}
+					}
+				}
+			);
 		},
 		removeListener: function(callback) {
-			// Do nothing
+			chrome.runtime.onMessage.removeListener(callback);
 		},
 		hasListener: function(callback) {
-			// Do nothing
+			return chrome.runtime.onMessage.hasListener(callback);
 		}
 	}
+
+	COMPAT.PERMISSIONS_EVENTS = false;
 }
 
 if(typeof(chrome.storage.sync) === 'undefined')
