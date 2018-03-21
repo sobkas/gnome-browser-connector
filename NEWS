@@ -1,3 +1,34 @@
+= 2018-03-21 chrome-gnome-shell 10.1 =
+
+== Changes ==
+ * Firefox: multiple fixes of GNOME Shell extensions synchronization.
+ * Firefox 56 is minimum supported version now. ESR users should use browser extension
+   version 10.0.1.
+
+== Translations ==
+ * Croatian (gogo)
+ * Danish (Alan Mortensen, Ask Hjorth Larsen)
+ * Dutch (Nathan Follens)
+ * Estonian (Liivia Lilleväli, Mart Raudsepp)
+ * German (Mario Blättermann)
+ * Hungarian (Balázs Úr)
+ * Indonesian (Kukuh Syafaat)
+ * Serbian (Мирослав Николић)
+ * Spanish (Daniel Mustieles)
+ * Turkish (Emin Tufan Çetin)
+
+== Known issues ==
+ * In Firefox with enabled synchronization of GNOME Shell extensions all Shell extensions may be
+   removed after screen got locked because of missed support of "locked" idle state
+   in WebExtensions API implementation
+   (https://developer.mozilla.org/ru/Add-ons/WebExtensions/API/idle/onStateChanged).
+ * Chrome extension may be auto uninstalled after upgrade to connector version 10.
+   It can be restored using inline installation link at https://extensions.gnome.org or using
+   Chrome Store (https://chrome.google.com/webstore/detail/gphhapmejobijbbhgpjhcjognlahblep).
+ * Firefox can consume a lot of CPU and sometime crash on quit because of Mozilla's bug 1349874
+   (https://bugzilla.mozilla.org/show_bug.cgi?id=1349874).
+
+
 = 2018-02-04 chrome-gnome-shell 10 =
 
 == Changes ==
