@@ -90,7 +90,7 @@ endif(BUILD_MESSAGES AND NOT DEFINED GETTEXT_REPORT_EMAIL)
 if(BUILD_EXTENSION OR BUILD_CONNECTOR)
 	find_program_ex(base64 gbase64 FATAL_ERROR)
 	find_program_ex(sha256sum gsha256sum FATAL_ERROR)
-	find_program_ex(head ghead FATAL_ERROR)
+	find_program_ex(ghead head FATAL_ERROR)
 	find_program_ex(tr gtr FATAL_ERROR)
 	find_program_ex(jq FATAL_ERROR)
 
