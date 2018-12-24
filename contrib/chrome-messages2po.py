@@ -2,7 +2,7 @@
 
 '''
     GNOME Shell integration for Chrome
-    Copyright (C) 2016  Yuri Konotopov <ykonotopov@gnome.org>
+    Copyright (C) 2016-2018  Yuri Konotopov <ykonotopov@gnome.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@ def parseArguments():
 	parser.add_argument('--write-pot', '-p',
 			action='store_true',
 			dest='write_pot',
-			help='Write pot to template.pot')
+			help='Write pot to chrome-gnome-shell.pot')
 	parser.add_argument('--generate-po', '-g',
 			action='store_true',
 			dest='generate_po',
@@ -127,7 +127,7 @@ def run():
 		occurrences=[(METADATA_STORE_DESCRIPTION, 1)]
 	))
 
-	pot_path = os.path.join(args.po, "template.pot")
+	pot_path = os.path.join(args.po, "chrome-gnome-shell.pot")
 	if args.write_pot:
 		po.sort()
 		po.save(pot_path)

@@ -289,7 +289,7 @@ if(BUILD_MESSAGES)
 			WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/po
 			COMMAND ${GETTEXT_MSGMERGE_EXECUTABLE} -q --update
 				${PO}
-				${CMAKE_CURRENT_SOURCE_DIR}/po/template.pot)
+				${CMAKE_CURRENT_SOURCE_DIR}/po/chrome-gnome-shell.pot)
 	endforeach()
 
 	add_custom_command(TARGET update-po
