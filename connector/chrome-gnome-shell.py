@@ -35,6 +35,7 @@ DEBUG_ENABLED = False
 SHELL_SCHEMA = "org.gnome.shell"
 ENABLED_EXTENSIONS_KEY = "enabled-extensions"
 EXTENSION_DISABLE_VERSION_CHECK_KEY = "disable-extension-version-validation"
+DISABLE_USER_EXTENSIONS_KEY = "disable-user-extensions"
 
 # https://developer.chrome.com/extensions/nativeMessaging#native-messaging-host-protocol
 MESSAGE_LENGTH_SIZE = 4
@@ -371,6 +372,11 @@ class ChromeGNOMEShell(Gio.Application):
                 else:
                     disable_version_check = False
 
+                if DISABLE_USER_EXTENSIONS_KEY in settings.keys():
+                    disable_user_extensions = settings.get_boolean(DISABLE_USER_EXTENSIONS_KEY)
+                else:
+                    disable_user_extensions = False
+
                 supports = ['notifications', "update-enabled"]
                 if REQUESTS_IMPORTED:
                     supports.append('update-check')
@@ -382,6 +388,7 @@ class ChromeGNOMEShell(Gio.Application):
                             'connectorVersion': CONNECTOR_VERSION,
                             'shellVersion': shell_version.unpack() if shell_version is not None else None,
                             'versionValidationEnabled': not disable_version_check,
+                            'userExtensionsDisabled': disable_user_extensions,
                             'supports': supports
                         }
                     }

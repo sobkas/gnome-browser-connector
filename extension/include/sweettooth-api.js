@@ -28,9 +28,10 @@ GSC.getMessage = function (key) {
 
 window.SweetTooth = function () {
 	var apiObject = {
-		apiVersion: 5,
+		apiVersion: 6,
 		shellVersion: '-1',
 		versionValidationEnabled: true,
+		userExtensionsDisabled: false,
 
 		getChromeExtensionId: function () {
 			return GS_CHROME_ID;
@@ -87,6 +88,7 @@ window.SweetTooth = function () {
 			ready.then(function (response) {
 				apiObject.shellVersion = response.shellVersion;
 				apiObject.versionValidationEnabled = response.versionValidationEnabled;
+				apiObject.userExtensionsDisabled = response.userExtensionsDisabled;
 
 				let REQUIRED_APIS = [
 					"notifications"
