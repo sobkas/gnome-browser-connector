@@ -3,7 +3,7 @@
 
 """
     GNOME Shell integration for Chrome
-    Copyright (C) 2016-2018  Yuri Konotopov <ykonotopov@gnome.org>
+    Copyright (C) 2016-2019  Yuri Konotopov <ykonotopov@gnome.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -357,6 +357,17 @@ class ChromeGNOMEShell(Gio.Application):
         else:
             raise Exception("Unknown data type: %s" % type(data))
 
+    def set_shell_boolean(self, key, value):
+        source = Gio.SettingsSchemaSource.get_default()
+
+        if source is not None and source.lookup(SHELL_SCHEMA, True) is not None:
+            settings = Gio.Settings.new(SHELL_SCHEMA)
+
+            if key in settings.keys():
+                return settings.set_boolean(key, True if value else False)
+
+        return False
+
     def process_request(self, request):
         debug('Execute: to %s' % request['execute'])
 
@@ -480,6 +491,22 @@ class ChromeGNOMEShell(Gio.Application):
             self.dbus_call_response("UninstallExtension",
                                     GLib.Variant.new_tuple(GLib.Variant.new_string(request['uuid'])),
                                     "status")
+
+        elif request['execute'] == 'setUserExtensionsDisabled':
+            self.send_message({
+                'success': self.set_shell_boolean(
+                    DISABLE_USER_EXTENSIONS_KEY,
+                    request['disable']
+                )
+            })
+
+        elif request['execute'] == 'setVersionValidationDisabled':
+            self.send_message({
+                'success': self.set_shell_boolean(
+                    EXTENSION_DISABLE_VERSION_CHECK_KEY,
+                    request['disable']
+                )
+            })
 
         elif request['execute'] == 'checkUpdate':
             update_url = 'https://extensions.gnome.org/update-info/'

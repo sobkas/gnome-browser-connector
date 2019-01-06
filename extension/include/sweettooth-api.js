@@ -1,6 +1,6 @@
 /*
     GNOME Shell integration for Chrome
-    Copyright (C) 2016  Yuri Konotopov <ykonotopov@gnome.org>
+    Copyright (C) 2016-2019  Yuri Konotopov <ykonotopov@gnome.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -63,6 +63,30 @@ window.SweetTooth = function () {
 
 		uninstallExtension: function (uuid) {
 			return sendResolveExtensionMessage("uninstallExtension", "status", {uuid: uuid});
+		},
+
+		setUserExtensionsDisabled: function (disable) {
+			return sendResolveExtensionMessage("setUserExtensionsDisabled", "success", {disable: disable})
+				.then(success => {
+					if(success)
+					{
+						apiObject.userExtensionsDisabled = disable;
+					}
+
+					return success;
+				});
+		},
+
+		setVersionValidationDisabled: function (disable) {
+			return sendResolveExtensionMessage("setVersionValidationDisabled", "success", {disable: disable})
+				.then(success => {
+					if(success)
+					{
+						apiObject.versionValidationEnabled = !disable;
+					}
+
+					return success;
+				});
 		},
 
 		initialize: function () {
