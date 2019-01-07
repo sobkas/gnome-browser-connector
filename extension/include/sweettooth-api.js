@@ -171,6 +171,10 @@ window.SweetTooth = function () {
 				{
 					apiObject.onshellrestart();
 				}
+				else if (event.data.request.signal == 'ShellSettingsChanged' && apiObject.onShellSettingChanged)
+				{
+					apiObject.onShellSettingChanged(event.data.request.key, event.data.request.value);
+				}
 			}
 		}
 	}, false);

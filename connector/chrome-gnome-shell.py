@@ -64,8 +64,11 @@ class ChromeGNOMEShell(Gio.Application):
             else Gio.ApplicationFlags.IS_LAUNCHER | Gio.ApplicationFlags.HANDLES_OPEN
         )
 
+        self.gio_settings = None
         self.shellAppearedId = None
         self.shellSignalId = None
+        self.disableUserExtensionsSignalId = None
+        self.disableVersionCheckSignalId = None
 
         # Set custom exception hook
         # noinspection SpellCheckingInspection
@@ -124,6 +127,14 @@ class ChromeGNOMEShell(Gio.Application):
 
             if dbus_connection is not None:
                 dbus_connection.signal_unsubscribe(self.shellSignalId)
+
+        if self.disableUserExtensionsSignalId:
+            if self.gio_settings is not None:
+                self.gio_settings.disconnect(self.disableUserExtensionsSignalId)
+
+        if self.disableVersionCheckSignalId:
+            if self.gio_settings is not None:
+                self.gio_settings.disconnect(self.disableVersionCheckSignalId)
 
         self.release()
 
@@ -257,6 +268,17 @@ class ChromeGNOMEShell(Gio.Application):
         self.send_message({'signal': name})
         debug('Signal: from %s' % name)
 
+    def on_setting_changed(self, settings, key):
+        if not key in (DISABLE_USER_EXTENSIONS_KEY, EXTENSION_DISABLE_VERSION_CHECK_KEY):
+            return
+
+        debug('on_setting_changed: %s=%s' % (key, settings.get_value(key).unpack()))
+        self.send_message({
+            'signal': 'ShellSettingsChanged',
+            'key': key,
+            'value': settings.get_value(key).unpack()
+        })
+
     # General events
     # noinspection PyUnusedLocal
     def on_hup(self, source, condition, data):
@@ -357,14 +379,17 @@ class ChromeGNOMEShell(Gio.Application):
         else:
             raise Exception("Unknown data type: %s" % type(data))
 
+    def obtain_gio_settings(self):
+        if not self.gio_settings:
+            source = Gio.SettingsSchemaSource.get_default()
+
+            if source is not None and source.lookup(SHELL_SCHEMA, True) is not None:
+                self.gio_settings = Gio.Settings.new(SHELL_SCHEMA)
+
     def set_shell_boolean(self, key, value):
-        source = Gio.SettingsSchemaSource.get_default()
-
-        if source is not None and source.lookup(SHELL_SCHEMA, True) is not None:
-            settings = Gio.Settings.new(SHELL_SCHEMA)
-
-            if key in settings.keys():
-                return settings.set_boolean(key, True if value else False)
+        self.obtain_gio_settings()
+        if key in self.gio_settings.keys():
+            return self.gio_settings.set_boolean(key, True if value else False)
 
         return False
 
@@ -372,19 +397,18 @@ class ChromeGNOMEShell(Gio.Application):
         debug('Execute: to %s' % request['execute'])
 
         if request['execute'] == 'initialize':
-            source = Gio.SettingsSchemaSource.get_default()
             shell_version = self.shell_proxy.get_cached_property("ShellVersion")
 
-            if source is not None and source.lookup(SHELL_SCHEMA, True) is not None and shell_version is not None:
-                settings = Gio.Settings.new(SHELL_SCHEMA)
+            if shell_version is not None:
+                self.obtain_gio_settings()
 
-                if EXTENSION_DISABLE_VERSION_CHECK_KEY in settings.keys():
-                    disable_version_check = settings.get_boolean(EXTENSION_DISABLE_VERSION_CHECK_KEY)
+                if EXTENSION_DISABLE_VERSION_CHECK_KEY in self.gio_settings.keys():
+                    disable_version_check = self.gio_settings.get_boolean(EXTENSION_DISABLE_VERSION_CHECK_KEY)
                 else:
                     disable_version_check = False
 
-                if DISABLE_USER_EXTENSIONS_KEY in settings.keys():
-                    disable_user_extensions = settings.get_boolean(DISABLE_USER_EXTENSIONS_KEY)
+                if DISABLE_USER_EXTENSIONS_KEY in self.gio_settings.keys():
+                    disable_user_extensions = self.gio_settings.get_boolean(DISABLE_USER_EXTENSIONS_KEY)
                 else:
                     disable_user_extensions = False
 
@@ -434,6 +458,18 @@ class ChromeGNOMEShell(Gio.Application):
                     None
                 )
 
+            if not self.disableUserExtensionsSignalId:
+                self.obtain_gio_settings()
+                self.disableUserExtensionsSignalId = self.gio_settings.connect(
+                    "changed::%s" % DISABLE_USER_EXTENSIONS_KEY,
+                    self.on_setting_changed)
+
+            if not self.disableVersionCheckSignalId:
+                self.obtain_gio_settings()
+                self.disableVersionCheckSignalId = self.gio_settings.connect(
+                    "changed::%s" % EXTENSION_DISABLE_VERSION_CHECK_KEY,
+                    self.on_setting_changed)
+
         elif request['execute'] == 'installExtension':
             self.dbus_call_response(
                 "InstallRemoteExtension",
@@ -445,8 +481,8 @@ class ChromeGNOMEShell(Gio.Application):
             self.dbus_call_response("ListExtensions", None, "extensions")
 
         elif request['execute'] == 'enableExtension':
-            settings = Gio.Settings.new(SHELL_SCHEMA)
-            uuids = settings.get_strv(ENABLED_EXTENSIONS_KEY)
+            self.obtain_gio_settings()
+            uuids = self.gio_settings.get_strv(ENABLED_EXTENSIONS_KEY)
 
             extensions = []
             if 'extensions' in request:
@@ -464,7 +500,7 @@ class ChromeGNOMEShell(Gio.Application):
                 elif extension['uuid'] in uuids:
                     uuids = [value for value in uuids if value != extension['uuid']]
 
-            settings.set_strv(ENABLED_EXTENSIONS_KEY, uuids)
+            self.gio_settings.set_strv(ENABLED_EXTENSIONS_KEY, uuids)
 
             self.send_message({'success': True})
 
@@ -545,9 +581,9 @@ class ChromeGNOMEShell(Gio.Application):
             None
         )
 
+        self.obtain_gio_settings()
         extensions = result.unpack()[0]
-        settings = Gio.Settings.new(SHELL_SCHEMA)
-        enabled_extensions = settings.get_strv(ENABLED_EXTENSIONS_KEY)
+        enabled_extensions = self.gio_settings.get_strv(ENABLED_EXTENSIONS_KEY)
 
         if extensions:
             http_request = {

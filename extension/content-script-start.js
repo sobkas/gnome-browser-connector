@@ -1,6 +1,6 @@
 /*
     GNOME Shell integration for Chrome
-    Copyright (C) 2016  Yuri Konotopov <ykonotopov@gnome.org>
+    Copyright (C) 2016-2019  Yuri Konotopov <ykonotopov@gnome.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -42,7 +42,8 @@ chrome.runtime.onMessage.addListener(
 	function (request, sender, sendResponse) {
 		if(
 			sender.id && sender.id === GS_CHROME_ID &&
-			request && request.signal && [SIGNAL_EXTENSION_CHANGED, SIGNAL_SHELL_APPEARED].indexOf(request.signal) !== -1)
+			request && request.signal &&
+			[SIGNAL_EXTENSION_CHANGED, SIGNAL_SHELL_APPEARED, SIGNAL_SHELL_SETTING_CHANGED].indexOf(request.signal) !== -1)
 		{
 			window.postMessage(
 				{

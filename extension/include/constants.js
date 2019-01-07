@@ -1,6 +1,6 @@
 /*
     GNOME Shell integration for Chrome
-    Copyright (C) 2016-2018  Yuri Konotopov <ykonotopov@gnome.org>
+    Copyright (C) 2016-2019  Yuri Konotopov <ykonotopov@gnome.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@ MESSAGE_IDLE_PERMISSION_REMOVED	= 'gs-idle-removed';
 SIGNAL_EXTENSION_CHANGED		= 'ExtensionStatusChanged';
 SIGNAL_NOTIFICATION_ACTION		= 'NotificationAction';
 SIGNAL_NOTIFICATION_CLICKED		= 'NotificationClicked';
+SIGNAL_SHELL_SETTING_CHANGED	= 'ShellSettingsChanged';
 SIGNAL_SHELL_APPEARED			= 'org.gnome.Shell';
 
 EXTENSION_CHANGED_UUID			= 0;

@@ -1,6 +1,6 @@
 /*
     GNOME Shell integration for Chrome
-    Copyright (C) 2016-2018  Yuri Konotopov <ykonotopov@gnome.org>
+    Copyright (C) 2016-2019  Yuri Konotopov <ykonotopov@gnome.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -83,12 +83,15 @@ var port = chrome.runtime.connectNative(NATIVE_HOST);
 port.onMessage.addListener(function (message) {
 	if (message && message.signal)
 	{
-		if([SIGNAL_EXTENSION_CHANGED, SIGNAL_SHELL_APPEARED].indexOf(message.signal) !== -1)
+		if([SIGNAL_EXTENSION_CHANGED, SIGNAL_SHELL_APPEARED, SIGNAL_SHELL_SETTING_CHANGED].indexOf(message.signal) !== -1)
 		{
 			/*
 			 * Skip duplicate events. This is happens eg when extension is installed.
 			 */
-			if ((new Date().getTime()) - lastPortMessage.date < 1000 && GSC.isSignalsEqual(message, lastPortMessage.message))
+			if (
+					message.signal != SIGNAL_SHELL_SETTING_CHANGED &&
+					(new Date().getTime()) - lastPortMessage.date < 1000 && GSC.isSignalsEqual(message, lastPortMessage.message)
+			)
 			{
 				lastPortMessage.date = new Date().getTime();
 				return;
