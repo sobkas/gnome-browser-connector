@@ -28,7 +28,7 @@ GSC.getMessage = function (key) {
 
 window.SweetTooth = function () {
 	var apiObject = {
-		apiVersion: 6,
+		apiVersion: 5,
 		shellVersion: '-1',
 		versionValidationEnabled: true,
 		userExtensionsDisabled: false,
@@ -115,7 +115,8 @@ window.SweetTooth = function () {
 				apiObject.userExtensionsDisabled = response.userExtensionsDisabled;
 
 				let REQUIRED_APIS = [
-					"notifications"
+					"notifications",
+					"v6"
 				];
 
 				if(response.supports)
@@ -126,6 +127,11 @@ window.SweetTooth = function () {
 						if((api_index = REQUIRED_APIS.indexOf(api)) != -1)
 						{
 							REQUIRED_APIS.splice(api_index, 1);
+						}
+
+						if(api === 'v6')
+						{
+							apiObject.apiVersion = 6;
 						}
 					}
 				}

@@ -412,7 +412,7 @@ class ChromeGNOMEShell(Gio.Application):
                 else:
                     disable_user_extensions = False
 
-                supports = ['notifications', "update-enabled"]
+                supports = ['notifications', "update-enabled", 'v6']
                 if REQUESTS_IMPORTED:
                     supports.append('update-check')
 
