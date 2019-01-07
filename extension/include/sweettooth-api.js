@@ -173,6 +173,15 @@ window.SweetTooth = function () {
 				}
 				else if (event.data.request.signal == 'ShellSettingsChanged' && apiObject.onShellSettingChanged)
 				{
+					if(event.data.request.key === 'disable-user-extensions')
+					{
+						apiObject.userExtensionsDisabled = event.data.request.value;
+					}
+					else if(event.data.request.key === 'disable-extension-version-validation')
+					{
+						apiObject.versionValidationEnabled = !event.data.request.value;
+					}
+
 					apiObject.onShellSettingChanged(event.data.request.key, event.data.request.value);
 				}
 			}
