@@ -62,6 +62,11 @@ chrome.runtime.onMessageExternal.addListener(function (request, sender, sendResp
 						sendResponse
 					);
 					return true;
+
+				case 'setUserExtensionsDisabled':
+				case 'setVersionValidationDisabled':
+					GSC.sendNativeRequest({execute: request.execute, disable: request.disable ? true : false}, sendResponse);
+					return true;
 			}
 		}
 	}
