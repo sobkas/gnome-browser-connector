@@ -11,7 +11,7 @@ that provides integration with GNOME Shell and the corresponding extensions repo
 
 Requirements
 ------------
- * GNOME Shell up to 3.28
+ * GNOME Shell
  * Python 2.7+ or 3.x
  * PyGObject
  * Python Requests 2.x
