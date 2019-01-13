@@ -587,24 +587,22 @@ class ChromeGNOMEShell(Gio.Application):
 
         if extensions:
             http_request = {
-                'shell_version': self.shell_proxy.get_cached_property("ShellVersion").unpack(),
-                'installed': {}
+                'shell_version': self.shell_proxy.get_cached_property("ShellVersion").unpack()
             }
+            installed = {}
 
             for uuid in extensions:
                 # gnome-shell/js/misc/extensionUtils.js
                 # EXTENSION_TYPE.PER_USER = 2
                 if is_uuid(uuid) and extensions[uuid]['type'] == 2 and (not enabled_only or uuid in enabled_extensions):
                     try:
-                        http_request['installed'][uuid] = {
+                        installed[uuid] = {
                             'version': int(extensions[uuid]['version'])
                         }
                     except (ValueError, KeyError):
-                        http_request['installed'][uuid] = {
+                        installed[uuid] = {
                             'version': 1
                         }
-
-            http_request['installed'] = json.dumps(http_request['installed'])
 
             proxies = Gio.ProxyResolver.get_default().lookup(update_url)
             if proxies is not None:
@@ -617,8 +615,9 @@ class ChromeGNOMEShell(Gio.Application):
                         proxies[scheme] = proxy
 
             try:
-                response = requests.get(
+                response = requests.post(
                     update_url,
+                    json=installed,
                     params=http_request,
                     proxies=proxies,
                     timeout=5

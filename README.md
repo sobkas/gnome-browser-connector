@@ -14,7 +14,7 @@ Requirements
  * GNOME Shell
  * Python 2.7+ or 3.x
  * PyGObject
- * Python Requests 2.x
+ * Python Requests >= 2.4.2
 
 Installation
 ------------
