@@ -1,20 +1,20 @@
 # Korean translation for chrome-gnome-shell.
 # Copyright (C) 2017 chrome-gnome-shell's COPYRIGHT HOLDER
 # This file is distributed under the same license as the chrome-gnome-shell package.
-# Seong-ho Cho <shcho@gnome.org>, 2017.
+# Seong-ho Cho <shcho@gnome.org>, 2017, 2019.
 #
 # !! 주의 !! 주의 !! 주의 !!
 #
 # 이 익스텐션은 gnome-shell과 직접적인 관계가 있으므로
 # gnome-shell의 번역 용어를 준수하도록 한다.
-# "shell"은 "셸"이라고 하고 "셸"이라고 하지 않는다.
+# "shell"은 "셸"이라고 하고 "쉘"이라고 하지 않는다.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2017-04-09 15:03+0000\n"
-"PO-Revision-Date: 2017-04-11 22:28+0900\n"
+"POT-Creation-Date: 2018-01-28 18:25+0000\n"
+"PO-Revision-Date: 2019-03-07 14:16+0900\n"
 "Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
 "Language-Team: Korean <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
@@ -202,6 +202,19 @@ msgstr "$GS_CHROME$ 옵션"
 msgid "Check for GNOME Shell extensions update"
 msgstr "그놈 셸 확장 기능 업데이트 확인"
 
+#. Option name.
+#: chrome-gnome-shell-key-options_update_check_enabled:1
+msgid "Check update of enabled GNOME Shell extensions only"
+msgstr "활성 그놈 셸 확장 기능의 업데이트만 검사"
+
+#: chrome-gnome-shell-key-options_update_check_enabled_notice:1
+msgid ""
+"Your native host connector does not support updates check for enabled GNOME "
+"Shell extensions only. Consider update."
+msgstr ""
+"자체 호스트 연결 프로그램에서 활성 그놈 셸 확장 기능 업데이트 검사 기능을 지"
+"원하지 않습니다."
+
 #: chrome-gnome-shell-key-options_update_check_notice:1
 msgid ""
 "Your native host connector does not support check for GNOME Shell extensions "
@@ -209,6 +222,11 @@ msgid ""
 msgstr ""
 "이 자체 플랫폼 연결 프로그램에서 그놈 셸 확장 기능 업데이트 확인을 지원하지 "
 "않습니다. python-request 패키지가 빠진 것 같습니다."
+
+#. Use light icon that is looked better with dark themes.
+#: chrome-gnome-shell-key-options_use_light_icon:1
+msgid "Use light icon (dark theme)"
+msgstr "밝은 아이콘 사용(어두움 테마)"
 
 #: chrome-gnome-shell-key-platform_not_supported:1
 msgid "Native host connector is not supported for your platform."
@@ -309,20 +327,8 @@ msgid ""
 "For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
 "archlinux.org/packages/chrome-gnome-shell-git\n"
 "\n"
-"For Debian Linux there is package available in Sid and Stretch: https://"
-"tracker.debian.org/pkg/chrome-gnome-shell\n"
-"\n"
-"For Fedora Linux there is package available in Copr: https://copr."
-"fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
-"\n"
-"In Gentoo Linux you can install connector with command:\n"
-"emerge gnome-extra/chrome-gnome-shell\n"
-"\n"
-"For Ubuntu Linux package is available in ne0sight/chrome-gnome-shell PPA. To "
-"install it type:\n"
-"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
-"sudo apt-get update\n"
-"sudo apt-get install chrome-gnome-shell\n"
+"For Debian, Fedora, Gentoo and Ubuntu you can install package named \"chrome-"
+"gnome-shell\".\n"
 "\n"
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
@@ -332,20 +338,8 @@ msgstr ""
 "아치 리눅스에서는 AUR의 PKGBUILD를 활용하십시오: https://aur.archlinux.org/"
 "packages/chrome-gnome-shell-git\n"
 "\n"
-"데비안 리눅스에서는 Sid와 Stretch 버전에 패키지가 있습니다: https://tracker."
-"debian.org/pkg/chrome-gnome-shell\n"
-"\n"
-"페도라 리눅스에서는 Copr버전에 패키지가 있습니다: https://copr."
-"fedorainfracloud.org/coprs/region51/chrome-gnome-shell\n"
-"\n"
-"젠투 리눅스에서는 다음 명령으로 연결 프로그램을 설치할 수 있습니다:\n"
-"emerge gnome-extra/chrome-gnome-shell\n"
-"\n"
-"우분투 리눅스에서는 ne0sight/chrome-gnome-shell PPA 저장소에 해당 패키지가 있"
-"습니다. 설치하려면 다음 명령어를 입력하십시오:\n"
-"sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell\n"
-"sudo apt-get update\n"
-"sudo apt-get install chrome-gnome-shell\n"
+"데비안, 페도라, 젠투, 우분투에서는 \"chrome-gnome-shell\" 패키지를 설치하실 "
+"수 있습니다\n"
 "\n"
 "연결 프로그램을 직접 설치할 수도 있습니다. 설치 방법은 https://wiki.gnome."
 "org/Projects/GnomeShellIntegrationForChrome/Installation 페이지를 참고하십시"
