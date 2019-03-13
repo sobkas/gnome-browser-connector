@@ -2,13 +2,13 @@
 # Copyright (C) 2019 chrome-gnome-shell's COPYRIGHT HOLDER
 # This file is distributed under the same license as the chrome-gnome-shell package.
 # sicklylife <translation@sicklylife.jp>, 2019.
+# Kiyotaka Nishibori <ml.nishibori.kiyotaka@gmail.com>, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
 "POT-Creation-Date: 2018-01-28 18:25+0000\n"
-"PO-Revision-Date: 2019-03-07 18:50+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -77,8 +77,8 @@ msgid ""
 "This extension provides integration with GNOME Shell and the corresponding "
 "extensions repository https://extensions.gnome.org"
 msgstr ""
-"この拡張機能は GNOME Shell と拡張機能リポジトリ https://extensions.gnome.org "
-"の統合を提供します"
+"GNOME Shell とその拡張機能リポジトリ https://extensions.gnome.org を統合する"
+"ブラウザー拡張機能です"
 
 #. $REQUEST$ is a placeholder for technical name of request that web extension
 #. make via native messaging host application.
