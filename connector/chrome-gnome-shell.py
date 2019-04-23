@@ -17,7 +17,6 @@ from gi.repository import GLib, Gio
 import json
 import os
 import re
-import requests
 import signal
 import struct
 import sys
