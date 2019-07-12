@@ -202,13 +202,13 @@ if(BUILD_CONNECTOR)
 	install(FILES "${CMAKE_BINARY_DIR}/org.gnome.ChromeGnomeShell.service" DESTINATION "${CMAKE_INSTALL_DATADIR}/dbus-1/services/")
 
 	install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/extension/icons/GnomeLogo-16.png"
-		DESTINATION "${CMAKE_INSTALL_DATADIR}/icons/gnome/16x16/apps/"
+		DESTINATION "${CMAKE_INSTALL_DATADIR}/icons/hicolor/16x16/apps/"
 		RENAME org.gnome.ChromeGnomeShell.png)
 	install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/extension/icons/GnomeLogo-48.png"
-		DESTINATION "${CMAKE_INSTALL_DATADIR}/icons/gnome/48x48/apps/"
+		DESTINATION "${CMAKE_INSTALL_DATADIR}/icons/hicolor/48x48/apps/"
 		RENAME org.gnome.ChromeGnomeShell.png)
 	install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/extension/icons/GnomeLogo-128.png"
-		DESTINATION "${CMAKE_INSTALL_DATADIR}/icons/gnome/128x128/apps/"
+		DESTINATION "${CMAKE_INSTALL_DATADIR}/icons/hicolor/128x128/apps/"
 		RENAME org.gnome.ChromeGnomeShell.png)
 endif(BUILD_CONNECTOR)
 
