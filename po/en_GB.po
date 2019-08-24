@@ -1,0 +1,342 @@
+# British English translation for chrome-gnome-shell.
+# Copyright (C) 2019 chrome-gnome-shell's COPYRIGHT HOLDER
+# This file is distributed under the same license as the chrome-gnome-shell package.
+# Zander Brown <zbrown@gnome.org>, 2019.
+# Bruce Cowan <bruce@bcowan.me.uk>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: chrome-gnome-shell master\n"
+"Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
+"POT-Creation-Date: 2018-01-28 18:25+0000\n"
+"PO-Revision-Date: 2019-08-24 11:15+0100\n"
+"Last-Translator: Bruce Cowan <bruce@bcowan.me.uk>\n"
+"Language-Team: English - United Kingdom <en@li.org>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 3.32.1\n"
+
+#: chrome-gnome-shell-key-close:1
+msgid "Close"
+msgstr "Close"
+
+#. Shown to user when response from connector API call does not follow known
+#. format.
+#: chrome-gnome-shell-key-error_connector_response:1
+msgid "Wrong connector response received"
+msgstr "Wrong connector response received"
+
+#. Used as title, eg in table header. Means 'Does GNOME Shell extension
+#. enabled?'
+#: chrome-gnome-shell-key-extension_enabled:1
+msgid "Enabled"
+msgstr "Enabled"
+
+#. Used as title, eg in table header. Means 'Does GNOME Shell extension
+#. installed?'
+#: chrome-gnome-shell-key-extension_installed:1
+msgid "Installed"
+msgstr "Installed"
+
+#. Used as title, eg in table header. Means 'GNOME Shell extension name'.
+#: chrome-gnome-shell-key-extension_name:1
+msgid "Extension"
+msgstr "Extension"
+
+#. This is a part of phrase like 'Extension Top Icons must be downgraded'.
+#: chrome-gnome-shell-key-extension_status_downgrade:1
+msgid "must be downgraded"
+msgstr "must be downgraded"
+
+#. This is a part of phrase like 'Extension Top Icons can be upgraded'.
+#: chrome-gnome-shell-key-extension_status_upgrade:1
+msgid "can be upgraded"
+msgstr "can be upgraded"
+
+#. Used as title, eg in table header. Means 'Does GNOME Shell extension status
+#. synchronized with remote browser storage?'
+#: chrome-gnome-shell-key-extension_synchronized:1
+msgid "Synchronized"
+msgstr "Synchronised"
+
+#. This is a project title. Used as extension name in Chrome Store and in some
+#. titlebars.
+#: chrome-gnome-shell-key-gs_chrome:1
+msgid "GNOME Shell integration"
+msgstr "GNOME Shell integration"
+
+#. This is a part of phrase 'Update check period: xx hours'
+#: chrome-gnome-shell-key-hours:1
+msgid "hours"
+msgstr "hours"
+
+#. Used as extension description in Chrome Store
+#: chrome-gnome-shell-key-manifest_description:1
+msgid ""
+"This extension provides integration with GNOME Shell and the corresponding "
+"extensions repository https://extensions.gnome.org"
+msgstr ""
+"This extension provides integration with GNOME Shell and the corresponding "
+"extensions repository https://extensions.gnome.org"
+
+#. $REQUEST$ is a placeholder for technical name of request that web extension
+#. make via native messaging host application.
+#.
+#. String placeholders:
+#. request
+#.
+#: chrome-gnome-shell-key-native_request_failed:1
+msgid "«$REQUEST$» native request failed"
+msgstr "«$REQUEST$» native request failed"
+
+#. This is a part of phrase 'Last check: never'
+#: chrome-gnome-shell-key-never:1
+msgid "never"
+msgstr "never"
+
+#: chrome-gnome-shell-key-no:1
+msgid "No"
+msgstr "No"
+
+#. Shown to user when native connector unable to query GNOME Shell version or
+#. settings
+#: chrome-gnome-shell-key-no_gnome_shell:1
+msgid ""
+"Unable to locate GNOME Shell settings or version. Make sure it is installed "
+"and running."
+msgstr ""
+"Unable to locate GNOME Shell settings or version. Make sure it is installed "
+"and running."
+
+#: chrome-gnome-shell-key-no_host_connector:1
+msgid ""
+"Although GNOME Shell integration extension is running, native host connector "
+"is not detected. Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions about installing connector."
+msgstr ""
+"Although the GNOME Shell integration extension is running, native host "
+"connector is not detected. Refer to <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>the documentation</a> for "
+"instructions about installing connector."
+
+#. Means 'Web extension does not received answer from native messaging host
+#. application.'
+#: chrome-gnome-shell-key-no_host_response:1
+msgid "No host response"
+msgstr "No host response"
+
+#. Tooltip for browser extensions icon.
+#: chrome-gnome-shell-key-open_website:1
+msgid "Open GNOME Shell extensions website"
+msgstr "Open GNOME Shell extensions website"
+
+#. Option name. Allow to set interval between GNOME Shell extensions update
+#. checks.
+#: chrome-gnome-shell-key-options_check_period:1
+msgid "Update check period"
+msgstr "Update check period"
+
+#. This is a start of phrase (followed by date/time) of last GNOME Shell
+#. extensions update check.
+#: chrome-gnome-shell-key-options_last_check:1
+msgid "Last check"
+msgstr "Last check"
+
+#. Link name for options tab.
+#: chrome-gnome-shell-key-options_link:1
+msgid "Options"
+msgstr "Options"
+
+#. This is a start of phrase (followed by date/time) of next GNOME Shell
+#. extensions update check.
+#: chrome-gnome-shell-key-options_next_check:1
+msgid "Next check"
+msgstr "Next check"
+
+#. Means 'Options were saved successfully after user clicked Save button'
+#: chrome-gnome-shell-key-options_saved:1
+msgid "Options saved."
+msgstr "Options saved."
+
+#. Option name. Allow to enable/disable popup with release notes when Web
+#. extension is updated.
+#: chrome-gnome-shell-key-options_show_release_notes:1
+msgid "Show release notes when browser extension updated"
+msgstr "Show release notes when browser extension updated"
+
+#. Option name. Allow to enable/disable synchronization of GNOME Shell
+#. extensions with remote browser storage.
+#: chrome-gnome-shell-key-options_synchronize_extensions:1
+msgid "Synchronize GNOME Shell extensions list"
+msgstr "Synchronise GNOME Shell extensions list"
+
+#. This is a notice under option name.
+#: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
+msgid ""
+"If enabled, your GNOME Shell extensions list will be synchronized with your "
+"Google account."
+msgstr ""
+"If enabled, your GNOME Shell extensions list will be synchronised with your "
+"Google account."
+
+#. $GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This
+#. string used as title for Options page. This title is not shown in Chrome,
+#. but may be shown in other browsers.
+#.
+#. String placeholders:
+#. gs_chrome
+#.
+#: chrome-gnome-shell-key-options_title:1
+msgid "$GS_CHROME$ options"
+msgstr "$GS_CHROME$ options"
+
+#. Option name. Allow enable/disable update check for GNOME Shell extensions.
+#: chrome-gnome-shell-key-options_update_check:1
+msgid "Check for GNOME Shell extensions update"
+msgstr "Check for GNOME Shell extensions update"
+
+#. Option name.
+#: chrome-gnome-shell-key-options_update_check_enabled:1
+msgid "Check update of enabled GNOME Shell extensions only"
+msgstr "Check update of enabled GNOME Shell extensions only"
+
+#: chrome-gnome-shell-key-options_update_check_enabled_notice:1
+msgid ""
+"Your native host connector does not support updates check for enabled GNOME "
+"Shell extensions only. Consider update."
+msgstr ""
+"Your native host connector does not support checking only GNOME Shell "
+"extensions that are enabled, Consider updating the connector"
+
+#: chrome-gnome-shell-key-options_update_check_notice:1
+msgid ""
+"Your native host connector does not support check for GNOME Shell extensions "
+"updates. Probably python-requests package is missing."
+msgstr ""
+"Your native host connector does not support checking for updates. Probably "
+"missing the python-requests package."
+
+#. Use light icon that is looked better with dark themes.
+#: chrome-gnome-shell-key-options_use_light_icon:1
+msgid "Use light icon (dark theme)"
+msgstr "Use light icon (dark theme)"
+
+#: chrome-gnome-shell-key-platform_not_supported:1
+msgid "Native host connector is not supported for your platform."
+msgstr "Native host connector is not supported for your platform."
+
+#: chrome-gnome-shell-key-retry:1
+msgid "Retry"
+msgstr "Retry"
+
+#: chrome-gnome-shell-key-save:1
+msgid "Save"
+msgstr "Save"
+
+#. Link name for synchronization tab in options dialog.
+#: chrome-gnome-shell-key-synchronization:1
+msgid "Synchronization"
+msgstr "Synchronisation"
+
+#: chrome-gnome-shell-key-synchronization_cancel:1
+msgid "Do not enable synchronization."
+msgstr "Do not enable synchronisation."
+
+#. $CAUSE$ is placeholder for error that caused synchronization failure.
+#.
+#. String placeholders:
+#. cause
+#.
+#: chrome-gnome-shell-key-synchronization_failed:1
+msgid "Failed to synchronize extensions: $CAUSE$"
+msgstr "Failed to synchronise extensions: $CAUSE$"
+
+#: chrome-gnome-shell-key-synchronization_storage_exists:1
+msgid "Your remote synchronization storage already contains extensions list."
+msgstr "Your remote synchronisation storage already contains extensions list."
+
+#: chrome-gnome-shell-key-synchronization_use_local:1
+msgid "Use local extensions list, overwrite remote."
+msgstr "Use local extensions list, overwrite remote."
+
+#: chrome-gnome-shell-key-synchronization_use_remote:1
+msgid "Use remote extensions list, overwrite local."
+msgstr "Use remote extensions list, overwrite local."
+
+#. This is content of 'About translation' tab in Options dialog. Thank you for
+#. translation and feel free to add yourself here. HTML markup enabled for
+#. this string. New line character is treated as line break (<br />)
+#: chrome-gnome-shell-key-translation_credits:1
+msgid "translation_credits"
+msgstr "Zander Brown"
+
+#. Link name for translation credits tab in options dialog.
+#: chrome-gnome-shell-key-translation_credits_title:1
+msgid "About translation"
+msgstr "About translation"
+
+#. This should newer be shown to user. However better safe than sorry.
+#: chrome-gnome-shell-key-unknown_error:1
+msgid "unknown error"
+msgstr "unknown error"
+
+#: chrome-gnome-shell-key-update_available:1
+msgid "An update for GNOME Shell extensions available"
+msgstr "An update for GNOME Shell extensions available"
+
+#. $CAUSE$ is placeholder for error that caused update failure.
+#.
+#. String placeholders:
+#. cause
+#.
+#: chrome-gnome-shell-key-update_check_failed:1
+msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
+msgstr "Failed to check GNOME Shell extensions updates: $CAUSE$"
+
+#. $$1 is a placeholder for a list of missing APIs
+#: chrome-gnome-shell-key-warning_apis_missing:1
+msgid ""
+"Your native host connector do not support following APIs: $$1. Probably you "
+"should upgrade native host connector or install plugins for missing APIs. "
+"Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions."
+msgstr ""
+"Your native host connector do not support following APIs: $$1. You should "
+"probably upgrade native host connector or install plugins for missing APIs. "
+"Refer to <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>the documentation</a> for "
+"instructions."
+
+#: chrome-gnome-shell-key-yes:1
+msgid "Yes"
+msgstr "Yes"
+
+#. Chrome store description
+#: chrome-gnome-shell-store-description:1
+msgid ""
+"You MUST install native connector for this extension to work.\n"
+"\n"
+"For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
+"archlinux.org/packages/chrome-gnome-shell-git\n"
+"\n"
+"For Debian, Fedora, Gentoo and Ubuntu you can install package named \"chrome-"
+"gnome-shell\".\n"
+"\n"
+"You also can install connector manually. See https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation for install instructions.\n"
+msgstr ""
+"You MUST install native connector for this extension to work.\n"
+"\n"
+"For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
+"archlinux.org/packages/chrome-gnome-shell-git\n"
+"\n"
+"For Debian, Fedora, Gentoo and Ubuntu you can install package named \"chrome-"
+"gnome-shell\".\n"
+"\n"
+"You also can install connector manually. See https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation for install instructions.\n"
