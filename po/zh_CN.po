@@ -1,0 +1,358 @@
+# Chinese (China) translation for chrome-gnome-shell.
+# Copyright (C) 2016 chrome-gnome-shell's COPYRIGHT HOLDER
+# This file is distributed under the same license as the chrome-gnome-shell package.
+# Dingzhong Chen <wsxy162@gmail.com>, 2016-2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: chrome-gnome-shell master\n"
+"Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
+"POT-Creation-Date: 2018-01-28 18:25+0000\n"
+"PO-Revision-Date: 2018-02-05 20:35+0800\n"
+"Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: chrome-gnome-shell-key-close:1
+msgid "Close"
+msgstr "关闭"
+
+#. Shown to user when response from connector API call does not follow known
+#. format.
+#: chrome-gnome-shell-key-error_connector_response:1
+msgid "Wrong connector response received"
+msgstr "收到了错误的连接器响应"
+
+#. Used as title, eg in table header. Means 'Does GNOME Shell extension
+#. enabled?'
+#: chrome-gnome-shell-key-extension_enabled:1
+msgid "Enabled"
+msgstr "已启用"
+
+#. Used as title, eg in table header. Means 'Does GNOME Shell extension
+#. installed?'
+#: chrome-gnome-shell-key-extension_installed:1
+msgid "Installed"
+msgstr "已安装"
+
+#. Used as title, eg in table header. Means 'GNOME Shell extension name'.
+#: chrome-gnome-shell-key-extension_name:1
+msgid "Extension"
+msgstr "扩展"
+
+#. This is a part of phrase like 'Extension Top Icons must be downgraded'.
+#: chrome-gnome-shell-key-extension_status_downgrade:1
+msgid "must be downgraded"
+msgstr "必须降级"
+
+#. This is a part of phrase like 'Extension Top Icons can be upgraded'.
+#: chrome-gnome-shell-key-extension_status_upgrade:1
+msgid "can be upgraded"
+msgstr "可以升级"
+
+#. Used as title, eg in table header. Means 'Does GNOME Shell extension status
+#. synchronized with remote browser storage?'
+#: chrome-gnome-shell-key-extension_synchronized:1
+msgid "Synchronized"
+msgstr "已同步"
+
+#. This is a project title. Used as extension name in Chrome Store and in some
+#. titlebars.
+#: chrome-gnome-shell-key-gs_chrome:1
+msgid "GNOME Shell integration"
+msgstr "GNOME Shell 集成"
+
+#. This is a part of phrase 'Update check period: xx hours'
+#: chrome-gnome-shell-key-hours:1
+msgid "hours"
+msgstr "小时"
+
+#. Used as extension description in Chrome Store
+#: chrome-gnome-shell-key-manifest_description:1
+msgid ""
+"This extension provides integration with GNOME Shell and the corresponding "
+"extensions repository https://extensions.gnome.org"
+msgstr ""
+"此扩展提供了与 GNOME Shell 和相应扩展库 https://extensions.gnome.org 的集成"
+
+#. $REQUEST$ is a placeholder for technical name of request that web extension
+#. make via native messaging host application.
+#.
+#. String placeholders:
+#. request
+#.
+#: chrome-gnome-shell-key-native_request_failed:1
+msgid "«$REQUEST$» native request failed"
+msgstr "«$REQUEST$» 本地请求失败了"
+
+#. This is a part of phrase 'Last check: never'
+#: chrome-gnome-shell-key-never:1
+msgid "never"
+msgstr "从未"
+
+#: chrome-gnome-shell-key-no:1
+msgid "No"
+msgstr "否"
+
+#. Shown to user when native connector unable to query GNOME Shell version or
+#. settings
+#: chrome-gnome-shell-key-no_gnome_shell:1
+msgid ""
+"Unable to locate GNOME Shell settings or version. Make sure it is installed "
+"and running."
+msgstr "无法定位 GNOME Shell 设置或版本。确保已安装并运行了它。"
+
+#: chrome-gnome-shell-key-no_host_connector:1
+msgid ""
+"Although GNOME Shell integration extension is running, native host connector "
+"is not detected. Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions about installing connector."
+msgstr ""
+"尽管 GNOME Shell 集成扩展正在运行，未检测到本地主机连接器。参考 <a "
+"href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/"
+"Installation'>文档</a> 获取关于安装连接器的说明。"
+
+#. Means 'Web extension does not received answer from native messaging host
+#. application.'
+#: chrome-gnome-shell-key-no_host_response:1
+msgid "No host response"
+msgstr "无主机响应"
+
+#. Tooltip for browser extensions icon.
+#: chrome-gnome-shell-key-open_website:1
+msgid "Open GNOME Shell extensions website"
+msgstr "打开 GNOME Shell 扩展网站"
+
+#. Option name. Allow to set interval between GNOME Shell extensions update
+#. checks.
+#: chrome-gnome-shell-key-options_check_period:1
+msgid "Update check period"
+msgstr "更新检查间隔"
+
+#. This is a start of phrase (followed by date/time) of last GNOME Shell
+#. extensions update check.
+#: chrome-gnome-shell-key-options_last_check:1
+msgid "Last check"
+msgstr "最后检查"
+
+#. Link name for options tab.
+#: chrome-gnome-shell-key-options_link:1
+msgid "Options"
+msgstr "选项"
+
+#. This is a start of phrase (followed by date/time) of next GNOME Shell
+#. extensions update check.
+#: chrome-gnome-shell-key-options_next_check:1
+msgid "Next check"
+msgstr "下次检查"
+
+#. Means 'Options were saved successfully after user clicked Save button'
+#: chrome-gnome-shell-key-options_saved:1
+msgid "Options saved."
+msgstr "选项已保存。"
+
+#. Option name. Allow to enable/disable popup with release notes when Web
+#. extension is updated.
+#: chrome-gnome-shell-key-options_show_release_notes:1
+msgid "Show release notes when browser extension updated"
+msgstr "当浏览器扩展更新时显示发行说明"
+
+#. Option name. Allow to enable/disable synchronization of GNOME Shell
+#. extensions with remote browser storage.
+#: chrome-gnome-shell-key-options_synchronize_extensions:1
+msgid "Synchronize GNOME Shell extensions list"
+msgstr "同步 GNOME Shell 扩展列表"
+
+#. This is a notice under option name.
+#: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
+msgid ""
+"If enabled, your GNOME Shell extensions list will be synchronized with your "
+"Google account."
+msgstr "如果启用，你的 GNOME Shell 扩展列表将与 Google 账号同步。"
+
+#. $GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This
+#. string used as title for Options page. This title is not shown in Chrome,
+#. but may be shown in other browsers.
+#.
+#. String placeholders:
+#. gs_chrome
+#.
+#: chrome-gnome-shell-key-options_title:1
+msgid "$GS_CHROME$ options"
+msgstr "$GS_CHROME$ 选项"
+
+#. Option name. Allow enable/disable update check for GNOME Shell extensions.
+#: chrome-gnome-shell-key-options_update_check:1
+msgid "Check for GNOME Shell extensions update"
+msgstr "检查 GNOME Shell 扩展更新"
+
+#. Option name.
+#: chrome-gnome-shell-key-options_update_check_enabled:1
+msgid "Check update of enabled GNOME Shell extensions only"
+msgstr "仅检查已启用的 GNOME Shell 扩展更新"
+
+#: chrome-gnome-shell-key-options_update_check_enabled_notice:1
+msgid ""
+"Your native host connector does not support updates check for enabled GNOME "
+"Shell extensions only. Consider update."
+msgstr "你的本地主机连接器不支持仅检查启用的 GNOME Shell 扩展更新。请更新。"
+
+#: chrome-gnome-shell-key-options_update_check_notice:1
+msgid ""
+"Your native host connector does not support check for GNOME Shell extensions "
+"updates. Probably python-requests package is missing."
+msgstr ""
+"你的本地主机连接器不支持检查 GNOME Shell 扩展更新。可能是缺少 python-"
+"requests 软件包。"
+
+#. Use light icon that is looked better with dark themes.
+#: chrome-gnome-shell-key-options_use_light_icon:1
+msgid "Use light icon (dark theme)"
+msgstr "使用亮色图标（黑色主题）"
+
+#: chrome-gnome-shell-key-platform_not_supported:1
+msgid "Native host connector is not supported for your platform."
+msgstr "本地主机连接器在你的平台上未支持。"
+
+#: chrome-gnome-shell-key-retry:1
+msgid "Retry"
+msgstr "重试"
+
+#: chrome-gnome-shell-key-save:1
+msgid "Save"
+msgstr "保存"
+
+#. Link name for synchronization tab in options dialog.
+#: chrome-gnome-shell-key-synchronization:1
+msgid "Synchronization"
+msgstr "同步"
+
+#: chrome-gnome-shell-key-synchronization_cancel:1
+msgid "Do not enable synchronization."
+msgstr "不要启用同步。"
+
+#. $CAUSE$ is placeholder for error that caused synchronization failure.
+#.
+#. String placeholders:
+#. cause
+#.
+#: chrome-gnome-shell-key-synchronization_failed:1
+msgid "Failed to synchronize extensions: $CAUSE$"
+msgstr "同步扩展失败：$CAUSE$"
+
+#: chrome-gnome-shell-key-synchronization_storage_exists:1
+msgid "Your remote synchronization storage already contains extensions list."
+msgstr "你的远程同步存储已包含了扩展列表。"
+
+#: chrome-gnome-shell-key-synchronization_use_local:1
+msgid "Use local extensions list, overwrite remote."
+msgstr "使用本地扩展列表，覆盖掉远程的。"
+
+#: chrome-gnome-shell-key-synchronization_use_remote:1
+msgid "Use remote extensions list, overwrite local."
+msgstr "使用远程扩展列表，覆盖掉本地的。"
+
+#. This is content of 'About translation' tab in Options dialog. Thank you for
+#. translation and feel free to add yourself here. HTML markup enabled for
+#. this string. New line character is treated as line break (<br />)
+#: chrome-gnome-shell-key-translation_credits:1
+msgid "translation_credits"
+msgstr "Dingzhong Chen <wsxy162@gmail.com>, 2016-2018."
+
+#. Link name for translation credits tab in options dialog.
+#: chrome-gnome-shell-key-translation_credits_title:1
+msgid "About translation"
+msgstr "关于翻译"
+
+#. This should newer be shown to user. However better safe than sorry.
+#: chrome-gnome-shell-key-unknown_error:1
+msgid "unknown error"
+msgstr "未知错误"
+
+#: chrome-gnome-shell-key-update_available:1
+msgid "An update for GNOME Shell extensions available"
+msgstr "GNOME Shell 扩展有可用更新"
+
+#. $CAUSE$ is placeholder for error that caused update failure.
+#.
+#. String placeholders:
+#. cause
+#.
+#: chrome-gnome-shell-key-update_check_failed:1
+msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
+msgstr "检查 GNOME Shell 扩展更新失败：$CAUSE$"
+
+#. $$1 is a placeholder for a list of missing APIs
+#: chrome-gnome-shell-key-warning_apis_missing:1
+msgid ""
+"Your native host connector do not support following APIs: $$1. Probably you "
+"should upgrade native host connector or install plugins for missing APIs. "
+"Refer <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
+"instructions."
+msgstr ""
+"你的本地主机连接器不支持下列 API：$$1。或许你可以升级本地主机连接器，或者安装"
+"用于缺失 API 的插件。参考 <a href='https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation'>documentation</a> 上的说明。"
+
+#: chrome-gnome-shell-key-yes:1
+msgid "Yes"
+msgstr "是"
+
+#. Chrome store description
+#: chrome-gnome-shell-store-description:1
+msgid ""
+"You MUST install native connector for this extension to work.\n"
+"\n"
+"For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
+"archlinux.org/packages/chrome-gnome-shell-git\n"
+"\n"
+"For Debian, Fedora, Gentoo and Ubuntu you can install package named \"chrome-"
+"gnome-shell\".\n"
+"\n"
+"You also can install connector manually. See https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation for install instructions.\n"
+msgstr ""
+"你必须安装本地连接器，才能使此扩展工作。\n"
+"\n"
+"对于 Arch Linux，在 AUR 里有可用的 PKGBUILD：https://aur.archlinux.org/"
+"packages/chrome-gnome-shell-git\n"
+"\n"
+"对于 Debian、Fedora、Gentoo 和 Ubuntu，你可以安装“chrome-gnome-shell”软件"
+"包。\n"
+"\n"
+"你也可以手动安装连接器。参考 https://wiki.gnome.org/Projects/"
+"GnomeShellIntegrationForChrome/Installation 上的安装说明。\n"
+
+#~ msgid ""
+#~ "A network error has occurred. Please check your Internet connection and/"
+#~ "or proxy settings."
+#~ msgstr "发生了网络错误。请检查你的网络连接和（或）代理设置。"
+
+#~ msgid "Show information about network errors"
+#~ msgstr "显示关于网络错误的信息"
+
+#~ msgid "Chrome permission «webRequest» required."
+#~ msgstr "需要 Chrome 权限 «webRequest» 。"
+
+#~ msgid "Connecting to native host application…"
+#~ msgstr "正在连接本地主机应用程序…"
+
+#~ msgid "older than version 4"
+#~ msgstr "比版本 4 旧"
+
+#~ msgid "version $$1"
+#~ msgstr "版本 $$1"
+
+#~ msgid ""
+#~ "You are using different versions of GNOME Shell integration extension ($"
+#~ "$1) and native host connector ($$2). Some features may not work or work "
+#~ "wrong."
+#~ msgstr ""
+#~ "你正使用不同版本的 GNOME Shell 集成扩展（$$1）和本地主机连接器（$$2）。一"
+#~ "些功能可能不工作或工作错误。"
