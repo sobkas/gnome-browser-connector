@@ -22,12 +22,6 @@ import struct
 import sys
 import traceback
 
-REQUESTS_IMPORTED = True
-try:
-    import requests
-except ImportError:
-    REQUESTS_IMPORTED = False
-
 CONNECTOR_VERSION = 10
 DEBUG_ENABLED = False
 
@@ -411,9 +405,7 @@ class ChromeGNOMEShell(Gio.Application):
                 else:
                     disable_user_extensions = False
 
-                supports = ['notifications', "update-enabled", 'v6']
-                if REQUESTS_IMPORTED:
-                    supports.append('update-check')
+                supports = ['notifications', 'v6']
 
                 self.send_message(
                     {
@@ -543,17 +535,6 @@ class ChromeGNOMEShell(Gio.Application):
                 )
             })
 
-        elif request['execute'] == 'checkUpdate':
-            update_url = 'https://extensions.gnome.org/update-info/'
-            enabled_only = True
-            if 'url' in request:
-                update_url = request['url']
-
-            if 'enabledOnly' in request:
-                enabled_only = request['enabledOnly']
-
-            self.check_update(update_url, enabled_only)
-
         elif request['execute'] == 'createNotification':
             Gio.DBusActionGroup.get(
                 app.get_dbus_connection(),
@@ -570,76 +551,6 @@ class ChromeGNOMEShell(Gio.Application):
             self.withdraw_notification(request['name'])
 
         debug('Execute: from %s' % request['execute'])
-
-    def check_update(self, update_url, enabled_only):
-        result = self.shell_proxy.call_sync(
-            "ListExtensions",
-            None,
-            Gio.DBusCallFlags.NONE,
-            -1,
-            None
-        )
-
-        self.obtain_gio_settings()
-        extensions = result.unpack()[0]
-        enabled_extensions = self.gio_settings.get_strv(ENABLED_EXTENSIONS_KEY)
-
-        if extensions:
-            http_request = {
-                'shell_version': self.shell_proxy.get_cached_property("ShellVersion").unpack()
-            }
-            installed = {}
-
-            for uuid in extensions:
-                # gnome-shell/js/misc/extensionUtils.js
-                # EXTENSION_TYPE.PER_USER = 2
-                if is_uuid(uuid) and extensions[uuid]['type'] == 2 and (not enabled_only or uuid in enabled_extensions):
-                    try:
-                        installed[uuid] = {
-                            'version': int(extensions[uuid]['version'])
-                        }
-                    except (ValueError, KeyError):
-                        installed[uuid] = {
-                            'version': 1
-                        }
-
-            proxies = Gio.ProxyResolver.get_default().lookup(update_url)
-            if proxies is not None:
-                proxy = proxies[0]
-                if proxy.startswith('direct'):
-                    proxies = None
-                else:
-                    proxies = {}
-                    for scheme in ('http', 'https'):
-                        proxies[scheme] = proxy
-
-            try:
-                response = requests.post(
-                    update_url,
-                    json=installed,
-                    params=http_request,
-                    proxies=proxies,
-                    timeout=5
-                )
-                response.raise_for_status()
-                self.send_message({
-                    'success': True,
-                    'extensions': extensions,
-                    'upgrade': response.json()}
-                )
-            except (
-                    requests.ConnectionError, requests.HTTPError, requests.Timeout,
-                    requests.TooManyRedirects, requests.RequestException, ValueError
-                    ) as ex:
-                error_message = str(ex.message) if hasattr(ex, 'message') else str(ex)
-                log_error('Unable to check extensions updates: %s' % error_message)
-
-                request_url = ex.response.url if ex.response is not None else ex.request.url
-                if request_url:
-                    url_parameters = request_url.replace(update_url, "")
-                    error_message = error_message.replace(url_parameters, "…")
-
-                self.send_message({'success': False, 'message': error_message})
 
 
 if __name__ == '__main__':
