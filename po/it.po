@@ -1,15 +1,15 @@
 # Italian translation for chrome-gnome-shell.
-# Copyright (C) 2016, 2017, 2019 chrome-gnome-shell's COPYRIGHT HOLDER
+# Copyright (C) 2016, 2017, 2019, 2020 chrome-gnome-shell's COPYRIGHT HOLDER
 # This file is distributed under the same license as the chrome-gnome-shell package.
 # Gianvito Cavasoli <gianvito@gmx.it>, 2016, 2017.
-# Milo Casagrande <milo@milo.name>, 2019.
+# Milo Casagrande <milo@milo.name>, 2019, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2018-01-28 18:25+0000\n"
-"PO-Revision-Date: 2019-02-15 09:44+0100\n"
+"POT-Creation-Date: 2020-05-04 19:33+0000\n"
+"PO-Revision-Date: 2020-09-07 11:29+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italiano <gnome-it-list@gnome.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
@@ -330,11 +330,8 @@ msgstr "Sì"
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
-"For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
-"archlinux.org/packages/chrome-gnome-shell-git\n"
-"\n"
-"For Debian, Fedora, Gentoo and Ubuntu you can install package named \"chrome-"
-"gnome-shell\".\n"
+"For Arch Linux, Debian, Fedora, Gentoo and Ubuntu you can install package "
+"named \"chrome-gnome-shell\".\n"
 "\n"
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
@@ -342,11 +339,8 @@ msgstr ""
 "È necessario installare il connettore nativo affinché questa estensione "
 "possa funzionare.\n"
 "\n"
-"Per Arch Linux è disponibile un PKGBUILD in AUR: https://aur.archlinux.org/"
-"packages/chrome-gnome-shell-git\n"
-"\n"
-"Per Debian, Fedora, Gentoo e Ubuntu è possibile installare il pacchetto "
-"chiamato «chrome-gnome-shell».\n"
+"Per Arch Linux, Debian, Fedora, Gentoo e Ubuntu è possibile installare il "
+"pacchetto «chrome-gnome-shell».\n"
 "\n"
 "È anche possibile installare manualmente il connettore. Per maggiori "
 "informazioni, consultare https://wiki.gnome.org/Projects/"
