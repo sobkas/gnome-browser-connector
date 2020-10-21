@@ -6,20 +6,21 @@
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2016-2018.
 # Wolfgang Stöggl <c72578@yahoo.de>, 2016.
 # Florian Heiser <gnu.l10n.de@gmail.com>, 2017.
+# Onno Giesmann <nutzer3105@gmail.com>, 2020
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2018-01-28 18:25+0000\n"
-"PO-Revision-Date: 2018-03-10 10:57+0100\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"POT-Creation-Date: 2020-05-04 19:33+0000\n"
+"PO-Revision-Date: 2020-10-16 00:02+0200\n"
+"Last-Translator: Onno Giesmann <nutzer3105@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
@@ -177,7 +178,7 @@ msgstr ""
 #. extensions with remote browser storage.
 #: chrome-gnome-shell-key-options_synchronize_extensions:1
 msgid "Synchronize GNOME Shell extensions list"
-msgstr "GNOME-Shell-Erweiterungsliste abgleichen"
+msgstr "GNOME Shell-Erweiterungsliste abgleichen"
 
 #. This is a notice under option name.
 #: chrome-gnome-shell-key-options_synchronize_extensions_notice:1
@@ -202,7 +203,7 @@ msgstr "$GS_CHROME$-Optionen"
 #. Option name. Allow enable/disable update check for GNOME Shell extensions.
 #: chrome-gnome-shell-key-options_update_check:1
 msgid "Check for GNOME Shell extensions update"
-msgstr "Auf Aktualisierungen für GNOME-Shell-Erweiterungen prüfen"
+msgstr "Auf Aktualisierungen für GNOME Shell-Erweiterungen prüfen"
 
 #. Option name.
 #: chrome-gnome-shell-key-options_update_check_enabled:1
@@ -217,7 +218,7 @@ msgid ""
 "Shell extensions only. Consider update."
 msgstr ""
 "Ihr nativer Host-Connector unterstützt keine Prüfung auf Aktualisierungen "
-"für aktive GNOME-Shell-Erweiterungen. Sie sollten aktualisieren."
+"für aktive GNOME Shell-Erweiterungen. Sie sollten aktualisieren."
 
 #: chrome-gnome-shell-key-options_update_check_notice:1
 msgid ""
@@ -225,7 +226,7 @@ msgid ""
 "updates. Probably python-requests package is missing."
 msgstr ""
 "Ihr nativer Host-Connector unterstützt keine Prüfung auf Aktualisierungen "
-"für GNOME-Shell-Erweiterungen. Wahrscheinlich fehlt das Paket python-"
+"für GNOME Shell-Erweiterungen. Wahrscheinlich fehlt das Paket python-"
 "requests."
 
 #. Use light icon that is looked better with dark themes.
@@ -285,7 +286,8 @@ msgstr ""
 #. this string. New line character is treated as line break (<br />)
 #: chrome-gnome-shell-key-translation_credits:1
 msgid "translation_credits"
-msgstr "Stefan Kirrmann, 2016<br />Mario Blättermann, 2016"
+msgstr ""
+"Stefan Kirrmann, 2016<br />Mario Blättermann, 2016<br />Onno Giesmann, 2020"
 
 #. Link name for translation credits tab in options dialog.
 #: chrome-gnome-shell-key-translation_credits_title:1
@@ -309,8 +311,8 @@ msgstr "Eine Aktualisierung für die GNOME Shell-Erweiterung ist verfügbar"
 #: chrome-gnome-shell-key-update_check_failed:1
 msgid "Failed to check GNOME Shell extensions updates: $CAUSE$"
 msgstr ""
-"Prüfung auf GNOME-Shell-Erweiterungs-Aktualisierungen ist fehlgeschlagen: "
-"$CAUSE$"
+"Prüfung auf Aktualisierungen für GNOME Shell-Erweiterungen ist "
+"fehlgeschlagen: $CAUSE$"
 
 #. $$1 is a placeholder for a list of missing APIs
 #: chrome-gnome-shell-key-warning_apis_missing:1
@@ -321,7 +323,7 @@ msgid ""
 "GnomeShellIntegrationForChrome/Installation'>documentation</a> for "
 "instructions."
 msgstr ""
-"Ihr Nativer Host-Connector unterstützt die folgenden APIs nicht: $$1. "
+"Ihr nativer Host-Connector unterstützt die folgenden APIs nicht: $$1. "
 "Wahrscheinlich sollten Sie den Nativen Host-Connector aktualisieren oder "
 "fehlende Erweiterungen oder APIs installieren. In der <a href='https://wiki."
 "gnome.org/Projects/GnomeShellIntegrationForChrome/"
@@ -337,23 +339,17 @@ msgstr "Ja"
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
-"For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
-"archlinux.org/packages/chrome-gnome-shell-git\n"
-"\n"
-"For Debian, Fedora, Gentoo and Ubuntu you can install package named \"chrome-"
-"gnome-shell\".\n"
+"For Arch Linux, Debian, Fedora, Gentoo and Ubuntu you can install package "
+"named \"chrome-gnome-shell\".\n"
 "\n"
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
 msgstr ""
-"Sie müssen den Nativen Host-Connector installieren, damit diese Erweiterung "
+"Sie müssen den nativen Host-Connector installieren, damit diese Erweiterung "
 "funktioniert.\n"
 "\n"
-"Für Archlinux ist ein PKGBUILD im AUR verfügbar: https://aur.archlinux.org/"
-"packages/chrome-gnome-shell-git\n"
-"\n"
-"Für Debian, Fedora, Gentoo und Ubuntu steht ein installierbares Paket namens "
-"»chrome-gnome-shell« zur Verfügung.\n"
+"Für Arch Linux, Debian, Fedora, Gentoo und Ubuntu steht ein installierbares "
+"Paket namens »chrome-gnome-shell« zur Verfügung.\n"
 "\n"
 "Sie können den Connector auch manuell installieren. Installationshinweise "
 "finden Sie auf https://wiki.gnome.org/Projects/"
