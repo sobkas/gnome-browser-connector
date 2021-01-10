@@ -119,7 +119,7 @@ msgstr ""
 "Encara que l'extensió d'integració del GNOME Shell està executant-se, no "
 "s'ha detectat el connector amfitrió nadiu. Vegeu la <a href='https://wiki."
 "gnome.org/Projects/GnomeShellIntegrationForChrome/"
-"Installation'>documentació</a> per obtenir instruccions de com instal·lar el "
+"Installation'>documentació</a> per a obtenir instruccions de com instal·lar el "
 "connector."
 
 #. Means 'Web extension does not received answer from native messaging host
@@ -180,7 +180,7 @@ msgid ""
 "If enabled, your GNOME Shell extensions list will be synchronized with your "
 "Google account."
 msgstr ""
-"Si s'habilita, la llista d'extensions del GNOME Shell es sincronitzarà amb "
+"Si s'habilita, la llista d'extensions del GNOME Shell se sincronitzarà amb "
 "el compte de Google."
 
 #. $GS_CHROME$ is placeholder for 'GNOME Shell integration' string. This
@@ -315,7 +315,7 @@ msgstr ""
 "$1. Probablement s'hauria d'actualitzar el connector amfitrió natiu o "
 "instal·lar connectors per a les API's que falten. Consulteu la documentació "
 "de <a href='https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/"
-"Installation'>documentation</a> per obtenir instruccions."
+"Installation'>documentation</a> per a obtenir instruccions."
 
 #: chrome-gnome-shell-key-yes:1
 msgid "Yes"
