@@ -1,7 +1,7 @@
 # Korean translation for chrome-gnome-shell.
 # Copyright (C) 2017 chrome-gnome-shell's COPYRIGHT HOLDER
 # This file is distributed under the same license as the chrome-gnome-shell package.
-# Seong-ho Cho <shcho@gnome.org>, 2017, 2019.
+# Seong-ho Cho <shcho@gnome.org>, 2017, 2019, 2021.
 #
 # !! 주의 !! 주의 !! 주의 !!
 #
@@ -13,16 +13,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: chrome-gnome-shell master\n"
 "Report-Msgid-Bugs-To: ykonotopov@gnome.org\n"
-"POT-Creation-Date: 2018-01-28 18:25+0000\n"
-"PO-Revision-Date: 2019-03-07 14:16+0900\n"
-"Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
+"POT-Creation-Date: 2020-05-04 19:33+0000\n"
+"PO-Revision-Date: 2021-08-31 15:14+0900\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.3.1\n"
 
 #: chrome-gnome-shell-key-close:1
 msgid "Close"
@@ -324,22 +324,16 @@ msgstr "예"
 msgid ""
 "You MUST install native connector for this extension to work.\n"
 "\n"
-"For Arch Linux there is a PKGBUILD available in the AUR: https://aur."
-"archlinux.org/packages/chrome-gnome-shell-git\n"
-"\n"
-"For Debian, Fedora, Gentoo and Ubuntu you can install package named \"chrome-"
-"gnome-shell\".\n"
+"For Arch Linux, Debian, Fedora, Gentoo and Ubuntu you can install package "
+"named \"chrome-gnome-shell\".\n"
 "\n"
 "You also can install connector manually. See https://wiki.gnome.org/Projects/"
 "GnomeShellIntegrationForChrome/Installation for install instructions.\n"
 msgstr ""
 "이 확장 기능을 활용하려면 자체 연결 프로그램을 설치해야합니다.\n"
 "\n"
-"아치 리눅스에서는 AUR의 PKGBUILD를 활용하십시오: https://aur.archlinux.org/"
-"packages/chrome-gnome-shell-git\n"
-"\n"
-"데비안, 페도라, 젠투, 우분투에서는 \"chrome-gnome-shell\" 패키지를 설치하실 "
-"수 있습니다\n"
+"아치 리눅스, 데비안, 페도라, 젠투, 우분투에서는 \"chrome-gnome-shell\" 패키지"
+"를 설치하실 수 있습니다\n"
 "\n"
 "연결 프로그램을 직접 설치할 수도 있습니다. 설치 방법은 https://wiki.gnome."
 "org/Projects/GnomeShellIntegrationForChrome/Installation 페이지를 참고하십시"
