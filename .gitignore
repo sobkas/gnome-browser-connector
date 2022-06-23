@@ -1,10 +1,14 @@
-# Idea
+# IDE
 /build/
 /nbproject/
 /.idea/
 *.iml
 
-# Eclipse
 .project
 .pydevproject
 .settings/
+
+.vscode
+
+# Our stuff
+*.pyc
