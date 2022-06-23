@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=GNOME browser connector
+Comment=OS-native connector counterpart for GNOME Shell browser extension
+Icon=org.gnome.ChromeGnomeShell
+DBusActivatable=true
+NoDisplay=true

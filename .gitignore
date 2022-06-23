@@ -12,3 +12,4 @@
 
 # Our stuff
 *.pyc
+/builddir
