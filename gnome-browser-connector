@@ -59,10 +59,10 @@ class ChromeGNOMEShell(Gio.Application):
         )
 
         self.gio_settings = None
-        self.shellAppearedId = None
-        self.shellSignalId = None
-        self.disableUserExtensionsSignalId = None
-        self.disableVersionCheckSignalId = None
+        self.shell_appeared_id = None
+        self.shell_signal_id = None
+        self.disable_user_extensions_signal_id = None
+        self.disable_version_check_signal_id = None
 
         # Set custom exception hook
         # noinspection SpellCheckingInspection
@@ -113,22 +113,22 @@ class ChromeGNOMEShell(Gio.Application):
     def clean_release(self):
         debug('Release')
 
-        if self.shellAppearedId:
-            Gio.bus_unwatch_name(self.shellAppearedId)
+        if self.shell_appeared_id:
+            Gio.bus_unwatch_name(self.shell_appeared_id)
 
-        if self.shellSignalId:
+        if self.shell_signal_id:
             dbus_connection = self.get_dbus_connection()
 
             if dbus_connection is not None:
-                dbus_connection.signal_unsubscribe(self.shellSignalId)
+                dbus_connection.signal_unsubscribe(self.shell_signal_id)
 
-        if self.disableUserExtensionsSignalId:
+        if self.disable_user_extensions_signal_id:
             if self.gio_settings is not None:
-                self.gio_settings.disconnect(self.disableUserExtensionsSignalId)
+                self.gio_settings.disconnect(self.disable_user_extensions_signal_id)
 
-        if self.disableVersionCheckSignalId:
+        if self.disable_version_check_signal_id:
             if self.gio_settings is not None:
-                self.gio_settings.disconnect(self.disableVersionCheckSignalId)
+                self.gio_settings.disconnect(self.disable_version_check_signal_id)
 
         self.release()
 
@@ -429,8 +429,8 @@ class ChromeGNOMEShell(Gio.Application):
                 )
 
         elif request['execute'] == 'subscribeSignals':
-            if not self.shellAppearedId:
-                self.shellAppearedId = Gio.bus_watch_name_on_connection(
+            if not self.shell_appeared_id:
+                self.shell_appeared_id = Gio.bus_watch_name_on_connection(
                     self.get_dbus_connection(),
                     'org.gnome.Shell',
                     Gio.BusNameWatcherFlags.NONE,
@@ -438,8 +438,8 @@ class ChromeGNOMEShell(Gio.Application):
                     None
                 )
 
-            if not self.shellSignalId:
-                self.shellSignalId = self.get_dbus_connection().signal_subscribe(
+            if not self.shell_signal_id:
+                self.shell_signal_id = self.get_dbus_connection().signal_subscribe(
                     "org.gnome.Shell",
                     "org.gnome.Shell.Extensions",
                     "ExtensionStatusChanged",
@@ -450,15 +450,15 @@ class ChromeGNOMEShell(Gio.Application):
                     None
                 )
 
-            if not self.disableUserExtensionsSignalId:
+            if not self.disable_user_extensions_signal_id:
                 self.obtain_gio_settings()
-                self.disableUserExtensionsSignalId = self.gio_settings.connect(
+                self.disable_user_extensions_signal_id = self.gio_settings.connect(
                     "changed::%s" % DISABLE_USER_EXTENSIONS_KEY,
                     self.on_setting_changed)
 
-            if not self.disableVersionCheckSignalId:
+            if not self.disable_version_check_signal_id:
                 self.obtain_gio_settings()
-                self.disableVersionCheckSignalId = self.gio_settings.connect(
+                self.disable_version_check_signal_id = self.gio_settings.connect(
                     "changed::%s" % EXTENSION_DISABLE_VERSION_CHECK_KEY,
                     self.on_setting_changed)
 
