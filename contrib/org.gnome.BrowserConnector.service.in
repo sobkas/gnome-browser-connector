@@ -1,3 +1,3 @@
 [D-BUS Service]
-Name=org.gnome.ChromeGnomeShell
+Name=org.gnome.BrowserConnector
 Exec=@bindir@/gnome-browser-connector --gapplication-service

@@ -67,18 +67,18 @@ install_data(
 
 # DBus service
 configure_file(
-  input: 'contrib/org.gnome.ChromeGnomeShell.service.in',
-  output: 'org.gnome.ChromeGnomeShell.service',
+  input: 'contrib/org.gnome.BrowserConnector.service.in',
+  output: 'org.gnome.BrowserConnector.service',
   configuration: config,
 )
 install_data(
-  meson.current_build_dir() / 'org.gnome.ChromeGnomeShell.service',
+  meson.current_build_dir() / 'org.gnome.BrowserConnector.service',
   install_dir: get_option('datadir') / 'dbus-1/services',
 )
 
 # Desktop file
 install_data(
-  'contrib/org.gnome.ChromeGnomeShell.desktop',
+  'contrib/org.gnome.BrowserConnector.desktop',
   install_dir: get_option('datadir') / 'applications',
 )
 
@@ -87,6 +87,6 @@ foreach size : ['16', '48', '128']
   install_data(
     'contrib/icons' / 'GnomeLogo-' + size + '.png',
     install_dir: get_option('datadir') / 'icons/hicolor' / (size + 'x' + size) / 'apps',
-    rename: 'org.gnome.ChromeGnomeShell.png'
+    rename: 'org.gnome.BrowserConnector.png'
   )
 endforeach

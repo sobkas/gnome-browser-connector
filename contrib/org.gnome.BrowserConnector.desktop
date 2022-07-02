@@ -3,6 +3,6 @@ Type=Application
 Encoding=UTF-8
 Name=GNOME browser connector
 Comment=OS-native connector counterpart for GNOME Shell browser extension
-Icon=org.gnome.ChromeGnomeShell
+Icon=org.gnome.BrowserConnector
 DBusActivatable=true
 NoDisplay=true

@@ -39,7 +39,7 @@ class Application(Gio.Application):
 
         Gio.Application.__init__(
             self,
-            application_id='org.gnome.ChromeGnomeShell',
+            application_id='org.gnome.BrowserConnector',
             flags=(
                 Gio.ApplicationFlags.IS_SERVICE if run_as_service
                 else Gio.ApplicationFlags.IS_LAUNCHER | Gio.ApplicationFlags.HANDLES_OPEN
@@ -66,7 +66,7 @@ class Application(Gio.Application):
                 self.get_application_id(),
                 self.get_application_id(),
                 None,
-                "/org/gnome/ChromeGnomeShell",
+                "/org/gnome/BrowserConnector",
                 None,
                 Gio.DBusSignalFlags.NONE,
                 self.on_dbus_signal,
