@@ -6,7 +6,6 @@ import os
 import sys
 
 from gnome_browser_connector.logging import NameAbbrFilter
-
 from gnome_browser_connector import Application
 
 SERVICE_ARG = '--gapplication-service'

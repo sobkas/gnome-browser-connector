@@ -9,7 +9,6 @@ First you need to install build requirements:
 - meson
 - python3
 - pygobject
-- python-requests
 
 Then invoke meson to build and install connector:
 ```shell

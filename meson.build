@@ -10,8 +10,7 @@ project('gnome-browser-connector',
 # Dependencies
 python_module = import('python')
 py = python_module.find_installation('python3', required: true, modules: [
-  'gi',
-  'requests'
+  'gi'
 ])
 
 # Configuration used in template files
