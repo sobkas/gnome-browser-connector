@@ -33,14 +33,14 @@ install_subdir(
 
 # Chrome/Chromium connector manifests
 configure_file(
-  input: 'contrib/org.gnome.chrome_gnome_shell.json',
-  output: 'org.gnome.chrome_gnome_shell.json',
+  input: 'contrib/org.gnome.browser_connector.json',
+  output: 'org.gnome.browser_connector.json',
   configuration: config,
 )
 
 foreach dir : ['chromium/native-messaging-hosts', 'opt/chrome/native-messaging-hosts']
   install_data(
-    meson.current_build_dir() / 'org.gnome.chrome_gnome_shell.json',
+    meson.current_build_dir() / 'org.gnome.browser_connector.json',
     install_dir: get_option('sysconfdir') / dir
   )
 endforeach
@@ -48,10 +48,10 @@ endforeach
 # Firefox connector manifest
 configure_file(
   input: [
-    meson.current_build_dir() / 'org.gnome.chrome_gnome_shell.json',
-    'contrib/org.gnome.chrome_gnome_shell.firefox.json',
+    meson.current_build_dir() / 'org.gnome.browser_connector.json',
+    'contrib/org.gnome.browser_connector.firefox.json',
   ],
-  output: 'org.gnome.chrome_gnome_shell.firefox.json',
+  output: 'org.gnome.browser_connector.firefox.json',
   command: [
     'contrib/merge_json.py',
     '--delete', 'allowed_origins',
@@ -60,9 +60,9 @@ configure_file(
   ],
 )
 install_data(
-  meson.current_build_dir() / 'org.gnome.chrome_gnome_shell.firefox.json',
+  meson.current_build_dir() / 'org.gnome.browser_connector.firefox.json',
   install_dir: get_option('libdir') / 'mozilla/native-messaging-hosts',
-  rename: ['org.gnome.chrome_gnome_shell.json']
+  rename: ['org.gnome.browser_connector.json']
 )
 
 # DBus service
