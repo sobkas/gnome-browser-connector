@@ -5,19 +5,22 @@ import logging
 import os
 import sys
 
+from gnome_browser_connector.logging import NameAbbrFilter
+
 from gnome_browser_connector import Application
 
 SERVICE_ARG = '--gapplication-service'
 
 if __name__ == '__main__':
     logging.basicConfig(
-        format="%(asctime)s: [%(process)d] %(levelname)s %(name)s %(message)s",
+        format="%(asctime)s: [%(process)d] %(levelname)s %(name_abbr)s %(message)s",
         level=getattr(
             logging,
             os.getenv("GNOME_BROWSER_EXTENSION_LOGLEVEL", "warning").upper()
         ),
         stream=sys.stderr
     )
+    logging.getLogger().handlers[0].addFilter(NameAbbrFilter())
     logging.debug('Main')
     if hasattr(sys, 'ps1'):
         logging.info('Use CTRL+D to quit')
