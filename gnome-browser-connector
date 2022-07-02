@@ -52,8 +52,10 @@ class ChromeGNOMEShell(Gio.Application):
         Gio.Application.__init__(
             self,
             application_id='org.gnome.ChromeGnomeShell',
-            flags=Gio.ApplicationFlags.IS_SERVICE if run_as_service
-            else Gio.ApplicationFlags.IS_LAUNCHER | Gio.ApplicationFlags.HANDLES_OPEN
+            flags=(
+                Gio.ApplicationFlags.IS_SERVICE if run_as_service
+                else Gio.ApplicationFlags.IS_LAUNCHER | Gio.ApplicationFlags.HANDLES_OPEN
+            )
         )
 
         self.gio_settings = None
@@ -242,7 +244,10 @@ class ChromeGNOMEShell(Gio.Application):
     def on_dbus_signal(self, connection, sender_name, object_path, interface_name, signal_name, parameters, user_data):
         debug('Signal %s from %s' % (signal_name, interface_name))
 
-        if interface_name == "org.gnome.Shell.Extensions" and signal_name == 'ExtensionStatusChanged':
+        if (
+            interface_name == "org.gnome.Shell.Extensions" and
+            signal_name == 'ExtensionStatusChanged'
+        ):
             self.send_message({'signal': signal_name, 'parameters': parameters.unpack()})
         elif interface_name == self.get_application_id():
             if signal_name == 'NotificationAction':
