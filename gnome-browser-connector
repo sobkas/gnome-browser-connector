@@ -11,8 +11,6 @@
     (at your option) any later version.
 """
 
-from __future__ import unicode_literals
-from __future__ import print_function
 from gi.repository import GLib, Gio
 from gnome_browser_connector import __version__
 import json
@@ -356,12 +354,7 @@ class ChromeGNOMEShell(Gio.Application):
                 if data[key] is None:
                     continue
 
-                if sys.version < '3':
-                    # pylint: disable=E0602
-                    # noinspection PyUnresolvedReferences
-                    key_string = unicode(key)
-                else:
-                    key_string = str(key)
+                key_string = str(key)
 
                 variant_builder.add_value(
                     GLib.Variant.new_dict_entry(
