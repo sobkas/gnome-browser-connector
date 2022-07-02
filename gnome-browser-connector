@@ -331,23 +331,19 @@ class ChromeGNOMEShell(Gio.Application):
             log_error('IOError occured: %s' % e.strerror)
             sys.exit(1)
 
-    def get_variant(self, data, basic_type=False):
-        if isinstance(data, ("".__class__, u"".__class__)) or type(data) is int or basic_type:
-            if isinstance(data, ("".__class__, u"".__class__)):
-                return GLib.Variant.new_string(data)
-            elif type(data) is int:
-                return GLib.Variant.new_int32(data)
-            else:
-                raise Exception("Unknown basic data type: %s, %s" % (type(data), str(data)))
-        elif type(data) is list:
-            variant_builder = GLib.VariantBuilder.new(GLib.VariantType.new('av'))
+    def get_variant(self, data: Any) -> GLib.Variant:
+        if isinstance(data, str):
+            return GLib.Variant.new_string(data)
+        elif isinstance(data, int):
+            return GLib.Variant.new_int32(data)
+        elif isinstance(data, (list, tuple, set)):
+            variant_builder: GLib.VariantBuilder = GLib.VariantBuilder.new(GLib.VariantType.new('av'))
 
             for value in data:
                 variant_builder.add_value(GLib.Variant.new_variant(self.get_variant(value)))
 
             return variant_builder.end()
-
-        elif type(data) is dict:
+        elif isinstance(data, dict):
             variant_builder = GLib.VariantBuilder.new(GLib.VariantType.new('a{sv}'))
 
             for key in data:
@@ -358,7 +354,7 @@ class ChromeGNOMEShell(Gio.Application):
 
                 variant_builder.add_value(
                     GLib.Variant.new_dict_entry(
-                        self.get_variant(key_string, True), GLib.Variant.new_variant(self.get_variant(data[key]))
+                        self.get_variant(key_string), GLib.Variant.new_variant(self.get_variant(data[key]))
                     )
                 )
 
