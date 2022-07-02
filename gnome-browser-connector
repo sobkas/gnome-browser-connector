@@ -527,9 +527,9 @@ class ChromeGNOMEShell(Gio.Application):
 
         elif request['execute'] == 'createNotification':
             Gio.DBusActionGroup.get(
-                app.get_dbus_connection(),
-                app.get_application_id(),
-                app.get_dbus_object_path()
+                self.get_dbus_connection2(),
+                self.get_application_id(),
+                self.get_dbus_object_path()
             ).activate_action('create-notification', self.get_variant({
                 'name': request['name'],
                 'title': request['options']['title'],
