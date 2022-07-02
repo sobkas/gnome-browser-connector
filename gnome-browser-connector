@@ -18,6 +18,8 @@ import signal
 import struct
 import sys
 import traceback
+from types import TracebackType
+from typing import Any, Callable, Optional
 
 from gi.repository import GLib, Gio, GObject
 from gnome_browser_connector import __version__
@@ -35,19 +37,19 @@ MESSAGE_LENGTH_SIZE = 4
 
 
 # https://wiki.gnome.org/Projects/GnomeShell/Extensions/UUIDGuidelines
-def is_uuid(uuid):
+def is_uuid(uuid: str):
     return uuid is not None and re.match('[-a-zA-Z0-9@._]+$', uuid) is not None
 
-def debug(message):
+def debug(message: str):
     if DEBUG_ENABLED:
         log_error(message)
 
-def log_error(message):
+def log_error(message: str):
     print(f'[{os.getpid()}] {message}', file=sys.stderr)
 
 
 class ChromeGNOMEShell(Gio.Application):
-    def __init__(self, run_as_service):
+    def __init__(self, run_as_service: bool) -> None:
         Gio.Application.__init__(
             self,
             application_id='org.gnome.ChromeGnomeShell',
@@ -118,7 +120,7 @@ class ChromeGNOMEShell(Gio.Application):
         return dbus_connection
 
     # Is there any way to hook this to shutdown?
-    def clean_release(self):
+    def clean_release(self) -> None:
         debug('Release')
 
         if self.shell_appeared_id:
@@ -137,14 +139,19 @@ class ChromeGNOMEShell(Gio.Application):
 
         self.release()
 
-    def default_exception_hook(self, exception_type, value, tb):
+    def default_exception_hook(
+        self,
+        exception_type: type[BaseException],
+        value: BaseException,
+        tb: TracebackType
+    ) -> None:
         log_error("Uncaught exception of type %s occured" % exception_type)
         traceback.print_tb(tb)
         log_error("Exception: %s" % value)
 
         self.clean_release()
 
-    def add_simple_action(self, name, callback, parameter_type):
+    def add_simple_action(self, name: str, callback: Callable[..., None], parameter_type: str) -> None:
         action = Gio.SimpleAction.new(
             name,
             GLib.VariantType.new(parameter_type) if parameter_type is not None else None
@@ -153,7 +160,7 @@ class ChromeGNOMEShell(Gio.Application):
         self.add_action(action)
 
     # Service events
-    def on_create_notification(self, source, request):
+    def on_create_notification(self, source: GObject.Object, request: GLib.Variant) -> None:
         debug('On create notification')
 
         request = request.unpack()
@@ -179,7 +186,7 @@ class ChromeGNOMEShell(Gio.Application):
 
         self.send_notification(request['name'], notification)
 
-    def on_notification_action(self, notification, parameters):
+    def on_notification_action(self, notification: GObject.Object, parameters: GLib.Variant) -> None:
         debug('Notification %s action: %s' % parameters.unpack())
 
         self.get_dbus_connection2().emit_signal(
@@ -190,7 +197,7 @@ class ChromeGNOMEShell(Gio.Application):
             parameters
         )
 
-    def on_notification_clicked(self, notification, notification_name):
+    def on_notification_clicked(self, notification: GObject.Object, notification_name: GLib.Variant) -> None:
         debug('Notification %s clicked' % notification_name)
 
         self.get_dbus_connection2().emit_signal(
@@ -201,16 +208,21 @@ class ChromeGNOMEShell(Gio.Application):
             GLib.Variant.new_tuple(notification_name)
         )
 
-    def on_service_timeout(self, data):
+    def on_service_timeout(self, data: Optional[GObject.Object]) -> bool:
         debug('On service timeout')
         self.clean_release()
 
         return False
 
     # Native messaging events
-    def on_input(self, source, condition, data):
+    def on_input(
+        self,
+        source: GLib.IOChannel,
+        condition: GLib.IOCondition,
+        data: Optional[GObject.Object]
+    ) -> Optional[bool]:
         debug('On input')
-        text_length_bytes = source.read(MESSAGE_LENGTH_SIZE)
+        text_length_bytes: bytes = source.read(MESSAGE_LENGTH_SIZE)
 
         if len(text_length_bytes) == 0:
             debug('Release condition: %s' % str(condition))
@@ -221,7 +233,7 @@ class ChromeGNOMEShell(Gio.Application):
         text_length = struct.unpack(b'i', text_length_bytes)[0]
 
         # Read the text (JSON object) of the message.
-        text = source.read(text_length).decode('utf-8')
+        text: str = source.read(text_length).decode('utf-8')
 
         request = json.loads(text)
 
@@ -233,7 +245,16 @@ class ChromeGNOMEShell(Gio.Application):
 
         return True
 
-    def on_dbus_signal(self, connection, sender_name, object_path, interface_name, signal_name, parameters, user_data):
+    def on_dbus_signal(
+        self,
+        connection: Gio.DBusConnection,
+        sender_name: Optional[str],
+        object_path: str,
+        interface_name: str,
+        signal_name: str,
+        parameters: GLib.Variant,
+        user_data: Optional[Any]
+    ) -> None:
         debug('Signal %s from %s' % (signal_name, interface_name))
 
         if (
@@ -258,12 +279,17 @@ class ChromeGNOMEShell(Gio.Application):
                     'name': notification_name
                 })
 
-    def on_shell_appeared(self, connection, name, name_owner):
+    def on_shell_appeared(
+        self,
+        connection: Gio.DBusConnection,
+        name: str,
+        name_owner: str
+    ) -> None:
         debug('Signal: to %s' % name)
         self.send_message({'signal': name})
         debug('Signal: from %s' % name)
 
-    def on_setting_changed(self, settings, key):
+    def on_setting_changed(self, settings: Gio.Settings, key: str) -> None:
         if not key in (DISABLE_USER_EXTENSIONS_KEY, EXTENSION_DISABLE_VERSION_CHECK_KEY):
             return
 
@@ -275,20 +301,20 @@ class ChromeGNOMEShell(Gio.Application):
         })
 
     # General events
-    def on_hup(self, source, condition, data):
+    def on_hup(self, source: GLib.IOChannel, condition: GLib.IOCondition, data: Optional[GLib.Variant]):
         debug('On hup: %s' % str(condition))
         self.clean_release()
 
         return False
 
-    def on_sigint(self, data):
+    def on_sigint(self, data: Optional[Any]):
         debug('On sigint')
         self.clean_release()
 
         return False
 
     # Helpers
-    def dbus_call_response(self, method, parameters, result_property):
+    def dbus_call_response(self, method: str, parameters: Optional[GLib.Variant], result_property: str):
         try:
             result = self.shell_proxy.call_sync(method,
                                                 parameters,
@@ -300,11 +326,11 @@ class ChromeGNOMEShell(Gio.Application):
         except GLib.GError as e:
             self.send_error(e.message)
 
-    def send_error(self, message):
+    def send_error(self, message: str):
         self.send_message({'success': False, 'message': message})
 
     @staticmethod
-    def send_message(response):
+    def send_message(response: Any):
         """
         Helper function that sends a message to the webapp.
         :param response: dictionary of response data
@@ -319,7 +345,7 @@ class ChromeGNOMEShell(Gio.Application):
             return
 
         try:
-            stdout = GLib.IOChannel.unix_new(sys.stdout.fileno())
+            stdout: GLib.IOChannel = GLib.IOChannel.unix_new(sys.stdout.fileno())
             stdout.set_encoding(None)
             stdout.set_buffered(False)
 
@@ -362,21 +388,26 @@ class ChromeGNOMEShell(Gio.Application):
         else:
             raise Exception(f"Unknown data type: {type(data)}")
 
-    def obtain_gio_settings(self):
+    def obtain_gio_settings(self) -> None:
         if not self.gio_settings:
-            source = Gio.SettingsSchemaSource.get_default()
+            source: Gio.SettingsSchemaSource = Gio.SettingsSchemaSource.get_default()
 
-            if source is not None and source.lookup(SHELL_SCHEMA, True) is not None:
-                self.gio_settings = Gio.Settings.new(SHELL_SCHEMA)
+            if source is None:
+                raise Exception("No Gio.Settings schemas are installed")
 
-    def set_shell_boolean(self, key, value):
+            if source.lookup(SHELL_SCHEMA, True) is None:
+                raise Exception("GNOME Shell schema with id `{SHELL_SCHEMA}` is missing")
+
+            self.gio_settings: Gio.Settings = Gio.Settings.new(SHELL_SCHEMA)
+
+    def set_shell_boolean(self, key: str, value: bool) -> bool:
         self.obtain_gio_settings()
         if key in self.gio_settings.keys():
             return self.gio_settings.set_boolean(key, True if value else False)
 
         return False
 
-    def process_request(self, request):
+    def process_request(self, request: dict[str, Any]) -> None:
         debug(f"Execute: to {request['execute']}")
 
         if request['execute'] == 'initialize':
@@ -386,12 +417,12 @@ class ChromeGNOMEShell(Gio.Application):
                 self.obtain_gio_settings()
 
                 if EXTENSION_DISABLE_VERSION_CHECK_KEY in self.gio_settings.keys():
-                    disable_version_check = self.gio_settings.get_boolean(EXTENSION_DISABLE_VERSION_CHECK_KEY)
+                    disable_version_check: bool = self.gio_settings.get_boolean(EXTENSION_DISABLE_VERSION_CHECK_KEY)
                 else:
                     disable_version_check = False
 
                 if DISABLE_USER_EXTENSIONS_KEY in self.gio_settings.keys():
-                    disable_user_extensions = self.gio_settings.get_boolean(DISABLE_USER_EXTENSIONS_KEY)
+                    disable_user_extensions: bool = self.gio_settings.get_boolean(DISABLE_USER_EXTENSIONS_KEY)
                 else:
                     disable_user_extensions = False
 
