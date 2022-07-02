@@ -44,7 +44,7 @@ def debug(message):
 
 
 def log_error(message):
-    print('[%d] %s' % (os.getpid(), message), file=sys.stderr)
+    print(f'[{os.getpid()}] {message}', file=sys.stderr)
 
 
 class ChromeGNOMEShell(Gio.Application):
@@ -364,7 +364,7 @@ class ChromeGNOMEShell(Gio.Application):
 
             return variant_builder.end()
         else:
-            raise Exception("Unknown data type: %s" % type(data))
+            raise Exception(f"Unknown data type: {type(data)}")
 
     def obtain_gio_settings(self):
         if not self.gio_settings:
@@ -381,7 +381,7 @@ class ChromeGNOMEShell(Gio.Application):
         return False
 
     def process_request(self, request):
-        debug('Execute: to %s' % request['execute'])
+        debug(f"Execute: to {request['execute']}")
 
         if request['execute'] == 'initialize':
             shell_version = self.shell_proxy.get_cached_property("ShellVersion")
@@ -446,13 +446,13 @@ class ChromeGNOMEShell(Gio.Application):
             if not self.disable_user_extensions_signal_id:
                 self.obtain_gio_settings()
                 self.disable_user_extensions_signal_id = self.gio_settings.connect(
-                    "changed::%s" % DISABLE_USER_EXTENSIONS_KEY,
+                    f"changed::{DISABLE_USER_EXTENSIONS_KEY}",
                     self.on_setting_changed)
 
             if not self.disable_version_check_signal_id:
                 self.obtain_gio_settings()
                 self.disable_version_check_signal_id = self.gio_settings.connect(
-                    "changed::%s" % EXTENSION_DISABLE_VERSION_CHECK_KEY,
+                    f"changed::{EXTENSION_DISABLE_VERSION_CHECK_KEY}",
                     self.on_setting_changed)
 
         elif request['execute'] == 'installExtension':
