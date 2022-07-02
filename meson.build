@@ -2,7 +2,7 @@ project('gnome-browser-connector',
   license: 'GPL-3',
   version: run_command(
     'python3', '-c',
-    'from gnome_browser_connector import __version__; print(__version__, end="")',
+    'from gnome_browser_connector.version import __version__; print(__version__, end="")',
     check: true
   ).stdout(),
 )
