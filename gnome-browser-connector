@@ -69,15 +69,17 @@ class ChromeGNOMEShell(Gio.Application):
         self.register()
 
         if not run_as_service:
-            self.shell_proxy = Gio.DBusProxy.new_sync(self.get_dbus_connection(),
-                                                      Gio.DBusProxyFlags.NONE,
-                                                      None,
-                                                      'org.gnome.Shell',
-                                                      '/org/gnome/Shell',
-                                                      'org.gnome.Shell.Extensions',
-                                                      None)
+            self.shell_proxy = Gio.DBusProxy.new_sync(
+                self.get_dbus_connection2(),
+                Gio.DBusProxyFlags.NONE,
+                None,
+                'org.gnome.Shell',
+                '/org/gnome/Shell',
+                'org.gnome.Shell.Extensions',
+                None
+            )
 
-            self.get_dbus_connection().signal_subscribe(
+            self.get_dbus_connection2().signal_subscribe(
                 self.get_application_id(),
                 self.get_application_id(),
                 None,
@@ -107,6 +109,14 @@ class ChromeGNOMEShell(Gio.Application):
         if not run_as_service or not self.get_is_remote():
             self.hold()
 
+    def get_dbus_connection2(self) -> Gio.DBusConnection:
+        dbus_connection = super().get_dbus_connection()
+
+        if not dbus_connection:
+            raise Exception('No DBus connection available')
+
+        return dbus_connection
+
     # Is there any way to hook this to shutdown?
     def clean_release(self):
         debug('Release')
@@ -115,10 +125,7 @@ class ChromeGNOMEShell(Gio.Application):
             Gio.bus_unwatch_name(self.shell_appeared_id)
 
         if self.shell_signal_id:
-            dbus_connection = self.get_dbus_connection()
-
-            if dbus_connection is not None:
-                dbus_connection.signal_unsubscribe(self.shell_signal_id)
+            self.get_dbus_connection2().signal_unsubscribe(self.shell_signal_id)
 
         if self.disable_user_extensions_signal_id:
             if self.gio_settings is not None:
@@ -177,7 +184,7 @@ class ChromeGNOMEShell(Gio.Application):
     def on_notification_action(self, notification, parameters):
         debug('Notification %s action: %s' % parameters.unpack())
 
-        self.get_dbus_connection().emit_signal(
+        self.get_dbus_connection2().emit_signal(
             None,
             self.get_dbus_object_path(),
             self.get_application_id(),
@@ -189,7 +196,7 @@ class ChromeGNOMEShell(Gio.Application):
     def on_notification_clicked(self, notification, notification_name):
         debug('Notification %s clicked' % notification_name)
 
-        self.get_dbus_connection().emit_signal(
+        self.get_dbus_connection2().emit_signal(
             None,
             self.get_dbus_object_path(),
             self.get_application_id(),
@@ -424,7 +431,7 @@ class ChromeGNOMEShell(Gio.Application):
         elif request['execute'] == 'subscribeSignals':
             if not self.shell_appeared_id:
                 self.shell_appeared_id = Gio.bus_watch_name_on_connection(
-                    self.get_dbus_connection(),
+                    self.get_dbus_connection2(),
                     'org.gnome.Shell',
                     Gio.BusNameWatcherFlags.NONE,
                     self.on_shell_appeared,
@@ -432,7 +439,7 @@ class ChromeGNOMEShell(Gio.Application):
                 )
 
             if not self.shell_signal_id:
-                self.shell_signal_id = self.get_dbus_connection().signal_subscribe(
+                self.shell_signal_id = self.get_dbus_connection2().signal_subscribe(
                     "org.gnome.Shell",
                     "org.gnome.Shell.Extensions",
                     "ExtensionStatusChanged",
