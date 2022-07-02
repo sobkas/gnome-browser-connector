@@ -7,6 +7,10 @@ project('gnome-browser-connector',
   ).stdout(),
 )
 
+# Constants
+MANIFEST_FILENAME = 'org.gnome.browser_connector.json'
+MANIFEST_LEGACY_FILENAME = 'org.gnome.chrome_gnome_shell.json'
+
 # Dependencies
 python_module = import('python')
 py = python_module.find_installation('python3', required: true, modules: [
@@ -33,25 +37,39 @@ install_subdir(
 
 # Chrome/Chromium connector manifests
 configure_file(
-  input: 'contrib/org.gnome.chrome_gnome_shell.json',
-  output: 'org.gnome.chrome_gnome_shell.json',
+  input: 'contrib' / MANIFEST_FILENAME,
+  output: MANIFEST_FILENAME,
   configuration: config,
+)
+configure_file(
+  input: [
+    meson.current_build_dir() / MANIFEST_FILENAME,
+    'contrib' / MANIFEST_LEGACY_FILENAME,
+  ],
+  output: MANIFEST_LEGACY_FILENAME,
+  command: [
+    'contrib/merge_json.py',
+    '--output', '@OUTPUT@',
+    '@INPUT@'
+  ],
 )
 
 foreach dir : ['chromium/native-messaging-hosts', 'opt/chrome/native-messaging-hosts']
-  install_data(
-    meson.current_build_dir() / 'org.gnome.chrome_gnome_shell.json',
-    install_dir: get_option('sysconfdir') / dir
-  )
+  foreach file : [MANIFEST_FILENAME, MANIFEST_LEGACY_FILENAME]
+    install_data(
+      meson.current_build_dir() / file,
+      install_dir: get_option('sysconfdir') / dir
+    )
+  endforeach
 endforeach
 
 # Firefox connector manifest
 configure_file(
   input: [
-    meson.current_build_dir() / 'org.gnome.chrome_gnome_shell.json',
-    'contrib/org.gnome.chrome_gnome_shell.firefox.json',
+    meson.current_build_dir() / MANIFEST_FILENAME,
+    'contrib/org.gnome.browser_connector.firefox.json',
   ],
-  output: 'org.gnome.chrome_gnome_shell.firefox.json',
+  output: 'firefox-' + MANIFEST_FILENAME,
   command: [
     'contrib/merge_json.py',
     '--delete', 'allowed_origins',
@@ -59,11 +77,25 @@ configure_file(
     '@INPUT@'
   ],
 )
-install_data(
-  meson.current_build_dir() / 'org.gnome.chrome_gnome_shell.firefox.json',
-  install_dir: get_option('libdir') / 'mozilla/native-messaging-hosts',
-  rename: ['org.gnome.chrome_gnome_shell.json']
+configure_file(
+  input: [
+    meson.current_build_dir() / ('firefox-' + MANIFEST_FILENAME),
+    'contrib' / MANIFEST_LEGACY_FILENAME,
+  ],
+  output: 'firefox-' + MANIFEST_LEGACY_FILENAME,
+  command: [
+    'contrib/merge_json.py',
+    '--output', '@OUTPUT@',
+    '@INPUT@'
+  ],
 )
+foreach file : [MANIFEST_FILENAME, MANIFEST_LEGACY_FILENAME]
+  install_data(
+    meson.current_build_dir() / ('firefox-' + file),
+    install_dir: get_option('libdir') / 'mozilla/native-messaging-hosts',
+    rename: file,
+  )
+endforeach
 
 # DBus service
 configure_file(

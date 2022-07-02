@@ -1,9 +1,3 @@
 {
-  "name": "org.gnome.chrome_gnome_shell",
-  "description": "OS-native connector counterpart for GNOME Shell browser extension",
-  "path": "@bindir@/gnome-browser-connector",
-  "type": "stdio",
-  "allowed_origins": [
-    "chrome-extension://gphhapmejobijbbhgpjhcjognlahblep/"
-  ]
+	"name": "org.gnome.chrome_gnome_shell"
 }
