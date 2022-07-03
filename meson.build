@@ -111,8 +111,13 @@ install_data(
 )
 
 # Desktop file
+configure_file(
+  input: 'contrib/org.gnome.BrowserConnector.desktop.in',
+  output: 'org.gnome.BrowserConnector.desktop',
+  configuration: config,
+)
 install_data(
-  'contrib/org.gnome.BrowserConnector.desktop',
+  meson.current_build_dir() /'org.gnome.BrowserConnector.desktop',
   install_dir: get_option('datadir') / 'applications',
 )
 

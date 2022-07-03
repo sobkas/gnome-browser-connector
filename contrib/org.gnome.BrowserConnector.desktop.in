@@ -1,8 +1,10 @@
 [Desktop Entry]
 Type=Application
+Exec=@bindir@/gnome-browser-connector %u
 Encoding=UTF-8
 Name=GNOME browser connector
 Comment=OS-native connector counterpart for GNOME Shell browser extension
 Icon=org.gnome.BrowserConnector
 DBusActivatable=true
 NoDisplay=true
+MimeType=x-scheme-handler/gnome-extensions;

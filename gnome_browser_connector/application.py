@@ -9,6 +9,7 @@ from typing import Any, Callable, Optional, Sequence
 from gi.repository import GLib, Gio
 
 from gnome_browser_connector.constants import CONNECTOR_ARG
+from gnome_browser_connector.helpers import is_uuid
 
 from .base import BaseGioApplication
 from .logs import get_logger
@@ -63,6 +64,39 @@ class Application(BaseGioApplication):
             self._handler = Connector(self)
 
         return -1
+
+    def do_open(self, files: Sequence[Gio.File], n_files: int, hint: str):
+        for file in files:
+            if file.get_uri_scheme() != 'gnome-extensions':
+                continue
+
+            uri: GLib.Uri = GLib.uri_parse(file.get_uri(), GLib.UriFlags.NON_DNS)
+            uuid = uri.get_host()
+            if not is_uuid(uuid):
+                self._log.fatal(f"Wrong extension UUID passed: `{uuid}`")
+                continue
+
+            params = GLib.Uri.parse_params(uri.get_query(), -1, "&", GLib.UriParamsFlags.NONE)
+            if 'action' in params:
+                if params['action'] == 'install':
+                    try:
+                        Gio.DBusProxy.new_sync(
+                            self.get_dbus_connection2(),
+                            Gio.DBusProxyFlags.NONE,
+                            None,
+                            'org.gnome.Shell',
+                            '/org/gnome/Shell',
+                            'org.gnome.Shell.Extensions',
+                            None
+                        ).call_sync(
+                            'InstallRemoteExtension',
+                            GLib.Variant.new_tuple(GLib.Variant.new_string(uuid)),
+                            Gio.DBusCallFlags.NONE,
+                            -1,
+                            None)
+                    except GLib.GError as e:
+                        self._log.fatal(f"Unable to install extension: {e.message}")
+                        continue
 
     def stdin_add_watch(
         self,
