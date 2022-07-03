@@ -3,7 +3,7 @@
 import re
 from typing import Any
 
-from gi.repository import GLib
+from gi.repository import Gio, GLib
 
 def get_variant(data: Any) -> GLib.Variant:
     if isinstance(data, str):
@@ -39,3 +39,14 @@ def get_variant(data: Any) -> GLib.Variant:
 # https://wiki.gnome.org/Projects/GnomeShell/Extensions/UUIDGuidelines
 def is_uuid(uuid: str):
     return uuid is not None and re.match('[-a-zA-Z0-9@._]+$', uuid) is not None
+
+def obtain_gio_settings(schema: str) -> Gio.Settings:
+    source: Gio.SettingsSchemaSource = Gio.SettingsSchemaSource.get_default()
+
+    if source is None:
+        raise Exception("No Gio.Settings schemas are installed")
+
+    if source.lookup(schema, True) is None:
+        raise Exception("Settings schema with id `{schema}` is missing")
+
+    return Gio.Settings.new(schema)

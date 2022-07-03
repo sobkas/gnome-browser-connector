@@ -1,6 +1,13 @@
 # SPDX-License-Identifer: GPL-3.0-or-later
 
 import logging
+from typing import Any
+
+def get_logger(obj: Any):
+    return logging.getLogger(".".join((
+        obj.__class__.__module__,
+        obj.__class__.__qualname__))
+    )
 
 
 class NameAbbrFilter(logging.Filter):

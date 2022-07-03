@@ -21,13 +21,15 @@ py = python_module.find_installation('python3', required: true, modules: [
 config = configuration_data()
 config.set('bindir', get_option('prefix') / get_option('bindir'))
 
-# Install main script
-configure_file(
-  input: 'gnome-browser-connector',
-  output: 'gnome-browser-connector',
-  copy: true,
-  install_dir: get_option('bindir'),
-)
+# Install scripts
+foreach script : ['gnome-browser-connector', 'gnome-browser-connector-host']
+  configure_file(
+    input: script,
+    output: script,
+    copy: true,
+    install_dir: get_option('bindir'),
+  )
+endforeach
 
 # Python module
 install_subdir(
