@@ -1,3 +1,17 @@
+= UNRELEASED gnome-browser-connector 42.0 =
+
+== Changes ==
+ * Website API is updated to version 6.
+   It is now possible to control `disable-user-extensions` and `disable-extension-version-validation`
+   Shell settings via website.
+   You need GNOME browser extension 11 for this feature to work.
+ * Implemented `gnome-extensions://` URI handler so it will be possible to install extensions
+   via website without `gnome-browser-extension`.
+ * Removed extensions update check in favour of GNOME Shell 3.36+ built-in functionality.
+ * Install icons in hicolor theme (Florian Müllner).
+ * Dropped Python 2 compatibility. Minimal supported Python version is 3.8 now.
+
+
 = 2018-02-04 chrome-gnome-shell 10 =
 
 == Changes ==
