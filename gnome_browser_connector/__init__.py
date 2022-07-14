@@ -1,7 +1,5 @@
 # SPDX-License-Identifer: GPL-3.0-or-later
 
-from __future__ import absolute_import
-
 import logging
 import os
 import sys

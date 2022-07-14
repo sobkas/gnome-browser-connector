@@ -13,6 +13,7 @@ from .version import __version__
 
 SHELL_SCHEMA = "org.gnome.shell"
 
+
 class Connector(ApplicationHandler):
     ENABLED_EXTENSIONS_KEY = "enabled-extensions"
     EXTENSION_DISABLE_VERSION_CHECK_KEY = "disable-extension-version-validation"
