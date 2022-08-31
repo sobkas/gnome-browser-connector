@@ -20,13 +20,14 @@ py = python_module.find_installation('python3', required: true, modules: [
 # Configuration used in template files
 config = configuration_data()
 config.set('bindir', get_option('prefix') / get_option('bindir'))
+config.set('python_path', py.path())
 
 # Install scripts
 foreach script : ['gnome-browser-connector', 'gnome-browser-connector-host']
   configure_file(
-    input: script,
+    input: script + '.py.in',
     output: script,
-    copy: true,
+    configuration: config,
     install_dir: get_option('bindir'),
   )
 endforeach
