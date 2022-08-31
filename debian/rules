@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with gnome
+
+override_dh_auto_configure:
+	dh_auto_configure -- --prefix=/usr --libdir=/usr/lib/
+
+# Use debian/postinst to install the Chrome conffile
+# and debian/postrm to remove it since dpkg's automatic
+# conffile handling doesn't handle the special /etc/opt/ directory
+# https://bugs.debian.org/888549
+override_dh_auto_install:
+	dh_auto_install
+	mkdir -p debian/tmp/usr/share/gnome-browser-connector
+	mv debian/tmp/etc/opt/chrome/native-messaging-hosts/org.gnome.browser_connector.json \
+		debian/tmp/usr/share/gnome-browser-connector/org.gnome.browser_connector.json
+	mv debian/tmp/etc/opt/chrome/native-messaging-hosts/org.gnome.chrome_gnome_shell.json \
+		debian/tmp/usr/share/gnome-browser-connector/org.gnome.chrome_gnome_shell.json
+	rm -rf debian/tmp/etc/opt
+	rm -rf debian/tmp/usr/lib/python3/dist-packages/gnome_browser_connector/__pycache__/

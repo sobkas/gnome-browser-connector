@@ -1,0 +1,12 @@
+usr/lib/mozilla/native-messaging-hosts
+usr/lib/python3/dist-packages/gnome_browser_connector
+usr/share/gnome-browser-connector/org.gnome.chrome_gnome_shell.json
+usr/share/gnome-browser-connector/org.gnome.browser_connector.json
+usr/bin/gnome-browser-connector
+usr/bin/gnome-browser-connector-host
+etc/chromium/native-messaging-hosts
+usr/share/dbus-1/services/org.gnome.BrowserConnector.service
+usr/share/applications/org.gnome.BrowserConnector.desktop
+usr/share/icons/hicolor/16x16/apps/org.gnome.BrowserConnector.png
+usr/share/icons/hicolor/48x48/apps/org.gnome.BrowserConnector.png
+usr/share/icons/hicolor/128x128/apps/org.gnome.BrowserConnector.png

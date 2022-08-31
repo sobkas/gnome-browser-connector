@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+#DEBHELPER#
+
+mkdir -p /etc/opt/chrome/native-messaging-hosts
+if [ ! -e /etc/opt/chrome/native-messaging-hosts/org.gnome.gnome_browser_connector.json ]; then
+  ln -sf /usr/share/gnome-browser-extension/org.gnome.gnome_browser_connector.json /etc/opt/chrome/native-messaging-hosts/
+fi
+
+exit 0

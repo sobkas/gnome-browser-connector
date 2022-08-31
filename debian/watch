@@ -1,0 +1,3 @@
+version=4
+
+https://gitlab.gnome.org/nE0sIghT/gnome-browser-connector/tags?sort=updated_desc archive/@ANY_VERSION@/gnome-browser-connector-\d\S*@ARCHIVE_EXT@

@@ -1,0 +1,4 @@
+# Update debian/postrm when you remove these lines
+rm_conffile /etc/opt/chrome/policies/managed/gnome_browser_extension.json 11.1-1~
+rm_conffile /etc/chromium/policies/managed/gnome_browser_extension.json 11.1-1~
+rm_conffile /etc/opt/chrome/native-messaging-hosts/org.gnome.gnome_browser_extension.json 11.1-1~
